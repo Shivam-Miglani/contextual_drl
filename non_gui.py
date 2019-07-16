@@ -33,16 +33,18 @@ class Agent(object):
         for i in range(self.num_words):
             state_act = self.env_act.getState()
             qvalues_act = self.net_act.predict(state_act)
-            print(qvalues_act)
+            # print(qvalues_act)
             action_act = np.argmax(qvalues_act[0])
-            print(action_act)
+            # print(action_act)
             self.env_act.act_online(action_act, i)
             if action_act == 1:
                 last_sent, this_sent = self.env_arg.init_predict_arg_text(i, self.env_act.current_text)
                 for j in range(self.context_len):
                     state_arg = self.env_arg.getState()
                     qvalues_arg = self.net_arg.predict(state_arg)
+                    print(qvalues_arg)
                     action_arg = np.argmax(qvalues_arg[0])
+                    print(action_arg)
                     self.env_arg.act_online(action_arg, j)
                     if self.env_arg.terminal_flag:
                         break
@@ -51,14 +53,17 @@ class Agent(object):
                 obj_idxs = []
                 sent_words = self.env_arg.current_text['tokens']
                 tmp_num = self.context_len if len(sent_words) >= self.context_len else len(sent_words)
-                for j in range(tmp_num):
+
+                for j in range(tmp_num): #until context_len or word_len
                     if self.env_arg.state[j, -1] == 2:
-                        if j == len(sent_words) - 1:
+
+                        obj_idxs.append(j) #append j if state's last value is 2.
+                        if j == len(sent_words) - 1: # if last word, reset j to -1
                             j = -1
-                        obj_idxs.append(j)
-                if len(obj_idxs) == 0:
-                    obj_idxs.append(-1)
+                # if len(obj_idxs) == 0:
+                #     obj_idxs.append(-1) #if there are no object indexes, append UNK
                 si, ai = self.env_act.current_text['word2sent'][i]
+
                 ai += len(sents[si]['last_sent'])
                 sents[si]['acts'].append({'act_idx': ai, 'obj_idxs': [obj_idxs, []],
                                           'act_type': 1, 'related_acts': []})

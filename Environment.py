@@ -492,6 +492,7 @@ class Environment:
     def act_online(self, action, word_ind):
         '''used in gui mode'''
         self.state[word_ind, -1] = action + 1
-        # self.state[word_ind, -self.tag_dim:] = action + 1
+        # print(self.state[word_ind, self.word_dim: self.word_dim + self.dis_dim]) #distance
+        # self.state[word_ind, -self.tag_dim:] = action + 1 #from 868 from last to end change it
         if word_ind + 1 >= len(self.current_text['tokens']):
             self.terminal_flag = True
