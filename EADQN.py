@@ -3,7 +3,7 @@ import keras.layers as kl
 from keras.layers import *
 from keras.models import Model
 import tensorflow as tf
-tf.set_random_seed(0)
+tf.compat.v1.set_random_seed(0)
 import time
 
 

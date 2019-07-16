@@ -2,7 +2,7 @@
 import time
 import argparse
 import tensorflow as tf
-tf.set_random_seed(0)
+tf.compat.v1.set_random_seed(0)
 from utils import get_time, plot_results
 from Agent import Agent
 from EADQN import DeepQLearner
