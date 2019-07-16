@@ -37,6 +37,7 @@ save_replay: 0
 save_replay_name: data/saved_replay_memory.pkl
 save_replay_size: 1000
 save_weights: True
+stacked_embeddings: StackedEmbeddings [/home/nfs/smiglani/.flair/embeddings/glove.gensim,elmo-small]
 start_epoch: 0
 stop_epoch_gap: 5
 tag_dim: 868
@@ -48,6 +49,39 @@ train_repeat: 1
 train_steps: 37376
 use_act_rate: 1
 valid_steps: 9728
-word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x12dfa6940>
+word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7ff102b31668>
 word_dim: 868
 
+
+
+Summary:
+total_ecs: 2	 right_ecs: 2	 tagged_ecs: 2
+total_act: 448	 right_act: 417	 tagged_act: 518
+acc: 0.967812	 rec: 0.930804	 pre: 0.805019	 f1: 0.863354
+
+cumulative reward: 213202.930344	 average reward: 51.597999
+
+
+ Best f1 value: {'rec': [0.0, 0.9308035714285714], 'pre': [0.0, 0.805019305019305], 'f1': [0.0, 0.8633540372670807], 'rw': [0.0, 51.597998631081296]}  best epoch: 0
+
+
+Summary:
+total_ecs: 2	 right_ecs: 2	 tagged_ecs: 2
+total_act: 449	 right_act: 426	 tagged_act: 527
+acc: 0.969990	 rec: 0.948775	 pre: 0.808349	 f1: 0.872951
+
+cumulative reward: 214892.360962	 average reward: 52.006864
+
+
+ Best f1 value: {'rec': [0.0, 0.9308035714285714, 0.9487750556792873], 'pre': [0.0, 0.805019305019305, 0.8083491461100569], 'f1': [0.0, 0.8633540372670807, 0.8729508196721311], 'rw': [0.0, 51.597998631081296, 52.006863737152486]}  best epoch: 0
+
+
+ training process:
+{'rec': [0.0, 0.9308035714285714, 0.9487750556792873], 'pre': [0.0, 0.805019305019305, 0.8083491461100569], 'f1': [0.0, 0.8633540372670807, 0.8729508196721311], 'rw': [0.0, 51.597998631081296, 52.006863737152486]}
+
+rec: [0.9487750556792873]
+pre: [0.8083491461100569]
+f1: [0.8729508196721311]
+rw: [52.006863737152486]
+
+Avg f1: 0.8729508196721311  Avg reward: 52.006863737152486
