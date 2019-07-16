@@ -19,11 +19,10 @@ class Agent(object):
         self.net_arg = DeepQLearner(args, 'arg', 'channels_last')
         self.num_words = args.num_words
         self.context_len = 128
-        self.stacked_embeddings = args.stacked_embeddings
 
     def predict(self, text):
         # e.g. text = ['Cook the rice the day before.', 'Use leftover rice.']
-        self.env_act.init_predict_act_text(self.stacked_embeddings, text)
+        self.env_act.init_predict_act_text(text)
         sents = []  # dictionary for last sentence, this sentence and actions
         for i in range(len(self.env_act.current_text['sents'])):
             last_sent = self.env_act.current_text['sents'][i - 1] if i > 0 else []
@@ -39,7 +38,7 @@ class Agent(object):
             print(action_act)
             self.env_act.act_online(action_act, i)
             if action_act == 1:
-                last_sent, this_sent = self.env_arg.init_predict_arg_text(self.stacked_embeddings, i, self.env_act.current_text)
+                last_sent, this_sent = self.env_arg.init_predict_arg_text(i, self.env_act.current_text)
                 for j in range(self.context_len):
                     state_arg = self.env_arg.getState()
                     qvalues_arg = self.net_arg.predict(state_arg)
@@ -72,20 +71,18 @@ def EASDRL_init(args, sess):
     args.gui_mode = True
     args.fold_id = 0
     args.domain = 'cooking'
-    args.replay_size = 1000 # was 1000, changing to 10000
+    args.contextual_embedding = 'elmo'
+    args.replay_size = 1000
     args.load_weights = True
     args = args_init(args)
 
-    # ipdb.set_trace()
     agent = Agent(args, sess)
 
     if args.load_weights:
         print('Loading weights ...')
         filename = 'weights/%s_act_elmo.h5' % (args.domain)
-        # filename = 'data/online_test/cooking/act/fold0.h5'
         agent.net_act.load_weights(filename)
         filename = 'weights/%s_arg_elmo.h5' % (args.domain)
-        # filename = 'data/online_test/cooking/arg/fold0.h5'
         agent.net_arg.load_weights(filename)
 
     return agent
@@ -93,14 +90,15 @@ def EASDRL_init(args, sess):
 
 if __name__ == '__main__':
     args = preset_args()
-    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=args.gpu_fraction)
-    set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))
-    agent = EASDRL_init(args, sess='')  # for keras
+    config = tf.compat.v1.ConfigProto()
+    config.gpu_options.allow_growth = True
+    set_session(tf.Session(config=config))
+    agent = EASDRL_init(args, sess='')
     print('weights loaded ...')
 
-    #run commandline program unlimited #TODO: have command line arguments for input and output files.
     input_file_path = 'data/online_test/13.txt'
 
+    # TODO: use command line arguments for input and output file.
     #input file
     current_sents = []
     raw_text = open(input_file_path, 'r').read() + ' '
@@ -119,12 +117,11 @@ if __name__ == '__main__':
                     text.append(s)
     current_sents = agent.predict(text)
 
-
     #show results
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/online_test/win2k_output.txt'
+    outfile = 'data/online_test/%s_%s_output.txt' % (args.domain, args.contextual_embedding)
     f = open(outfile, "w")
     output = ""
     for i in range(len(sents)):

@@ -28,6 +28,7 @@ class Environment:
         self.max_data_sent_len = 0
         self.agent_mode = agent_mode  # args.agent_mode
         self.context_len = 128 # 100
+        self.stacked_embeddings = args.stacked_embeddings
 
 
         # read the sentences!!!
