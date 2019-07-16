@@ -1,0 +1,5 @@
+Right-Click my computer and then click manage
+Double-Click system tools in the right pane and then double-click device manager
+Double-Click ide ata/atapi controller in the right pane and then double-click the secondary ide channel
+On the advanced settings tab click pio only in the transfer mode box
+Click ok close the computer management window and then reboot the computer

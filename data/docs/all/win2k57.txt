@@ -1,0 +1,3 @@
+In internet explorer click internet options on the tools menu
+Click the advanced tab
+Click to select the show internet explorer on desktop check box

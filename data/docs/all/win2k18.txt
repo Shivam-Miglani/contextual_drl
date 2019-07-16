@@ -1,0 +1,4 @@
+Click start point to settings and then click control panel
+Double-Click power options
+On the advanced tab click to select the prompt for password when computer goes off standby check box
+Click ok

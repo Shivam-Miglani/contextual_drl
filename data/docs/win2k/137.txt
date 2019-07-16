@@ -1,0 +1,8 @@
+Click start point to programs point to administrative tools and then click local security policy
+Click to expand the security settings node in the left pane and then click the ip security policies node
+Double-Click the secure server (require security) policy in the right pane
+Click to clear the all ip traffic and the dynamic check boxes and then click to select the all icmp traffic check box
+Double-Click the all icmp traffic rule
+Click the filter action tab and then click require security
+Click apply and then click ok
+Click close

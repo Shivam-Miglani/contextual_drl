@@ -1,0 +1,5 @@
+In internet explorer click internet options on the tools menu
+On the privacy tab click advanced
+Click to select the override automatic cookie handling check box
+Click prompt for both first-party cookies and third-party cookies
+Click ok twice

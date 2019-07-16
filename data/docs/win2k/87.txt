@@ -1,0 +1,6 @@
+Click start point to settings and then click control panel
+Click administrative tools
+Double-Click services
+Right-Click fax service and then click properties
+Click the log on tab
+Click this account

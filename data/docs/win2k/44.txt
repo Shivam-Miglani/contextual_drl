@@ -1,0 +1,4 @@
+Click start point to settings click control panel and then double-click network and dial-up connections
+Right-Click local area connection and then click properties
+Click install click protocol and then click add
+Click network monitor driver and then click ok

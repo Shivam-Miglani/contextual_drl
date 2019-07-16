@@ -1,0 +1,4 @@
+Click start point to programs point to administrative tools and then click local security policy
+In the left pane click local policies and then in the right pane double-click security options
+In the right pane double-click secure channel: digitally encrypt or sign secure channel data (always)
+In the local security policy setting dialog box click disabled and then click ok

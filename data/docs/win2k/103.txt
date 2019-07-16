@@ -1,0 +1,6 @@
+Click start and then click run
+In the open box type mmc and then click ok
+On the console menu click add/remove snap-in and then click add
+In the available standalone snap-ins list click security configuration and analysis click add and then click close
+Click ok
+In the console tree right-click security configuration and analysis and then click open database

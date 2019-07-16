@@ -1,0 +1,5 @@
+Open device manager
+On the view menu click to select the show hidden devices check box
+Double-Click non-plug and play drivers
+Double-Click netbios over tcpip
+In the device usage box click use this device (enable)

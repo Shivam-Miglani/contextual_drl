@@ -1,0 +1,4 @@
+Double-Click my computer
+On the tools menu click folder options
+Click the offline files tab
+Click to select the enable offline files check box click apply and then click ok

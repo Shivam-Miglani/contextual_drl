@@ -1,0 +1,4 @@
+Right-Click my network places and then click properties
+Right-Click local area connection and then click properties
+Click to select the file and printer sharing for microsoft networks check box
+Click ok

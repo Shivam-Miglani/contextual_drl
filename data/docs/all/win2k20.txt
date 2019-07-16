@@ -1,0 +1,3 @@
+Click start point to settings and then click control panel
+Double-Click users and passwords
+Click to select the users must enter a user name and password to use this computer check box

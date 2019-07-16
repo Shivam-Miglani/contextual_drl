@@ -1,0 +1,4 @@
+Click start point to settings and then click control panel
+Double-Click system
+Click the advanced tab and then click settings under startup and recovery
+In the write debugging information list click small memory dump (64k)

@@ -1,0 +1,4 @@
+On the start menu point to programs point to administrative tools and then click services
+Click routing and remote access and then click the stop symbol
+Click remote registry service and then click the start symbol
+Click routing and remote access and then click the start symbol

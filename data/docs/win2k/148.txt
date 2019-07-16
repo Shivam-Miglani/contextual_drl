@@ -1,0 +1,2 @@
+Open the internet explorer window click tools and then click internet options
+In the internet options window click the general tab under temporary internet files click delete files and then click ok

@@ -1,0 +1,5 @@
+Click start click run in the open box type gpedit.msc and then click ok
+In the group policy window expand computer configuration expand administrative templates expand system and then double-click group policy
+Double-Click disk quota policy processing and then on the policy tab click to select enable
+Click to clear the following two check boxes allow processing across a slow network connection do not apply during periodic background processing
+Click to select the process even if the group policy objects have not changed check box and then click ok

@@ -1,0 +1,6 @@
+Click start point to settings and click control panel
+Double-Click the administrative tools icon
+Double-Click the computer management icon
+Expand services and applications
+Click on services
+Double-Click the indexing service you wish to enable and set its startup to automatic or manual

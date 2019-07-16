@@ -1,0 +1,4 @@
+In internet explorer click internet options on the tools menu
+On the general tab click languages
+Click english [united states][en-us] and then click ok
+Click ok to close the language preference dialog box click ok to close the internet options dialog box

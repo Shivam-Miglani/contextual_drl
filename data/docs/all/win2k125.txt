@@ -1,0 +1,5 @@
+In control panel open the printers or printers and faxes folder
+Right-Click your postscript printer and then click properties
+Click printing preferences click layout and then click advanced
+Double-Click postscript options and then click truetype font download option
+In the true type font download option box click automatic if automatic is already selected click outline or bitmap

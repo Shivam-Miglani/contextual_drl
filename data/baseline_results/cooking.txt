@@ -1,0 +1,566 @@
+Cook the rice the day before or use leftover rice in the refrigerator.
+The important thing to remember is not to heat up the rice, but keep it cold.
+In a bowl, add 1 tablespoon of oil to rice.
+Use spoon or your hands to work the oil into the rice, evenly coating the rice.
+Transfer the rice to a colander and drain.
+Combine eggs and salt in a small bowl and gently whisk until blended.
+Heat 1 tablespoon oil in a wok.
+Add whisked eggs and cumin seeds to wok.
+Stir frequently, working the eggs to a scramble.
+Heat the remaining oil in the wok.
+If desired, you can recycle some of the oil that drained from the rice.
+Add the garlic and onion to the wok.
+Stir-fry together over high heat of about 5 minutes or until the onion looks transparent, but is not soft.
+Add the rice, eggs, soy sauce, chili sauce, vinegar and celery.
+Mix together, continuing to stir-fry over high heat for 1-2 minutes while stirring frequently.
+Spoon onto a plate and serve.
+
+
+NO1: Cook(1) the(2) rice(3) the(4) day(5) before(6) or(7) use(8) leftover(9) rice(10) in(11) the(12) refrigerator.(13)
+<1>  use (rice)
+
+NO2: The(1) important(2) thing(3) to(4) remember(5) is(6) not(7) to(8) heat(9) up(10) the(11) rice(12) but(13) keep(14) it(15) cold.(16)
+
+NO3: In(1) a(2) bowl(3) add(4) 1(5) tablespoon(6) of(7) oil(8) to(9) rice.(10)
+<2>  add (oil)
+
+NO4: Use(1) spoon(2) or(3) your(4) hands(5) to(6) work(7) the(8) oil(9) into(10) the(11) rice(12) evenly(13) coating(14) the(15) rice.(16)
+<3>  Use (UNK)    <4>  work (oil)    <5>  coating (rice.)
+
+NO5: Transfer(1) the(2) rice(3) to(4) a(5) colander(6) and(7) drain.(8)
+<6>  Transfer (rice)
+
+NO6: Combine(1) eggs(2) and(3) salt(4) in(5) a(6) small(7) bowl(8) and(9) gently(10) whisk(11) until(12) blended.(13)
+<7>  Combine (eggs, salt)    <8>  whisk (blended.)
+
+NO7: Heat(1) 1(2) tablespoon(3) oil(4) in(5) a(6) wok.(7)
+<9>  Heat (tablespoon, oil)
+
+NO8: Add(1) whisked(2) eggs(3) and(4) cumin(5) seeds(6) to(7) wok.(8)
+<10>  Add (eggs, seeds)
+
+NO9: Stir(1) frequently(2) working(3) the(4) eggs(5) to(6) a(7) scramble.(8)
+<11>  Stir (eggs)    <12>  working (eggs)
+
+NO10: Heat(1) the(2) remaining(3) oil(4) in(5) the(6) wok.(7)
+<13>  Heat (oil)
+
+NO11: If(1) desired(2) you(3) can(4) recycle(5) some(6) of(7) the(8) oil(9) that(10) drained(11) from(12) the(13) rice.(14)
+<14>  recycle (the, oil)
+
+NO12: Add(1) the(2) garlic(3) and(4) onion(5) to(6) the(7) wok.(8)
+<15>  Add (garlic, onion)
+
+NO13: Stir-fry(1) together(2) over(3) high(4) heat(5) of(6) about(7) 5(8) minutes(9) or(10) until(11) the(12) onion(13) looks(14) transparent(15) but(16) is(17) not(18) soft.(19)
+
+NO14: Add(1) the(2) rice(3) eggs(4) soy(5) sauce(6) chili(7) sauce(8) vinegar(9) and(10) celery.(11)
+<16>  Add (rice, eggs, soy, sauce, sauce)
+
+NO15: Mix(1) together(2) continuing(3) to(4) stir-fry(5) over(6) high(7) heat(8) for(9) 1-2(10) minutes(11) while(12) stirring(13) frequently.(14)
+<17>  Mix (stir-fry)    <18>  stir-fry (heat)    <19>  stirring (rice, sauce, vinegar, Mix, UNK)
+
+NO16: Spoon(1) onto(2) a(3) plate(4) and(5) serve.(6)
+<20>  Spoon (plate)
+
+
+
+=========================================================
+HOW TO MAKE LASAGNE
+Heat the saucepan
+Add in the meat and cook it in its own fat until it is well browned
+Drain most of the fat but not all  we'd recommend you leave around 3 tablespoons of fat as this makes the dish tastier
+Add in the onions  garlic  red pepper  salt  and pepper
+Stir the meat mixture for a few minutes over medium heat until the onions are soft and translucent
+Add a few pinches of oregano and one or two tablespoons of tomato paste  depending on your own taste
+If you want to play it safe  it's best to add just one tablespoon
+Remember that too much tomato paste can make the mixture very sour
+Stir in the canned tomatoes and allow the mixture to boil gently
+Cover your pot and let everything simmer on low heat for 45 minutes
+Meanwhile  place plenty of water in another pot
+Cook the lasagne noodles according to package directions
+The lasagne noodles must be soft  or al dente  but not soggy
+When the noodles are done  drain them well and separate the noodles from each other
+Otherwise  they will tend to stick together and get torn
+Set the noodles aside
+When sauce mixture is done  add the basil
+Mix well and turn off the heat
+Preheat the oven to 400F
+Place all the ingredients nearby for easier assembly
+Ladle just enough sauce to cover the bottom of the baking pan
+Place four pieces of lasagne noodles on top of the sauce
+If the noodles get torn  piece them together as much as possible
+Spread a thin layer each of ricotta  mozzarella  and parmesan cheeses on the noodles
+Ladle on more sauce  and continue with the rest of the layers in the same order: sauce  noodles  and cheeses
+You should have at least 3 layers of these items
+After the third layer  spread a layer of ricotta cheese on top of your creation  then pour on the rest of the sauce
+Finally  top everything with all your remaining cheese
+Put your tray into the oven and bake for 40 minutes
+When your lasagne is done  the top of your lasagne should be lightly brown and the cheese topping should be soft and melted
+Allow the lasagne to rest for a few minutes before serving.
+
+
+NO1: How(1) to(2) make(3) lasagne(4)
+<1>  make (lasagne, UNK)
+
+NO2: Heat(1) the(2) saucepan(3)
+<2>  Heat (saucepan)
+
+NO3: Add(1) in(2) the(3) meat(4) and(5) cook(6) it(7) in(8) its(9) own(10) fat(11) until(12) it(13) is(14) well(15) browned(16)
+<3>  Add (meat)    <4>  cook (meat)    <5>  browned (it)
+
+NO4: Drain(1) most(2) of(3) the(4) fat(5) but(6) not(7) all(8) we'd(9) recommend(10) you(11) leave(12) around(13) 3(14) tablespoons(15) of(16) fat(17) as(18) this(19) makes(20) the(21) dish(22) tastier(23)
+<6>  leave (fat)
+
+NO5: Add(1) in(2) the(3) onions(4) garlic(5) red(6) pepper(7) salt(8) and(9) pepper(10)
+<7>  Add (onions, garlic, pepper, salt, pepper)
+
+NO6: Stir(1) the(2) meat(3) mixture(4) for(5) a(6) few(7) minutes(8) over(9) medium(10) heat(11) until(12) the(13) onions(14) are(15) soft(16) and(17) translucent(18)
+<8>  Stir (meat, mixture)
+
+NO7: Add(1) a(2) few(3) pinches(4) of(5) oregano(6) and(7) one(8) or(9) two(10) tablespoons(11) of(12) tomato(13) paste(14) depending(15) on(16) your(17) own(18) taste(19)
+<9>  Add (oregano, tablespoons, tomato, paste)
+
+NO8: If(1) you(2) want(3) to(4) play(5) it(6) safe(7) it's(8) best(9) to(10) add(11) just(12) one(13) tablespoon(14)
+<10>  play (UNK)
+
+NO9: Remember(1) that(2) too(3) much(4) tomato(5) paste(6) can(7) make(8) the(9) mixture(10) very(11) sour(12)
+<11>  make (mixture)
+
+NO10: Stir(1) in(2) the(3) canned(4) tomatoes(5) and(6) allow(7) the(8) mixture(9) to(10) boil(11) gently(12)
+<12>  Stir (canned, tomatoes, mixture)    <13>  boil (mixture)
+
+NO11: Cover(1) your(2) pot(3) and(4) let(5) everything(6) simmer(7) on(8) low(9) heat(10) for(11) 45(12) minutes(13)
+<14>  Cover (pot)    <15>  simmer (everything)
+
+NO12: Meanwhile(1) place(2) plenty(3) of(4) water(5) in(6) another(7) pot(8)
+<16>  place (water)
+
+NO13: Cook(1) the(2) lasagne(3) noodles(4) according(5) to(6) package(7) directions(8)
+<17>  Cook (lasagne, noodles)
+
+NO14: The(1) lasagne(2) noodles(3) must(4) be(5) soft(6) or(7) al(8) dente(9) but(10) not(11) soggy(12)
+
+NO15: When(1) the(2) noodles(3) are(4) done(5) drain(6) them(7) well(8) and(9) separate(10) the(11) noodles(12) from(13) each(14) other(15)
+<18>  drain (noodles)    <19>  separate (noodles)
+
+NO16: Otherwise(1) they(2) will(3) tend(4) to(5) stick(6) together(7) and(8) get(9) torn(10)
+
+NO17: Set(1) the(2) noodles(3) aside(4)
+<20>  Set (noodles)
+
+NO18: When(1) sauce(2) mixture(3) is(4) done(5) add(6) the(7) basil(8)
+<21>  add (basil)
+
+NO19: Mix(1) well(2) and(3) turn(4) off(5) the(6) heat(7)
+<22>  Mix (sauce, basil)    <23>  turn (heat)
+
+NO20: Preheat(1) the(2) oven(3) to(4) 400F(5)
+<24>  Preheat (oven)
+
+NO21: Place(1) all(2) the(3) ingredients(4) nearby(5) for(6) easier(7) assembly(8)
+<25>  Place (ingredients)
+
+NO22: Ladle(1) just(2) enough(3) sauce(4) to(5) cover(6) the(7) bottom(8) of(9) the(10) baking(11) pan(12)
+<26>  cover (bottom)
+
+NO23: Place(1) four(2) pieces(3) of(4) lasagne(5) noodles(6) on(7) top(8) of(9) the(10) sauce(11)
+<27>  Place (pieces, lasagne, noodles)
+
+NO24: If(1) the(2) noodles(3) get(4) torn(5) piece(6) them(7) together(8) as(9) much(10) as(11) possible(12)
+
+NO25: Spread(1) a(2) thin(3) layer(4) each(5) of(6) ricotta(7) mozzarella(8) and(9) parmesan(10) cheeses(11) on(12) the(13) noodles(14)
+<28>  Spread (layer, ricotta, mozzarella, parmesan, cheeses)
+
+NO26: Ladle(1) on(2) more(3) sauce(4) and(5) continue(6) with(7) the(8) rest(9) of(10) the(11) layers(12) in(13) the(14) same(15) order(16) sauce(17) noodles(18) and(19) cheeses(20)
+
+NO27: You(1) should(2) have(3) at(4) least(5) 3(6) layers(7) of(8) these(9) items(10)
+
+NO28: After(1) the(2) third(3) layer(4) spread(5) a(6) layer(7) of(8) ricotta(9) cheese(10) on(11) top(12) of(13) your(14) creation(15) then(16) pour(17) on(18) the(19) rest(20) of(21) the(22) sauce(23)
+
+NO29: Finally(1) top(2) everything(3) with(4) all(5) your(6) remaining(7) cheese(8)
+<29>  top (everything)
+
+NO30: Put(1) your(2) tray(3) into(4) the(5) oven(6) and(7) bake(8) for(9) 40(10) minutes(11)
+<30>  Put (tray)    <31>  bake (tray)
+
+NO31: When(1) your(2) lasagne(3) is(4) done(5) the(6) top(7) of(8) your(9) lasagne(10) should(11) be(12) lightly(13) brown(14) and(15) the(16) cheese(17) topping(18) should(19) be(20) soft(21) and(22) melted(23)
+
+NO32: Allow(1) the(2) lasagne(3) to(4) rest(5) for(6) a(7) few(8) minutes(9) before(10) serving.(11)
+<32>  rest (lasagne)
+=========================================================================================================================
+HOW TO MAKE BEEF STROGANOFF
+Melt 3 tablespoons of butter (or alternately  heat equivalent amount of olive oil) in skillet over medium heat
+Increase heat to high and add beef  working in batches if needed
+Brown well on each side  but avoid burning
+Sprinkle salt and pepper on the beef  then take the meat out of the pan and set aside
+In same skillet  add the shallots or onions  and cook for one to two minutes
+Allow the shallots to soak up the drippings from the beef
+Remove shallots from the pan and move to the same bowl as the beef
+Add the remaining 3 tablespoons of butter or olive oil
+Add the mushrooms and cook over medium-high heat
+Cook for about 4 minutes  stirring occasionally
+Sprinkle tarragon and nutmeg onto the mushrooms
+Reduce heat and add the sour cream to the mushrooms
+Turn to very low heat
+Dilute  if needed  with one or two tablespoons of water
+Mix thoroughly
+Do not allow the mixture to boil or simmer because the sour cream will curdle if it does
+Add the beef and shallots
+Mix thoroughly so that the beef and mushrooms are well coated with the sauce
+Add salt and pepper according to your taste
+Beef stroganoff tastes great when served hot over cooked pasta (spaghetti  linguine  or fettuccine)
+It's also good with rice or mashed potatoes
+Garnish with parsley and parmesan cheese if desired.
+
+
+NO1: How(1) to(2) make(3) beef(4) stroganoff(5)
+<1>  How (beef, stroganoff)    <2>  make (beef, stroganoff)
+
+NO2: Melt(1) 3(2) tablespoons(3) of(4) butter(5) or(6) alternately(7) heat(8) equivalent(9) amount(10) of(11) olive(12) oil(13) in(14) skillet(15) over(16) medium(17) heat(18)
+<3>  Melt (butter, olive, oil)    <4>  heat (olive, oil)
+
+NO3: Increase(1) heat(2) to(3) high(4) and(5) add(6) beef(7) working(8) in(9) batches(10) if(11) needed(12)
+<5>  Increase (heat)    <6>  add (beef)    <7>  needed (beef)
+
+NO4: Brown(1) well(2) on(3) each(4) side(5) but(6) avoid(7) burning(8)
+<8>  Brown (heat, beef, Brown)    <9>  burning (beef)
+
+NO5: Sprinkle(1) salt(2) and(3) pepper(4) on(5) the(6) beef(7) then(8) take(9) the(10) meat(11) out(12) of(13) the(14) pan(15) and(16) set(17) aside(18)
+<10>  Sprinkle (salt, pepper, meat)    <11>  take (meat)    <12>  set (meat)
+
+NO6: In(1) same(2) skillet(3) add(4) the(5) shallots(6) or(7) onions(8) and(9) cook(10) for(11) one(12) to(13) two(14) minutes(15)
+<13>  add (shallots)    <14>  cook (meat, shallots, onions)
+
+NO7: Allow(1) the(2) shallots(3) to(4) soak(5) up(6) the(7) drippings(8) from(9) the(10) beef(11)
+<15>  soak (shallots, drippings)
+
+NO8: Remove(1) shallots(2) from(3) the(4) pan(5) and(6) move(7) to(8) the(9) same(10) bowl(11) as(12) the(13) beef(14)
+<16>  Remove (shallots)    <17>  move (UNK)
+
+NO9: Add(1) the(2) remaining(3) 3(4) tablespoons(5) of(6) butter(7) or(8) olive(9) oil(10)
+<18>  Add (butter, oil)
+
+NO10: Add(1) the(2) mushrooms(3) and(4) cook(5) over(6) medium-high(7) heat(8)
+<19>  Add (mushrooms)    <20>  cook (mushrooms)
+
+NO11: Cook(1) for(2) about(3) 4(4) minutes(5) stirring(6) occasionally(7)
+<21>  Cook (mushrooms)    <22>  stirring (UNK)
+
+NO12: Sprinkle(1) tarragon(2) and(3) nutmeg(4) onto(5) the(6) mushrooms(7)
+<23>  Sprinkle (nutmeg)
+
+NO13: Reduce(1) heat(2) and(3) add(4) the(5) sour(6) cream(7) to(8) the(9) mushrooms(10)
+<24>  Reduce (heat)    <25>  add (cream)
+
+NO14: Turn(1) to(2) very(3) low(4) heat(5)
+<26>  Turn (UNK)
+
+NO15: Dilute(1) if(2) needed(3) with(4) one(5) or(6) two(7) tablespoons(8) of(9) water(10)
+
+NO16: Mix(1) thoroughly(2)
+<27>  Mix (UNK)
+
+NO17: Do(1) not(2) allow(3) the(4) mixture(5) to(6) boil(7) or(8) simmer(9) because(10) the(11) sour(12) cream(13) will(14) curdle(15) if(16) it(17) does(18)
+
+NO18: Add(1) the(2) beef(3) and(4) shallots(5)
+<28>  Add (beef)
+
+NO19: Mix(1) thoroughly(2) so(3) that(4) the(5) beef(6) and(7) mushrooms(8) are(9) well(10) coated(11) with(12) the(13) sauce(14)
+<29>  Mix (UNK)
+
+NO20: Add(1) salt(2) and(3) pepper(4) according(5) to(6) your(7) taste(8)
+<30>  Add (salt, pepper)
+
+NO21: Beef(1) stroganoff(2) tastes(3) great(4) when(5) served(6) hot(7) over(8) cooked(9) pasta(10) spaghetti(11) linguine(12) or(13) fettuccine(14)
+<31>  served (pasta)
+
+NO22: It's(1) also(2) good(3) with(4) rice(5) or(6) mashed(7) potatoes(8)
+<32>  mashed (potatoes)
+
+NO23: Garnish(1) with(2) parsley(3) and(4) parmesan(5) cheese(6) if(7) desired.(8)
+<33>  Garnish (potatoes, parsley, parmesan, cheese)    <34>  parmesan (cheese)
+=============================================================================================================
+
+HOW TO MAKE MACAROON BROWNIE BARS
+HOW TO PREPARE THE BROWNIE BASE
+A rack must be placed in the center of the oven
+Preheat the oven to 350 degrees Fahrenheit
+A baking pain (9 inches) must be greased and lined with parchment paper
+You should leave about 1 inch of the paper overhanging the long sides of the pan
+In a bowl  mix together the cocoa powder  flour  and salt
+Make sure they are properly blended
+In a stand mixer bowl  cream both butter and sugar using a medium speed
+One at a time  add the eggs
+Pour in the almond and vanilla extracts
+Mix the dry ingredients gradually until they are well blended
+Then stir in the bittersweet chocolate
+Spread the batter in the pan
+Bake it for about 20 minutes or when the sides start to set while the center is still tender
+Remove it from the oven and then let it cool on a wire rack
+PREPARING THE COCONUT TOPPING
+Mix the sugar and egg together
+Pour in the almond extract
+Continue mixing until all ingredients are well blended
+Stir in the flaked coconut
+With the use of two spoons  spread spoonfuls of the mixture on the brownie base
+Use a rubber spatula to evenly spread it on top
+Again  place the pan to the oven and wait for 30 minutes
+Remove the baking pan from the oven
+Place it on a wire rack
+Lift the parchment paper edges to remove the brownies
+Then  cut into bars.
+
+
+NO1: How(1) to(2) make(3) macaroon(4) brownie(5) bars(6)
+<1>  make (macaroon, brownie, bars)
+
+NO2: How(1) to(2) prepare(3) the(4) brownie(5) base(6)
+<2>  prepare (brownie, base)
+
+NO3: A(1) rack(2) must(3) be(4) placed(5) in(6) the(7) center(8) of(9) the(10) oven(11)
+<3>  placed (rack)
+
+NO4: Preheat(1) the(2) oven(3) to(4) 350(5) degrees(6) Fahrenheit(7)
+<4>  Preheat (oven)
+
+NO5: A(1) baking(2) pain(3) 9(4) inches(5) must(6) be(7) greased(8) and(9) lined(10) with(11) parchment(12) paper(13)
+<5>  greased (UNK)    <6>  lined (paper)
+
+NO6: You(1) should(2) leave(3) about(4) 1(5) inch(6) of(7) the(8) paper(9) overhanging(10) the(11) long(12) sides(13) of(14) the(15) pan(16)
+<7>  leave (paper)
+
+NO7: In(1) a(2) bowl(3) mix(4) together(5) the(6) cocoa(7) powder(8) flour(9) and(10) salt(11)
+<8>  mix (cocoa, powder, flour, salt)
+
+NO8: Make(1) sure(2) they(3) are(4) properly(5) blended(6)
+<9>  blended (cocoa, powder, flour, salt)
+
+NO9: In(1) a(2) stand(3) mixer(4) bowl(5) cream(6) both(7) butter(8) and(9) sugar(10) using(11) a(12) medium(13) speed(14)
+<10>  cream (butter, sugar)    <11>  using (medium, speed)
+
+NO10: One(1) at(2) a(3) time(4) add(5) the(6) eggs(7)
+<12>  add (eggs)
+
+NO11: Pour(1) in(2) the(3) almond(4) and(5) vanilla(6) extracts(7)
+<13>  Pour (almond, vanilla, extracts)
+
+NO12: Mix(1) the(2) dry(3) ingredients(4) gradually(5) until(6) they(7) are(8) well(9) blended(10)
+<14>  Mix (ingredients)    <15>  blended (ingredients)
+
+NO13: Then(1) stir(2) in(3) the(4) bittersweet(5) chocolate(6)
+<16>  stir (bittersweet, chocolate)
+
+NO14: Spread(1) the(2) batter(3) in(4) the(5) pan(6)
+<17>  Spread (batter)
+
+NO15: Bake(1) it(2) for(3) about(4) 20(5) minutes(6) or(7) when(8) the(9) sides(10) start(11) to(12) set(13) while(14) the(15) center(16) is(17) still(18) tender(19)
+<18>  Bake (batter)
+
+NO16: Remove(1) it(2) from(3) the(4) oven(5) and(6) then(7) let(8) it(9) cool(10) on(11) a(12) wire(13) rack(14)
+<19>  Remove (it)    <20>  cool (UNK)
+
+NO17: Preparing(1) the(2) coconut(3) topping(4)
+<21>  Preparing (coconut, topping)
+
+NO18: Mix(1) the(2) sugar(3) and(4) egg(5) together(6)
+<22>  Mix (sugar, egg)
+
+NO19: Pour(1) in(2) the(3) almond(4) extract(5)
+<23>  Pour (almond, extract)
+
+NO20: Continue(1) mixing(2) until(3) all(4) ingredients(5) are(6) well(7) blended(8)
+<24>  mixing (ingredients)    <25>  blended (ingredients)
+
+NO21: Stir(1) in(2) the(3) flaked(4) coconut(5)
+<26>  Stir (flaked, coconut)
+
+NO22: With(1) the(2) use(3) of(4) two(5) spoons(6) spread(7) spoonfuls(8) of(9) the(10) mixture(11) on(12) the(13) brownie(14) base(15)
+<27>  spread (mixture)
+
+NO23: Use(1) a(2) rubber(3) spatula(4) to(5) evenly(6) spread(7) it(8) on(9) top(10)
+<28>  Use (rubber, spatula)    <29>  spread (rubber)
+
+NO24: Again(1) place(2) the(3) pan(4) to(5) the(6) oven(7) and(8) wait(9) for(10) 30(11) minutes(12)
+<30>  place (pan)    <31>  wait (UNK)
+
+NO25: Remove(1) the(2) baking(3) pan(4) from(5) the(6) oven(7)
+<32>  Remove (baking, pan)
+
+NO26: Place(1) it(2) on(3) a(4) wire(5) rack(6)
+<33>  Place (pan)
+
+NO27: Lift(1) the(2) parchment(3) paper(4) edges(5) to(6) remove(7) the(8) brownies(9)
+<34>  Lift (parchment, paper, edges)    <35>  remove (brownies)
+
+NO28: Then(1) cut(2) into(3) bars.(4)
+<36>  cut (parchment, paper, edges, brownies)
+===========================================================================================
+HOW TO MAKE MARGARITAS
+If you want salted glasses  prepare your glasses first
+Use a lime wedge to moisten the rim of each glass before dipping the outside of the rim into salt
+Make sure only the outside of the glass is salted  you don't want salt dropping into your margarita
+If you're not sure if your guests want salt or not  only put salt one one-half of the glass rim
+Set the glasses aside
+Now that your glasses are ready  it's time to make the margarita
+Mix the tequila  orange liqueur or triple sec  and lime juice in a cocktail shaker or covered pitcher
+Add crushed ice
+Shake the mixture really well
+Strain the mixture into the cocktail glasses
+If you want ice  put ice into the glasses before you pour the margarita
+Place a lime wedge on the rim of each cocktail glass
+Serve
+Of course  you can always raise the amount of the tequila for more buzz  the amount of lime juice for more zing  or the amount of triple sec or liqueur for more sweetness
+True margarita does not need sugar  but if you want your margarita sweet  feel free to add sugar  as is often done anyway
+The quality of a margarita mix is determined by the quality of the tequila and triple sec used to make the drink
+If you want premium margarita  spend on the best bottles of tequila and triple sec
+For a slushy version of margarita  crush some ice cubes in an ice crusher and mix that with the drinks
+You can also skip the cocktail shaker or covered pitcher  and just mix the liquid ingredients and ice in a blender to get a shake-like consistency
+Indulge!
+
+
+NO1: How(1) to(2) make(3) margaritas(4)
+<1>  make (margaritas, UNK)
+
+NO2: If(1) you(2) want(3) salted(4) glasses(5) prepare(6) your(7) glasses(8) first(9)
+<2>  prepare (glasses)
+
+NO3: Use(1) a(2) lime(3) wedge(4) to(5) moisten(6) the(7) rim(8) of(9) each(10) glass(11) before(12) dipping(13) the(14) outside(15) of(16) the(17) rim(18) into(19) salt(20)
+<3>  Use (lime, wedge)    <4>  moisten (rim, glass)    <5>  dipping (rim)
+
+NO4: Make(1) sure(2) only(3) the(4) outside(5) of(6) the(7) glass(8) is(9) salted(10) you(11) don't(12) want(13) salt(14) dropping(15) into(16) your(17) margarita(18)
+<6>  salted (glass)
+
+NO5: If(1) you're(2) not(3) sure(4) if(5) your(6) guests(7) want(8) salt(9) or(10) not(11) only(12) put(13) salt(14) one(15) one-half(16) of(17) the(18) glass(19) rim(20)
+<7>  put (salt)
+
+NO6: Set(1) the(2) glasses(3) aside(4)
+<8>  Set (glasses)
+
+NO7: Now(1) that(2) your(3) glasses(4) are(5) ready(6) it's(7) time(8) to(9) make(10) the(11) margarita(12)
+<9>  make (margarita)
+
+NO8: Mix(1) the(2) tequila(3) orange(4) liqueur(5) or(6) triple(7) sec(8) and(9) lime(10) juice(11) in(12) a(13) cocktail(14) shaker(15) or(16) covered(17) pitcher(18)
+<10>  Mix (tequila, orange, liqueur, lime, juice)
+
+NO9: Add(1) crushed(2) ice(3)
+<11>  Add (ice)
+
+NO10: Shake(1) the(2) mixture(3) really(4) well(5)
+<12>  Shake (mixture)
+
+NO11: Strain(1) the(2) mixture(3) into(4) the(5) cocktail(6) glasses(7)
+<13>  Strain (mixture)
+
+NO12: If(1) you(2) want(3) ice(4) put(5) ice(6) into(7) the(8) glasses(9) before(10) you(11) pour(12) the(13) margarita(14)
+<14>  put (ice)    <15>  pour (margarita)
+
+NO13: Place(1) a(2) lime(3) wedge(4) on(5) the(6) rim(7) of(8) each(9) cocktail(10) glass(11)
+<16>  Place (lime, wedge)
+
+NO14: Serve(1)
+<17>  Serve (UNK)
+
+NO15: Of(1) course(2) you(3) can(4) always(5) raise(6) the(7) amount(8) of(9) the(10) tequila(11) for(12) more(13) buzz(14) the(15) amount(16) of(17) lime(18) juice(19) for(20) more(21) zing(22) or(23) the(24) amount(25) of(26) triple(27) sec(28) or(29) liqueur(30) for(31) more(32) sweetness(33)
+<18>  raise (tequila, lime, juice, triple, sec)
+
+NO16: True(1) margarita(2) does(3) not(4) need(5) sugar(6) but(7) if(8) you(9) want(10) your(11) margarita(12) sweet(13) feel(14) free(15) to(16) add(17) sugar(18) as(19) is(20) often(21) done(22) anyway(23)
+<19>  add (sugar)
+
+NO17: The(1) quality(2) of(3) a(4) margarita(5) mix(6) is(7) determined(8) by(9) the(10) quality(11) of(12) the(13) tequila(14) and(15) triple(16) sec(17) used(18) to(19) make(20) the(21) drink(22)
+
+NO18: If(1) you(2) want(3) premium(4) margarita(5) spend(6) on(7) the(8) best(9) bottles(10) of(11) tequila(12) and(13) triple(14) sec(15)
+<20>  spend (tequila, triple, sec)
+
+NO19: For(1) a(2) slushy(3) version(4) of(5) margarita(6) crush(7) some(8) ice(9) cubes(10) in(11) an(12) ice(13) crusher(14) and(15) mix(16) that(17) with(18) the(19) drinks(20)
+<21>  mix (drinks)
+
+NO20: You(1) can(2) also(3) skip(4) the(5) cocktail(6) shaker(7) or(8) covered(9) pitcher(10) and(11) just(12) mix(13) the(14) liquid(15) ingredients(16) and(17) ice(18) in(19) a(20) blender(21) to(22) get(23) a(24) shake-like(25) consistency(26)
+<22>  skip (cocktail, shaker, pitcher)    <23>  mix (liquid, ingredients, ice)    <24>  get (shake-like, consistency)
+
+NO21: Indulge!(1)
+
+
+============================================================================================
+HOW TO MAKE CLASSIC MEATLOAF
+STEPS: Preheat oven to 350F
+Heat butter in a large skillet
+Add the onions  garlic  celery  and carrot
+Cook the mixture over medium heat for 5 minutes  stirring frequently
+Add the ketchup  Worcestershire sauce  and the salt and pepper
+Cook the mixture for another minute
+Combine the meat  bread crumbs  eggs  and parsley in a mixing bowl
+Add the cooked vegetables from the skillet
+Mix everything well together
+Push the mixture into the baking loaf pan
+Then put the loaf into the oven and bake for about an hour
+When the meatloaf is done  allow it to cool slightly  then slowly remove the loaf from the baking pan by cutting along the sides with a butter knife
+Gently lift the meatloaf from the pan and place on serving plate
+Cut into slices of approximately 3/4 inch thick
+Serve with buttered vegetables or other sidings of your choice
+Mashed or baked potatoes  sauted vegetables  or fresh salad greens make excellent sidings
+Leftover meatloaf makes delicious sandwich fillings  too.
+
+
+NO1: How(1) to(2) make(3) classic(4) meatloaf(5)
+<1>  How (meatloaf)    <2>  make (meatloaf)
+
+NO2: STEPS(1) Preheat(2) oven(3) to(4) 350F(5)
+<3>  Preheat (oven)
+
+NO3: Heat(1) butter(2) in(3) a(4) large(5) skillet(6)
+<4>  Heat (butter)
+
+NO4: Add(1) the(2) onions(3) garlic(4) celery(5) and(6) carrot(7)
+<5>  Add (onions, garlic, celery, carrot)
+
+NO5: Cook(1) the(2) mixture(3) over(4) medium(5) heat(6) for(7) 5(8) minutes(9) stirring(10) frequently(11)
+<6>  Cook (mixture)    <7>  stirring (UNK)
+
+NO6: Add(1) the(2) ketchup(3) Worcestershire(4) sauce(5) and(6) the(7) salt(8) and(9) pepper(10)
+<8>  Add (ketchup, Worcestershire, sauce, salt, pepper)
+
+NO7: Cook(1) the(2) mixture(3) for(4) another(5) minute(6)
+<9>  Cook (mixture)
+
+NO8: Combine(1) the(2) meat(3) bread(4) crumbs(5) eggs(6) and(7) parsley(8) in(9) a(10) mixing(11) bowl(12)
+<10>  Combine (meat, bread, crumbs, eggs, parsley)
+
+NO9: Add(1) the(2) cooked(3) vegetables(4) from(5) the(6) skillet(7)
+<11>  Add (vegetables)
+
+NO10: Mix(1) everything(2) well(3) together(4)
+<12>  Mix (everything)
+
+NO11: Push(1) the(2) mixture(3) into(4) the(5) baking(6) loaf(7) pan(8)
+<13>  Push (mixture)
+
+NO12: Then(1) put(2) the(3) loaf(4) into(5) the(6) oven(7) and(8) bake(9) for(10) about(11) an(12) hour(13)
+<14>  put (loaf)    <15>  bake (loaf)
+
+NO13: When(1) the(2) meatloaf(3) is(4) done(5) allow(6) it(7) to(8) cool(9) slightly(10) then(11) slowly(12) remove(13) the(14) loaf(15) from(16) the(17) baking(18) pan(19) by(20) cutting(21) along(22) the(23) sides(24) with(25) a(26) butter(27) knife(28)
+<16>  cool (loaf, meatloaf)    <17>  remove (loaf)    <18>  cutting (loaf)
+
+NO14: Gently(1) lift(2) the(3) meatloaf(4) from(5) the(6) pan(7) and(8) place(9) on(10) serving(11) plate(12)
+<19>  lift (meatloaf)    <20>  place (meatloaf)
+
+NO15: Cut(1) into(2) slices(3) of(4) approximately(5) 3/4(6) inch(7) thick(8)
+<21>  Cut (meatloaf)
+
+NO16: Serve(1) with(2) buttered(3) vegetables(4) or(5) other(6) sidings(7) of(8) your(9) choice(10)
+<22>  Serve (UNK)
+
+NO17: Mashed(1) or(2) baked(3) potatoes(4) sauted(5) vegetables(6) or(7) fresh(8) salad(9) greens(10) make(11) excellent(12) sidings(13)
+
+NO18: Leftover(1) meatloaf(2) makes(3) delicious(4) sandwich(5) fillings(6) too.(7)
+=================================================================================================
+
+
+
+
+
+
+
+
+
+
+

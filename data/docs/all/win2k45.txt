@@ -1,0 +1,3 @@
+Right-Click my network places and then click properties
+Double-Click local area connection and then click properties
+Click to select the file and print sharing for microsoft networks check box and then click ok

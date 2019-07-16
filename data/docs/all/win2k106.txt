@@ -1,0 +1,11 @@
+Double-Click my computer
+Double-Click the local disk (c:) drive
+Right-Click the autoexec file and then click properties
+Click the security tab
+Click to clear the allow inheritable permissions from parent to propagate to this object check box
+In the security dialog box that appears click remove
+Click add
+In the look in box click the name of the current computer
+In the name box click system and then click add
+Click ok
+Click ok

@@ -1,0 +1,5 @@
+Start device manager
+Click view and then click show hidden devices
+In the right pane of device manager click non-plug and play drivers
+Double-Click afd networking support environment
+Under device usage select the use this device (enable) check box and then click ok

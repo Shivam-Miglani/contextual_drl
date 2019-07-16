@@ -1,0 +1,3 @@
+Click start point to settings click control panel and then double-click administrative tools
+Double-Click component services click to select services (local) right-click print spooler and then click properties
+Click start and then click ok

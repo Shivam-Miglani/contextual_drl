@@ -1,0 +1,5 @@
+Click start point to programs point to administrative tools and then click computer management
+Double-Click local users and groups
+Click users and then double-click the user you want to add to the local administrator group or the power user group
+Click the member of tab click add and then click either the administrators or power users group
+Click add click ok and then click ok

@@ -1,0 +1,5 @@
+Right-Click my network places and then click properties
+In the network and dial-up connections window on the advanced menu click optional networking components
+In the windows optional networking components wizard click to select the networking services check box and then click details
+In the networking services dialog box click to select the rip listener check box click ok and then click next
+Insert the operating system installation disc when you are prompted click ok and dns is reinstalled

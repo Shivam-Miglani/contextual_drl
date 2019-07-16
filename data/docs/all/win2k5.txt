@@ -1,0 +1,4 @@
+Right-Click the internet explorer icon on your desktop and then click properties
+On the security tab click the internet icon and then click custom level
+Change the run activex controls and plug-ins option to either enable or prompt
+Click ok

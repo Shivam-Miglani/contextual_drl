@@ -1,0 +1,10 @@
+Click start and then click run
+In the open box type dcomcnfg and then click ok
+In the distributed com configuration properties dialog box click the default properties tab
+Click to select the enable distributed com on this computer check box
+Under default authentication level click connect
+Under default impersonation level click identify
+Click the applications tab click {000c101c-0000-0000-c000-000000000046} and then click properties
+Click the general tab and then click default in the authentication level box
+Click the security tab and then click use default access permissions use default launch permissions and use default configuration permissions
+Click apply and then click ok

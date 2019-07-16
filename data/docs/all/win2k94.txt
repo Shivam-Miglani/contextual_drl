@@ -1,0 +1,5 @@
+Click start point to settings point to control panel and then click display
+Click the settings tab
+Click the advanced button
+Click the adapter tab
+When you click the list all modes button a list of what functionality is inlcuded with this video card is displayed

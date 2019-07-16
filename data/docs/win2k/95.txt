@@ -1,0 +1,3 @@
+Click start point to settings click control panel double-click administrative tools and then double-click computer management
+If it is not already expanded expand the storage branch and then click the disk management folder to open it
+On the action menu click restore basic disk configuration

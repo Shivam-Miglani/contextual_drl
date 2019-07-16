@@ -1,0 +1,4 @@
+Click start point to settings and then click control panel
+Double-Click accessibility options
+Under filterkeys click settings
+Under keyboard shortcut click to clear the use shortcut check box

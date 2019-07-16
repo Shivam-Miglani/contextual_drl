@@ -1,0 +1,4 @@
+On the computer running windows 2000 right-click my network places and then click properties
+Right-Click the direct cable connection and then click properties
+On the security tab click advanced (custom settings) and then click settings
+Click to select the allow older ms-chap version for windows 95 servers check box click ok and then click ok

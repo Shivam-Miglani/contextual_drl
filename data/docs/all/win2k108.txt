@@ -1,0 +1,7 @@
+Click start point to programs
+Click administrative tools and then click computer management
+Click system tools and then click device manager
+Expand ide ata/atapi controllers
+Double-Click the secondary ide channel for which you want to configure dma/pio settings
+Click the advanced settings tab
+In the transfer mode box click either pio only or dma if available

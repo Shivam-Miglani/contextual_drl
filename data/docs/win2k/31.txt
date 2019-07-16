@@ -1,0 +1,5 @@
+Click start point to programs click administrative tools and then double-click local security policy
+Double-Click local policies
+Double-Click security options
+In the right pane double-click prevent users from installing printer drivers
+Click disabled and then click ok

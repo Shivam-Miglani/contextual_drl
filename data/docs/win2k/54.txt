@@ -1,0 +1,3 @@
+Click internet options on the tools menu and then click the security tab
+Click internet in the select a web content zone to specify its security settings section and then click custom level
+In the run activex scripts and plugins section click disable and then click ok

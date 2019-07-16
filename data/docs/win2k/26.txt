@@ -1,0 +1,3 @@
+Double-Click my computer and then right-click local disk (c:)
+Click properties and then click tools
+In error-checking click check now

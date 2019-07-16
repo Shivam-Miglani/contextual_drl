@@ -1,0 +1,3 @@
+Click start on the taskbar and then click run
+Type the following in the open box tlntsvr /service
+Start the telnet server service by clicking ok

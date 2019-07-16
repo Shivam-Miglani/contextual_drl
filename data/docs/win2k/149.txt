@@ -1,0 +1,3 @@
+Double-Click my computer
+On the tools menu click folder options
+Click the offline files tab and then click to select the enable offline files check box you can either enable or disable the check box for client-side caching

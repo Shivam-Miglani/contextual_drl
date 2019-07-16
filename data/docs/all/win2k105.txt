@@ -1,0 +1,6 @@
+On the start menu click programs point to accessories point to communications and then click network and dial-up connections
+Right-Click the dial-up icon and then click properties
+In the network connection dialog box click the security tab
+In security options click advanced (custom settings) and then click settings
+In the advanced security settings dialog box in logon security click properties under use extensible authentication protocol (eap)
+In the smart card or other certificate properties dialog box click to clear the validate server certificate check box and then click ok

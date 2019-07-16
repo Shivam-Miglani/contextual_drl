@@ -1,0 +1,3 @@
+In control panel double-click internet options
+On the connections tab click lan settings
+In the proxy server area click to select the use a proxy server for your lan (these settings will not apply to dial-up or vpn connections) check box and then click ok

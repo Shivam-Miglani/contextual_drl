@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click keyboard click the input locales tab and then click add
+In the input locale box click basque
+In the keyboard layout/ime box click spanish variation
+Click ok and then click ok

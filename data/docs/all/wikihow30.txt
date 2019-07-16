@@ -1,0 +1,28 @@
+Turn off all faucets in your house
+If you have multiple faucets spigots or appliances running while you test the flow rate it will give you an inaccurate reading
+Make sure all water-fed appliances and faucets are in the off position while you measure the water flow
+Water-fed appliances include the dishwasher and laundry machine
+Find a spigot or faucet on the bottom floor or basement
+These locations will give you the most accurate reading because it's closest to your main water supply
+Water loses pressure as it travels through pipes and the water supply is usually located in the basement or bottom floor
+Place a 1 gallon (38 L) bucket under the faucet
+Use a bucket that's exactly 1 gallon (38 L)
+You are finding gallons or liters per minute and the size of the bucket needs to be exact
+Fill the bucket and time it
+Turn on the spigot or faucet and use a watch or timer and count how many seconds it takes to fill up the bucket completely
+Once you get the time mark it down on a piece of paper
+The main water supply can usually be found in your basement crawlspace or next to your water heater
+Sometimes the main water supply will be connected to the outside of your house or located in a covered box near the sidewalk
+Divide 60 by the number of seconds it took to fill up the bucket
+Dividing 60 by the number of seconds it took to fill up your bucket will give you your house’s gallons (liters) per minute or GPM (LPM)
+Most residential houses should maintain a flow of 6 gallons (23 L) per minute
+This will allow larger appliances like a washer machine or shower to operate at a normal water pressure
+For instance if it took 30 seconds to fill up the bucket you'd calculate 6030 = 2 gallons per minute
+Install a water pressure regulator for pressure over 6 GPM
+If your flow rate is higher than 6 GPM it may mean that your water pressure is too high
+Hire a plumber or handyman to install a water pressure regulator to your main water supply to regulate the flow of water
+If your water pressure is too high water may shoot out of the sides and crevices in your pipes or spigots
+Call your landlord or water company for pressure lower than 6 GPM
+If you have under 6 GPM it means that you may have low water pressure
+Low pressure can be caused by blocked pipes leaking pipes or a water supply malfunction
+A water booster can also sometimes be installed into to increase water pressure

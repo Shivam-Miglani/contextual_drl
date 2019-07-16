@@ -1,0 +1,7 @@
+Start internet explorer
+On the tools menu click internet options and then click the connections tab
+Click the appropriate connection and then click settings
+Under automatic configuration click to clear the automatically detect settings check box
+Under proxy server click to select the use a proxy server for this connection (these settings will not apply to other connections) check box
+If do not want to use the proxy server for local (intranet) addresses click to select the bypass proxy server for local addresses check box
+Click ok and then click ok again

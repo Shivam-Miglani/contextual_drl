@@ -1,0 +1,2 @@
+In the printers folder click server properties on the file menu
+Click the ports tab click the com2 port you want to remove click delete port and then click yes

@@ -1,0 +1,2 @@
+Start the magnifier tool
+Click to check the follow mouse cursor check box and then minimize the magnifier tool

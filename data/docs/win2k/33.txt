@@ -1,0 +1,3 @@
+Click start point to programs point to administrative tools and then click local security policy
+Under security settings double-click local policies and then click security options
+Double-Click additional restrictions for anonymous connections and then under local policy setting click not defined or none. rely on default permissions

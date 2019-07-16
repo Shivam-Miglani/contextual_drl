@@ -1,0 +1,3 @@
+Click start point to settings click control panel and then double-click scheduled tasks
+Right-Click the task you want to disable and then click properties
+On the task tab click to clear the enabled (scheduled task runs at specified time) check box and then click ok

@@ -1,0 +1,4 @@
+Right-Click the folder and then click properties
+On the general tab click advanced
+Click to select the for fast searching allow the index service to index this folder check box click ok and then click apply
+When you are prompted to apply these settings click all folders sub-folders and files and then click ok

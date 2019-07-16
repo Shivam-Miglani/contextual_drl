@@ -1,0 +1,5 @@
+Right-Click the my computer icon on your desktop and then click manage
+In the computer management console double-click services and applications and then click services
+In the rightmost window right-click dhcp client and then click properties
+Change startup type to automatic and then click ok
+Right-Click the dhcp client service again and then click start

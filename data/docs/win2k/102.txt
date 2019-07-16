@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click display
+On the appearance tab click scrollbar in the item box
+In the size box next to item decrease the size to a smaller value for example if it is set to 16 the default change it to 10
+Click ok

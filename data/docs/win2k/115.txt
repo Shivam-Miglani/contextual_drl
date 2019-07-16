@@ -1,0 +1,6 @@
+Click start and then click run
+In the open box type regedit and then click ok
+Locate and click the following registry key hkey_current_user \ control panel \ desktop
+In the right pane double-click paintdesktopversion
+Type 1 in the value data box and then click ok
+Click exit on the registry menu

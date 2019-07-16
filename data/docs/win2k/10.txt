@@ -1,0 +1,4 @@
+Click start point to settings click control panel and then double-click power options
+Click the ups tab and then click select
+In the on port box click your com port
+Click finish and then click ok

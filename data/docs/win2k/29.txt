@@ -1,0 +1,7 @@
+Click start point to settings and then click control panel
+Double-Click system
+On the hardware tab click device manager
+In device manager click the plus symbol next to dvd/cd-rom drives and then click your cdrw/dvd drive
+On the action menu click properties
+On the properties tab click to select the enable digital cd audio for this cd-rom device
+Click ok and then restart your computer when you are prompted

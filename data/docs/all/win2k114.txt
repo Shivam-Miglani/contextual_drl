@@ -1,0 +1,5 @@
+Click start
+Point to programs click administration tools and then click computer management
+In computer management click the disk management folder under storage option you may need to click the plus sign (+) beside storage option to display all of the storage options
+Click the drive c: that you want to clean up
+Right-Click the drive c: and then click properties in the properties dialog box click disk cleanup

@@ -1,0 +1,3 @@
+Click start point to search and then click files or folders
+In the files or folders named box type riched20.dll and then click search now
+In the search results list right-click riched20.dll

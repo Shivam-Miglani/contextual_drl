@@ -1,0 +1,3 @@
+Click start point to settings click control panel and then double-click regional options
+Under language settings for the system click to select the japanese check box
+In the your locale (location) list click japanese and then click ok

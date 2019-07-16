@@ -1,0 +1,2 @@
+Click start and then click run
+In the open box type conf.exe and then click ok

@@ -1,0 +1,4 @@
+Start windows explorer
+On the tools menu click folder options
+Click the view tab
+Click to clear the launch folder windows in a separate process check box and then click ok

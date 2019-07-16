@@ -1,0 +1,5 @@
+Double-Click my computer on the desktop
+On the tools menu click folder options
+On the offline files tab click view files
+On the tools menu click synchronize
+Click synchronize when you are prompted to synchronize

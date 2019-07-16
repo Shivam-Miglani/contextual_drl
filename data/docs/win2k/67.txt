@@ -1,0 +1,2 @@
+On the tools menu click folder options
+On the view tab click to clear the hide protected operating system files check box

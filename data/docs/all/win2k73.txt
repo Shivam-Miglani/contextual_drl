@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click sounds and multimedia
+On the audio tab click advanced under sound playback
+In the speaker setup box click the surround sound speakers you want to use and then click ok
+Click ok and then close control panel

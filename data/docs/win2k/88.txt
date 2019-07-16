@@ -1,0 +1,4 @@
+Right-Click my computer on the desktop and then click properties
+On the advanced tab click startup and recovery
+Change the value in the system startup to 10 seconds
+Click ok and then click ok

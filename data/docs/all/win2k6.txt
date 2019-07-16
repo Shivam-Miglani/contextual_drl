@@ -1,0 +1,5 @@
+Start internet explorer
+On the tools menu click internet options
+Click the advanced tab
+Click to clear or select the enable personalized favorites menu check box
+Click ok

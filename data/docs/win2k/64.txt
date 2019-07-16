@@ -1,0 +1,7 @@
+Click start point to settings and then click control panel
+Double-Click system
+On the network identification tab click network id
+In the network identification wizard click next
+Click this computer is for home use and not part of a business network and click next
+Click users must enter a user name and password
+Click next and then click finish

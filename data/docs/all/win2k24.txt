@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click display
+Click the effects tab
+Click to clear the show window contents while dragging check box
+Click ok

@@ -1,0 +1,7 @@
+Click start point to settings and then click control panel
+Double-Click system and then click user profiles
+Click administrator and then click copy to
+In the copy profile to box type the following line %systemroot%\profiles\default user
+Click change
+In the look in box click the name of the current computer
+Click everyone click add and then click ok

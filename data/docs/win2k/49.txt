@@ -1,0 +1,6 @@
+Click start point to settings and then click printers
+Right-Click the hp 1600 cm/ps printer and then click properties
+On the advanced tab click new driver
+Click next
+In the manufacturers box click hp in the models box click 1600 cm/ps
+Click next or finish until the wizard finishes

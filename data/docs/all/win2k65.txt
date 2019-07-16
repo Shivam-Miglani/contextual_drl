@@ -1,0 +1,4 @@
+Double-Click my computer and then double-click dial-up networking
+Right-Click the appropriate dial-up network and then click properties
+Click configure and then click to clear the enable modem error control check box
+Click ok and then click ok

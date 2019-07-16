@@ -1,0 +1,6 @@
+On the desktop right-click my network places and then click properties
+Right-Click the local area connection and then click properties
+Click internet protocol (tcp/ip) and click properties
+Click advanced and then click wins
+If you are using a static internet protocol (ip) address click enable netbios over tcp/ip
+Click ok in the open dialog boxes to close them and to save the new settings

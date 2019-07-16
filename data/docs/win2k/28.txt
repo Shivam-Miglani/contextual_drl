@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click administrative tools and then double-click event viewer
+Right-Click the system log file and then click properties
+Click overwrite as needed or set a larger maximum log file size
+Click ok

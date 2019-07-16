@@ -1,0 +1,4 @@
+Right-Click my computer and then click manage
+Under system tools double-click local users and groups to expand it and then click users
+In the right pane right-click the guest account and then click properties
+Click to clear the account is disabled check box and make sure the password is set to null (blank) click ok

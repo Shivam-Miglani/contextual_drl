@@ -1,0 +1,4 @@
+Start registry editor (regedt32.exe)
+Locate the following key in the registry hkey_local_machine \ system \ currentcontrolset \ services \ afd
+In the right pane of the registry editor window double-click the value start
+Type 2 in the value data box and then click ok

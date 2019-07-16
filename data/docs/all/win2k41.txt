@@ -1,0 +1,5 @@
+Click start point to programs point to administrative tools and then click services
+Right-Click internet connection sharing and then click properties
+Under startup type click disabled
+Under service status click stop
+Click ok

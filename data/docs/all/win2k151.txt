@@ -1,0 +1,3 @@
+Right-Click my network places and then click properties
+Right-Click the cable connection and then click properties
+Click to clear the show icon in taskbar when connected check box and then click ok

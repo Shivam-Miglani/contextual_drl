@@ -1,0 +1,8 @@
+From the start menu point to programs point to accessories and then click windows explorer
+From the tools menu click folder options and go to the view tab
+In the advanced settings area under the hidden files and folders select show hidden files and folders and then click ok
+In the left pane of windows explorer expand my computer
+Click local drive (c:)
+In the right pane find and select autoexec right-click this file
+Click properties from the pop-up menu
+On the general tab clear the hidden attribute and then click ok

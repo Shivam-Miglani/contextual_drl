@@ -1,0 +1,6 @@
+On the desktop right-click my network places and then click properties
+Right-Click the internal adapter and then click properties
+Click internet protocol (tcp/ip) and then click properties
+Click the advanced button
+Click the dns tab and then click to select the register this connection's addresses in dns check box at the bottom of the tab
+Click ok until the network properties dialog box is closed

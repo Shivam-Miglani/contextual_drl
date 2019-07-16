@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click network and dial-up connections
+Click local area connection and then click properties on the file menu
+Click install click service and then click add
+Click file and printer sharing for microsoft networks and then click ok

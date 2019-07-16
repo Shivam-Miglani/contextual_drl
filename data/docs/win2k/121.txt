@@ -1,0 +1,5 @@
+Click start point to settings and then click printers
+Double-Click add printer
+Click next click local printer and then click to clear the automatically detect and install my plug and play printer check box click next
+Click the appropriate port for the printer and then click next
+In the manufacturers box click epson in the printers box click epson stylus color 800 esc/p 2 and then click next

@@ -1,0 +1,4 @@
+On the tools menu in internet explorer click internet options
+On the general tab under temporary internet files click delete files and then click ok on the delete files dialog box
+Click ok to close the internet options dialog box
+Click the refresh button at the top of the browser to ensure that you are viewing the latest version of the current page

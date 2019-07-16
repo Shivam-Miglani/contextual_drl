@@ -1,0 +1,6 @@
+Click start and then click run
+In the open box type regsvr32 /u inseng.dll and then click ok
+When you receive the message that states that dllunregisterserver in inseng.dll succeeded click ok
+Click start and then click run
+In the open box type regsvr32 inseng.dll and then click ok
+When you receive the message that states that dllregisterserver in inseng.dll succeeded click ok

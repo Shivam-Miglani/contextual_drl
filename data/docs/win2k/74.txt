@@ -1,0 +1,4 @@
+Click start point to settings and then click control panel
+Double-Click administrative tools then double-click event viewer
+Click to expand event viewer if it is not already expanded
+Click application

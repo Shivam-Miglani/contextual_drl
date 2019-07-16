@@ -1,0 +1,7 @@
+In control panel double-click phone and modem options
+Click modems and then click add
+Click to select the don't detect my modem; i will select it from a list check box and then click next
+In the manufacturers list click boca research
+In the models list click boca 33.6 kbps internal fd34fsvd and then click next
+Click the com port where you want to install the modem and then click next
+Click finish

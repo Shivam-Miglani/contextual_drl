@@ -1,0 +1,8 @@
+Click start and then click run
+In the open box type regedit and then click ok
+In registry editor expand the following registry subkey hkey_local_machine \ system \ currentcontrolset \ control \ session manager
+Click export registry file on the registry menu
+In the file name box type session manager key and then click save
+In the right pane of the registry editor window right-click resourcetimeoutcount and then on the shortcut menu that appears click delete
+On the confirm value delete message that appears click yes
+Click exit on the registry menu

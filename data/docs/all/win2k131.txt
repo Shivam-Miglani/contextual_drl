@@ -1,0 +1,4 @@
+Click start point to all programs point to accessories point to communications and then click remote desktop connection
+Click options and on the general tab click open and locate the default.rdp file for your connection if you want to open a saved connection click open
+C:10: u:12 p:-1
+- left click (131596-0-l-2) [Item] Default.rdp

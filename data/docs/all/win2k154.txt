@@ -1,0 +1,2 @@
+Double-Click the sounds and multimedia in the control panel
+On the sounds tab under sound volume click to clear the show volume control on the taskbar check box and then click ok

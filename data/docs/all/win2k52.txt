@@ -1,0 +1,4 @@
+Click tools and then choose internet options
+Click the advanced tab
+Click to select the show pictures check box
+Click ok

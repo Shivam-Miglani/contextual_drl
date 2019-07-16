@@ -1,0 +1,3 @@
+Right-Click my network places and then click properties
+Select the internal adapter that contains the sap agent that is local area connection and then click properties
+Select sap agent and then click uninstall

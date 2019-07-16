@@ -1,0 +1,4 @@
+Click start point to settings click control panel and then double-click system
+Click the hardware tab and then click device manager
+Double-Click the modems branch to expand it right-click 56000 bps v90 modem click properties and then click the modem tab
+Change the maximum port speed to 115200 and then click ok

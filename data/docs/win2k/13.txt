@@ -1,0 +1,5 @@
+Start internet explorer
+On the tools menu click internet options
+On the general tab click accessibility
+Click to select the ignore font sizes specified on web pages check box
+Click ok twice

@@ -1,0 +1,3 @@
+Double-Click user configuration and then double-click administrative templates
+Double-Click system and then double-click group policy
+Double-Click automatic updates to .adm files and click enabled

@@ -1,0 +1,4 @@
+Click start point to settings and then click control panel
+Double-Click system
+On the advanced tab click startup and recovery
+Click to clear the automatically reboot check box and then click ok

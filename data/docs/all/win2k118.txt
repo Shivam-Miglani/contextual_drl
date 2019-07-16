@@ -1,0 +1,7 @@
+Click start point to settings and then click network and dial-up connections
+Right-Click the icon for your isp and then click properties
+Click the networking tab click internet protocol (tcp/ip) and then click properties
+Click advanced and then click the options tab
+Click ip security and then click properties
+In the use this ip security policy box click client (respond only) or do not use ipsec
+Click ok or close until all dialog boxes are closed

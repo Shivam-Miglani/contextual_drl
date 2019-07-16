@@ -1,0 +1,5 @@
+Click start click settings and then click control panel
+Double-Click phone and modem options
+Click the modems tab
+In the the following modems are installed list click the modem that you want to remove and then click remove
+Click yes in response to the are you sure you want to remove the selected modem(s) from your system message

@@ -1,0 +1,6 @@
+Click start point to programs point to administrative tools and then click computer management
+Click device manager
+Expand the modem branch right-click your modem and then click properties
+Click the advanced tab
+Click change default preferences
+Configure the modem settings that you want to use click ok and then click ok

@@ -1,0 +1,8 @@
+Double-Click the root ca certificate
+Click install certificate to start the certificate import wizard
+Click next
+Click place all certificates in the following store and then click browse
+Click to select the show physical stores check box
+Expand trusted root certification authorities and then select local computer
+Click ok
+Click next and then click finish

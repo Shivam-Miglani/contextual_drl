@@ -1,0 +1,7 @@
+Start windows explorer
+On the tools menu click folder options
+Click the file types tab
+In the registered file types box click the htm extension and then click advanced
+In the actions box click print and then click edit
+Replace the entry in the application used to perform action box with the following line type it as shown rundll32.exe c:\winnt\system32\mshtml.dll printhtml "%1"
+Click ok click ok and then click ok

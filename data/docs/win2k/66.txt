@@ -1,0 +1,6 @@
+Click start and then click control panel or point to settings and then click control panel
+Double-Click administrative tools
+Double-Click services
+Double-Click messenger
+In the startup type list click disabled
+Click stop and then click ok

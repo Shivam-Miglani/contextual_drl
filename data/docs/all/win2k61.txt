@@ -1,0 +1,3 @@
+Open control panel and then click power options
+Click the power schemes tab
+Under power schemes click always on

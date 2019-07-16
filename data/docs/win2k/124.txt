@@ -1,0 +1,2 @@
+Right-Click local computer policy and click properties
+Click to clear the disable user configuration settings and disable computer configuration settings check boxes

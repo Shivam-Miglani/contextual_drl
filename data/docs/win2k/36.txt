@@ -1,0 +1,5 @@
+Click start point to settings and then click network and dial-up connections
+Right-Click the appropriate dial-up network and then click properties
+Click the networking tab and then click settings
+Click to clear the negotiate multi-link for single link connections check box if it is selected
+Click ok and then click ok

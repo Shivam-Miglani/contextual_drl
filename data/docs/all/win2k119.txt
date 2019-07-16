@@ -1,0 +1,7 @@
+Click start point to settings and then click network and dial-up connections
+Right-Click the connection you want to use to connect to the isp and then click properties
+Click the networking tab
+Click settings
+Click to clear the negotiate multi-link for single link connections check box
+Click ok
+Click ok

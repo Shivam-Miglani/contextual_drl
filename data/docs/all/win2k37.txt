@@ -1,0 +1,5 @@
+Click start click run type services.msc in the open box and then click ok
+In the list of services double-click tcp/ip netbios helper service
+In the startup type list click automatic and then click apply
+Under service status click start to start the tcp/ip netbios helper service
+When the service is started click ok and then quit the services snap-in

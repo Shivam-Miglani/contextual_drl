@@ -1,0 +1,5 @@
+Click start right-click my computer and then click manage
+In the console pane click device manager
+On the view menu click show hidden devices
+In the details pane expand network adapters
+Right-Click direct parallel and then click disable

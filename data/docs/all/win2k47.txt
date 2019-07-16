@@ -1,0 +1,5 @@
+Click start point to settings and the click printers
+In the printers dialog box right-click your printer and then click properties
+On the advanced tab click print processor
+In the default datatype list click raw and then click ok
+Click ok to close the printer properties dialog box

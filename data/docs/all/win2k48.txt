@@ -1,0 +1,4 @@
+Click start point to settings click control panel and then double-click network and dial-up connections
+Right-Click local area connection and then click properties
+Click install click service in the select network component type box and then click add
+Click sap agent and then click ok

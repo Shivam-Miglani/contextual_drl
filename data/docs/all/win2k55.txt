@@ -1,0 +1,3 @@
+On the tools menu in internet explorer click internet options
+Click the advanced tab
+Click to clear the do not save encrypted pages to disk check box and then click ok

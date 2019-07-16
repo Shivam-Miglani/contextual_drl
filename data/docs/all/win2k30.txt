@@ -1,0 +1,7 @@
+Click start point to settings and then click network and dial-up connections
+Right-Click the dial-up adapter and then click properties
+Click the networking tab
+In the type of dial-up server i am calling box click ppp: windows 95/98/nt/2000 internet
+Click settings
+Click to clear the negotiate multi-link for single link connections check box
+Click ok and then click ok

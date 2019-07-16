@@ -1,0 +1,5 @@
+In control panel double-click system click hardware and then click device manager
+Expand ide ata/atapi controllers right-click pci bus master ide controller and then click properties
+Click driver and then click update driver
+Click next click display a list of known drivers for this device so that i can choose a specific driver and then click next
+Click show all hardware for this device class click standard ide ata/atapi controllers in the manufacturers list and then click standard ide/esdi hard disk controllers in the models list

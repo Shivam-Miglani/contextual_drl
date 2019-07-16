@@ -1,0 +1,5 @@
+Double-Click my computer
+On the tools menu click folder options
+Click the file types tab
+Under registered file types click to select doc microsoft word document or xls microsoft excel worksheet and then click advanced
+Click to clear the confirm open after download check box and then click ok

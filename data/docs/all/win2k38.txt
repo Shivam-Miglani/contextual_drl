@@ -1,0 +1,4 @@
+Click start point to settings and then click printers
+Click the paintjet printer and then click properties on the file menu
+Click the device settings tab
+Click send ctrl-d after each job and then click no in the list box

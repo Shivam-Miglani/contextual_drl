@@ -1,0 +1,3 @@
+Click start point to settings click control panel and then double-click regional options
+On the general tab click to select the cyrillic check box under language settings for the system and then click ok
+You are then prompted to copy files click ok

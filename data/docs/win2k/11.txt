@@ -1,0 +1,3 @@
+Start internet explorer
+On the view menu click toolbars and then click customize
+In the customize toolbar dialog box click the down arrow in the icon options box click large icons and then click close

@@ -1,0 +1,4 @@
+Click start click run and then type dcomcnfg in the open box
+Click ok and click the default properties tab
+Click identify in the default impersonation level box
+Click apply or ok

@@ -1,0 +1,4 @@
+Click start point to settings and then click control panel
+Double-Click administrative tools and then click services
+Right-Click netmeeting remote desktop sharing and then click properties
+In the startup type box click disabled and then click ok

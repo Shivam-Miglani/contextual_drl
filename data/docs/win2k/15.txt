@@ -1,0 +1,5 @@
+Right-Click my computer and then click manage
+Double-Click system tools
+Double-Click local users and groups
+Double-Click users
+On the action menu click new user

@@ -1,0 +1,7 @@
+Click start point to settings and then click network and dial-up connection
+Right-Click local area connection and then click properties
+Click internet protocol (tcp/ip) and then click properties
+Click advanced and then click the wins tab
+Click enable netbios over tcp/ip
+Click ok you can disregard the empty primary wins address notification
+Click ok and then click ok

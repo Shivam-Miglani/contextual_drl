@@ -1,0 +1,2 @@
+On the tools menu click internet options and then click the advanced tab
+In the settings box under printing click to select the print background colors and images check box and then click ok

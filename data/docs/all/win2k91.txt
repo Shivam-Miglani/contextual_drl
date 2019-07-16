@@ -1,0 +1,6 @@
+Click start point to settings and then click control panel
+Double-Click phone and modem options
+Click the modems tab
+Click your modem and then click properties
+Click the diagnostics tab
+Click query modem

@@ -1,0 +1,4 @@
+Click start click run type regedit in the open box and then click ok
+In registry editor locate and then click the following subkey hkey_local_machine \ system \ currentcontrolset \ services \ tcpip \ parameters
+In the right pane right-click enableicmpredirect or enableicmpredirects and then click modify
+In the edit dword value dialog box type 1 in the value data box and then click ok

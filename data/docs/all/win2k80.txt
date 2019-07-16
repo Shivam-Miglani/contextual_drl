@@ -1,0 +1,4 @@
+On the desktop right-click my network places and then click properties
+Right-Click local area connection and then click properties
+In the components checked are used by this connection list double-click internet protocol (tcp/ip) click advanced and then click the wins tab
+Click use netbios setting from the dhcp server and then click ok three times

@@ -1,0 +1,6 @@
+Click start point to settings and then click control panel
+Double-Click folder options
+Click the file types tab
+Scroll down to and click the .zip extension
+Click advanced
+Verify that confirm open after download is selected

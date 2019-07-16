@@ -1,0 +1,2 @@
+Click start click run in the open box type dcomcnfg and then click ok
+On the default properties tab click any setting other than anonymous in the default impersonation level box the default setting is identify

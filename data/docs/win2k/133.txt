@@ -1,0 +1,9 @@
+Click start select settings click control panel click printers and other hardware and then click printers and faxes
+Click add a printer to start the add printer wizard and then click next
+Click local printer click to clear the automatically detect and install check box and then click next
+In the use the following port box select the printer port to be used for example select lpt1
+Click next and then click have disk
+In the copy manufacturer's files from box type c:\path\printers\nt4\i386 where path is the path of your windows nt 4.0 cd
+Click browse and then click the hplj6.inf file
+Click open and then click ok
+In the manufacturers list click hp and then in the printers list click hp laserjet 4si click next

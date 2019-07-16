@@ -1,0 +1,3 @@
+Click start point to settings and then click network and dial-up connections
+Click local area connection and then click properties on the file menu click install
+Click clients click add click client for microsoft networks and then click ok

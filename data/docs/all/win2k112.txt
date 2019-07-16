@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+Double-Click administrative tools
+Double-Click computer management
+Double-Click the services and applications branch to expand it and then click services
+Click performance logs and alerts click action and then click start

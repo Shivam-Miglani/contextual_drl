@@ -1,0 +1,4 @@
+Click start click run in the open box type compmgmt.msc and then click ok
+In the computer management window expand system tools expand users and groups and then click the users folder
+In the right pane of the computer management window right-click the user whose user rights you want to verify and then click properties
+On the member of tab verify that administrators is listed in the member of box

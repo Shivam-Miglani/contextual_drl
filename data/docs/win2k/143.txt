@@ -1,0 +1,5 @@
+Start the network and dial-up connection tool in control panel
+Right-Click the local area connection and then click properties
+Click internet protocol and then click properties
+Click advanced and then click the dns tab
+Click to select the use this connection's dns suffix in dns registrations check box

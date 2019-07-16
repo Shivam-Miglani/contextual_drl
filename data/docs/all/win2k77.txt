@@ -1,0 +1,3 @@
+Click start point to settings click control panel and then double-click system
+Click the hardware tab and then click device manager
+Right-Click modems and then click scan for hardware changes

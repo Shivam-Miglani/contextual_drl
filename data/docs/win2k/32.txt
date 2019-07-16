@@ -1,0 +1,6 @@
+Click start click run in the open box type secpol.msc and then click ok
+Double-Click local policies
+Double-Click user rights assignment
+Double-Click back up files and directories
+Click add and then double-click the administrators group
+Click ok

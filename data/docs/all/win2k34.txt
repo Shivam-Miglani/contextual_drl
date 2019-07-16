@@ -1,0 +1,5 @@
+Right-Click start and then click explore
+On the tools menu click folder options
+Click the view tab and then in the advanced settings list under files and folders do the following
+Under hidden files and folders click show hidden files and folders
+Click to clear the hide file extensions for known file types check box

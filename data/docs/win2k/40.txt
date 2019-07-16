@@ -1,0 +1,6 @@
+Click start and then point to settings
+Click network and dial-up connections
+Double-Click the applicable local area connection and then click properties
+In the components pane click internet protocol (tcp/ip) and then click properties
+Click advanced click the wins tab and then click enable netbios over tcp/ip
+Click ok to close all the dialog boxes

@@ -1,0 +1,5 @@
+Click start point to settings and then click control panel
+In control panel double-click internet options
+In the internet properties dialog box click the programs tab
+Under internet programs in the e-mail list click eudora
+Click apply and then click ok

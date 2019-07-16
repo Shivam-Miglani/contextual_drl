@@ -1,0 +1,6 @@
+Right-Click my network places and then click properties
+Right-Click the network adapter that is connected to the network that the computers running windows 95/windows 98 are using usually local area connection and then click properties
+Click internet protocol (tcp/ip) and then click properties
+Click the advanced button
+On the wins tab click enable netbios over tcp/ip and then click ok
+Click ok and then click ok

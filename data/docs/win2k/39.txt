@@ -1,0 +1,5 @@
+Right-Click my network places and then click properties
+Right-Click the local area connection icon and then click properties
+Click install click client and then click add
+In the network client box click client for microsoft networks and then click ok
+In the local area connections properties window click ok

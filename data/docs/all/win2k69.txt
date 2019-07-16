@@ -1,0 +1,2 @@
+Click start point to programs point to administrative tools and then click services
+Right-Click the print spooler service and then click start

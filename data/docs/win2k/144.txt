@@ -1,0 +1,3 @@
+In windows explorer click folder options on the tools menu
+On the view tab click show hidden files and folders
+Click to clear the hide protected operating system files check box and then click ok

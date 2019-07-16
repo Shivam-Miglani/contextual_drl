@@ -1,0 +1,7 @@
+Right-Click my network places on the desktop and then click properties
+Right-Click the icon for the local area connection and then click properties
+On the networking tab click the internet protocol (tcp/ip) entry under components checked are used by this connection and then click properties
+Click advanced
+Click the dns tab
+Click to clear the register this connection's address in dns check box
+Click ok

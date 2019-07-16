@@ -1,0 +1,5 @@
+Right-Click my computer and then click manage
+Open services and applications
+Click services
+Right-Click performance logs and alerts then click properties
+Click the log on tab and then click this account
