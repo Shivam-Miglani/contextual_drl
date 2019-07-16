@@ -27,7 +27,7 @@ class DeepQLearner:
             self.emb_dim = args.word_dim + args.tag_dim #Embedding dim = 100
             self.NAME = "action_DQN-{}".format(int(time.time()))
         elif agent_mode == 'arg':
-            self.num_words = args.context_len #100
+            self.num_words = 128 #100
             self.emb_dim = args.word_dim + args.dis_dim + args.tag_dim #Embedding dim = 150
 
         # filter_width = self.emb_dim - 1  # filter width = 99 or 149 Why??

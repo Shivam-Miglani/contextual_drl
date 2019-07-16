@@ -27,7 +27,7 @@ class Environment:
         self.max_data_char_len = 0
         self.max_data_sent_len = 0
         self.agent_mode = agent_mode  # args.agent_mode
-        # self.context_len = args.context_len  # 100
+        self.context_len = 128 # 100
 
 
         # read the sentences!!!

@@ -221,7 +221,7 @@ def main(args):
             outfile.write('\nAvg f1: {}  Avg reward: {}\n'.format(avg_f1, avg_rw))
             print('\nAvg f1: {}  Avg reward: {}\n'.format(avg_f1, avg_rw))
 
-            tf.reset_default_graph()
+            tf.compat.v1.reset_default_graph()
         end = time.time()
         print('Total time cost: %ds' % (end - start))
         print('Current time is: %s\n' % get_time())
