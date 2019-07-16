@@ -98,7 +98,7 @@ def args_init(args):
             WordEmbeddings('glove'),
             BertEmbeddings('bert-base-uncased')
         ])
-        args.batch_size = 8
+        args.batch_size = 4
 
     elif args.contextual_embedding == 'flair': #glove + flair-forward + flair-backward
         args.word_dim = args.tag_dim = args.dis_dim = 4196
@@ -107,7 +107,7 @@ def args_init(args):
             FlairEmbeddings('news-forward', chars_per_chunk=128),
             FlairEmbeddings('news-backward', chars_per_chunk=128)
         ])
-        args.batch_size = 6
+        args.batch_size = 4
         args.replay_size = 30000
 
     elif args.contextual_embedding == 'glove': # not tested
