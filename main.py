@@ -123,6 +123,7 @@ def args_init(args):
     # agent mode arguments, set number of words to 100
     if args.agent_mode == 'arg':
         args.num_words = 128
+        args.display_training_result = 0
 
     args.result_dir = 'results/%s_%s_%s' % (args.domain, args.agent_mode, args.contextual_embedding)
 
