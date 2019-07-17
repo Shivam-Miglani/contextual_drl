@@ -1,0 +1,87 @@
+
+ Arguments:
+action_rate: 0.1
+agent_mode: act
+batch_size: 32
+contextual_embedding: elmo
+dense_dim: 256
+dis_dim: 868
+display_training_result: 1
+domain: wikihow
+dropout: 0.5
+epochs: 1
+exploration_decay_steps: 1000
+exploration_rate_end: 0.1
+exploration_rate_start: 1
+exploration_rate_test: 0.0
+filter_act_ind: 1
+gamma: 0.9
+gui_mode: False
+learning_rate: 0.001
+load_replay: 0
+load_weights: False
+model_dim: 50
+num_actions: 2
+num_filters: 32
+num_words: 512
+object_rate: 0.07
+optimizer: adam
+positive_rate: 0.9
+priority: 1
+random_play: 0
+replay_size: 50000
+result_dir: results/wikihow_act_elmo
+reward_assign: [1, 2, 3]
+reward_base: 50.0
+save_replay: 0
+save_replay_name: data/saved_replay_memory.pkl
+save_replay_size: 1000
+save_weights: True
+stacked_embeddings: StackedEmbeddings [/home/nfs/smiglani/.flair/embeddings/glove.gensim,elmo-small]
+start_epoch: 0
+stop_epoch_gap: 5
+tag_dim: 868
+target_steps: 5
+test_steps: 15360
+train_episodes: 50
+train_frequency: 1
+train_repeat: 1
+train_steps: 49152
+use_act_rate: 1
+valid_steps: 12288
+word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7fa0f935ecf8>
+word_dim: 868
+
+
+
+Summary:
+total_ecs: 36	 right_ecs: 17	 tagged_ecs: 40
+total_act: 713	 right_act: 587	 tagged_act: 771
+acc: 0.968762	 rec: 0.823282	 pre: 0.761349	 f1: 0.791105
+
+cumulative reward: 510266.473434	 average reward: 49.656138
+
+
+ Best f1 value: {'rec': [0.0, 0.82328190743338], 'pre': [0.0, 0.7613488975356679], 'f1': [0.0, 0.7911051212938005], 'rw': [0.0, 49.65613793640018]}  best epoch: 0
+
+
+Summary:
+total_ecs: 36	 right_ecs: 18	 tagged_ecs: 43
+total_act: 714	 right_act: 593	 tagged_act: 783
+acc: 0.969054	 rec: 0.830532	 pre: 0.757344	 f1: 0.792251
+
+cumulative reward: 511261.904381	 average reward: 49.753007
+
+
+ Best f1 value: {'rec': [0.0, 0.82328190743338, 0.8305322128851541], 'pre': [0.0, 0.7613488975356679, 0.7573435504469987], 'f1': [0.0, 0.7911051212938005, 0.792251169004676], 'rw': [0.0, 49.65613793640018, 49.75300743293094]}  best epoch: 0
+
+
+ training process:
+{'rec': [0.0, 0.82328190743338, 0.8305322128851541], 'pre': [0.0, 0.7613488975356679, 0.7573435504469987], 'f1': [0.0, 0.7911051212938005, 0.792251169004676], 'rw': [0.0, 49.65613793640018, 49.75300743293094]}
+
+rec: [0.8305322128851541]
+pre: [0.7573435504469987]
+f1: [0.792251169004676]
+rw: [49.75300743293094]
+
+Avg f1: 0.792251169004676  Avg reward: 49.75300743293094
