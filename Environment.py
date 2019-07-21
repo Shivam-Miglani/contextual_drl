@@ -78,16 +78,25 @@ class Environment:
                             # ipdb.set_trace()
                             sent_vec = []
 
-                            # Stacked embeddings
-                            line = ' '.join(words)
-                            sent = Sentence(line)
-                            args.stacked_embeddings.embed(sent)
-                            for token in sent:
-                                sent_vec.append(token.embedding.numpy())
+                            if args.stacked_embeddings == 'word2vec':
+                                for w in arg_sent['tokens']:
+                                    if len(w) > self.max_data_char_len:
+                                        self.max_data_char_len = len(w)
+                                    if w in self.word2vec.vocab:
+                                        sent_vec.append(self.word2vec[w])
+                                    else:
+                                        sent_vec.append(np.zeros(self.word_dim))
+                            else:
+                                # Stacked embeddings
+                                line = ' '.join(words)
+                                sent = Sentence(line)
+                                args.stacked_embeddings.embed(sent)
+                                for token in sent:
+                                    sent_vec.append(token.embedding.numpy())
 
-                            for w in arg_sent['tokens']:
-                                if len(w) > self.max_data_char_len:
-                                    self.max_data_char_len = len(w)
+                                for w in arg_sent['tokens']:
+                                    if len(w) > self.max_data_char_len:
+                                        self.max_data_char_len = len(w)
 
                             sent_vec = np.array(sent_vec)
                             pad_len = self.num_words - len(sent_vec)
@@ -183,25 +192,36 @@ class Environment:
                     # Creating matrix
                     doc_vec = []
 
-                    # doing Flair embeddings
-                    for sent in tqdm(act_text['sents']):
-                        line = ' '.join(sent)
-                        sentence = Sentence(line)
-                        args.stacked_embeddings.embed(sentence)
-                        for token in sentence:
-                            # print(token.embedding.shape)  # 4196
+                    if args.stacked_embeddings != 'word2vec':
+                        # doing Flair embeddings
+                        for sent in tqdm(act_text['sents']):
+                            line = ' '.join(sent)
+                            sentence = Sentence(line)
+                            args.stacked_embeddings.embed(sentence)
+                            for token in sentence:
+                                # print(token.embedding.shape)  # 4196
 
-                            doc_vec.append(token.embedding.numpy())
+                                doc_vec.append(token.embedding.numpy())
 
 
-                    #initialize word2vec or zeroes
-                    for word in act_text['tokens']:
-                        if len(word) > self.max_data_char_len:
-                            self.max_data_char_len = len(word) #max_data_char_len shows longest word.
-                        # if word in self.word2vec.vocab:
-                        #     doc_vec.append(self.word2vec[word])
-                        # else:
-                        #     doc_vec.append(np.zeros(self.word_dim))
+                        #initialize word2vec or zeroes
+                        for word in act_text['tokens']:
+                            if len(word) > self.max_data_char_len:
+                                self.max_data_char_len = len(word) #max_data_char_len shows longest word.
+                            # if word in self.word2vec.vocab:
+                            #     doc_vec.append(self.word2vec[word])
+                            # else:
+                            #     doc_vec.append(np.zeros(self.word_dim))
+
+                    elif args.stacked_embeddings == 'word2vec':
+                        # initialize word2vec or zeroes
+                        for word in act_text['tokens']:
+                            if len(word) > self.max_data_char_len:
+                                self.max_data_char_len = len(word)  # max_data_char_len shows longest word.
+                            if word in self.word2vec.vocab:
+                                doc_vec.append(self.word2vec[word])
+                            else:
+                                doc_vec.append(np.zeros(self.word_dim))
 
 
 
@@ -406,23 +426,24 @@ class Environment:
 
         sent_vec = np.zeros([self.num_words, self.word_dim + 1])  # 512 x (968 + 1) ------ 1 for tag
 
-        # for i, w in enumerate(text['tokens']):
-        #     if i >= self.num_words:
-        #         break
-            # if w in self.word2vec.vocab:
-            #     sent_vec[i][: self.word_dim] = self.word2vec[w]
+        if self.stacked_embeddings == 'word2vec':
+            for i, w in enumerate(text['tokens']):
+                if i >= self.num_words:
+                    break
+                if w in self.word2vec.vocab:
+                    sent_vec[i][: self.word_dim] = self.word2vec[w]
 
-
-        word_count = 0
-        for sent in tqdm(text['sents']):
-            line = ' '.join(sent)
-            sentence = Sentence(line)
-            self.stacked_embeddings.embed(sentence)
-            for token in sentence:
-                print(token)
-                # print(token.embedding.shape)  # 868 for elmo
-                sent_vec[word_count][:self.word_dim] = token.embedding.numpy()
-                word_count += 1
+        else:
+            word_count = 0
+            for sent in tqdm(text['sents']):
+                line = ' '.join(sent)
+                sentence = Sentence(line)
+                self.stacked_embeddings.embed(sentence)
+                for token in sentence:
+                    print(token)
+                    # print(token.embedding.shape)  # 868 for elmo
+                    sent_vec[word_count][:self.word_dim] = token.embedding.numpy()
+                    word_count += 1
 
         self.state = sent_vec
         self.terminal_flag = False
@@ -456,21 +477,32 @@ class Environment:
         distance = np.abs(np.arange(sent_len) - position)
         # sent_vec = np.zeros([self.context_len, self.word_dim + self.dis_dim + self.tag_dim])
         sent_vec = np.zeros([self.context_len, self.word_dim + self.dis_dim + 1])  # 100x101
-        for i, w in enumerate(words):
-            if i >= self.context_len:
-                break
-            # if w in self.word2vec.vocab:
-            #     sent_vec[i][: self.word_dim] = self.word2vec[w]
-            # sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
 
-        #stacked embeddings
-        full_sent = ' '.join(words)
-        full_sent = Sentence(full_sent)
-        self.stacked_embeddings.embed(full_sent)
+        if self.stacked_embeddings == 'word2vec':
+            for i, w in enumerate(words):
+                if i >= self.context_len:
+                    break
+                if w in self.word2vec.vocab:
+                    sent_vec[i][: self.word_dim] = self.word2vec[w]
+                sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
 
-        for i, token in enumerate(full_sent):
-            sent_vec[i][:self.word_dim] = token.embedding.numpy()
-            sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
+        else:
+
+            for i, w in enumerate(words):
+                if i >= self.context_len:
+                    break
+                # if w in self.word2vec.vocab:
+                #     sent_vec[i][: self.word_dim] = self.word2vec[w]
+                # sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
+
+            #stacked embeddings
+            full_sent = ' '.join(words)
+            full_sent = Sentence(full_sent)
+            self.stacked_embeddings.embed(full_sent)
+
+            for i, token in enumerate(full_sent):
+                sent_vec[i][:self.word_dim] = token.embedding.numpy()
+                sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
         self.state = sent_vec
         self.current_text = {'tokens': words, 'word2sent': word2sent, 'distance': distance}
         return last_sent, this_sent

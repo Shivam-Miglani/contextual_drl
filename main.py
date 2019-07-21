@@ -2,7 +2,6 @@
 import time
 import argparse
 import tensorflow as tf
-tf.compat.v1.set_random_seed(0)
 from utils import get_time, plot_results
 from Agent import Agent
 from EADQN import DeepQLearner
@@ -81,8 +80,9 @@ def args_init(args):
     args.word2vec = KeyedVectors.load_word2vec_format('data/mymodel-new-5-%d' % args.model_dim, binary=True)
 
     # initialize contextual embedding dimensions
-    if args.contextual_embedding == 'word2vec': #TODO: need code changes to make this work. For now use Feng's EASDRL for word2vec results.
+    if args.contextual_embedding == 'word2vec':
         args.word_dim = args.tag_dim = args.dis_dim = 50
+        args.stacked_embeddings = 'word2vec'
     elif args.contextual_embedding == 'elmo': #glove + elmo
         args.word_dim = args.tag_dim = args.dis_dim = 868
         ## stacked embeddings
