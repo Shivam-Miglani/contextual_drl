@@ -97,6 +97,14 @@ class DeepQLearner:
         # expand components of minibatch
         prestates, actions, rewards, poststates, terminals = minibatch
 
+        pre_tags = prestates[:, :, -1].astype('int32').reshape(self.batch_size, self.num_words, 1)
+        repeat_pre_tags = np.repeat(pre_tags, self.tag_dim, axis=-1)
+        prestates = np.concatenate([prestates[:, :, :-1], repeat_pre_tags], axis=2)
+
+        post_tags = poststates[:, :, -1].astype('int32').reshape(self.batch_size, self.num_words, 1)
+        repeat_post_tags = np.repeat(post_tags, self.tag_dim, axis=-1)
+        poststates = np.concatenate([poststates[:, :, :-1], repeat_post_tags], axis=2)
+
         if self.data_format == 'channels_last':
             post_input = poststates[:, :, :,
                          np.newaxis]  # np.reshape(poststates, [-1, self.num_words, self.emb_dim, 1])
