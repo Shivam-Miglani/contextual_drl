@@ -108,7 +108,7 @@ def args_init(args):
             FlairEmbeddings('news-forward', chars_per_chunk=128),
             FlairEmbeddings('news-backward', chars_per_chunk=128)
         ])
-        args.batch_size = 4
+        args.batch_size = 2
         args.replay_size = 30000
 
     elif args.contextual_embedding == 'glove': # not tested
