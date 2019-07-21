@@ -256,7 +256,7 @@ class Environment:
                 self.train_data, self.validation_data = train_test_split(self.train_data, test_size=0.2, random_state=1)
 
                 self.train_steps = len(self.train_data) * self.num_words # length of train data * 500
-                self.validation_steps = len(self.validation_data) * self.num_words #length of validation data * 500 -- Why a step includes multiplication with num_words??? Probably because each training and val example contains 500 words.
+                self.validation_steps = len(self.validation_data) * self.num_words #length of validation data * 500 -- Why a step includes multiplication with num_words?  because each training and val example contains 500 words.
                 self.test_steps = len(self.test_data) * self.num_words
 
                 self.num_train = len(self.train_data)
