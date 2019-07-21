@@ -76,7 +76,7 @@ def EASDRL_init(args, sess):
     args.gui_mode = True
     args.fold_id = 0
     args.domain = 'cooking'
-    args.contextual_embedding = 'elmo'
+    args.contextual_embedding = 'bert'
     args.replay_size = 1000
     args.load_weights = True
     args = args_init(args)
@@ -85,9 +85,9 @@ def EASDRL_init(args, sess):
 
     if args.load_weights:
         print('Loading weights ...')
-        filename = 'weights/%s_act_elmo.h5' % (args.domain)
+        filename = 'weights/%s_act_%s.h5' % (args.domain, args.contextual_embedding)
         agent.net_act.load_weights(filename)
-        filename = 'weights/%s_arg_elmo.h5' % (args.domain)
+        filename = 'weights/%s_arg_%s.h5' % (args.domain, args.contextual_embedding)
         agent.net_arg.load_weights(filename)
 
     return agent

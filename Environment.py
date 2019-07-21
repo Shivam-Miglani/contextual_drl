@@ -393,7 +393,7 @@ class Environment:
         '''
         return self.terminal_flag
 
-# ==================================== GUI MODE functions
+# ==================================== GUI MODE functions/Driver Mode functions
     def init_predict_act_text(self, raw_text):
         text = {'tokens': [], 'sents': [], 'word2sent': {}}
         for s in raw_text:
@@ -420,15 +420,11 @@ class Environment:
             self.stacked_embeddings.embed(sentence)
             for token in sentence:
                 print(token)
-                # print(token.embedding)
-                # print(token.embedding.shape)  # 868
+                # print(token.embedding.shape)  # 868 for elmo
                 sent_vec[word_count][:self.word_dim] = token.embedding.numpy()
-                # print(sent_vec[word_count][:self.word_dim])
                 word_count += 1
 
         self.state = sent_vec
-        print("sent_vec_shape:")
-        print(sent_vec.shape)
         self.terminal_flag = False
         self.current_text = text
 
@@ -467,21 +463,14 @@ class Environment:
             #     sent_vec[i][: self.word_dim] = self.word2vec[w]
             # sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
 
-        ## stacked embeddings
-        # create a StackedEmbedding object that combines glove and forward/backward flair embeddings
-        word_count = 0
-
-
+        #stacked embeddings
         full_sent = ' '.join(words)
         full_sent = Sentence(full_sent)
         self.stacked_embeddings.embed(full_sent)
 
-        for token in full_sent:
-            # print(token)
-            # print(word_count)
-            sent_vec[word_count][:self.word_dim] = token.embedding.numpy()
-            sent_vec[word_count][self.word_dim: self.word_dim + self.dis_dim] = distance[word_count]
-            word_count += 1
+        for i, token in enumerate(full_sent):
+            sent_vec[i][:self.word_dim] = token.embedding.numpy()
+            sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
         self.state = sent_vec
         self.current_text = {'tokens': words, 'word2sent': word2sent, 'distance': distance}
         return last_sent, this_sent
@@ -494,5 +483,6 @@ class Environment:
         self.state[word_ind, -1] = action + 1
         # print(self.state[word_ind, self.word_dim: self.word_dim + self.dis_dim]) #distance
         # self.state[word_ind, -self.tag_dim:] = action + 1 #from 868 from last to end change it
+        # print(self.state.shape)
         if word_ind + 1 >= len(self.current_text['tokens']):
             self.terminal_flag = True

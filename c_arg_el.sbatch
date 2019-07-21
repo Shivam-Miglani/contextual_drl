@@ -33,4 +33,4 @@ module load cuda/10.0 cudnn/10.0-7.4.2.24
 
 # Complex or heavy commands should be started with 'srun' (see 'man srun' for more information)
 # (This is just an example, srun is of course not necessary for this command.)
-srun --output='cooking-arg-el.out' python main.py --domain cooking --contextual_embedding 'elmo' --agent_mode 'arg' --epochs 3
+srun --output='cooking-arg-el.out' python main.py --domain cooking --contextual_embedding 'elmo' --agent_mode 'arg' --epochs 1
