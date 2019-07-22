@@ -274,7 +274,7 @@ class Environment:
             args.test_steps = self.test_steps
 
 
-    def restart(self, train_flag, init=False):
+    def restart(self, train_flag, init=False, test_flag=False):
         if train_flag:
             if init:
                 self.train_text_ind = -1
@@ -286,6 +286,19 @@ class Environment:
                 return
             self.current_text = self.train_data[self.train_text_ind % self.num_train]
             print('\ntrain_text_ind: %d of %d' % (self.train_text_ind, len(self.train_data)))
+        elif test_flag:
+            print("Testing unseen data")
+            if init:
+                self.test_text_ind = -1
+                self.test_epoch_end_flag = False
+            self.test_text_ind += 1
+            if self.test_text_ind >= len(self.test_data):
+                self.test_epoch_end_flag = True
+                print('\n\n-----valid_epoch_end_flag = True-----\n\n')
+                return
+            self.current_text = self.test_data[self.test_text_ind]
+            print('\ntest_text_ind: %d of %d' % (self.test_text_ind, len(self.test_data)))
+
         else:
             if init:
                 self.valid_text_ind = -1

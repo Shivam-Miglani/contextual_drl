@@ -167,7 +167,7 @@ def main(args):
             net_act.load_weights(filename)
             #accuracy on test set
             with open("%s.txt" % (args.result_dir + 'testset'), 'w') as outfile:
-                rec, pre, f1, rw = agent.test(args.test_steps, outfile)
+                rec, pre, f1, rw = agent.test(args.test_steps, outfile, test_flag=True)
                 outfile.write('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
                 print('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
 

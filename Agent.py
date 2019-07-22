@@ -29,7 +29,7 @@ class Agent:
         self.steps = 0  # use to decrease the reward during time steps
         self.filter_act_ind = args.filter_act_ind
 
-    def _restart(self, train_flag, init=False):
+    def _restart(self, train_flag, init=False, test_flag=False):
         '''
         to restart the agent, call environment restart!
         :param train_flag:
@@ -37,7 +37,7 @@ class Agent:
         :return:
         '''
         self.steps = 0
-        self.env.restart(train_flag, init)
+        self.env.restart(train_flag, init, test_flag=test_flag)
 
     def _explorationRate(self):
         # calculate decaying exploration rate
@@ -126,7 +126,7 @@ class Agent:
 
         return ep_results
 
-    def test(self, test_steps, outfile):
+    def test(self, test_steps, outfile, test_flag = False):
         '''
         Play given number of steps
         '''
@@ -136,7 +136,7 @@ class Agent:
         t_acc = t_rec = t_pre = t_f1 = 0.0
 
         cumulative_reward = 0
-        self._restart(train_flag=False, init=True)
+        self._restart(train_flag=False, init=True, test_flag=test_flag)
         for test_step in tqdm(range(test_steps)):
             if self.random_play:
                 a, r, s, t, rs = self.step(1)
@@ -152,7 +152,7 @@ class Agent:
                 t_right_acts += rs[5]
                 t_tagged_acts += rs[6]
                 t_right_tag += rs[7]
-                self._restart(train_flag=False)
+                self._restart(train_flag=False, test_flag=test_flag)
 
             if self.env.valid_epoch_end_flag:
                 break

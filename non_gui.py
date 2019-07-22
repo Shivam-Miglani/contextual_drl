@@ -100,7 +100,9 @@ if __name__ == '__main__':
     agent = EASDRL_init(args, sess='')
     print('weights loaded ...')
 
-    input_file_path = 'data/online_test/13.txt'
+    input_file_path = 'data/online_test/'
+    filename = '14.txt'
+    input_file_path += filename
 
     # TODO: use command line arguments for input and output file.
     #input file
@@ -125,7 +127,7 @@ if __name__ == '__main__':
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/online_test/%s_%s_output.txt' % (args.domain, args.contextual_embedding)
+    outfile = 'data/online_test/%s_%s_%s.txt' % (args.domain, args.contextual_embedding, filename)
     f = open(outfile, "w")
     output = ""
     for i in range(len(sents)):
