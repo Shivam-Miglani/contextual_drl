@@ -106,8 +106,7 @@ class DeepQLearner:
         poststates = np.concatenate([poststates[:, :, :-1], repeat_post_tags], axis=2)
 
         if self.data_format == 'channels_last':
-            post_input = poststates[:, :, :,
-                         np.newaxis]  # np.reshape(poststates, [-1, self.num_words, self.emb_dim, 1])
+            post_input = poststates[:, :, :,np.newaxis]  # np.reshape(poststates, [-1, self.num_words, self.emb_dim, 1])
             pre_input = prestates[:, :, :, np.newaxis]  # np.reshape(prestates, [-1, self.num_words, self.emb_dim, 1])
         else:
             post_input = poststates[np.newaxis, :, :, :]
@@ -125,7 +124,7 @@ class DeepQLearner:
             else:
                 targets[i, action] = float(rewards[i]) + self.gamma * maxpostq[i]
 
-        self.model.train_on_batch(pre_input, targets)
+        return self.model.train_on_batch(pre_input, targets)
 
     def predict(self, current_state):
         # word_vec = current_state[:, -1]
