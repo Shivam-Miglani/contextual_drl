@@ -101,7 +101,7 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/online_test/'
-    filename = '14.txt'
+    filename = 'tea.txt'
     input_file_path += filename
 
     # TODO: use command line arguments for input and output file.

@@ -1,0 +1,18 @@
+
+NO1: Get(1) milk(2) and(3) add(4) it(5) to(6) the(7) mug(8) 
+<1>  Get ()    <2>  add (it)    
+
+NO2: Get(1) water(2) and(3) add(4) it(5) to(6) the(7) mug(8) that(9) contains(10) milk(11) 
+<3>  Get (water)    <4>  add (water, it)    
+
+NO3: Get(1) teabag(2) and(3) place(4) it(5) at(6) the(7) bottom(8) of(9) the(10) mug(11) 
+<5>  Get (teabag)    <6>  place (teabag, it)    
+
+NO4: Mix(1) the(2) teabag(3) water(4) milk(5) in(6) the(7) mug(8) 
+<7>  Mix (teabag, water, milk)    
+
+NO5: Remove(1) the(2) teabag(3) and(4) the(5) drink(6) is(7) ready(8) 
+<8>  Remove (teabag, drink)    
+
+NO6: Drink(1) the(2) tea(3) 
+<9>  Drink (tea)    

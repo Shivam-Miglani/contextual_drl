@@ -1,0 +1,6 @@
+Get milk and add it to the mug
+Get water and add it to the mug that contains milk
+Get teabag and place it at the bottom of the mug
+Mix the teabag, water, milk in the mug
+Remove the teabag and the drink is ready
+Drink the tea
