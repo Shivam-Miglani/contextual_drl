@@ -6,7 +6,7 @@ batch_size: 32
 contextual_embedding: elmo
 dense_dim: 256
 dis_dim: 868
-display_training_result: 1
+display_training_result: 0
 domain: wikihow
 dropout: 0.5
 epochs: 1
@@ -49,524 +49,524 @@ train_repeat: 1
 train_steps: 380544
 use_act_rate: 1
 valid_steps: 95232
-word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7f0413422da0>
+word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7f34f997c5f8>
 word_dim: 868
 
 
 
 Summary:
-total_ecs: 175	 right_ecs: 93	 tagged_ecs: 106
-total_act: 1188	 right_act: 535	 tagged_act: 697
-acc: 0.961719	 rec: 0.450337	 pre: 0.767575	 f1: 0.567639
+total_ecs: 175	 right_ecs: 0	 tagged_ecs: 0
+total_act: 1188	 right_act: 0	 tagged_act: 0
+acc: 0.939076	 rec: 0.000000	 pre: 0.000000	 f1: 0.000000
 
-cumulative reward: 990825.661743	 average reward: 44.781057
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003], 'pre': [0.0, 0.7675753228120517], 'f1': [0.0, 0.5676392572944297], 'rw': [0.0, 44.781056754188015]}  best epoch: 0
+cumulative reward: 888838.000000	 average reward: 40.171653
 
 
 Summary:
-total_ecs: 175	 right_ecs: 107	 tagged_ecs: 120
-total_act: 1188	 right_act: 658	 tagged_act: 788
-acc: 0.969493	 rec: 0.553872	 pre: 0.835025	 f1: 0.665992
+total_ecs: 175	 right_ecs: 109	 tagged_ecs: 132
+total_act: 1188	 right_act: 657	 tagged_act: 919
+acc: 0.963934	 rec: 0.553030	 pre: 0.714908	 f1: 0.623636
 
-cumulative reward: 1019870.019043	 average reward: 46.093737
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599], 'f1': [0.0, 0.5676392572944297, 0.665991902834008], 'rw': [0.0, 44.781056754188015, 46.093736737004825]}  best epoch: 0
+cumulative reward: 1008318.816650	 average reward: 45.571672
 
 
-Summary:
-total_ecs: 175	 right_ecs: 114	 tagged_ecs: 178
-total_act: 1188	 right_act: 835	 tagged_act: 1270
-acc: 0.965470	 rec: 0.702862	 pre: 0.657480	 f1: 0.679414
-
-cumulative reward: 1035718.441284	 average reward: 46.810017
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044]}  best epoch: 0
+ Best f1 value: {'rec': [0.0, 0.553030303030303], 'pre': [0.0, 0.7149075081610446], 'f1': [0.0, 0.6236355007119125], 'rw': [0.0, 45.57167208941475]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 81	 tagged_ecs: 156
-total_act: 1188	 right_act: 633	 tagged_act: 835
-acc: 0.966962	 rec: 0.532828	 pre: 0.758084	 f1: 0.625803
+total_ecs: 175	 right_ecs: 100	 tagged_ecs: 166
+total_act: 1188	 right_act: 716	 tagged_act: 941
+acc: 0.969403	 rec: 0.602694	 pre: 0.760893	 f1: 0.672616
 
-cumulative reward: 1021938.341797	 average reward: 46.187216
+cumulative reward: 1035015.200317	 average reward: 46.778234
 
 
-Summary:
-total_ecs: 175	 right_ecs: 88	 tagged_ecs: 197
-total_act: 1188	 right_act: 780	 tagged_act: 1110
-acc: 0.969086	 rec: 0.656566	 pre: 0.702703	 f1: 0.678851
-
-cumulative reward: 1047552.279175	 average reward: 47.344856
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904], 'rw': [0.0, 45.57167208941475, 46.778233766491134]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 95	 tagged_ecs: 150
-total_act: 1188	 right_act: 704	 tagged_act: 918
-acc: 0.969131	 rec: 0.592593	 pre: 0.766885	 f1: 0.668566
+total_ecs: 175	 right_ecs: 105	 tagged_ecs: 182
+total_act: 1188	 right_act: 793	 tagged_act: 1125
+acc: 0.968589	 rec: 0.667508	 pre: 0.704889	 f1: 0.685690
 
-cumulative reward: 1027109.728516	 average reward: 46.420940
-
-
-Summary:
-total_ecs: 175	 right_ecs: 74	 tagged_ecs: 224
-total_act: 1188	 right_act: 842	 tagged_act: 1283
-acc: 0.967956	 rec: 0.708754	 pre: 0.656274	 f1: 0.681505
-
-cumulative reward: 1057375.930298	 average reward: 47.788843
+cumulative reward: 1041183.529175	 average reward: 47.057016
 
 
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975]}  best epoch: 0
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 94	 tagged_ecs: 208
-total_act: 1188	 right_act: 878	 tagged_act: 1360
-acc: 0.966736	 rec: 0.739057	 pre: 0.645588	 f1: 0.689168
+total_ecs: 175	 right_ecs: 105	 tagged_ecs: 169
+total_act: 1188	 right_act: 757	 tagged_act: 984
+acc: 0.971391	 rec: 0.637205	 pre: 0.769309	 f1: 0.697053
 
-cumulative reward: 1052104.043091	 average reward: 47.550576
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088, 0.7390572390572391], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379, 0.6455882352941177], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518, 0.6891679748822606], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975, 47.55057593287627]}  best epoch: 0
+cumulative reward: 1042222.387207	 average reward: 47.103968
 
 
-Summary:
-total_ecs: 175	 right_ecs: 72	 tagged_ecs: 232
-total_act: 1188	 right_act: 858	 tagged_act: 1387
-acc: 0.964883	 rec: 0.722222	 pre: 0.618601	 f1: 0.666408
-
-cumulative reward: 1051626.955688	 average reward: 47.529014
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 53	 tagged_ecs: 259
-total_act: 1188	 right_act: 887	 tagged_act: 1686
-acc: 0.955030	 rec: 0.746633	 pre: 0.526097	 f1: 0.617258
+total_ecs: 175	 right_ecs: 75	 tagged_ecs: 223
+total_act: 1188	 right_act: 824	 tagged_act: 1294
+acc: 0.965651	 rec: 0.693603	 pre: 0.636785	 f1: 0.663981
 
-cumulative reward: 1041390.722168	 average reward: 47.066380
-
-
-Summary:
-total_ecs: 175	 right_ecs: 72	 tagged_ecs: 219
-total_act: 1188	 right_act: 832	 tagged_act: 1345
-acc: 0.964160	 rec: 0.700337	 pre: 0.618587	 f1: 0.656929
-
-cumulative reward: 1037063.604248	 average reward: 46.870813
+cumulative reward: 1049179.775513	 average reward: 47.418412
 
 
 Summary:
-total_ecs: 175	 right_ecs: 86	 tagged_ecs: 194
-total_act: 1188	 right_act: 796	 tagged_act: 1216
-acc: 0.965696	 rec: 0.670034	 pre: 0.654605	 f1: 0.662230
+total_ecs: 175	 right_ecs: 85	 tagged_ecs: 206
+total_act: 1188	 right_act: 801	 tagged_act: 1139
+acc: 0.969809	 rec: 0.674242	 pre: 0.703248	 f1: 0.688440
 
-cumulative reward: 1029882.494629	 average reward: 46.546258
-
-
-Summary:
-total_ecs: 175	 right_ecs: 81	 tagged_ecs: 219
-total_act: 1188	 right_act: 885	 tagged_act: 1371
-acc: 0.967459	 rec: 0.744949	 pre: 0.645514	 f1: 0.691676
-
-cumulative reward: 1059239.162720	 average reward: 47.873053
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088, 0.7390572390572391, 0.7449494949494949], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379, 0.6455882352941177, 0.6455142231947484], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518, 0.6891679748822606, 0.6916764361078547], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975, 47.55057593287627, 47.87305264032028]}  best epoch: 0
+cumulative reward: 1052461.098755	 average reward: 47.566713
 
 
 Summary:
-total_ecs: 175	 right_ecs: 50	 tagged_ecs: 253
-total_act: 1188	 right_act: 882	 tagged_act: 1618
-acc: 0.957652	 rec: 0.742424	 pre: 0.545117	 f1: 0.628653
+total_ecs: 175	 right_ecs: 98	 tagged_ecs: 163
+total_act: 1188	 right_act: 740	 tagged_act: 917
+acc: 0.972883	 rec: 0.622896	 pre: 0.806979	 f1: 0.703088
 
-cumulative reward: 1046493.026245	 average reward: 47.296982
-
-
-Summary:
-total_ecs: 175	 right_ecs: 116	 tagged_ecs: 169
-total_act: 1188	 right_act: 861	 tagged_act: 1178
-acc: 0.971888	 rec: 0.724747	 pre: 0.730900	 f1: 0.727811
-
-cumulative reward: 1044422.091187	 average reward: 47.203385
+cumulative reward: 1044507.128418	 average reward: 47.207228
 
 
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088, 0.7390572390572391, 0.7449494949494949, 0.7247474747474747], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379, 0.6455882352941177, 0.6455142231947484, 0.730899830220713], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518, 0.6891679748822606, 0.6916764361078547, 0.7278106508875739], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975, 47.55057593287627, 47.87305264032028, 47.203384759401764]}  best epoch: 0
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872, 0.622895622895623], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309, 0.806979280261723], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583, 0.7030878859857481], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905, 47.207228076379316]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 86	 tagged_ecs: 208
-total_act: 1188	 right_act: 874	 tagged_act: 1348
-acc: 0.967098	 rec: 0.735690	 pre: 0.648368	 f1: 0.689274
+total_ecs: 175	 right_ecs: 55	 tagged_ecs: 253
+total_act: 1188	 right_act: 840	 tagged_act: 1592
+acc: 0.954895	 rec: 0.707071	 pre: 0.527638	 f1: 0.604317
 
-cumulative reward: 1053260.897339	 average reward: 47.602861
-
-
-Summary:
-total_ecs: 175	 right_ecs: 52	 tagged_ecs: 248
-total_act: 1188	 right_act: 883	 tagged_act: 1609
-acc: 0.958104	 rec: 0.743266	 pre: 0.548788	 f1: 0.631391
-
-cumulative reward: 1036899.117554	 average reward: 46.863379
+cumulative reward: 1023889.684570	 average reward: 46.275408
 
 
 Summary:
-total_ecs: 175	 right_ecs: 71	 tagged_ecs: 232
-total_act: 1188	 right_act: 878	 tagged_act: 1362
-acc: 0.967775	 rec: 0.739057	 pre: 0.644640	 f1: 0.688627
+total_ecs: 175	 right_ecs: 58	 tagged_ecs: 249
+total_act: 1188	 right_act: 837	 tagged_act: 1393
+acc: 0.963301	 rec: 0.704545	 pre: 0.600861	 f1: 0.648586
 
-cumulative reward: 1062932.479370	 average reward: 48.039975
-
-
-Summary:
-total_ecs: 175	 right_ecs: 68	 tagged_ecs: 230
-total_act: 1188	 right_act: 886	 tagged_act: 1410
-acc: 0.966510	 rec: 0.745791	 pre: 0.628369	 f1: 0.682063
-
-cumulative reward: 1061849.584473	 average reward: 47.991032
+cumulative reward: 1051928.222168	 average reward: 47.542630
 
 
 Summary:
-total_ecs: 175	 right_ecs: 64	 tagged_ecs: 231
-total_act: 1188	 right_act: 866	 tagged_act: 1345
-acc: 0.967730	 rec: 0.728956	 pre: 0.643866	 f1: 0.683774
+total_ecs: 175	 right_ecs: 41	 tagged_ecs: 265
+total_act: 1188	 right_act: 854	 tagged_act: 1804
+acc: 0.947166	 rec: 0.718855	 pre: 0.473392	 f1: 0.570856
 
-cumulative reward: 1063571.236694	 average reward: 48.068844
-
-
-Summary:
-total_ecs: 175	 right_ecs: 117	 tagged_ecs: 172
-total_act: 1188	 right_act: 853	 tagged_act: 1048
-acc: 0.977041	 rec: 0.718013	 pre: 0.813931	 f1: 0.762970
-
-cumulative reward: 1064366.271484	 average reward: 48.104776
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088, 0.7390572390572391, 0.7449494949494949, 0.7247474747474747, 0.718013468013468], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379, 0.6455882352941177, 0.6455142231947484, 0.730899830220713, 0.8139312977099237], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518, 0.6891679748822606, 0.6916764361078547, 0.7278106508875739, 0.7629695885509841], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975, 47.55057593287627, 47.87305264032028, 47.203384759401764, 48.10477589642841]}  best epoch: 0
+cumulative reward: 1010565.700806	 average reward: 45.673222
 
 
 Summary:
-total_ecs: 175	 right_ecs: 86	 tagged_ecs: 214
-total_act: 1188	 right_act: 860	 tagged_act: 1203
-acc: 0.972566	 rec: 0.723906	 pre: 0.714879	 f1: 0.719364
+total_ecs: 175	 right_ecs: 74	 tagged_ecs: 215
+total_act: 1188	 right_act: 812	 tagged_act: 1167
+acc: 0.969990	 rec: 0.683502	 pre: 0.695801	 f1: 0.689597
 
-cumulative reward: 1067815.542114	 average reward: 48.260668
-
-
-Summary:
-total_ecs: 175	 right_ecs: 78	 tagged_ecs: 228
-total_act: 1188	 right_act: 890	 tagged_act: 1371
-acc: 0.968227	 rec: 0.749158	 pre: 0.649161	 f1: 0.695584
-
-cumulative reward: 1063705.874146	 average reward: 48.074929
+cumulative reward: 1057777.379883	 average reward: 47.806986
 
 
 Summary:
-total_ecs: 175	 right_ecs: 65	 tagged_ecs: 226
-total_act: 1188	 right_act: 894	 tagged_act: 1394
-acc: 0.968047	 rec: 0.752525	 pre: 0.641320	 f1: 0.692486
+total_ecs: 175	 right_ecs: 62	 tagged_ecs: 233
+total_act: 1188	 right_act: 842	 tagged_act: 1522
+acc: 0.957652	 rec: 0.708754	 pre: 0.553219	 f1: 0.621402
 
-cumulative reward: 1064795.360840	 average reward: 48.124169
-
-
-Summary:
-total_ecs: 175	 right_ecs: 115	 tagged_ecs: 164
-total_act: 1188	 right_act: 823	 tagged_act: 988
-acc: 0.976950	 rec: 0.692761	 pre: 0.832996	 f1: 0.756434
-
-cumulative reward: 1060630.642212	 average reward: 47.935942
+cumulative reward: 1026974.087036	 average reward: 46.414810
 
 
 Summary:
-total_ecs: 175	 right_ecs: 57	 tagged_ecs: 219
-total_act: 1188	 right_act: 828	 tagged_act: 1169
-acc: 0.972205	 rec: 0.696970	 pre: 0.708298	 f1: 0.702588
+total_ecs: 175	 right_ecs: 89	 tagged_ecs: 200
+total_act: 1188	 right_act: 837	 tagged_act: 1317
+acc: 0.964838	 rec: 0.704545	 pre: 0.635535	 f1: 0.668263
 
-cumulative reward: 1068393.310059	 average reward: 48.286781
-
-
-Summary:
-total_ecs: 175	 right_ecs: 50	 tagged_ecs: 237
-total_act: 1188	 right_act: 860	 tagged_act: 1356
-acc: 0.967188	 rec: 0.723906	 pre: 0.634218	 f1: 0.676101
-
-cumulative reward: 1064140.520752	 average reward: 48.094573
+cumulative reward: 1033863.827026	 average reward: 46.726197
 
 
 Summary:
-total_ecs: 175	 right_ecs: 41	 tagged_ecs: 273
-total_act: 1188	 right_act: 901	 tagged_act: 1717
-acc: 0.955708	 rec: 0.758418	 pre: 0.524752	 f1: 0.620310
+total_ecs: 175	 right_ecs: 29	 tagged_ecs: 274
+total_act: 1188	 right_act: 849	 tagged_act: 1643
+acc: 0.954714	 rec: 0.714646	 pre: 0.516738	 f1: 0.599788
 
-cumulative reward: 1048223.360718	 average reward: 47.375186
-
-
-Summary:
-total_ecs: 175	 right_ecs: 117	 tagged_ecs: 183
-total_act: 1188	 right_act: 891	 tagged_act: 1156
-acc: 0.975911	 rec: 0.750000	 pre: 0.770761	 f1: 0.760239
-
-cumulative reward: 1067703.014648	 average reward: 48.255582
+cumulative reward: 1042215.304077	 average reward: 47.103647
 
 
 Summary:
-total_ecs: 175	 right_ecs: 97	 tagged_ecs: 197
-total_act: 1188	 right_act: 875	 tagged_act: 1220
-acc: 0.972566	 rec: 0.736532	 pre: 0.717213	 f1: 0.726744
+total_ecs: 175	 right_ecs: 80	 tagged_ecs: 213
+total_act: 1188	 right_act: 818	 tagged_act: 1195
+acc: 0.969131	 rec: 0.688552	 pre: 0.684519	 f1: 0.686530
 
-cumulative reward: 1062856.313599	 average reward: 48.036532
-
-
-Summary:
-total_ecs: 175	 right_ecs: 95	 tagged_ecs: 194
-total_act: 1188	 right_act: 856	 tagged_act: 1209
-acc: 0.971165	 rec: 0.720539	 pre: 0.708023	 f1: 0.714226
-
-cumulative reward: 1056426.473511	 average reward: 47.745931
+cumulative reward: 1055626.668823	 average reward: 47.709783
 
 
 Summary:
-total_ecs: 175	 right_ecs: 75	 tagged_ecs: 208
-total_act: 1188	 right_act: 840	 tagged_act: 1150
-acc: 0.973425	 rec: 0.707071	 pre: 0.730435	 f1: 0.718563
+total_ecs: 175	 right_ecs: 65	 tagged_ecs: 223
+total_act: 1188	 right_act: 799	 tagged_act: 1188
+acc: 0.968273	 rec: 0.672559	 pre: 0.672559	 f1: 0.672559
 
-cumulative reward: 1068104.281128	 average reward: 48.273718
-
-
-Summary:
-total_ecs: 175	 right_ecs: 38	 tagged_ecs: 270
-total_act: 1188	 right_act: 867	 tagged_act: 1502
-acc: 0.962307	 rec: 0.729798	 pre: 0.577230	 f1: 0.644610
-
-cumulative reward: 1061502.227295	 average reward: 47.975333
+cumulative reward: 1056480.172241	 average reward: 47.748358
 
 
 Summary:
-total_ecs: 175	 right_ecs: 64	 tagged_ecs: 222
-total_act: 1188	 right_act: 849	 tagged_act: 1216
-acc: 0.971843	 rec: 0.714646	 pre: 0.698191	 f1: 0.706323
+total_ecs: 175	 right_ecs: 77	 tagged_ecs: 220
+total_act: 1188	 right_act: 818	 tagged_act: 1207
+acc: 0.968725	 rec: 0.688552	 pre: 0.677713	 f1: 0.683090
 
-cumulative reward: 1069788.366211	 average reward: 48.349831
-
-
-Summary:
-total_ecs: 175	 right_ecs: 54	 tagged_ecs: 245
-total_act: 1188	 right_act: 889	 tagged_act: 1478
-acc: 0.964567	 rec: 0.748316	 pre: 0.601488	 f1: 0.666917
-
-cumulative reward: 1062109.475220	 average reward: 48.002778
+cumulative reward: 1055965.752686	 average reward: 47.725109
 
 
 Summary:
-total_ecs: 175	 right_ecs: 89	 tagged_ecs: 202
-total_act: 1188	 right_act: 888	 tagged_act: 1211
-acc: 0.974464	 rec: 0.747475	 pre: 0.733278	 f1: 0.740308
+total_ecs: 175	 right_ecs: 75	 tagged_ecs: 211
+total_act: 1188	 right_act: 806	 tagged_act: 1146
+acc: 0.970442	 rec: 0.678451	 pre: 0.703316	 f1: 0.690660
 
-cumulative reward: 1071806.875122	 average reward: 48.441059
-
-
-Summary:
-total_ecs: 175	 right_ecs: 116	 tagged_ecs: 146
-total_act: 1188	 right_act: 767	 tagged_act: 880
-acc: 0.976091	 rec: 0.645623	 pre: 0.871591	 f1: 0.741779
-
-cumulative reward: 1049893.715942	 average reward: 47.450679
+cumulative reward: 1058564.089478	 average reward: 47.842542
 
 
 Summary:
-total_ecs: 175	 right_ecs: 53	 tagged_ecs: 237
-total_act: 1188	 right_act: 868	 tagged_act: 1365
-acc: 0.967549	 rec: 0.730640	 pre: 0.635897	 f1: 0.679984
+total_ecs: 175	 right_ecs: 83	 tagged_ecs: 204
+total_act: 1188	 right_act: 846	 tagged_act: 1203
+acc: 0.971030	 rec: 0.712121	 pre: 0.703242	 f1: 0.707654
 
-cumulative reward: 1065838.064087	 average reward: 48.171295
+cumulative reward: 1060677.883423	 average reward: 47.938077
 
 
-Summary:
-total_ecs: 175	 right_ecs: 91	 tagged_ecs: 197
-total_act: 1188	 right_act: 867	 tagged_act: 1171
-acc: 0.974193	 rec: 0.729798	 pre: 0.740393	 f1: 0.735057
-
-cumulative reward: 1068295.217407	 average reward: 48.282347
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872, 0.622895622895623, 0.7121212121212122], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309, 0.806979280261723, 0.7032418952618454], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583, 0.7030878859857481, 0.7076537013801756], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905, 47.207228076379316, 47.93807662581811]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 54	 tagged_ecs: 239
-total_act: 1188	 right_act: 901	 tagged_act: 1483
-acc: 0.965245	 rec: 0.758418	 pre: 0.607552	 f1: 0.674654
+total_ecs: 175	 right_ecs: 113	 tagged_ecs: 174
+total_act: 1188	 right_act: 795	 tagged_act: 963
+acc: 0.975730	 rec: 0.669192	 pre: 0.825545	 f1: 0.739191
 
-cumulative reward: 1062040.145386	 average reward: 47.999645
+cumulative reward: 1056614.513672	 average reward: 47.754430
 
 
-Summary:
-total_ecs: 175	 right_ecs: 87	 tagged_ecs: 206
-total_act: 1188	 right_act: 897	 tagged_act: 1308
-acc: 0.971120	 rec: 0.755051	 pre: 0.685780	 f1: 0.718750
-
-cumulative reward: 1064990.969360	 average reward: 48.133010
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872, 0.622895622895623, 0.7121212121212122, 0.6691919191919192], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309, 0.806979280261723, 0.7032418952618454, 0.8255451713395638], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583, 0.7030878859857481, 0.7076537013801756, 0.7391910739191074], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905, 47.207228076379316, 47.93807662581811, 47.75442979625215]}  best epoch: 0
 
 
 Summary:
-total_ecs: 175	 right_ecs: 70	 tagged_ecs: 228
-total_act: 1188	 right_act: 927	 tagged_act: 1557
-acc: 0.963482	 rec: 0.780303	 pre: 0.595376	 f1: 0.675410
+total_ecs: 175	 right_ecs: 50	 tagged_ecs: 256
+total_act: 1188	 right_act: 893	 tagged_act: 1648
+acc: 0.957290	 rec: 0.751684	 pre: 0.541869	 f1: 0.629760
 
-cumulative reward: 1056329.839600	 average reward: 47.741564
-
-
-Summary:
-total_ecs: 175	 right_ecs: 96	 tagged_ecs: 194
-total_act: 1188	 right_act: 867	 tagged_act: 1132
-acc: 0.975730	 rec: 0.729798	 pre: 0.765901	 f1: 0.747414
-
-cumulative reward: 1070078.875244	 average reward: 48.362961
+cumulative reward: 1045438.177002	 average reward: 47.249307
 
 
 Summary:
-total_ecs: 175	 right_ecs: 91	 tagged_ecs: 191
-total_act: 1188	 right_act: 857	 tagged_act: 1103
-acc: 0.976091	 rec: 0.721380	 pre: 0.776972	 f1: 0.748145
+total_ecs: 175	 right_ecs: 112	 tagged_ecs: 158
+total_act: 1188	 right_act: 797	 tagged_act: 983
+acc: 0.974600	 rec: 0.670875	 pre: 0.810783	 f1: 0.734224
 
-cumulative reward: 1070570.238770	 average reward: 48.385169
-
-
-Summary:
-total_ecs: 175	 right_ecs: 55	 tagged_ecs: 239
-total_act: 1188	 right_act: 880	 tagged_act: 1421
-acc: 0.966058	 rec: 0.740741	 pre: 0.619282	 f1: 0.674588
-
-cumulative reward: 1062137.591064	 average reward: 48.004049
+cumulative reward: 1051325.805176	 average reward: 47.515403
 
 
 Summary:
-total_ecs: 175	 right_ecs: 54	 tagged_ecs: 237
-total_act: 1188	 right_act: 872	 tagged_act: 1359
-acc: 0.968092	 rec: 0.734007	 pre: 0.641648	 f1: 0.684727
+total_ecs: 175	 right_ecs: 56	 tagged_ecs: 242
+total_act: 1188	 right_act: 860	 tagged_act: 1380
+acc: 0.966013	 rec: 0.723906	 pre: 0.623188	 f1: 0.669782
 
-cumulative reward: 1066743.175781	 average reward: 48.212202
-
-
-Summary:
-total_ecs: 175	 right_ecs: 78	 tagged_ecs: 218
-total_act: 1188	 right_act: 872	 tagged_act: 1257
-acc: 0.971572	 rec: 0.734007	 pre: 0.693715	 f1: 0.713292
-
-cumulative reward: 1068003.426636	 average reward: 48.269160
+cumulative reward: 1059972.686279	 average reward: 47.906205
 
 
 Summary:
-total_ecs: 175	 right_ecs: 113	 tagged_ecs: 166
-total_act: 1188	 right_act: 838	 tagged_act: 1006
-acc: 0.977538	 rec: 0.705387	 pre: 0.833002	 f1: 0.763902
+total_ecs: 175	 right_ecs: 58	 tagged_ecs: 230
+total_act: 1188	 right_act: 840	 tagged_act: 1318
+acc: 0.966826	 rec: 0.707071	 pre: 0.637329	 f1: 0.670391
 
-cumulative reward: 1064247.274292	 average reward: 48.099398
-
-
- Best f1 value: {'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088, 0.7390572390572391, 0.7449494949494949, 0.7247474747474747, 0.718013468013468, 0.7053872053872053], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379, 0.6455882352941177, 0.6455142231947484, 0.730899830220713, 0.8139312977099237, 0.8330019880715706], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518, 0.6891679748822606, 0.6916764361078547, 0.7278106508875739, 0.7629695885509841, 0.763901549680948], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975, 47.55057593287627, 47.87305264032028, 47.203384759401764, 48.10477589642841, 48.099397735333646]}  best epoch: 0
+cumulative reward: 1057770.611084	 average reward: 47.806680
 
 
 Summary:
-total_ecs: 175	 right_ecs: 47	 tagged_ecs: 258
-total_act: 1188	 right_act: 889	 tagged_act: 1510
-acc: 0.963391	 rec: 0.748316	 pre: 0.588742	 f1: 0.659007
+total_ecs: 175	 right_ecs: 97	 tagged_ecs: 97
+total_act: 1188	 right_act: 510	 tagged_act: 1127
+acc: 0.939167	 rec: 0.429293	 pre: 0.452529	 f1: 0.440605
 
-cumulative reward: 1061615.258301	 average reward: 47.980442
-
-
-Summary:
-total_ecs: 175	 right_ecs: 54	 tagged_ecs: 246
-total_act: 1188	 right_act: 911	 tagged_act: 1587
-acc: 0.961403	 rec: 0.766835	 pre: 0.574039	 f1: 0.656577
-
-cumulative reward: 1055581.710327	 average reward: 47.707752
+cumulative reward: 934030.037964	 average reward: 42.214139
 
 
 Summary:
-total_ecs: 175	 right_ecs: 99	 tagged_ecs: 194
-total_act: 1188	 right_act: 871	 tagged_act: 1147
-acc: 0.975233	 rec: 0.733165	 pre: 0.759372	 f1: 0.746039
+total_ecs: 175	 right_ecs: 75	 tagged_ecs: 209
+total_act: 1188	 right_act: 840	 tagged_act: 1219
+acc: 0.970171	 rec: 0.707071	 pre: 0.689089	 f1: 0.697964
 
-cumulative reward: 1069088.076294	 average reward: 48.318181
-
-
-Summary:
-total_ecs: 175	 right_ecs: 92	 tagged_ecs: 202
-total_act: 1188	 right_act: 878	 tagged_act: 1180
-acc: 0.974736	 rec: 0.739057	 pre: 0.744068	 f1: 0.741554
-
-cumulative reward: 1070994.500244	 average reward: 48.404343
+cumulative reward: 1059779.424561	 average reward: 47.897470
 
 
 Summary:
-total_ecs: 175	 right_ecs: 73	 tagged_ecs: 216
-total_act: 1188	 right_act: 860	 tagged_act: 1234
-acc: 0.971572	 rec: 0.723906	 pre: 0.696921	 f1: 0.710157
+total_ecs: 175	 right_ecs: 74	 tagged_ecs: 213
+total_act: 1188	 right_act: 844	 tagged_act: 1202
+acc: 0.971346	 rec: 0.710438	 pre: 0.702163	 f1: 0.706276
 
-cumulative reward: 1066799.459351	 average reward: 48.214746
-
-
-Summary:
-total_ecs: 175	 right_ecs: 37	 tagged_ecs: 269
-total_act: 1188	 right_act: 901	 tagged_act: 1679
-acc: 0.957516	 rec: 0.758418	 pre: 0.536629	 f1: 0.628532
-
-cumulative reward: 1052594.420898	 average reward: 47.572739
+cumulative reward: 1064796.102417	 average reward: 48.124202
 
 
 Summary:
-total_ecs: 175	 right_ecs: 75	 tagged_ecs: 215
-total_act: 1188	 right_act: 884	 tagged_act: 1290
-acc: 0.971075	 rec: 0.744108	 pre: 0.685271	 f1: 0.713479
+total_ecs: 175	 right_ecs: 43	 tagged_ecs: 255
+total_act: 1188	 right_act: 884	 tagged_act: 1545
+acc: 0.961403	 rec: 0.744108	 pre: 0.572168	 f1: 0.646908
 
-cumulative reward: 1067652.758301	 average reward: 48.253311
-
-
-Summary:
-total_ecs: 175	 right_ecs: 60	 tagged_ecs: 249
-total_act: 1188	 right_act: 896	 tagged_act: 1439
-acc: 0.966736	 rec: 0.754209	 pre: 0.622655	 f1: 0.682147
-
-cumulative reward: 1066762.172974	 average reward: 48.213060
+cumulative reward: 1055893.606079	 average reward: 47.721848
 
 
 Summary:
-total_ecs: 175	 right_ecs: 70	 tagged_ecs: 226
-total_act: 1188	 right_act: 891	 tagged_act: 1348
-acc: 0.969538	 rec: 0.750000	 pre: 0.660979	 f1: 0.702681
+total_ecs: 175	 right_ecs: 49	 tagged_ecs: 241
+total_act: 1188	 right_act: 846	 tagged_act: 1345
+acc: 0.966420	 rec: 0.712121	 pre: 0.628996	 f1: 0.667983
 
-cumulative reward: 1066362.142456	 average reward: 48.194981
-
-
-Summary:
-total_ecs: 175	 right_ecs: 61	 tagged_ecs: 243
-total_act: 1188	 right_act: 892	 tagged_act: 1466
-acc: 0.964928	 rec: 0.750842	 pre: 0.608458	 f1: 0.672193
-
-cumulative reward: 1060712.041748	 average reward: 47.939620
+cumulative reward: 1061242.428101	 average reward: 47.963592
 
 
 Summary:
-total_ecs: 175	 right_ecs: 96	 tagged_ecs: 188
-total_act: 1188	 right_act: 860	 tagged_act: 1125
-acc: 0.975188	 rec: 0.723906	 pre: 0.764444	 f1: 0.743623
+total_ecs: 175	 right_ecs: 72	 tagged_ecs: 216
+total_act: 1188	 right_act: 835	 tagged_act: 1197
+acc: 0.970804	 rec: 0.702862	 pre: 0.697577	 f1: 0.700210
 
-cumulative reward: 1067576.815308	 average reward: 48.249879
+cumulative reward: 1062598.421753	 average reward: 48.024877
 
 
 Summary:
-total_ecs: 175	 right_ecs: 81	 tagged_ecs: 211
-total_act: 1188	 right_act: 875	 tagged_act: 1216
-acc: 0.973470	 rec: 0.736532	 pre: 0.719572	 f1: 0.727953
+total_ecs: 175	 right_ecs: 82	 tagged_ecs: 220
+total_act: 1188	 right_act: 887	 tagged_act: 1360
+acc: 0.968001	 rec: 0.746633	 pre: 0.652206	 f1: 0.696232
 
-cumulative reward: 1070796.438110	 average reward: 48.395392
+cumulative reward: 1059567.101562	 average reward: 47.887874
+
+
+Summary:
+total_ecs: 175	 right_ecs: 79	 tagged_ecs: 197
+total_act: 1188	 right_act: 797	 tagged_act: 1066
+acc: 0.972837	 rec: 0.670875	 pre: 0.747655	 f1: 0.707187
+
+cumulative reward: 1059643.123901	 average reward: 47.891310
+
+
+Summary:
+total_ecs: 175	 right_ecs: 107	 tagged_ecs: 188
+total_act: 1188	 right_act: 861	 tagged_act: 1174
+acc: 0.972928	 rec: 0.724747	 pre: 0.733390	 f1: 0.729043
+
+cumulative reward: 1059090.838135	 average reward: 47.866349
+
+
+Summary:
+total_ecs: 175	 right_ecs: 40	 tagged_ecs: 255
+total_act: 1188	 right_act: 861	 tagged_act: 1429
+acc: 0.964521	 rec: 0.724747	 pre: 0.602519	 f1: 0.658005
+
+cumulative reward: 1060960.387695	 average reward: 47.950845
+
+
+Summary:
+total_ecs: 175	 right_ecs: 83	 tagged_ecs: 205
+total_act: 1188	 right_act: 851	 tagged_act: 1171
+acc: 0.973063	 rec: 0.716330	 pre: 0.726729	 f1: 0.721492
+
+cumulative reward: 1065383.635986	 average reward: 48.150756
+
+
+Summary:
+total_ecs: 175	 right_ecs: 86	 tagged_ecs: 206
+total_act: 1188	 right_act: 857	 tagged_act: 1221
+acc: 0.971120	 rec: 0.721380	 pre: 0.701884	 f1: 0.711499
+
+cumulative reward: 1061784.383667	 average reward: 47.988086
+
+
+Summary:
+total_ecs: 175	 right_ecs: 100	 tagged_ecs: 190
+total_act: 1188	 right_act: 857	 tagged_act: 1139
+acc: 0.974058	 rec: 0.721380	 pre: 0.752414	 f1: 0.736571
+
+cumulative reward: 1063671.215332	 average reward: 48.073362
+
+
+Summary:
+total_ecs: 175	 right_ecs: 50	 tagged_ecs: 244
+total_act: 1188	 right_act: 878	 tagged_act: 1427
+acc: 0.966013	 rec: 0.739057	 pre: 0.615277	 f1: 0.671511
+
+cumulative reward: 1062376.027954	 average reward: 48.014825
+
+
+Summary:
+total_ecs: 175	 right_ecs: 88	 tagged_ecs: 186
+total_act: 1188	 right_act: 771	 tagged_act: 993
+acc: 0.973425	 rec: 0.648990	 pre: 0.776435	 f1: 0.707015
+
+cumulative reward: 1054719.747437	 average reward: 47.668795
+
+
+Summary:
+total_ecs: 175	 right_ecs: 118	 tagged_ecs: 162
+total_act: 1188	 right_act: 844	 tagged_act: 1024
+acc: 0.976905	 rec: 0.710438	 pre: 0.824219	 f1: 0.763110
+
+cumulative reward: 1061640.804565	 average reward: 47.981597
+
+
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872, 0.622895622895623, 0.7121212121212122, 0.6691919191919192, 0.7104377104377104], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309, 0.806979280261723, 0.7032418952618454, 0.8255451713395638, 0.82421875], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583, 0.7030878859857481, 0.7076537013801756, 0.7391910739191074, 0.7631103074141049], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905, 47.207228076379316, 47.93807662581811, 47.75442979625215, 47.981596518368875]}  best epoch: 0
+
+
+Summary:
+total_ecs: 175	 right_ecs: 81	 tagged_ecs: 206
+total_act: 1188	 right_act: 814	 tagged_act: 1111
+acc: 0.972611	 rec: 0.685185	 pre: 0.732673	 f1: 0.708134
+
+cumulative reward: 1061741.521729	 average reward: 47.986149
+
+
+Summary:
+total_ecs: 175	 right_ecs: 99	 tagged_ecs: 190
+total_act: 1188	 right_act: 875	 tagged_act: 1162
+acc: 0.975097	 rec: 0.736532	 pre: 0.753012	 f1: 0.744681
+
+cumulative reward: 1067385.467041	 average reward: 48.241231
+
+
+Summary:
+total_ecs: 175	 right_ecs: 69	 tagged_ecs: 225
+total_act: 1188	 right_act: 869	 tagged_act: 1284
+acc: 0.970352	 rec: 0.731481	 pre: 0.676791	 f1: 0.703074
+
+cumulative reward: 1066529.397095	 average reward: 48.202540
+
+
+Summary:
+total_ecs: 175	 right_ecs: 55	 tagged_ecs: 241
+total_act: 1188	 right_act: 862	 tagged_act: 1361
+acc: 0.966962	 rec: 0.725589	 pre: 0.633358	 f1: 0.676344
+
+cumulative reward: 1063633.120239	 average reward: 48.071641
+
+
+Summary:
+total_ecs: 175	 right_ecs: 29	 tagged_ecs: 280
+total_act: 1188	 right_act: 889	 tagged_act: 1737
+acc: 0.953900	 rec: 0.748316	 pre: 0.511802	 f1: 0.607863
+
+cumulative reward: 1045041.060913	 average reward: 47.231360
+
+
+Summary:
+total_ecs: 175	 right_ecs: 63	 tagged_ecs: 236
+total_act: 1188	 right_act: 876	 tagged_act: 1347
+acc: 0.968770	 rec: 0.737374	 pre: 0.650334	 f1: 0.691124
+
+cumulative reward: 1065527.993286	 average reward: 48.157281
+
+
+Summary:
+total_ecs: 175	 right_ecs: 58	 tagged_ecs: 241
+total_act: 1188	 right_act: 873	 tagged_act: 1528
+acc: 0.960544	 rec: 0.734848	 pre: 0.571335	 f1: 0.642857
+
+cumulative reward: 1047217.553223	 average reward: 47.329728
+
+
+Summary:
+total_ecs: 175	 right_ecs: 114	 tagged_ecs: 127
+total_act: 1188	 right_act: 729	 tagged_act: 791
+acc: 0.975911	 rec: 0.613636	 pre: 0.921618	 f1: 0.736736
+
+cumulative reward: 1042858.132446	 average reward: 47.132701
+
+
+Summary:
+total_ecs: 175	 right_ecs: 95	 tagged_ecs: 192
+total_act: 1188	 right_act: 864	 tagged_act: 1165
+acc: 0.974148	 rec: 0.727273	 pre: 0.741631	 f1: 0.734382
+
+cumulative reward: 1065281.484497	 average reward: 48.146140
+
+
+Summary:
+total_ecs: 175	 right_ecs: 97	 tagged_ecs: 189
+total_act: 1188	 right_act: 833	 tagged_act: 1088
+acc: 0.974645	 rec: 0.701178	 pre: 0.765625	 f1: 0.731986
+
+cumulative reward: 1062762.670410	 average reward: 48.032300
+
+
+Summary:
+total_ecs: 175	 right_ecs: 41	 tagged_ecs: 259
+total_act: 1188	 right_act: 876	 tagged_act: 1501
+acc: 0.962714	 rec: 0.737374	 pre: 0.583611	 f1: 0.651543
+
+cumulative reward: 1058796.261108	 average reward: 47.853035
+
+
+Summary:
+total_ecs: 175	 right_ecs: 78	 tagged_ecs: 210
+total_act: 1188	 right_act: 869	 tagged_act: 1256
+acc: 0.971301	 rec: 0.731481	 pre: 0.691879	 f1: 0.711129
+
+cumulative reward: 1064718.212402	 average reward: 48.120682
+
+
+Summary:
+total_ecs: 175	 right_ecs: 92	 tagged_ecs: 203
+total_act: 1188	 right_act: 892	 tagged_act: 1274
+acc: 0.971753	 rec: 0.750842	 pre: 0.700157	 f1: 0.724614
+
+cumulative reward: 1062747.082031	 average reward: 48.031595
+
+
+Summary:
+total_ecs: 175	 right_ecs: 75	 tagged_ecs: 220
+total_act: 1188	 right_act: 866	 tagged_act: 1252
+acc: 0.971301	 rec: 0.728956	 pre: 0.691693	 f1: 0.709836
+
+cumulative reward: 1066797.185791	 average reward: 48.214643
+
+
+Summary:
+total_ecs: 175	 right_ecs: 73	 tagged_ecs: 220
+total_act: 1188	 right_act: 878	 tagged_act: 1337
+acc: 0.968860	 rec: 0.739057	 pre: 0.656694	 f1: 0.695446
+
+cumulative reward: 1061359.685791	 average reward: 47.968891
+
+
+Summary:
+total_ecs: 175	 right_ecs: 98	 tagged_ecs: 202
+total_act: 1188	 right_act: 895	 tagged_act: 1280
+acc: 0.971617	 rec: 0.753367	 pre: 0.699219	 f1: 0.725284
+
+cumulative reward: 1062334.417236	 average reward: 48.012945
+
+
+Summary:
+total_ecs: 175	 right_ecs: 78	 tagged_ecs: 214
+total_act: 1188	 right_act: 887	 tagged_act: 1316
+acc: 0.970261	 rec: 0.746633	 pre: 0.674012	 f1: 0.708466
+
+cumulative reward: 1064036.934937	 average reward: 48.089891
+
+
+Summary:
+total_ecs: 175	 right_ecs: 91	 tagged_ecs: 193
+total_act: 1188	 right_act: 854	 tagged_act: 1157
+acc: 0.973606	 rec: 0.718855	 pre: 0.738116	 f1: 0.728358
+
+cumulative reward: 1064072.054565	 average reward: 48.091479
+
+
+Summary:
+total_ecs: 175	 right_ecs: 118	 tagged_ecs: 160
+total_act: 1188	 right_act: 857	 tagged_act: 1038
+acc: 0.977538	 rec: 0.721380	 pre: 0.825626	 f1: 0.769991
+
+cumulative reward: 1063444.954956	 average reward: 48.063136
+
+
+ Best f1 value: {'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872, 0.622895622895623, 0.7121212121212122, 0.6691919191919192, 0.7104377104377104, 0.7213804713804713], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309, 0.806979280261723, 0.7032418952618454, 0.8255451713395638, 0.82421875, 0.825626204238921], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583, 0.7030878859857481, 0.7076537013801756, 0.7391910739191074, 0.7631103074141049, 0.769991015274034], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905, 47.207228076379316, 47.93807662581811, 47.75442979625215, 47.981596518368875, 48.063136353432824]}  best epoch: 0
 
 
  training process:
-{'rec': [0.0, 0.4503367003367003, 0.5538720538720538, 0.7028619528619529, 0.7087542087542088, 0.7390572390572391, 0.7449494949494949, 0.7247474747474747, 0.718013468013468, 0.7053872053872053], 'pre': [0.0, 0.7675753228120517, 0.8350253807106599, 0.65748031496063, 0.6562743569758379, 0.6455882352941177, 0.6455142231947484, 0.730899830220713, 0.8139312977099237, 0.8330019880715706], 'f1': [0.0, 0.5676392572944297, 0.665991902834008, 0.6794141578519121, 0.6815054633751518, 0.6891679748822606, 0.6916764361078547, 0.7278106508875739, 0.7629695885509841, 0.763901549680948], 'rw': [0.0, 44.781056754188015, 46.093736737004825, 46.8100172324044, 47.788842551651975, 47.55057593287627, 47.87305264032028, 47.203384759401764, 48.10477589642841, 48.099397735333646]}
+{'rec': [0.0, 0.553030303030303, 0.6026936026936027, 0.6675084175084175, 0.6372053872053872, 0.622895622895623, 0.7121212121212122, 0.6691919191919192, 0.7104377104377104, 0.7213804713804713], 'pre': [0.0, 0.7149075081610446, 0.7608926673751328, 0.7048888888888889, 0.7693089430894309, 0.806979280261723, 0.7032418952618454, 0.8255451713395638, 0.82421875, 0.825626204238921], 'f1': [0.0, 0.6236355007119125, 0.6726162517613904, 0.6856895806312149, 0.6970534069981583, 0.7030878859857481, 0.7076537013801756, 0.7391910739191074, 0.7631103074141049, 0.769991015274034], 'rw': [0.0, 45.57167208941475, 46.778233766491134, 47.057015690807404, 47.103967604041905, 47.207228076379316, 47.93807662581811, 47.75442979625215, 47.981596518368875, 48.063136353432824]}
 
-rec: [0.7053872053872053]
-pre: [0.8330019880715706]
-f1: [0.763901549680948]
-rw: [48.099397735333646]
+rec: [0.7213804713804713]
+pre: [0.825626204238921]
+f1: [0.769991015274034]
+rw: [48.063136353432824]
 
-Avg f1: 0.763901549680948  Avg reward: 48.099397735333646
+Avg f1: 0.769991015274034  Avg reward: 48.063136353432824
