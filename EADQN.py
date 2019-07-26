@@ -63,8 +63,8 @@ class DeepQLearner:
         five_gram = MaxPooling2D((self.num_words - 4, 1), strides=(1, 1), padding='valid')(five_gram)
 
         # concates.shape = [None, 1, 8, 32]
-        concate = kl.concatenate([bi_gram, tri_gram, four_gram, five_gram], axis=2)
-        flat = Flatten()(concate)
+        concat = kl.concatenate([bi_gram, tri_gram, four_gram, five_gram], axis=2)
+        flat = Flatten()(concat)
 
         full_con = Dense(self.dense_dim, activation='relu', kernel_initializer='truncated_normal')(flat)
         out = Dense(self.num_actions, kernel_initializer='truncated_normal')(full_con)
