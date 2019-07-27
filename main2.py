@@ -71,7 +71,7 @@ def preset_args():
     mainarg.add_argument("--train_episodes", type=int, default=50, help="")
     mainarg.add_argument("--load_weights", type=bool, default=False, help="")
     mainarg.add_argument("--save_weights", type=bool, default=True, help="")
-    mainarg.add_argument("--agent_mode", type=str, default='arg', help='action dqn or argument dqn')
+    mainarg.add_argument("--agent_mode", type=str, default='act', help='action dqn or argument dqn')
 
 
     return parser.parse_args()
