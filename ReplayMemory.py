@@ -13,7 +13,7 @@ class ReplayMemory:
             self.num_words = args.num_words #500
         elif agent_mode == 'arg':
             self.word_dim = args.word_dim + args.dis_dim #100
-            self.num_words = 128 #100
+            self.num_words = args.context_len #100
 
         self.actions = np.zeros(self.size, dtype=np.uint8) #replay size = 50000
         self.rewards = np.zeros(self.size, dtype=np.float16)

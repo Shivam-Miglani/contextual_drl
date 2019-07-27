@@ -27,7 +27,7 @@ class Environment:
         self.max_data_char_len = 0
         self.max_data_sent_len = 0
         self.agent_mode = agent_mode  # args.agent_mode
-        self.context_len = 128 # 100
+        self.context_len = args.context_len # 100
         self.stacked_embeddings = args.stacked_embeddings
 
 
@@ -498,7 +498,6 @@ class Environment:
                 if w in self.word2vec.vocab:
                     sent_vec[i][: self.word_dim] = self.word2vec[w]
                 sent_vec[i][self.word_dim: self.word_dim + self.dis_dim] = distance[i]
-
         else:
 
             for i, w in enumerate(words):

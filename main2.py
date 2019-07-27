@@ -4,7 +4,7 @@ import argparse
 import tensorflow as tf
 from utils import get_time, plot_results
 from Agent import Agent
-from EADQN import DeepQLearner
+from EADQN2 import DeepQLearner
 from Environment import Environment
 from ReplayMemory import ReplayMemory
 from gensim.models import KeyedVectors
@@ -21,11 +21,11 @@ def preset_args():
     envarg.add_argument("--domain", type=str, default='cooking', help="")
     envarg.add_argument("--contextual_embedding", type=str, default='word2vec', help="")
     envarg.add_argument("--model_dim", type=str, default=50, help="word2vec dimension")  # word2vec 50.
-    envarg.add_argument("--num_words", type=int, default=500, help="number of words to consider for act model is 500. Arg model is 100") # 100 if arguments.
+    envarg.add_argument("--num_words", type=int, default=500, help="number of words to consider for act model is 512. Arg model is 128") # 100 if arguments.
     envarg.add_argument("--context_len", type=int, default=100, help="")
     envarg.add_argument("--word_dim", type=int, default=868, help="dim of word embedding")
-    envarg.add_argument("--tag_dim", type=int, default=868, help="")
-    envarg.add_argument("--dis_dim", type=int, default=868, help="")
+    envarg.add_argument("--tag_dim", type=int, default=1, help="")
+    envarg.add_argument("--dis_dim", type=int, default=1, help="")
     envarg.add_argument("--reward_assign", type=list, default=[1, 2, 3], help='')
     envarg.add_argument("--reward_base", type=float, default=50.0, help="")
     envarg.add_argument("--object_rate", type=float, default=0.07, help='')
@@ -71,7 +71,7 @@ def preset_args():
     mainarg.add_argument("--train_episodes", type=int, default=50, help="")
     mainarg.add_argument("--load_weights", type=bool, default=False, help="")
     mainarg.add_argument("--save_weights", type=bool, default=True, help="")
-    mainarg.add_argument("--agent_mode", type=str, default='act', help='action dqn or argument dqn')
+    mainarg.add_argument("--agent_mode", type=str, default='arg', help='action dqn or argument dqn')
 
 
     return parser.parse_args()
@@ -82,10 +82,11 @@ def args_init(args):
 
     # initialize contextual embedding dimensions
     if args.contextual_embedding == 'word2vec':
-        args.word_dim = args.tag_dim = args.dis_dim = 50
+        args.word_dim = 50
         args.stacked_embeddings = 'word2vec'
+
     elif args.contextual_embedding == 'elmo': #glove + elmo
-        args.word_dim = args.tag_dim = args.dis_dim = 868
+        args.word_dim =  868
         ## stacked embeddings
         # create a StackedEmbedding object that combines glove and forward/backward flair embeddings
         args.stacked_embeddings = StackedEmbeddings([
@@ -94,15 +95,16 @@ def args_init(args):
         ])
 
     elif args.contextual_embedding == 'bert': #glove + bert
-        args.word_dim = args.tag_dim = args.dis_dim = 3172
+        args.word_dim = 3172
         args.stacked_embeddings = StackedEmbeddings([
             WordEmbeddings('glove'),
             BertEmbeddings('bert-base-uncased')
         ])
         args.batch_size = 4
+        args.replay_size = 50000
 
     elif args.contextual_embedding == 'flair': #glove + flair-forward + flair-backward
-        args.word_dim = args.tag_dim = args.dis_dim = 4196
+        args.word_dim = 4196
         args.stacked_embeddings = StackedEmbeddings([
             WordEmbeddings('glove'),
             FlairEmbeddings('news-forward', chars_per_chunk=128),
@@ -114,7 +116,7 @@ def args_init(args):
             args.batch_size = 2
 
     elif args.contextual_embedding == 'glove': # not tested
-        args.word_dim = args.tag_dim = args.dis_dim = 100
+        args.word_dim = 100
         args.stacked_embeddings = StackedEmbeddings([
             WordEmbeddings('glove'),
         ])

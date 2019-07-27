@@ -27,7 +27,7 @@ class DeepQLearner:
             self.num_words = args.num_words
             self.emb_dim = args.word_dim + args.tag_dim
         elif agent_mode == 'arg':
-            self.num_words = 128
+            self.num_words = args.context_len
             self.emb_dim = args.word_dim + args.dis_dim + args.tag_dim
         self.contextual_embedding = args.contextual_embedding
         self.build_dqn()
