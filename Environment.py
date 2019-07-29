@@ -293,8 +293,8 @@ class Environment:
                 self.test_epoch_end_flag = False
             self.test_text_ind += 1
             if self.test_text_ind >= len(self.test_data):
-                self.test_epoch_end_flag = True
-                print('\n\n-----valid_epoch_end_flag = True-----\n\n')
+                self.valid_epoch_end_flag = True
+                print('\n\n-----test_epoch_end_flag = True-----\n\n')
                 return
             self.current_text = self.test_data[self.test_text_ind]
             print('\ntest_text_ind: %d of %d' % (self.test_text_ind, len(self.test_data)))

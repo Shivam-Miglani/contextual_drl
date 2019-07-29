@@ -34,10 +34,10 @@ class DeepQLearner:
 
     def build_dqn(self):
         # ipdb.set_trace()
-        if self.contextual_embedding == 'word2vec':
-            fw = self.emb_dim - 1  # filter width
-        else:
-            fw = self.emb_dim
+        # if self.contextual_embedding == 'word2vec':
+        #     fw = self.emb_dim - 1  # filter width
+        # else:
+        fw = self.emb_dim
         fn = self.num_filters  # filter num
         inputs = Input(shape=(self.num_words, self.emb_dim, 1))
         # inputs = Input(shape=(1, self.num_words, self.emb_dim))

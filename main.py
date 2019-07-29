@@ -19,8 +19,8 @@ def preset_args():
 
     envarg = parser.add_argument_group('Environment')
     envarg.add_argument("--domain", type=str, default='cooking', help="")
-    envarg.add_argument("--contextual_embedding", type=str, default='word2vec', help="")
-    envarg.add_argument("--model_dim", type=str, default=50, help="word2vec dimension")  # word2vec 50.
+    envarg.add_argument("--contextual_embedding", type=str, default='elmo', help="")
+    envarg.add_argument("--model_dim", type=str, default=50, help="embedding dimension")  # word2vec 50.
     envarg.add_argument("--num_words", type=int, default=500, help="number of words to consider for act model is 500. Arg model is 100") # 100 if arguments.
     envarg.add_argument("--context_len", type=int, default=100, help="")
     envarg.add_argument("--word_dim", type=int, default=868, help="dim of word embedding")
@@ -105,8 +105,8 @@ def args_init(args):
         args.word_dim = args.tag_dim = args.dis_dim = 4196
         args.stacked_embeddings = StackedEmbeddings([
             WordEmbeddings('glove'),
-            FlairEmbeddings('news-forward', chars_per_chunk=128),
-            FlairEmbeddings('news-backward', chars_per_chunk=128)
+            FlairEmbeddings('mix-forward', chars_per_chunk=128),
+            FlairEmbeddings('mix-backward', chars_per_chunk=128)
         ])
         if args.agent_mode == 'act':
             args.batch_size = 4
@@ -153,28 +153,31 @@ def main(args):
     training_result = {'rec': [], 'pre': [], 'f1': [], 'loss': [], 'rw': []}
     test_result = {'rec': [], 'pre': [], 'f1': [], 'loss': [], 'rw': []}
     log_epoch = 0
-    with open("%s.txt" % (args.result_dir), 'w') as outfile:
-        print('\n Arguments:')
-        outfile.write('\n Arguments:\n')
-        for k, v in sorted(args.__dict__.items(), key=lambda x: x[0]):
-            print('{}: {}'.format(k, v))
-            outfile.write('{}: {}\n'.format(k, v))
-        print('\n')
-        outfile.write('\n')
 
-        # if we are loading weights, we don't need to train [no exploration is required. We have exploration rate start = end = 0.1], just test on test set.
-        if args.load_weights:
-            print('Loading weights ...')
-            filename = 'weights/%s_%s_%s.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
-            net_act.load_weights(filename)
-            #accuracy on test set
-            with open("%s.txt" % (args.result_dir + 'testset'), 'w') as outfile:
-                rec, pre, f1, rw = agent.test(args.test_steps, outfile, test_flag=True)
-                outfile.write('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
-                print('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
 
-        # do training
-        if not args.load_weights:
+    # if we are loading weights, we don't need to train [no exploration is required. We have exploration rate start = end = 0.1], just test on test set.
+    if args.load_weights:
+        print('Loading weights ...')
+        filename = 'weights/%s_%s_%s.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
+        net_act.load_weights(filename)
+        #accuracy on test set
+        with open("%s.txt" % (args.result_dir + 'testset'), 'w') as outfile:
+            rec, pre, f1, rw = agent.test(args.test_steps, outfile, test_flag=True)
+            outfile.write('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
+            print('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
+
+    if not args.load_weights:
+        with open("%s.txt" % (args.result_dir), 'w') as outfile:
+            print('\n Arguments:')
+            outfile.write('\n Arguments:\n')
+            for k, v in sorted(args.__dict__.items(), key=lambda x: x[0]):
+                print('{}: {}'.format(k, v))
+                outfile.write('{}: {}\n'.format(k, v))
+            print('\n')
+            outfile.write('\n')
+
+            # do training
+
             for epoch in tqdm(range(args.start_epoch, args.start_epoch + args.epochs)):
                 num_test = -1
                 env_act.train_epoch_end_flag = False
