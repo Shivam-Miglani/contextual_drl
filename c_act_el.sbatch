@@ -33,4 +33,4 @@ module load cuda/10.0 cudnn/10.0-7.4.2.24
 
 # Complex or heavy commands should be started with 'srun' (see 'man srun' for more information)
 # (This is just an example, srun is of course not necessary for this command.)
-srun --output='cooking-act-el.out' python main.py --domain cooking --contextual_embedding 'elmo'
+srun --output='cooking-act-el-128.out' python main.py --domain cooking --contextual_embedding 'elmo'
