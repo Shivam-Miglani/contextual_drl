@@ -44,7 +44,7 @@ def preset_args():
     netarg = parser.add_argument_group('Deep Q-learning network')
     netarg.add_argument("--batch_size", type=int, default=32, help="")
     netarg.add_argument("--num_filters", type=int, default=32, help="")
-    netarg.add_argument("--dense_dim", type=int, default=256, help="")
+    netarg.add_argument("--dense_dim", type=int, default=128, help="")
     netarg.add_argument("--num_actions", type=int, default=2, help="")
     netarg.add_argument("--optimizer", type=str, default='adam', help="")
     netarg.add_argument("--learning_rate", type=float, default=0.001, help="")
