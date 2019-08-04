@@ -2,9 +2,10 @@
  Arguments:
 action_rate: 0.1
 agent_mode: act
-batch_size: 4
+batch_size: 8
+context_len: 100
 contextual_embedding: flair
-dense_dim: 256
+dense_dim: 128
 dis_dim: 4196
 display_training_result: 1
 domain: cooking
@@ -23,7 +24,7 @@ load_weights: False
 model_dim: 50
 num_actions: 2
 num_filters: 32
-num_words: 512
+num_words: 500
 object_rate: 0.07
 optimizer: adam
 positive_rate: 0.9
@@ -37,51 +38,51 @@ save_replay: 0
 save_replay_name: data/saved_replay_memory.pkl
 save_replay_size: 1000
 save_weights: True
-stacked_embeddings: StackedEmbeddings [/home/nfs/smiglani/.flair/embeddings/glove.gensim,/home/nfs/smiglani/.flair/embeddings/news-forward-0.4.1.pt,/home/nfs/smiglani/.flair/embeddings/news-backward-0.4.1.pt]
+stacked_embeddings: StackedEmbeddings [/home/nfs/smiglani/.flair/embeddings/glove.gensim,/home/nfs/smiglani/.flair/embeddings/lm-mix-english-forward-v0.2rc.pt,/home/nfs/smiglani/.flair/embeddings/lm-mix-english-backward-v0.2rc.pt]
 start_epoch: 0
 stop_epoch_gap: 5
 tag_dim: 4196
 target_steps: 5
-test_steps: 12288
+test_steps: 12000
 train_episodes: 50
 train_frequency: 1
 train_repeat: 1
-train_steps: 37376
+train_steps: 36500
 use_act_rate: 1
-valid_steps: 9728
-word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7f2bc5159588>
+valid_steps: 9500
+word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7fc9c3e51278>
 word_dim: 4196
 
 
 
 Summary:
-total_ecs: 2	 right_ecs: 0	 tagged_ecs: 0
-total_act: 424	 right_act: 7	 tagged_act: 32
-acc: 0.886496	 rec: 0.016509	 pre: 0.218750	 f1: 0.030702
+total_ecs: 2	 right_ecs: 2	 tagged_ecs: 2
+total_act: 446	 right_act: 424	 tagged_act: 535
+acc: 0.967086	 rec: 0.950673	 pre: 0.792523	 f1: 0.864424
 
-cumulative reward: 140787.815941	 average reward: 34.072560
+cumulative reward: 214169.923000	 average reward: 51.832024
 
 
- Best f1 value: {'rec': [0.0, 0.01650943396226415], 'pre': [0.0, 0.21875], 'f1': [0.0, 0.030701754385964914], 'rw': [0.0, 34.07255952102056]}  best epoch: 0
+ Best f1 value: {'rec': [0.0, 0.9506726457399103], 'pre': [0.0, 0.7925233644859813], 'f1': [0.0, 0.8644240570846076], 'rw': [0.0, 51.83202395934143]}  best epoch: 0
 
 
 Summary:
-total_ecs: 2	 right_ecs: 0	 tagged_ecs: 0
-total_act: 424	 right_act: 7	 tagged_act: 21
-acc: 0.889158	 rec: 0.016509	 pre: 0.333333	 f1: 0.031461
+total_ecs: 2	 right_ecs: 2	 tagged_ecs: 2
+total_act: 442	 right_act: 401	 tagged_act: 461
+acc: 0.973863	 rec: 0.907240	 pre: 0.869848	 f1: 0.888151
 
-cumulative reward: 141888.203133	 average reward: 34.338868
+cumulative reward: 214829.878000	 average reward: 51.991742
 
 
- Best f1 value: {'rec': [0.0, 0.01650943396226415, 0.01650943396226415], 'pre': [0.0, 0.21875, 0.3333333333333333], 'f1': [0.0, 0.030701754385964914, 0.031460674157303366], 'rw': [0.0, 34.07255952102056, 34.33886813471186]}  best epoch: 0
+ Best f1 value: {'rec': [0.0, 0.9506726457399103, 0.9072398190045249], 'pre': [0.0, 0.7925233644859813, 0.8698481561822126], 'f1': [0.0, 0.8644240570846076, 0.8881506090808416], 'rw': [0.0, 51.83202395934143, 51.991742013552404]}  best epoch: 0
 
 
  training process:
-{'rec': [0.0, 0.01650943396226415, 0.01650943396226415], 'pre': [0.0, 0.21875, 0.3333333333333333], 'f1': [0.0, 0.030701754385964914, 0.031460674157303366], 'rw': [0.0, 34.07255952102056, 34.33886813471186]}
+{'rec': [0.0, 0.9506726457399103, 0.9072398190045249], 'pre': [0.0, 0.7925233644859813, 0.8698481561822126], 'f1': [0.0, 0.8644240570846076, 0.8881506090808416], 'rw': [0.0, 51.83202395934143, 51.991742013552404]}
 
-rec: [0.01650943396226415]
-pre: [0.3333333333333333]
-f1: [0.031460674157303366]
-rw: [34.33886813471186]
+rec: [0.9072398190045249]
+pre: [0.8698481561822126]
+f1: [0.8881506090808416]
+rw: [51.991742013552404]
 
-Avg f1: 0.031460674157303366  Avg reward: 34.33886813471186
+Avg f1: 0.8881506090808416  Avg reward: 51.991742013552404
