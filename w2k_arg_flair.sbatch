@@ -20,7 +20,7 @@
 # The default memory per node is 1024 megabytes (1GB)
 #SBATCH --mem=100000
 
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:pascal:1
 
 # Set mail type to 'END' to receive a mail when the job finishes (with usage statistics)
 #SBATCH --mail-type=END
