@@ -1,0 +1,528 @@
+
+ Arguments:
+action_rate: 0.1
+agent_mode: arg
+batch_size: 8
+context_len: 100
+contextual_embedding: bert
+dense_dim: 256
+dis_dim: 3172
+display_training_result: 0
+domain: win2k
+dropout: 0.5
+epochs: 1
+exploration_decay_steps: 1000
+exploration_rate_end: 0.1
+exploration_rate_start: 1
+exploration_rate_test: 0.0
+filter_act_ind: 1
+gamma: 0.9
+gui_mode: False
+learning_rate: 0.001
+load_replay: 0
+load_weights: False
+model_dim: 50
+num_actions: 2
+num_filters: 32
+num_words: 100
+object_rate: 0.07
+optimizer: adam
+positive_rate: 0.9
+priority: 1
+random_play: 0
+replay_size: 50000
+result_dir: results/win2k_arg_bert
+reward_assign: [1, 2, 3]
+reward_base: 50.0
+save_replay: 0
+save_replay_name: data/saved_replay_memory.pkl
+save_replay_size: 1000
+save_weights: True
+stacked_embeddings: StackedEmbeddings [/home/nfs/smiglani/.flair/embeddings/glove.gensim,BertEmbeddings(
+  (model): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(30522, 768, padding_idx=0)
+      (position_embeddings): Embedding(512, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): BertLayerNorm()
+      (dropout): Dropout(p=0.1)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (1): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (2): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (3): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (4): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (5): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (6): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (7): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (8): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (9): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (10): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+        (11): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): BertLayerNorm()
+              (dropout): Dropout(p=0.1)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): BertLayerNorm()
+            (dropout): Dropout(p=0.1)
+          )
+        )
+      )
+    )
+    (pooler): BertPooler(
+      (dense): Linear(in_features=768, out_features=768, bias=True)
+      (activation): Tanh()
+    )
+  )
+)]
+start_epoch: 0
+stop_epoch_gap: 5
+tag_dim: 3172
+target_steps: 5
+test_steps: 27100
+train_episodes: 50
+train_frequency: 1
+train_repeat: 1
+train_steps: 86400
+use_act_rate: 1
+valid_steps: 21600
+word2vec: <gensim.models.keyedvectors.Word2VecKeyedVectors object at 0x7fde1f2af2e8>
+word_dim: 3172
+
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 216	 tagged_act: 294
+acc: 0.950828	 rec: 0.629738	 pre: 0.734694	 f1: 0.678179
+
+cumulative reward: 191718.925000	 average reward: 45.986789
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461], 'pre': [0.0, 0.7346938775510204], 'f1': [0.0, 0.6781789638932496], 'rw': [0.0, 45.986789397937166]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 278	 tagged_act: 425
+acc: 0.949148	 rec: 0.810496	 pre: 0.654118	 f1: 0.723958
+
+cumulative reward: 193802.025000	 average reward: 46.486454
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335], 'rw': [0.0, 45.986789397937166, 46.48645358599254]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 0	 tagged_ecs: 2
+total_act: 343	 right_act: 337	 tagged_act: 1037
+acc: 0.830895	 rec: 0.982507	 pre: 0.324976	 f1: 0.488406
+
+cumulative reward: 140500.375000	 average reward: 33.701217
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 303	 tagged_act: 428
+acc: 0.960422	 rec: 0.883382	 pre: 0.707944	 f1: 0.785992
+
+cumulative reward: 202520.350000	 average reward: 48.577680
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 283	 tagged_act: 304
+acc: 0.980571	 rec: 0.825073	 pre: 0.930921	 f1: 0.874807
+
+cumulative reward: 211646.325000	 average reward: 50.766689
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507, 0.8250728862973761], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449, 0.930921052631579], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327, 0.8748068006182379], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064, 50.76668865435337]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 296	 tagged_act: 345
+acc: 0.976973	 rec: 0.862974	 pre: 0.857971	 f1: 0.860465
+
+cumulative reward: 211256.825000	 average reward: 50.673261
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 299	 tagged_act: 365
+acc: 0.973615	 rec: 0.871720	 pre: 0.819178	 f1: 0.844633
+
+cumulative reward: 209288.525000	 average reward: 50.201133
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 301	 tagged_act: 352
+acc: 0.977692	 rec: 0.877551	 pre: 0.855114	 f1: 0.866187
+
+cumulative reward: 211567.250000	 average reward: 50.747721
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 324	 tagged_act: 392
+acc: 0.979132	 rec: 0.944606	 pre: 0.826531	 f1: 0.881633
+
+cumulative reward: 214673.775000	 average reward: 51.492870
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507, 0.8250728862973761, 0.9446064139941691], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449, 0.930921052631579, 0.826530612244898], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327, 0.8748068006182379, 0.8816326530612245], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064, 50.76668865435337, 51.49286999280398]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 322	 tagged_act: 415
+acc: 0.972655	 rec: 0.938776	 pre: 0.775904	 f1: 0.849604
+
+cumulative reward: 211184.525000	 average reward: 50.655919
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 321	 tagged_act: 380
+acc: 0.980571	 rec: 0.935860	 pre: 0.844737	 f1: 0.887967
+
+cumulative reward: 214754.150000	 average reward: 51.512149
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507, 0.8250728862973761, 0.9446064139941691, 0.9358600583090378], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449, 0.930921052631579, 0.826530612244898, 0.8447368421052631], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327, 0.8748068006182379, 0.8816326530612245, 0.8879668049792531], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064, 50.76668865435337, 51.49286999280398, 51.512149196449926]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 325	 tagged_act: 372
+acc: 0.984409	 rec: 0.947522	 pre: 0.873656	 f1: 0.909091
+
+cumulative reward: 217160.875000	 average reward: 52.089440
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507, 0.8250728862973761, 0.9446064139941691, 0.9358600583090378, 0.9475218658892128], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449, 0.930921052631579, 0.826530612244898, 0.8447368421052631, 0.8736559139784946], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327, 0.8748068006182379, 0.8816326530612245, 0.8879668049792531, 0.9090909090909092], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064, 50.76668865435337, 51.49286999280398, 51.512149196449926, 52.08943991364824]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 0	 tagged_ecs: 2
+total_act: 343	 right_act: 331	 tagged_act: 487
+acc: 0.959942	 rec: 0.965015	 pre: 0.679671	 f1: 0.797590
+
+cumulative reward: 205607.425000	 average reward: 49.318164
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 319	 tagged_act: 369
+acc: 0.982250	 rec: 0.930029	 pre: 0.864499	 f1: 0.896067
+
+cumulative reward: 215460.425000	 average reward: 51.681560
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 296	 tagged_act: 311
+acc: 0.985128	 rec: 0.862974	 pre: 0.951768	 f1: 0.905199
+
+cumulative reward: 214941.850000	 average reward: 51.557172
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 315	 tagged_act: 336
+acc: 0.988247	 rec: 0.918367	 pre: 0.937500	 f1: 0.927835
+
+cumulative reward: 217951.550000	 average reward: 52.279096
+
+
+ Best f1 value: {'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507, 0.8250728862973761, 0.9446064139941691, 0.9358600583090378, 0.9475218658892128, 0.9183673469387755], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449, 0.930921052631579, 0.826530612244898, 0.8447368421052631, 0.8736559139784946, 0.9375], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327, 0.8748068006182379, 0.8816326530612245, 0.8879668049792531, 0.9090909090909092, 0.9278350515463918], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064, 50.76668865435337, 51.49286999280398, 51.512149196449926, 52.08943991364824, 52.27909570640427]}  best epoch: 0
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 318	 tagged_act: 345
+acc: 0.987527	 rec: 0.927114	 pre: 0.921739	 f1: 0.924419
+
+cumulative reward: 217958.650000	 average reward: 52.280799
+
+
+Summary:
+total_ecs: 1	 right_ecs: 1	 tagged_ecs: 1
+total_act: 343	 right_act: 314	 tagged_act: 361
+acc: 0.981770	 rec: 0.915452	 pre: 0.869806	 f1: 0.892045
+
+cumulative reward: 214945.700000	 average reward: 51.558095
+
+
+ training process:
+{'rec': [0.0, 0.6297376093294461, 0.8104956268221575, 0.8833819241982507, 0.8250728862973761, 0.9446064139941691, 0.9358600583090378, 0.9475218658892128, 0.9183673469387755], 'pre': [0.0, 0.7346938775510204, 0.6541176470588236, 0.7079439252336449, 0.930921052631579, 0.826530612244898, 0.8447368421052631, 0.8736559139784946, 0.9375], 'f1': [0.0, 0.6781789638932496, 0.7239583333333335, 0.7859922178988327, 0.8748068006182379, 0.8816326530612245, 0.8879668049792531, 0.9090909090909092, 0.9278350515463918], 'rw': [0.0, 45.986789397937166, 46.48645358599254, 48.57768049892064, 50.76668865435337, 51.49286999280398, 51.512149196449926, 52.08943991364824, 52.27909570640427]}
+
+rec: [0.9183673469387755]
+pre: [0.9375]
+f1: [0.9278350515463918]
+rw: [52.27909570640427]
+
+Avg f1: 0.9278350515463918  Avg reward: 52.27909570640427
