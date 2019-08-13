@@ -33,4 +33,4 @@ module load cuda/10.0 cudnn/10.0-7.4.2.24
 
 # Complex or heavy commands should be started with 'srun' (see 'man srun' for more information)
 # (This is just an example, srun is of course not necessary for this command.)
-srun --output='win2k-arg-g.out' python main.py --domain win2k --contextual_embedding 'glove' --agent_mode 'arg' --epochs 10
+srun --output='win2k-arg-g.out' python main.py --domain win2k --agent_mode 'arg' --epochs 10
