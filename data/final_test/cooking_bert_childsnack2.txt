@@ -1,0 +1,32 @@
+
+NO1: The(1) kitchen(2) has(3) several(4) kinds(5) of(6) breads(7) and(8) fillings(9) 
+
+NO2: Make(1) a(2) gluten-free(3) sandwich1(4) using(5) bread(6) and(7) soya.(8) 
+<1>  Make (gluten-free, sandwich1)    
+
+NO3: Put(1) the(2) gluten-free(3) sandwich1(4) on(5) tray.(6) 
+<2>  Put (gluten-free, sandwich1)    
+
+NO4: Move(1) tray1(2) from(3) kitchen(4) to(5) the(6) order(7) table.(8) 
+<3>  Move (tray1)    
+
+NO5: Serve(1) the(2) gluten-free(3) sandwich1(4) to(5) allergic(6) child(7) sitting(8) on(9) table(10) #43(11) 
+<4>  Serve (gluten-free, sandwich1)    
+
+NO6: Move(1) the(2) tray(3) from(4) table1(5) to(6) kitchen(7) 
+<5>  Move (tray)    
+
+NO7: Make(1) a(2) sandwich2(3) which(4) contains(5) gluten(6) with(7) ingredients(8) bread3(9) and(10) filling3(11) 
+<6>  Make (sandwich2)    
+
+NO8: Put(1) sandwich2(2) on(3) tray2(4) 
+<7>  Put (sandwich2)    
+
+NO9: Move(1) tray2(2) from(3) kitchen(4) to(5) the(6) table2(7) 
+<8>  Move (tray2)    
+
+NO10: Serve(1) the(2) sandwich2(3) which(4) contains(5) gluten(6) to(7) the(8) non-allergic(9) child5(10) sitting(11) on(12) table2(13) 
+<9>  Serve (sandwich2)    
+
+NO11: Move(1) the(2) tray2(3) from(4) table2(5) to(6) kitchen(7) 
+<10>  Move (tray2)    

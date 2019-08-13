@@ -1,0 +1,23 @@
+
+NO1: Make(1) a(2) gluten-free-sandwich(3) with(4) gluten-free-bread(5) and(6) gluten-free-contents(7) 
+
+NO2: Put(1) the(2) gluten-free-sandwich(3) on(4) the(5) tray(6) 
+<1>  Put (gluten-free-sandwich)    
+
+NO3: Move(1) the(2) tray(3) from(4) kitchen(5) to(6) the(7) round-table(8) 
+<2>  Move (tray)    
+
+NO4: Serve(1) the(2) gluten-free-sandwich(3) to(4) a(5) allergic-child(6) sitting(7) on(8) table(9) 
+<3>  Serve (gluten-free-sandwich)    
+
+NO5: Make(1) a(2) gluten-sandwich(3) with(4) gluten-bread(5) and(6) gluten-contents(7) 
+<4>  Make (gluten-sandwich)    
+
+NO6: Put(1) the(2) gluten-sandwich(3) on(4) the(5) tray(6) 
+<5>  Put (gluten-sandwich)    
+
+NO7: Move(1) the(2) tray(3) from(4) kitchen(5) to(6) the(7) square-table(8) 
+<6>  Move (tray)    
+
+NO8: Serve(1) the(2) gluten-sandwich(3) to(4) a(5) normal-child(6) 
+<7>  Serve (gluten-sandwich)    

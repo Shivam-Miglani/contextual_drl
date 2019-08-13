@@ -1,0 +1,32 @@
+
+NO1: Childsnack(1) Domain(2) 
+
+NO2: Make(1) a(2) sandwich5(3) which(4) is(5) gluten-free(6) using(7) gluten-free(8) bread3(9) and(10) corns(11) and(12) polenta(13) 
+<1>  Make (sandwich5)    
+
+NO3: Put(1) this(2) gluten-free(3) sandwich5(4) on(5) tray7.(6) 
+<2>  Put (gluten-free, sandwich5)    
+
+NO4: Move(1) the(2) tray7(3) from(4) kitchen(5) to(6) order(7) table3(8) 
+<3>  Move (tray7)    
+
+NO5: Serve(1) the(2) gluten-free(3) sandwich5(4) to(5) allergic(6) child7(7) 
+<4>  Serve (gluten-free, sandwich5)    
+
+NO6: Move(1) the(2) tray7(3) back(4) from(5) table3(6) to(7) kitchen(8) 
+<5>  Move (tray7)    
+
+NO7: Make(1) a(2) sandwich2(3) which(4) contains(5) gluten(6) with(7) bread4(8) and(9) filling9(10) 
+<6>  Make (sandwich2)    
+
+NO8: Put(1) sandwich2(2) on(3) another(4) tray5(5) 
+<7>  Put (sandwich2)    
+
+NO9: Move(1) tray5(2) from(3) kitchen(4) to(5) table4(6) 
+<8>  Move (tray5)    
+
+NO10: Serve(1) the(2) sandwich2(3) which(4) contains(5) gluten(6) to(7) the(8) non-allergic(9) child1(10) 
+<9>  Serve (sandwich2)    
+
+NO11: Move(1) the(2) tray5(3) back(4) from(5) table4(6) to(7) kitchen(8) 
+<10>  Move (tray5)    

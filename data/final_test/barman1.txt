@@ -1,0 +1,5 @@
+barman domain
+Grasp the container in your hand from table
+Fill-shot the shot with ingredient8 from left-hand and use righ-hand to operate dispenser.
+Empty the shot by throwing out the beverage7
+Clean the shot of beverage7 using both hands

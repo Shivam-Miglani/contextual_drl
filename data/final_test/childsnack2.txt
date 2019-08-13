@@ -1,0 +1,10 @@
+Make a gluten-free sandwich using gluten-free bread and gluten-free filling
+Put the gluten-free sandwich on a tray.
+Move the tray from kitchen to the order table 3.
+Serve the gluten-free sandwich on table 3
+Move the tray back from table to kitchen
+Make a sandwich which contains gluten with bread and filling that contains gluten
+Put sandwich on another tray
+Move that tray from kitchen to the table 4
+Serve the sandwich which contains gluten to the non-allergic child sitting on table 4
+Move the tray back from table 4 to kitchen

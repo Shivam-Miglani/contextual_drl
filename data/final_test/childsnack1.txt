@@ -1,0 +1,9 @@
+Make a gluten-free-sandwich with gluten-free-bread and gluten-free-contents
+Put the gluten-free-sandwich on the tray
+Move the tray from kitchen to the round-table
+Serve the gluten-free-sandwich to a allergic-child sitting on table
+Make a gluten-sandwich with gluten-bread and gluten-contents
+Put the gluten-sandwich on the tray
+Move the tray from kitchen to the square-table
+Serve the gluten-sandwich to a normal-child
+

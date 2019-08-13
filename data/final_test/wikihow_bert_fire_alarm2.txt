@@ -1,0 +1,26 @@
+
+NO1: Turn-off(1) all-hazardous-experiments(2) or(3) procedures(4) before(5) evacuating.(6) 
+
+NO2: If(1) possible(2) take(3) or(4) secure(5) all-valuables(6) wallets(7) purses(8) keys(9) etc(10) as(11) quickly(12) as(13) possible.(14) 
+<1>  take (wallets)    <2>  secure (all-valuables, wallets, purses, keys)    
+
+NO3: Close(1) all-doors(2) behind(3) you(4) as(5) you(6) exit.(7) 
+<3>  Close (all-doors)    
+
+NO4: Check(1) all-doors(2) for(3) heat(4) before(5) you(6) open(7) or(8) go(9) through(10) them(11) to(12) avoid(13) walking(14) into(15) a-fire.(16) 
+<4>  Check (all-doors, heat)    <5>  avoid (walking)    
+
+NO5: Evacuate(1) the-building(2) using(3) the-nearest-exit(4) or(5) stairway(6) 
+<6>  Evacuate ()    <7>  using (stairway)    
+
+NO6: Do(1) not(2) use(3) the-elevators.(4) 
+
+NO7: Call(1) 911(2) from(3) a-safe-area(4) and(5) provide(6) name(7) location(8) and(9) nature(10) of(11) emergency.(12) 
+<8>  Call (911)    <9>  provide (name, location, nature)    
+
+NO8: Proceed(1) to(2) a-pre-determined-assembly-area(3) of(4) building(5) and(6) remain(7) there(8) until(9) you(10) are(11) told(12) to(13) re-enter(14) by(15) the-emergency-personnel(16) in(17) charge.(18) 
+<10>  Proceed (building)    <11>  remain ()    <12>  re-enter ()    
+
+NO9: Do(1) not(2) impede(3) access(4) of(5) emergency-personnel(6) to(7) the-area.(8) 
+
+NO10: Inform-Building-Safety-Personnel(1) or(2) Emergency-Personnel(3) of(4) the-event(5) conditions(6) and(7) location(8) of(9) individuals(10) who(11) require(12) assistance(13) and(14) have(15) not(16) been(17) evacuated(18) 

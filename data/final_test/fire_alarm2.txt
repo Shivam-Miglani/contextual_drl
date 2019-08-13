@@ -1,0 +1,10 @@
+Fire_alarm Domain
+Turn-off all-hazardous-experiments or procedures before evacuating.
+If possible, take or secure all-valuables, wallets, purses, keys, etc as quickly as possible.
+Close all-doors behind you as you exit.
+Check all-doors for heat before you open or go through them to avoid walking into a-fire.
+Evacuate the-building using the-nearest-exit or stairway. Do not use the-elevators.
+Call 911 from a-safe-area and provide name, location, and nature of emergency.
+Proceed to a-pre-determined-assembly-area of building and remain there until you are told to re-enter by the-emergency-personnel in charge.
+Do not impede access of emergency-personnel to the-area.
+Inform Building-Safety-Personnel or Emergency-Personnel of the-event, conditions and location of individuals who require assistance and have not been evacuated.

@@ -1,0 +1,32 @@
+
+NO1: Child_Snack(1) domain(2) 
+
+NO2: Take-gluten(1) free(2) ingredients(3) and(4) gluten-free(5) bread(6) and(7) make(8) a(9) gluten-free(10) sandwich(11) 
+<1>  Take-gluten (ingredients, bread)    <2>  make (sandwich)    
+
+NO3: Put(1) this(2) sandwich(3) on(4) a(5) tray(6) 
+<3>  Put (sandwich)    
+
+NO4: Move(1) the(2) tray(3) containing(4) sandwich(5) from(6) the(7) kitchen(8) to(9) the(10) table(11) where(12) allergic(13) child(14) is(15) sitting(16) 
+<4>  Move (tray, sandwich)    
+
+NO5: Serve(1) the(2) gluten-free(3) sandwich(4) to(5) the(6) allergic(7) child(8) 
+<5>  Serve (sandwich)    
+
+NO6: Move(1) the(2) tray(3) back(4) from(5) the(6) table(7) to(8) the(9) kitchen(10) 
+<6>  Move (tray)    
+
+NO7: Take(1) gluten(2) ingredients(3) and(4) gluten(5) bread(6) and(7) make(8) a(9) sandwich(10) which(11) contains(12) gluten(13) 
+<7>  Take (gluten, ingredients, gluten, bread)    <8>  make (sandwich, gluten)    
+
+NO8: Put(1) this(2) sandwich(3) on(4) a(5) tray(6) 
+<9>  Put (sandwich)    
+
+NO9: Move(1) the(2) tray(3) from(4) kitchen(5) to(6) the(7) table(8) where(9) non-allergic(10) child(11) is(12) sitting(13) 
+<10>  Move (tray)    
+
+NO10: Serve(1) the(2) gluten(3) sandwich(4) to(5) the(6) non-allergic(7) child(8) 
+<11>  Serve (gluten, sandwich)    
+
+NO11: Move(1) the(2) tray(3) back(4) from(5) the(6) table(7) to(8) the(9) kitchen(10) 
+<12>  Move (tray)    

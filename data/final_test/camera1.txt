@@ -1,0 +1,12 @@
+PhoneCameraDomain
+Clean the camera-lens using cloth
+Set the resolution and picture quality of the phone to highest
+Turn-off any picture frames and effects
+If available, set the white-balance
+Adjust position of the phone to have sufficient light and the subject in the frame
+Optionally, turn on the flash if light is low
+Click on capture button to take the picture
+If desired, save the picture to phone
+
+
+

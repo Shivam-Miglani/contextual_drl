@@ -88,9 +88,9 @@ class Agent(object):
 def EASDRL_init(args, sess):
     args.gui_mode = True
     args.fold_id = 0
-    args.domain = 'cooking'
+    args.domain = 'wikihow'
     args.replay_size = 1000
-    args.contextual_embedding = 'elmo'
+    args.contextual_embedding = 'glove'
     args.load_weights = 'weights'
     args = args_init(args)
 
@@ -264,7 +264,7 @@ class EASGUI(wx.Frame):
 
 
     def OnExtract(self, event):
-        input_file_path = 'data/online_test/13.txt'
+        input_file_path = 'data/online_test/fire_alarm2.txt'
         # ipdb.set_trace()
         if len(self.current_sents) > 0:
             self.data.append(self.current_sents)
@@ -286,7 +286,7 @@ class EASGUI(wx.Frame):
         self.show_results()
 
     def OnExtract(self):
-        input_file_path = 'data/online_test/13.txt'
+        input_file_path = 'data/online_test/fire_alarm2.txt'
         # ipdb.set_trace()
         if len(self.current_sents) > 0:
             self.data.append(self.current_sents)
@@ -532,7 +532,7 @@ class EASnonGUI():
         self.act2sent = {}
 
     def OnExtract(self):
-        input_file_path = 'data/online_test/13.txt'
+        input_file_path = 'data/final_test/fire_alarm2.txt'
         # ipdb.set_trace()
         if len(self.current_sents) > 0:
             self.data.append(self.current_sents)

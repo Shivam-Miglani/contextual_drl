@@ -1,0 +1,14 @@
+
+NO1: barman(1) domain(2) 
+
+NO2: Grasp(1) the(2) container(3) in(4) your(5) hand(6) from(7) table(8) 
+<1>  Grasp (container)    
+
+NO3: Fill-shot(1) the(2) shot(3) with(4) ingredient8(5) from(6) left-hand(7) and(8) use(9) righ-hand(10) to(11) operate(12) dispenser.(13) 
+<2>  Fill-shot (shot)    <3>  use ()    <4>  operate ()    
+
+NO4: Empty(1) the(2) shot(3) by(4) throwing(5) out(6) the(7) beverage7(8) 
+<5>  Empty (shot)    <6>  throwing (beverage7)    
+
+NO5: Clean(1) the(2) shot(3) of(4) beverage7(5) using(6) both(7) hands(8) 
+<7>  Clean (shot, beverage7)    <8>  using (hands)    

@@ -1,0 +1,11 @@
+Childsnack Domain
+Make a gluten-free sandwich5 using gluten-free bread3 and filling7
+Put this gluten-free sandwich5 on tray7
+Move the tray7 from kitchen to order table3
+Serve the gluten-free sandwich5 to allergic child7
+Move the tray7 back from table3 to kitchen
+Make a sandwich2 which contains gluten with bread4 and filling9
+Put sandwich2 on another tray5
+Move tray5 from kitchen to table4
+Serve the sandwich2 which contains gluten to the non-allergic child1
+Move the tray5 back from table4 to kitchen
