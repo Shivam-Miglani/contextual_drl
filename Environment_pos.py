@@ -8,6 +8,7 @@ import nltk, re, pprint
 from nltk.tokenize.simple import SpaceTokenizer
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+import pickle
 
 class Environment:
     def __init__(self, args, agent_mode):
@@ -92,6 +93,8 @@ class Environment:
                                         sent_vec.append(np.zeros(self.word_dim))
                             else:
                                 # Stacked embeddings
+
+                                training_input = []
                                 line = ' '.join(words)
                                 tokens2 = SpaceTokenizer().tokenize(line)
                                 pos_list = nltk.pos_tag(tokens2)
@@ -100,6 +103,8 @@ class Environment:
                                     tup = '|'.join(tup[0:2])
                                     pos_list_joined.append(tup)
                                 line = ' '.join(pos_list_joined)
+
+
 
                                 sent = Sentence(line)
                                 args.stacked_embeddings.embed(sent)
@@ -182,6 +187,7 @@ class Environment:
 
                 # unroll the stuff inside and store it in a list called act_texts
                 act_texts = []
+                training_input = []
                 for i in range(len(input_data)): #until length of training examples (documents)
                     if len(input_data[i]['words']) == 0: #if there are no words in a document
                         continue
@@ -205,17 +211,25 @@ class Environment:
                     doc_vec = []
 
                     if args.stacked_embeddings != 'word2vec':
+
                         # doing Flair embeddings
                         for sent in tqdm(act_text['sents']):
                             line = ' '.join(sent)
                             tokens2 = SpaceTokenizer().tokenize(line)
                             pos_list = nltk.pos_tag(tokens2)
                             pos_list_joined = []
+
                             for tup in pos_list:
                                 tup = '|'.join(tup[0:2])
                                 pos_list_joined.append(tup)
+                            training_input.append(pos_list_joined)
+
+                            pickle_out = open("cooking.pickle", "wb")
+                            pickle.dump(training_input, pickle_out)
+                            pickle_out.close()
+
                             line = ' '.join(pos_list_joined)
-                            print(line)
+
                             sentence = Sentence(line)
                             args.stacked_embeddings.embed(sentence)
                             for token in sentence:
