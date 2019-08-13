@@ -18,7 +18,7 @@ def preset_args():
     parser = argparse.ArgumentParser()
 
     envarg = parser.add_argument_group('Environment')
-    envarg.add_argument("--domain", type=str, default='cooking', help="")
+    envarg.add_argument("--domain", type=str, default='win2k', help="")
     envarg.add_argument("--contextual_embedding", type=str, default='glove', help="")
     envarg.add_argument("--model_dim", type=str, default=50, help="embedding dimension")  # word2vec 50.
     envarg.add_argument("--num_words", type=int, default=500, help="number of words to consider for act model is 500. Arg model is 100") # 100 if arguments.
@@ -128,7 +128,7 @@ def args_init(args):
         args.num_words = args.context_len
         args.display_training_result = 0
 
-    args.result_dir = 'results/%s_%s_%s' % (args.domain, args.agent_mode, args.contextual_embedding)
+    args.result_dir = 'results/%s_%s_%s_pos' % (args.domain, args.agent_mode, args.contextual_embedding)
 
     return args
 
@@ -158,7 +158,7 @@ def main(args):
     # if we are loading weights, we don't need to train [no exploration is required. We have exploration rate start = end = 0.1], just test on test set.
     if args.load_weights:
         print('Loading weights ...')
-        filename = 'weights/%s_%s_%s.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
+        filename = 'weights/%s_%s_%s_pos.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
         net_act.load_weights(filename)
         #accuracy on test set
         with open("%s.txt" % (args.result_dir + 'testset'), 'w') as outfile:
@@ -193,7 +193,7 @@ def main(args):
 
                     if f1 > max(epoch_result['f1']):
                         if args.save_weights:
-                            filename = 'weights/%s_%s_%s.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
+                            filename = 'weights/%s_%s_%s_pos.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
                             net_act.save_weights(filename)
 
                         epoch_result['f1'].append(f1)

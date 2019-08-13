@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from flair.data import Sentence
 from tqdm import tqdm
 import nltk, re, pprint
-from nltk import word_tokenize
+from nltk.tokenize.simple import SpaceTokenizer
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
@@ -93,13 +93,14 @@ class Environment:
                             else:
                                 # Stacked embeddings
                                 line = ' '.join(words)
-                                tokens2 = word_tokenize(line)
+                                tokens2 = SpaceTokenizer().tokenize(line)
                                 pos_list = nltk.pos_tag(tokens2)
                                 pos_list_joined = []
                                 for tup in pos_list:
-                                    tup = '|'.join(tup)
+                                    tup = '|'.join(tup[0:2])
                                     pos_list_joined.append(tup)
                                 line = ' '.join(pos_list_joined)
+
                                 sent = Sentence(line)
                                 args.stacked_embeddings.embed(sent)
                                 for token in sent:
@@ -207,13 +208,14 @@ class Environment:
                         # doing Flair embeddings
                         for sent in tqdm(act_text['sents']):
                             line = ' '.join(sent)
-                            tokens2 = word_tokenize(line)
+                            tokens2 = SpaceTokenizer().tokenize(line)
                             pos_list = nltk.pos_tag(tokens2)
                             pos_list_joined = []
                             for tup in pos_list:
-                                tup = '|'.join(tup)
+                                tup = '|'.join(tup[0:2])
                                 pos_list_joined.append(tup)
                             line = ' '.join(pos_list_joined)
+                            print(line)
                             sentence = Sentence(line)
                             args.stacked_embeddings.embed(sentence)
                             for token in sentence:
