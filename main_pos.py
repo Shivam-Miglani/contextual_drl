@@ -18,7 +18,7 @@ def preset_args():
     parser = argparse.ArgumentParser()
 
     envarg = parser.add_argument_group('Environment')
-    envarg.add_argument("--domain", type=str, default='win2k', help="")
+    envarg.add_argument("--domain", type=str, default='cooking', help="")
     envarg.add_argument("--contextual_embedding", type=str, default='word2vec', help="")
     envarg.add_argument("--model_dim", type=str, default=50, help="embedding dimension")  # word2vec 50.
     envarg.add_argument("--num_words", type=int, default=500, help="number of words to consider for act model is 500. Arg model is 100") # 100 if arguments.
