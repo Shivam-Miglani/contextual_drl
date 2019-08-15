@@ -78,7 +78,7 @@ def preset_args():
 
 def args_init(args):
     # initialize word2vec
-    args.word2vec = KeyedVectors.load_word2vec_format('cooking.txt',binary = False)
+    args.word2vec = KeyedVectors.load_word2vec_format('%s.txt'%args.domain,binary = False)
 
     # initialize contextual embedding dimensions
     if args.contextual_embedding == 'word2vec':
