@@ -18,7 +18,7 @@ def preset_args():
     parser = argparse.ArgumentParser()
 
     envarg = parser.add_argument_group('Environment')
-    envarg.add_argument("--domain", type=str, default='cooking', help="")
+    envarg.add_argument("--domain", type=str, default='win2k', help="")
     envarg.add_argument("--contextual_embedding", type=str, default='word2vec', help="")
     envarg.add_argument("--model_dim", type=str, default=50, help="embedding dimension")  # word2vec 50.
     envarg.add_argument("--num_words", type=int, default=500, help="number of words to consider for act model is 500. Arg model is 100") # 100 if arguments.
@@ -166,73 +166,73 @@ def main(args):
             outfile.write('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
             print('\n\n Test f1 value: {}, recall : {}, precision : {}, reward: {} \n'.format(f1, rec,pre,rw ))
 
-    if not args.load_weights:
-        with open("%s.txt" % (args.result_dir), 'w') as outfile:
-            print('\n Arguments:')
-            outfile.write('\n Arguments:\n')
-            for k, v in sorted(args.__dict__.items(), key=lambda x: x[0]):
-                print('{}: {}'.format(k, v))
-                outfile.write('{}: {}\n'.format(k, v))
-            print('\n')
-            outfile.write('\n')
-
-            # do training
-
-            for epoch in tqdm(range(args.start_epoch, args.start_epoch + args.epochs)):
-                num_test = -1
-                env_act.train_epoch_end_flag = False
-                while not env_act.train_epoch_end_flag: #unless all documents are covered
-                    # training
-                    num_test += 1
-                    restart_init = False if num_test > 0 else True
-                    tmp_result = agent.train(args.train_steps, args.train_episodes, restart_init) #Train episodes = 50 , max episodes.
-                    for k in training_result:
-                        training_result[k].extend(tmp_result[k])
-
-                    rec, pre, f1, rw = agent.test(args.valid_steps, outfile) # not testing; actually validation
-
-                    if f1 > max(epoch_result['f1']):
-                        if args.save_weights:
-                            filename = 'weights/%s_%s_%s_pos.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
-                            net_act.save_weights(filename)
-
-                        epoch_result['f1'].append(f1)
-                        epoch_result['rec'].append(rec)
-                        epoch_result['pre'].append(pre)
-                        epoch_result['rw'].append(rw)
-                        log_epoch = epoch
-                        outfile.write('\n\n Best f1 value: {}  best epoch: {}\n'.format(epoch_result, log_epoch))
-                        print('\n\n Best f1 value: {}  best epoch: {}\n'.format(epoch_result, log_epoch))
-
-                # if no improvement after args.stop_epoch_gap, break
-                # EARLY STOPPING
-                if epoch - log_epoch >= args.stop_epoch_gap:
-                    outfile.write('\n\nBest f1 value: {}  best epoch: {}\n'.format(epoch_result, log_epoch))
-                    print('\nepoch: %d  result_dir: %s' % (epoch, args.result_dir))
-                    print('-----Early stopping, no improvement after %d epochs-----\n' % args.stop_epoch_gap)
-                    break
-
-            # if args.save_replay: #0 by default
-            #     mem_act.save(args.save_replay_name, args.save_replay_size)
-
-            filename = '%s_training_process.pdf' % (args.result_dir)
-            plot_results(epoch_result, args.domain, filename)
-            outfile.write('\n\n training process:\n{}\n\n'.format(epoch_result))
-
-            best_ind = epoch_result['f1'].index(max(epoch_result['f1']))
-            for k in epoch_result:
-                result[k].append(epoch_result[k][best_ind])
-                outfile.write('{}: {}\n'.format(k, result[k]))
-                print(('{}: {}\n'.format(k, result[k])))
-            avg_f1 = sum(result['f1']) / len(result['f1'])
-            avg_rw = sum(result['rw']) / len(result['rw'])
-            outfile.write('\nAvg f1: {}  Avg reward: {}\n'.format(avg_f1, avg_rw))
-            print('\nAvg f1: {}  Avg reward: {}\n'.format(avg_f1, avg_rw))
-
-            tf.compat.v1.reset_default_graph()
-        end = time.time()
-        print('Total time cost: %ds' % (end - start))
-        print('Current time is: %s\n' % get_time())
+    # if not args.load_weights:
+    #     with open("%s.txt" % (args.result_dir), 'w') as outfile:
+    #         print('\n Arguments:')
+    #         outfile.write('\n Arguments:\n')
+    #         for k, v in sorted(args.__dict__.items(), key=lambda x: x[0]):
+    #             print('{}: {}'.format(k, v))
+    #             outfile.write('{}: {}\n'.format(k, v))
+    #         print('\n')
+    #         outfile.write('\n')
+    #
+    #         # do training
+    #
+    #         for epoch in tqdm(range(args.start_epoch, args.start_epoch + args.epochs)):
+    #             num_test = -1
+    #             env_act.train_epoch_end_flag = False
+    #             while not env_act.train_epoch_end_flag: #unless all documents are covered
+    #                 # training
+    #                 num_test += 1
+    #                 restart_init = False if num_test > 0 else True
+    #                 tmp_result = agent.train(args.train_steps, args.train_episodes, restart_init) #Train episodes = 50 , max episodes.
+    #                 for k in training_result:
+    #                     training_result[k].extend(tmp_result[k])
+    #
+    #                 rec, pre, f1, rw = agent.test(args.valid_steps, outfile) # not testing; actually validation
+    #
+    #                 if f1 > max(epoch_result['f1']):
+    #                     if args.save_weights:
+    #                         filename = 'weights/%s_%s_%s_pos.h5' % (args.domain, args.agent_mode, args.contextual_embedding)
+    #                         net_act.save_weights(filename)
+    #
+    #                     epoch_result['f1'].append(f1)
+    #                     epoch_result['rec'].append(rec)
+    #                     epoch_result['pre'].append(pre)
+    #                     epoch_result['rw'].append(rw)
+    #                     log_epoch = epoch
+    #                     outfile.write('\n\n Best f1 value: {}  best epoch: {}\n'.format(epoch_result, log_epoch))
+    #                     print('\n\n Best f1 value: {}  best epoch: {}\n'.format(epoch_result, log_epoch))
+    #
+    #             # if no improvement after args.stop_epoch_gap, break
+    #             # EARLY STOPPING
+    #             if epoch - log_epoch >= args.stop_epoch_gap:
+    #                 outfile.write('\n\nBest f1 value: {}  best epoch: {}\n'.format(epoch_result, log_epoch))
+    #                 print('\nepoch: %d  result_dir: %s' % (epoch, args.result_dir))
+    #                 print('-----Early stopping, no improvement after %d epochs-----\n' % args.stop_epoch_gap)
+    #                 break
+    #
+    #         # if args.save_replay: #0 by default
+    #         #     mem_act.save(args.save_replay_name, args.save_replay_size)
+    #
+    #         filename = '%s_training_process.pdf' % (args.result_dir)
+    #         plot_results(epoch_result, args.domain, filename)
+    #         outfile.write('\n\n training process:\n{}\n\n'.format(epoch_result))
+    #
+    #         best_ind = epoch_result['f1'].index(max(epoch_result['f1']))
+    #         for k in epoch_result:
+    #             result[k].append(epoch_result[k][best_ind])
+    #             outfile.write('{}: {}\n'.format(k, result[k]))
+    #             print(('{}: {}\n'.format(k, result[k])))
+    #         avg_f1 = sum(result['f1']) / len(result['f1'])
+    #         avg_rw = sum(result['rw']) / len(result['rw'])
+    #         outfile.write('\nAvg f1: {}  Avg reward: {}\n'.format(avg_f1, avg_rw))
+    #         print('\nAvg f1: {}  Avg reward: {}\n'.format(avg_f1, avg_rw))
+    #
+    #         tf.compat.v1.reset_default_graph()
+    #     end = time.time()
+    #     print('Total time cost: %ds' % (end - start))
+    #     print('Current time is: %s\n' % get_time())
 
 if __name__ == '__main__':
     args = args_init(preset_args())

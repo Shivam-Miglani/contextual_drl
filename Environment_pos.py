@@ -224,7 +224,7 @@ class Environment:
                                 pos_list_joined.append(tup)
                             training_input.append(pos_list_joined)
 
-                            pickle_out = open("cooking.pickle", "wb")
+                            pickle_out = open("%s.pickle"%args.domain, "wb")
                             pickle.dump(training_input, pickle_out)
                             pickle_out.close()
 
