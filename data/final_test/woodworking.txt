@@ -1,0 +1,10 @@
+Take very smooth piece of wood.
+Do planing on that wood and use colour fragment treatment with colour of blue.
+Increase the cost by plane cost.
+Glaze the piece of wood with natural-colored glaze and treatment of glaze.
+Increase the cost by glaze cost.
+Take very smooth piece of wood.
+Do planing on that wood and use colour fragment treatment with colour of mauve.
+Increase the cost by plane cost.
+Glaze the piece of wood with natural-colored glaze and treatment of glaze.
+Increase the cost by glaze cost.

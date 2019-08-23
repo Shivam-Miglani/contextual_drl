@@ -23,6 +23,7 @@ class Agent(object):
     def predict(self, text):
         # e.g. text = ['Cook the rice the day before.', 'Use leftover rice.']
         sentence_emb_list =self.env_act.init_predict_act_text(text)
+
         sents = []  # dictionary for last sentence, this sentence and actions
         for i in range(len(self.env_act.current_text['sents'])):
             last_sent = self.env_act.current_text['sents'][i - 1] if i > 0 else []
@@ -73,8 +74,8 @@ def EASDRL_init(args, sess):
     args.gui_mode = True
     args.gui_mode2 = False
     args.fold_id = 0
-    args.domain = 'wikihow'
-    args.contextual_embedding = 'bert'
+    args.domain = 'cooking'
+    args.contextual_embedding = 'word2vec'
     args.replay_size = 1000
     args.load_weights = True
     args = args_init(args)
@@ -103,7 +104,7 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/final_test/'
-    filename = 'fire_alarm2.txt'
+    filename = 'childsnack4.txt'
     input_file_path += filename
 
     # TODO: use command line arguments for input and output file.

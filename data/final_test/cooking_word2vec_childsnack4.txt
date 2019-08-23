@@ -1,10 +1,10 @@
 
 NO1: Jeff(1) Barbara(2) and(3) Nirmal(4) are(5) allergic(6) to(7) gluten(8) 
+<1>  Jeff (Barbara, Nirmal)    
 
 NO2: Shivam(1) and(2) Kanav(3) are(4) non-allergic(5) children.(6) 
 
 NO3: Make(1) a(2) gluten-free(3) sandwich(4) with(5) gluten-free(6) cheese(7) and(8) corn(9) bread.(10) 
-<1>  Make (sandwich, cheese, corn)    
 
 NO4: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
 <2>  Put (sandwich)    
@@ -19,7 +19,7 @@ NO7: Move(1) the(2) tray(3) back(4) from(5) table-5(6) to(7) the(8) kitchen.(9)
 <5>  Move (tray)    
 
 NO8: Make(1) a(2) sandwich(3) with(4) cheese(5) and(6) wheat(7) bread(8) 
-<6>  Make (sandwich, cheese)    
+<6>  Make ()    
 
 NO9: Put(1) sandwich(2) on(3) a(4) tray.(5) 
 <7>  Put (sandwich)    
@@ -34,7 +34,7 @@ NO12: Move(1) the(2) tray(3) back(4) from(5) table-11(6) to(7) the(8) kitchen.(9
 <10>  Move (tray)    
 
 NO13: Make(1) a(2) gluten-free(3) sandwich(4) with(5) gluten-free(6) cheese(7) and(8) corn(9) bread.(10) 
-<11>  Make (sandwich, cheese, corn)    
+<11>  Make (sandwich)    
 
 NO14: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
 <12>  Put (sandwich)    
@@ -49,13 +49,13 @@ NO17: Move(1) the(2) tray(3) back(4) from(5) table-5(6) to(7) the(8) kitchen.(9)
 <15>  Move (tray)    
 
 NO18: Make(1) a(2) gluten-free(3) sandwich(4) with(5) gluten-free(6) cheese(7) and(8) corn(9) bread.(10) 
-<16>  Make (sandwich, cheese, corn)    
+<16>  Make (sandwich)    
 
 NO19: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
 <17>  Put (sandwich)    
 
 NO20: Make(1) a(2) sandwich(3) with(4) cheese(5) and(6) wheat(7) bread(8) 
-<18>  Make (sandwich, cheese)    
+<18>  Make ()    
 
 NO21: Put(1) sandwich(2) on(3) tray-7.(4) 
 <19>  Put (sandwich)    

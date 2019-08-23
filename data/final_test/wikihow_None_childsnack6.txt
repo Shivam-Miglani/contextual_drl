@@ -1,0 +1,106 @@
+
+NO1: Jeff(1) Barbara(2) and(3) Nirmal(4) are(5) allergic(6) children(7) 
+
+NO2: Shivam(1) Dhruv(2) and(3) Kanav(4) are(5) non-allergic(6) children.(7) 
+
+NO3: Take(1) gluten-free(2) ingredients(3) and(4) gluten-free(5) bread(6) and(7) make(8) a(9) gluten-free(10) sandwich.(11) 
+<1>  Take (gluten-free, ingredients)    <2>  make (gluten-free, sandwich.)    
+
+NO4: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
+<3>  Put (gluten-free, sandwich)    
+
+NO5: Move(1) the(2) tray(3) containing(4) sandwich(5) from(6) the(7) kitchen(8) to(9) the(10) table(11) no(12) 
+<4>  Move (tray)    
+
+NO6: 5.(1) 
+
+NO7: Serve(1) the(2) gluten-free(3) sandwich(4) to(5) Jeff.(6) 
+<5>  Serve (gluten-free, sandwich)    
+
+NO8: Move(1) the(2) tray(3) back(4) from(5) the(6) table(7) to(8) the(9) kitchen.(10) 
+<6>  Move (tray)    
+
+NO9: Take(1) gluten(2) ingredients(3) and(4) gluten(5) bread(6) and(7) make(8) a(9) gluten(10) sandwich.(11) 
+<7>  Take (gluten, ingredients)    <8>  make (gluten, sandwich.)    
+
+NO10: Put(1) gluten(2) sandwich(3) on(4) a(5) tray.(6) 
+<9>  Put (gluten, sandwich)    
+
+NO11: Move(1) the(2) tray(3) from(4) kitchen(5) to(6) the(7) table(8) no(9) 
+<10>  Move (tray)    
+
+NO12: 11(1) 
+
+NO13: Serve(1) the(2) gluten(3) sandwich(4) to(5) Shivam.(6) 
+<11>  Serve (gluten, sandwich)    
+
+NO14: Move(1) the(2) tray(3) back(4) from(5) the(6) table(7) to(8) the(9) kitchen(10) 
+<12>  Move (tray)    
+
+NO15: Take(1) gluten-free(2) ingredients(3) and(4) gluten-free(5) bread(6) and(7) make(8) a(9) gluten-free(10) sandwich.(11) 
+<13>  Take (gluten-free, ingredients)    <14>  make (gluten-free, sandwich.)    
+
+NO16: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
+<15>  Put (gluten-free, sandwich)    
+
+NO17: Move(1) the(2) tray(3) containing(4) sandwich(5) from(6) the(7) kitchen(8) to(9) the(10) table(11) no(12) 
+<16>  Move (tray)    
+
+NO18: 7.(1) 
+
+NO19: Serve(1) the(2) gluten-free(3) sandwich(4) to(5) Barbara.(6) 
+<17>  Serve (gluten-free, sandwich)    
+
+NO20: Move(1) the(2) tray(3) back(4) from(5) the(6) table(7) to(8) the(9) kitchen.(10) 
+<18>  Move (tray)    
+
+NO21: Take(1) gluten-free(2) ingredients(3) and(4) gluten-free(5) bread(6) and(7) make(8) a(9) gluten-free(10) sandwich(11) 
+<19>  Take (gluten-free, ingredients)    <20>  make (gluten-free, sandwich)    
+
+NO22: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
+<21>  Put (gluten-free, sandwich)    
+
+NO23: Move(1) the(2) tray(3) containing(4) sandwich(5) from(6) the(7) kitchen(8) to(9) the(10) table(11) no(12) 
+<22>  Move (tray)    
+
+NO24: 5.(1) 
+
+NO25: Serve(1) the(2) gluten-free(3) sandwich(4) to(5) Nirmal.(6) 
+<23>  Serve (gluten-free, sandwich)    
+
+NO26: Move(1) the(2) tray(3) back(4) from(5) table(6) to(7) the(8) kitchen.(9) 
+<24>  Move (tray)    
+
+NO27: Take(1) gluten(2) ingredients(3) and(4) gluten(5) bread(6) and(7) make(8) a(9) gluten(10) sandwich.(11) 
+<25>  Take (gluten, ingredients)    <26>  make (gluten, sandwich.)    
+
+NO28: Put(1) gluten(2) sandwich(3) on(4) a(5) tray-5.(6) 
+<27>  Put (gluten, sandwich)    
+
+NO29: Take(1) gluten(2) ingredients(3) and(4) gluten(5) bread(6) and(7) make(8) a(9) gluten(10) sandwich.(11) 
+<28>  Take (gluten, ingredients)    <29>  make (gluten, sandwich.)    
+
+NO30: Put(1) gluten(2) sandwich(3) on(4) a(5) tray.(6) 
+<30>  Put (gluten, sandwich)    
+
+NO31: Move(1) the(2) tray-5(3) from(4) kitchen(5) to(6) the(7) table(8) no(9) 
+<31>  Move (tray-5, kitchen)    
+
+NO32: 11(1) 
+
+NO33: Serve(1) the(2) gluten(3) sandwich(4) to(5) Kanav.(6) 
+<32>  Serve (gluten, sandwich)    
+
+NO34: Move(1) the(2) tray-5(3) back(4) from(5) table(6) to(7) the(8) kitchen.(9) 
+<33>  Move (tray-5)    
+
+NO35: Move(1) the(2) tray(3) from(4) kitchen(5) to(6) the(7) table(8) no(9) 
+<34>  Move (tray)    
+
+NO36: 11(1) 
+
+NO37: Serve(1) the(2) gluten(3) sandwich(4) to(5) Dhruv.(6) 
+<35>  Serve (gluten, sandwich)    
+
+NO38: Move(1) the(2) tray(3) back(4) from(5) table-11(6) to(7) the(8) kitchen(9) 
+<36>  Move (tray)    

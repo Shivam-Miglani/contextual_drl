@@ -7,7 +7,7 @@ from main_gui import preset_args, args_init
 from EADQN_gui import DeepQLearner
 from Environment_gui import Environment
 from keras.backend.tensorflow_backend import set_session
-
+from sklearn.metrics.pairwise import cosine_similarity
 
 class Agent(object):
     """docstring for Agent"""
@@ -25,7 +25,17 @@ class Agent(object):
 
     def predict(self, text):
         # e.g. text = ['Cook the rice the day before.', 'Use leftover rice.']
-        self.env_act.init_predict_act_text(text)
+        sentence_emb_list = self.env_act.init_predict_act_text(text)
+
+        sentence_emb_list = np.stack(sentence_emb_list)
+
+        # sentence_emb_list /= np.linalg.norm(sentence_emb_list, axis=1, keepdims=True)
+
+        # cos_sim =cosine_similarity(sentence_emb_list, Y=None, dense_output=True)
+        # print(cos_sim)
+        # np.save("cos_sim_%s"%filename,cos_sim)
+        # Generate a mask for the upper triangle
+
         sents = []  # dictionary for last sentence, this sentence and actions
         for i in range(len(self.env_act.current_text['sents'])):
             last_sent = self.env_act.current_text['sents'][i - 1] if i > 0 else []
@@ -107,7 +117,7 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/final_test/'
-    filename = 'childsnack5.txt'
+    filename = 'tea.txt'
     input_file_path += filename
 
     # TODO: use command line arguments for input and output file.
@@ -159,6 +169,35 @@ if __name__ == '__main__':
         if len(sents[i]['acts']) > 0:
             f.write('\n')
             output += '\n'
+    f.close()
+    print(output)
+
+    # show results 2
+    count_act = 0
+    act2sent = {}
+    sents = current_sents
+    outfile = 'data/final_test/%s_%s_%s_2' % (args.domain, args.contextual_embedding, filename)
+    f = open(outfile, "w")
+    output = ""
+
+    print("===========================")
+    print()
+    for i in range(len(sents)):
+
+        words = sents[i]['last_sent'] + sents[i]['this_sent']
+
+
+        for k, act in enumerate(sents[i]['acts']):
+            objs = []
+            for oi in act['obj_idxs'][0] + act['obj_idxs'][1]:
+                if oi >= 0:
+                    objs.append(words[oi])
+                else:
+                    objs.append('UNK')
+            act2sent[count_act] = [i, k]
+            f.write('%s (%s),' % (words[act['act_idx']], ', '.join(objs)))
+            output += '%s (%s),' % (words[act['act_idx']], ', '.join(objs))
+            count_act += 1
     f.close()
     print(output)
 

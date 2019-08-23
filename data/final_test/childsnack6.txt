@@ -1,0 +1,9 @@
+Jeff, Barbara and Nirmal are allergic children. Shivam, Dhruv and Kanav are non-allergic children.
+
+Take gluten-free ingredients and gluten-free bread and make a gluten-free sandwich.
+Put gluten-free sandwich on a tray.
+Move the tray containing sandwich from the kitchen to the table no. 5.
+
+Take gluten ingredients and gluten bread and make a gluten sandwich.
+Put gluten sandwich on a tray.
+Move the tray from kitchen to the table no. 11

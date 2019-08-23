@@ -1,0 +1,32 @@
+
+NO1: Fire(1) alarm(2) domain(3) 
+
+NO2: Close(1) the(2) door(3) to(4) the(5) room(6) where(7) the(8) fire(9) is(10) and(11) leave(12) the(13) apartment.(14) 
+<1>  Close (door)    <2>  leave (apartment.)    
+
+NO3: Make(1) sure(2) that(3) EVERYONE(4) leaves(5) the(6) apartment(7) with(8) you.(9) 
+
+NO4: Take(1) your(2) keys.(3) 
+<3>  Take (keys.)    
+
+NO5: Close(1) but(2) do(3) not(4) lock(5) the(6) apartment(7) door.(8) 
+<4>  Close ()    
+
+NO6: Alert(1) people(2) on(3) your(4) floor(5) by(6) knocking(7) on(8) doors(9) on(10) your(11) way(12) to(13) the(14) exit.(15) 
+<5>  Alert (people)    <6>  knocking (doors)    
+
+NO7: Use(1) the(2) nearest(3) stairwell(4) to(5) exit(6) the(7) building.(8) 
+<7>  Use (nearest, stairwell)    <8>  exit (building.)    
+
+NO8: Do(1) not(2) use(3) the(4) elevator.(5) 
+
+NO9: Call(1) 911(2) once(3) you(4) reach(5) a(6) safe(7) location(8) 
+<9>  Call (911)    
+
+NO10: Do(1) not(2) assume(3) the(4) fire(5) has(6) been(7) reported(8) unless(9) firefighters(10) are(11) on(12) the(13) scene.(14) 
+
+NO11: Meet(1) the(2) members(3) of(4) your(5) household(6) at(7) a(8) predetermined(9) location(10) outside(11) of(12) the(13) building.(14) 
+<10>  Meet (members, household)    
+
+NO12: Notify(1) responding(2) firefighters(3) if(4) anyone(5) is(6) unaccounted(7) for(8) 
+<11>  Notify (responding, firefighters)    

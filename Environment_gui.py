@@ -450,6 +450,7 @@ class Environment:
 
 # ==================================== GUI MODE functions/Driver Mode functions
     def init_predict_act_text(self, raw_text):
+
         text = {'tokens': [], 'sents': [], 'word2sent': {}}
         for s in raw_text:
             words = s.split()
@@ -471,7 +472,7 @@ class Environment:
         else:
             word_count = 0
             z = 3172 #bert
-            sentence_emb_list = []
+
             s = torch.zeros(0, z)
             for sent in tqdm(text['sents']):
                 line = ' '.join(sent)
@@ -480,21 +481,17 @@ class Environment:
                 self.stacked_embeddings.embed(sentence)
                 w = torch.zeros(0, z)
                 for token in sentence:
-                    print(token)
                     # print(token.embedding.shape)  # 868 for elmo
                     sent_vec[word_count][:self.word_dim] = token.embedding.numpy()
                     word_count += 1
+                    w = torch.cat((w, token.embedding.view(-1, z)), 0) #stack the words
+                s = torch.cat((s, w.mean(dim=0).view(-1, z)), 0) #average them
 
-                    w = torch.cat((w, token.embedding.view(-1, z)), 0)
-                s = torch.cat((s, w.mean(dim=0).view(-1, z)), 0)
-                sentence_emb_list.append(s.numpy())
-
-        print(len(sentence_emb_list))
 
         self.state = sent_vec
         self.terminal_flag = False
         self.current_text = text
-        return sentence_emb_list
+        return s
 
     def init_predict_arg_text(self, act_idx, text):
         '''used in gui mode'''

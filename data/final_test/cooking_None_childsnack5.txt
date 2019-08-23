@@ -1,32 +1,11 @@
 
-NO1: Serving(1) children(2) sandwiches(3) 
+NO1: Make(1) a(2) gluten-free(3) sandwich.(4) 
 
-NO2: Take(1) gluten-free-ingredients(2) and(3) gluten-free-bread(4) and(5) make(6) a-gluten-free-sandwich(7) 
-<1>  Take (gluten-free-ingredients)    <2>  make (a-gluten-free-sandwich)    
+NO2: Make(1) a(2) sandwich(3) which(4) contains(5) no(6) gluten(7) 
+<1>  Make (sandwich)    
 
-NO3: Put(1) this-sandwich(2) on(3) a-tray(4) 
-<3>  Put (this-sandwich)    
+NO3: Make(1) a(2) sandwich.(3) 
+<2>  Make (sandwich.)    
 
-NO4: Move(1) the-tray(2) containing(3) sandwich(4) from(5) the-kitchen(6) to(7) the-table(8) where(9) allergic-child(10) is(11) sitting(12) 
-<4>  Move (the-tray, sandwich)    
-
-NO5: Serve(1) the-gluten-free-sandwich(2) to(3) the(4) allergic-child(5) 
-<5>  Serve (the-gluten-free-sandwich)    
-
-NO6: Move(1) the-tray(2) back(3) from(4) the-table(5) to(6) the-kitchen(7) 
-<6>  Move (the-tray)    
-
-NO7: Take(1) gluten-ingredients(2) and(3) gluten-bread(4) and(5) make(6) a-sandwich(7) which(8) contains(9) gluten(10) 
-<7>  Take (gluten-ingredients, gluten-bread)    <8>  make (gluten)    
-
-NO8: Put(1) this-sandwich(2) on(3) a-tray(4) 
-<9>  Put ()    
-
-NO9: Move(1) the-tray(2) from(3) kitchen(4) to(5) the-table(6) where(7) non-allergic-child(8) is(9) sitting(10) 
-<10>  Move (the-tray)    
-
-NO10: Serve(1) the-gluten-sandwich(2) to(3) the(4) non-allergic-child(5) 
-<11>  Serve (the-gluten-sandwich)    
-
-NO11: Move(1) the-tray(2) back(3) from(4) the-table(5) to(6) the-kitchen(7) 
-<12>  Move (the-tray)    
+NO4: Make(1) a(2) sandwich(3) which(4) contains(5) gluten.(6) 
+<3>  Make (sandwich)    

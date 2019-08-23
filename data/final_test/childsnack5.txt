@@ -1,11 +1,6 @@
-SERVING CHILDREN SANDWICHES
-Take gluten-free-ingredients and gluten-free-bread and make a-gluten-free-sandwich
-Put this-sandwich on a-tray
-Move the-tray containing sandwich from the-kitchen to the-table where allergic-child is sitting
-Serve the-gluten-free-sandwich to the allergic-child
-Move the-tray back from the-table to the-kitchen
-Take gluten-ingredients and gluten-bread and make a-sandwich which contains gluten
-Put this-sandwich on a-tray
-Move the-tray from kitchen to the-table where non-allergic-child is sitting
-Serve the-gluten-sandwich to the non-allergic-child
-Move the-tray back from the-table to the-kitchen
+Make a gluten-free sandwich.
+Make a sandwich which contains no gluten
+Make a sandwich.
+Make a sandwich which contains gluten.
+
+

@@ -1,0 +1,9 @@
+Tea domain
+Start from home and reach cafe for your tea in 25 minutes.
+Buy tea and wait 15 minutes.
+Clean your hands, if they are dirty in 1 minute.
+Add water to mug which takes 2 minutes.
+Pour milk to mug which also takes 2 minutes.
+Dip teabag into mug which also takes 2 minutes.
+Mix the teabag, water and milk in your mug for 3 minutes.
+Your delicious tea is ready.

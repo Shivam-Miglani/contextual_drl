@@ -4,3 +4,7 @@
 *.idea/
 
 *.out
+
+*.npy
+
+.ipynb_checkpoints/pos-w2v-checkpoint.ipynb
