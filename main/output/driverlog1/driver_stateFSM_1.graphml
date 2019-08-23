@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'start(disembark-truck.0)'})"/>
+<node id="frozenset({'end(board-truck.0)'})"/>
+<node id="frozenset({'end(disembark-truck.0)', 'end(walk.0)', 'start(board-truck.0)', 'start(walk.0)'})"/>
+<edge source="frozenset({'end(disembark-truck.0)', 'end(walk.0)', 'start(board-truck.0)', 'start(walk.0)'})" target="frozenset({'end(disembark-truck.0)', 'end(walk.0)', 'start(board-truck.0)', 'start(walk.0)'})">
+  <data key="d0">26</data>
+  <data key="d1">disembark-truck.0</data>
+</edge>
+</graph></graphml>

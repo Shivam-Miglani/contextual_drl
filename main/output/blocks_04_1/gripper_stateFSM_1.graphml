@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'start(grip_from_table.1)', 'end(put_on_one_block.1)', 'end(put_on_blocks.1)', 'start(grip_from_one_block.1)', 'end(put_on_table.1)', 'start(grip_from_blocks.1)'})"/>
+<node id="frozenset({'end(grip_from_one_block.1)', 'start(put_on_table.1)', 'end(grip_from_blocks.1)', 'start(put_on_blocks.1)', 'end(grip_from_table.1)', 'start(put_on_one_block.1)'})"/>
+<edge source="frozenset({'start(grip_from_table.1)', 'end(put_on_one_block.1)', 'end(put_on_blocks.1)', 'start(grip_from_one_block.1)', 'end(put_on_table.1)', 'start(grip_from_blocks.1)'})" target="frozenset({'start(grip_from_table.1)', 'end(put_on_one_block.1)', 'end(put_on_blocks.1)', 'start(grip_from_one_block.1)', 'end(put_on_table.1)', 'start(grip_from_blocks.1)'})">
+  <data key="d0">2161</data>
+  <data key="d1">put_on_one_block.1</data>
+</edge>
+<edge source="frozenset({'end(grip_from_one_block.1)', 'start(put_on_table.1)', 'end(grip_from_blocks.1)', 'start(put_on_blocks.1)', 'end(grip_from_table.1)', 'start(put_on_one_block.1)'})" target="frozenset({'end(grip_from_one_block.1)', 'start(put_on_table.1)', 'end(grip_from_blocks.1)', 'start(put_on_blocks.1)', 'end(grip_from_table.1)', 'start(put_on_one_block.1)'})">
+  <data key="d0">2239</data>
+  <data key="d1">grip_from_table.1</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,110 @@
+(define
+	(domain childsnack2)
+	(:requirements :typing)
+	(:types sandwich-gluten-free tray sandwich)
+	(:predicates
+		(sandwich-gluten-free_fsm0_state0)
+		(sandwich-gluten-free_fsm0_state1)
+		(sandwich-gluten-free_fsm0_state2)
+		(sandwich-gluten-free_fsm0_state3)
+		(tray_fsm0_state0)
+		(sandwich_fsm0_state0)
+		(sandwich_fsm0_state1)
+		(sandwich_fsm0_state2)
+		(sandwich_fsm0_state3)
+	(:action
+	move
+	:parameters
+	(?tray7 - tray )
+	:precondition
+	(and
+				(tray_fsm0_state0)
+	)
+	:effect
+	(and
+				(tray_fsm0_state0)
+	))
+	(:action
+	make-gluten-free
+	:parameters
+	(?sandwich5 - sandwich-gluten-free )
+	:precondition
+	(and
+				(sandwich-gluten-free_fsm0_state1)
+				(sandwich-gluten-free_fsm0_state3)
+	)
+	:effect
+	(and
+				(sandwich-gluten-free_fsm0_state1)
+				(sandwich-gluten-free_fsm0_state3)
+	))
+	(:action
+	serve-gluten-free
+	:parameters
+	(?sandwich5 - sandwich-gluten-free )
+	:precondition
+	(and
+				(sandwich-gluten-free_fsm0_state1)
+				(sandwich-gluten-free_fsm0_state3)
+	)
+	:effect
+	(and
+				(sandwich-gluten-free_fsm0_state1)
+				(sandwich-gluten-free_fsm0_state3)
+	))
+	(:action
+	make
+	:parameters
+	(?sandwich2 - sandwich )
+	:precondition
+	(and
+				(sandwich_fsm0_state0)
+				(sandwich_fsm0_state2)
+	)
+	:effect
+	(and
+				(sandwich_fsm0_state0)
+				(sandwich_fsm0_state2)
+	))
+	(:action
+	serve
+	:parameters
+	(?sandwich2 - sandwich )
+	:precondition
+	(and
+				(sandwich_fsm0_state0)
+				(sandwich_fsm0_state2)
+	)
+	:effect
+	(and
+				(sandwich_fsm0_state0)
+				(sandwich_fsm0_state2)
+	))
+	(:action
+	put
+	:parameters
+	(?sandwich2 - sandwich )
+	:precondition
+	(and
+				(sandwich_fsm0_state0)
+				(sandwich_fsm0_state2)
+	)
+	:effect
+	(and
+				(sandwich_fsm0_state0)
+				(sandwich_fsm0_state2)
+	))
+	(:action
+	put-gluten-free
+	:parameters
+	(?sandwich5 - sandwich-gluten-free )
+	:precondition
+	(and
+				(sandwich-gluten-free_fsm0_state1)
+				(sandwich-gluten-free_fsm0_state3)
+	)
+	:effect
+	(and
+				(sandwich-gluten-free_fsm0_state1)
+				(sandwich-gluten-free_fsm0_state3)
+	))

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="grip_from_blocks.1"/>
+<node id="put_on_blocks.1"/>
+<node id="grip_from_one_block.1"/>
+<node id="grip_from_table.1"/>
+<node id="put_on_table.1"/>
+<node id="put_on_one_block.1"/>
+<edge source="grip_from_blocks.1" target="put_on_blocks.1">
+  <data key="d0">40</data>
+</edge>
+<edge source="grip_from_blocks.1" target="put_on_table.1">
+  <data key="d0">31</data>
+</edge>
+<edge source="grip_from_blocks.1" target="put_on_one_block.1">
+  <data key="d0">20</data>
+</edge>
+<edge source="put_on_blocks.1" target="grip_from_one_block.1">
+  <data key="d0">40</data>
+</edge>
+<edge source="put_on_blocks.1" target="grip_from_table.1">
+  <data key="d0">55</data>
+</edge>
+<edge source="put_on_blocks.1" target="grip_from_blocks.1">
+  <data key="d0">38</data>
+</edge>
+<edge source="grip_from_one_block.1" target="put_on_blocks.1">
+  <data key="d0">47</data>
+</edge>
+<edge source="grip_from_one_block.1" target="put_on_table.1">
+  <data key="d0">22</data>
+</edge>
+<edge source="grip_from_one_block.1" target="put_on_one_block.1">
+  <data key="d0">11</data>
+</edge>
+<edge source="grip_from_table.1" target="put_on_blocks.1">
+  <data key="d0">72</data>
+</edge>
+<edge source="grip_from_table.1" target="put_on_one_block.1">
+  <data key="d0">23</data>
+</edge>
+<edge source="put_on_table.1" target="grip_from_table.1">
+  <data key="d0">20</data>
+</edge>
+<edge source="put_on_table.1" target="grip_from_blocks.1">
+  <data key="d0">21</data>
+</edge>
+<edge source="put_on_table.1" target="grip_from_one_block.1">
+  <data key="d0">11</data>
+</edge>
+<edge source="put_on_one_block.1" target="grip_from_table.1">
+  <data key="d0">15</data>
+</edge>
+<edge source="put_on_one_block.1" target="grip_from_blocks.1">
+  <data key="d0">15</data>
+</edge>
+<edge source="put_on_one_block.1" target="grip_from_one_block.1">
+  <data key="d0">21</data>
+</edge>
+</graph></graphml>

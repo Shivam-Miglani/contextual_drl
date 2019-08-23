@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'start(undo.1)', 'end(do_up.1)', 'end(jack_up.0)', 'start(jack_down.0)'})"/>
+<node id="frozenset({'start(put_on_wheel.1)', 'end(remove_wheel.1)'})"/>
+<node id="frozenset({'start(tighten.1)', 'end(loosen.1)', 'start(jack_up.0)', 'end(jack_down.0)', 'start(loosen.1)', 'end(tighten.1)'})"/>
+<node id="frozenset({'end(undo.1)', 'end(put_on_wheel.1)', 'start(remove_wheel.1)', 'start(do_up.1)'})"/>
+<edge source="frozenset({'start(undo.1)', 'end(do_up.1)', 'end(jack_up.0)', 'start(jack_down.0)'})" target="frozenset({'start(undo.1)', 'end(do_up.1)', 'end(jack_up.0)', 'start(jack_down.0)'})">
+  <data key="d0">463</data>
+  <data key="d1">do_up.1</data>
+</edge>
+<edge source="frozenset({'start(put_on_wheel.1)', 'end(remove_wheel.1)'})" target="frozenset({'start(put_on_wheel.1)', 'end(remove_wheel.1)'})">
+  <data key="d0">149</data>
+  <data key="d1">remove_wheel.1</data>
+</edge>
+<edge source="frozenset({'start(tighten.1)', 'end(loosen.1)', 'start(jack_up.0)', 'end(jack_down.0)', 'start(loosen.1)', 'end(tighten.1)'})" target="frozenset({'start(tighten.1)', 'end(loosen.1)', 'start(jack_up.0)', 'end(jack_down.0)', 'start(loosen.1)', 'end(tighten.1)'})">
+  <data key="d0">772</data>
+  <data key="d1">loosen.1</data>
+</edge>
+<edge source="frozenset({'end(undo.1)', 'end(put_on_wheel.1)', 'start(remove_wheel.1)', 'start(do_up.1)'})" target="frozenset({'end(undo.1)', 'end(put_on_wheel.1)', 'start(remove_wheel.1)', 'start(do_up.1)'})">
+  <data key="d0">287</data>
+  <data key="d1">undo.1</data>
+</edge>
+</graph></graphml>

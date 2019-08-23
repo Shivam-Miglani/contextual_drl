@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="use.1"/>
+<node id="insert.1"/>
+<node id="hook.1"/>
+<edge source="insert.1" target="hook.1">
+  <data key="d0">1</data>
+</edge>
+<edge source="hook.1" target="use.1">
+  <data key="d0">1</data>
+</edge>
+</graph></graphml>

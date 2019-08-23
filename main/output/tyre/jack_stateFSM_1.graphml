@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'end(jack_up.1)', 'start(undo.3)', 'start(jack_down.1)', 'end(do_up.3)'})"/>
+<node id="frozenset({'start(fetch_jack.0)', 'end(putaway_jack.0)'})"/>
+<node id="frozenset({'end(put_on_wheel.2)', 'start(remove_wheel.2)', 'end(undo.3)', 'start(do_up.3)'})"/>
+<node id="frozenset({'end(fetch_jack.0)', 'start(putaway_jack.0)', 'end(jack_down.1)', 'start(jack_up.1)'})"/>
+<node id="frozenset({'start(put_on_wheel.2)', 'end(remove_wheel.2)'})"/>
+<edge source="frozenset({'end(jack_up.1)', 'start(undo.3)', 'start(jack_down.1)', 'end(do_up.3)'})" target="frozenset({'end(jack_up.1)', 'start(undo.3)', 'start(jack_down.1)', 'end(do_up.3)'})">
+  <data key="d0">56</data>
+  <data key="d1">do_up.3</data>
+</edge>
+<edge source="frozenset({'start(fetch_jack.0)', 'end(putaway_jack.0)'})" target="frozenset({'start(fetch_jack.0)', 'end(putaway_jack.0)'})">
+  <data key="d0">17</data>
+  <data key="d1">putaway_jack.0</data>
+</edge>
+<edge source="frozenset({'end(put_on_wheel.2)', 'start(remove_wheel.2)', 'end(undo.3)', 'start(do_up.3)'})" target="frozenset({'end(put_on_wheel.2)', 'start(remove_wheel.2)', 'end(undo.3)', 'start(do_up.3)'})">
+  <data key="d0">35</data>
+  <data key="d1">undo.3</data>
+</edge>
+<edge source="frozenset({'end(fetch_jack.0)', 'start(putaway_jack.0)', 'end(jack_down.1)', 'start(jack_up.1)'})" target="frozenset({'end(fetch_jack.0)', 'start(putaway_jack.0)', 'end(jack_down.1)', 'start(jack_up.1)'})">
+  <data key="d0">59</data>
+  <data key="d1">fetch_jack.0</data>
+</edge>
+<edge source="frozenset({'start(put_on_wheel.2)', 'end(remove_wheel.2)'})" target="frozenset({'start(put_on_wheel.2)', 'end(remove_wheel.2)'})">
+  <data key="d0">17</data>
+  <data key="d1">remove_wheel.2</data>
+</edge>
+</graph></graphml>

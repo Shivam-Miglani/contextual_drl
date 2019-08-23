@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="grip_from_table.1"/>
+<node id="put_on_blocks.1"/>
+<node id="grip_from_blocks.1"/>
+<node id="put_on_one_block.1"/>
+<node id="grip_from_one_block.1"/>
+<node id="put_on_table.1"/>
+<edge source="grip_from_table.1" target="put_on_blocks.1">
+  <data key="d0">391</data>
+</edge>
+<edge source="grip_from_table.1" target="put_on_one_block.1">
+  <data key="d0">150</data>
+</edge>
+<edge source="grip_from_table.1" target="put_on_table.1">
+  <data key="d0">153</data>
+</edge>
+<edge source="put_on_blocks.1" target="grip_from_blocks.1">
+  <data key="d0">453</data>
+</edge>
+<edge source="put_on_blocks.1" target="grip_from_table.1">
+  <data key="d0">285</data>
+</edge>
+<edge source="put_on_blocks.1" target="grip_from_one_block.1">
+  <data key="d0">210</data>
+</edge>
+<edge source="grip_from_blocks.1" target="put_on_blocks.1">
+  <data key="d0">384</data>
+</edge>
+<edge source="grip_from_blocks.1" target="put_on_one_block.1">
+  <data key="d0">240</data>
+</edge>
+<edge source="grip_from_blocks.1" target="put_on_table.1">
+  <data key="d0">386</data>
+</edge>
+<edge source="put_on_one_block.1" target="grip_from_table.1">
+  <data key="d0">155</data>
+</edge>
+<edge source="put_on_one_block.1" target="grip_from_one_block.1">
+  <data key="d0">160</data>
+</edge>
+<edge source="put_on_one_block.1" target="grip_from_blocks.1">
+  <data key="d0">203</data>
+</edge>
+<edge source="grip_from_one_block.1" target="put_on_table.1">
+  <data key="d0">161</data>
+</edge>
+<edge source="grip_from_one_block.1" target="put_on_blocks.1">
+  <data key="d0">232</data>
+</edge>
+<edge source="grip_from_one_block.1" target="put_on_one_block.1">
+  <data key="d0">142</data>
+</edge>
+<edge source="put_on_table.1" target="grip_from_one_block.1">
+  <data key="d0">160</data>
+</edge>
+<edge source="put_on_table.1" target="grip_from_table.1">
+  <data key="d0">232</data>
+</edge>
+<edge source="put_on_table.1" target="grip_from_blocks.1">
+  <data key="d0">303</data>
+</edge>
+</graph></graphml>

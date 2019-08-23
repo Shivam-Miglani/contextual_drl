@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'end(walk.2)', 'start(drive-truck.1)', 'start(load-truck.2)', 'end(unload-truck.2)', 'start(board-truck.2)', 'start(unload-truck.2)', 'start(drive-truck.2)', 'end(walk.1)', 'start(walk.1)', 'end(drive-truck.2)', 'end(drive-truck.1)', 'start(walk.2)', 'end(board-truck.2)', 'end(disembark-truck.2)', 'end(load-truck.2)', 'start(disembark-truck.2)'})"/>
+<edge source="frozenset({'end(walk.2)', 'start(drive-truck.1)', 'start(load-truck.2)', 'end(unload-truck.2)', 'start(board-truck.2)', 'start(unload-truck.2)', 'start(drive-truck.2)', 'end(walk.1)', 'start(walk.1)', 'end(drive-truck.2)', 'end(drive-truck.1)', 'start(walk.2)', 'end(board-truck.2)', 'end(disembark-truck.2)', 'end(load-truck.2)', 'start(disembark-truck.2)'})" target="frozenset({'end(walk.2)', 'start(drive-truck.1)', 'start(load-truck.2)', 'end(unload-truck.2)', 'start(board-truck.2)', 'start(unload-truck.2)', 'start(drive-truck.2)', 'end(walk.1)', 'start(walk.1)', 'end(drive-truck.2)', 'end(drive-truck.1)', 'start(walk.2)', 'end(board-truck.2)', 'end(disembark-truck.2)', 'end(load-truck.2)', 'start(disembark-truck.2)'})">
+  <data key="d0">224</data>
+  <data key="d1">walk.1</data>
+</edge>
+</graph></graphml>

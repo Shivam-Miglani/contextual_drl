@@ -1,0 +1,2 @@
+This version butchered so that parameter flaws lead to deletion, not
+propagation, of parameters.

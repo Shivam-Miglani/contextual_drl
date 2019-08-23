@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'end(remove_wheel.0)', 'end(fetch_wheel.0)', 'start(put_on_wheel.0)', 'start(putaway_wheel.0)'})"/>
+<node id="frozenset({'start(fetch_wheel.0)', 'end(putaway_wheel.0)'})"/>
+<node id="frozenset({'end(put_on_wheel.0)', 'start(remove_wheel.0)'})"/>
+<edge source="frozenset({'end(remove_wheel.0)', 'end(fetch_wheel.0)', 'start(put_on_wheel.0)', 'start(putaway_wheel.0)'})" target="frozenset({'end(remove_wheel.0)', 'end(fetch_wheel.0)', 'start(put_on_wheel.0)', 'start(putaway_wheel.0)'})">
+  <data key="d0">531</data>
+  <data key="d1">fetch_wheel.0</data>
+</edge>
+<edge source="frozenset({'start(fetch_wheel.0)', 'end(putaway_wheel.0)'})" target="frozenset({'start(fetch_wheel.0)', 'end(putaway_wheel.0)'})">
+  <data key="d0">311</data>
+  <data key="d1">putaway_wheel.0</data>
+</edge>
+<edge source="frozenset({'end(put_on_wheel.0)', 'start(remove_wheel.0)'})" target="frozenset({'end(put_on_wheel.0)', 'start(remove_wheel.0)'})">
+  <data key="d0">104</data>
+  <data key="d1">put_on_wheel.0</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'end(fetch_wrench.1)', 'end(putaway_jack.1)', 'start(fetch_wrench.1)', 'start(putaway_jack.1)', 'start(close_container.0)', 'end(fetch_wheel.1)', 'start(putaway_wheel.1)', 'end(fetch_jack.1)', 'start(fetch_wheel.1)', 'end(putaway_wheel.1)', 'end(open_container.0)', 'start(putaway_wrench.1)', 'end(putaway_wrench.1)', 'start(fetch_jack.1)'})"/>
+<node id="frozenset({'end(close_container.0)', 'start(open_container.0)'})"/>
+<edge source="frozenset({'end(fetch_wrench.1)', 'end(putaway_jack.1)', 'start(fetch_wrench.1)', 'start(putaway_jack.1)', 'start(close_container.0)', 'end(fetch_wheel.1)', 'start(putaway_wheel.1)', 'end(fetch_jack.1)', 'start(fetch_wheel.1)', 'end(putaway_wheel.1)', 'end(open_container.0)', 'start(putaway_wrench.1)', 'end(putaway_wrench.1)', 'start(fetch_jack.1)'})" target="frozenset({'end(fetch_wrench.1)', 'end(putaway_jack.1)', 'start(fetch_wrench.1)', 'start(putaway_jack.1)', 'start(close_container.0)', 'end(fetch_wheel.1)', 'start(putaway_wheel.1)', 'end(fetch_jack.1)', 'start(fetch_wheel.1)', 'end(putaway_wheel.1)', 'end(open_container.0)', 'start(putaway_wrench.1)', 'end(putaway_wrench.1)', 'start(fetch_jack.1)'})">
+  <data key="d0">3092</data>
+  <data key="d1">open_container.0</data>
+</edge>
+<edge source="frozenset({'end(close_container.0)', 'start(open_container.0)'})" target="frozenset({'end(close_container.0)', 'start(open_container.0)'})">
+  <data key="d0">764</data>
+  <data key="d1">close_container.0</data>
+</edge>
+</graph></graphml>

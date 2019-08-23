@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'start(board-truck.2)', 'end(disembark-truck.2)', 'start(drive-truck.2)'})"/>
+<node id="frozenset({'end(board-truck.2)'})"/>
+<node id="frozenset({'start(disembark-truck.2)', 'end(drive-truck.2)'})"/>
+<edge source="frozenset({'start(board-truck.2)', 'end(disembark-truck.2)', 'start(drive-truck.2)'})" target="frozenset({'start(board-truck.2)', 'end(disembark-truck.2)', 'start(drive-truck.2)'})">
+  <data key="d0">5</data>
+  <data key="d1">disembark-truck.2</data>
+</edge>
+<edge source="frozenset({'start(disembark-truck.2)', 'end(drive-truck.2)'})" target="frozenset({'start(disembark-truck.2)', 'end(drive-truck.2)'})">
+  <data key="d0">9</data>
+  <data key="d1">drive-truck.2</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="walk.0"/>
+<node id="board-truck.0"/>
+<node id="drive-truck.3"/>
+<node id="disembark-truck.0"/>
+<edge source="walk.0" target="walk.0">
+  <data key="d0">10</data>
+</edge>
+<edge source="walk.0" target="board-truck.0">
+  <data key="d0">4</data>
+</edge>
+<edge source="board-truck.0" target="drive-truck.3">
+  <data key="d0">11</data>
+</edge>
+<edge source="board-truck.0" target="disembark-truck.0">
+  <data key="d0">2</data>
+</edge>
+<edge source="drive-truck.3" target="disembark-truck.0">
+  <data key="d0">11</data>
+</edge>
+<edge source="drive-truck.3" target="drive-truck.3">
+  <data key="d0">20</data>
+</edge>
+<edge source="disembark-truck.0" target="board-truck.0">
+  <data key="d0">6</data>
+</edge>
+<edge source="disembark-truck.0" target="walk.0">
+  <data key="d0">2</data>
+</edge>
+</graph></graphml>

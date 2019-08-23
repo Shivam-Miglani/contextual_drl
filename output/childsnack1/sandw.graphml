@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="make_sandwich_no_gluten.0"/>
+<node id="put_on_tray.0"/>
+<node id="serve_sandwich_no_gluten.0"/>
+<node id="make_sandwich.0"/>
+<node id="serve_sandwich.0"/>
+<edge source="make_sandwich_no_gluten.0" target="put_on_tray.0">
+  <data key="d0">2</data>
+</edge>
+<edge source="put_on_tray.0" target="serve_sandwich_no_gluten.0">
+  <data key="d0">2</data>
+</edge>
+<edge source="put_on_tray.0" target="serve_sandwich.0">
+  <data key="d0">4</data>
+</edge>
+<edge source="make_sandwich.0" target="put_on_tray.0">
+  <data key="d0">4</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'end(move.1)'})"/>
+<node id="frozenset({'end(unload.2)', 'end(load.2)', 'start(move.1)', 'start(unload.2)', 'start(load.2)'})"/>
+<edge source="frozenset({'end(unload.2)', 'end(load.2)', 'start(move.1)', 'start(unload.2)', 'start(load.2)'})" target="frozenset({'end(unload.2)', 'end(load.2)', 'start(move.1)', 'start(unload.2)', 'start(load.2)'})">
+  <data key="d0">32</data>
+  <data key="d1">load.2</data>
+</edge>
+</graph></graphml>

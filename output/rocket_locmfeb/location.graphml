@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="move.1"/>
+<node id="move.2"/>
+<node id="load.2"/>
+<node id="unload.2"/>
+<edge source="move.1" target="move.2">
+  <data key="d0">40</data>
+</edge>
+<edge source="move.2" target="load.2">
+  <data key="d0">15</data>
+</edge>
+<edge source="move.2" target="move.2">
+  <data key="d0">19</data>
+</edge>
+<edge source="move.2" target="move.1">
+  <data key="d0">37</data>
+</edge>
+<edge source="move.2" target="unload.2">
+  <data key="d0">4</data>
+</edge>
+<edge source="load.2" target="unload.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="load.2" target="load.2">
+  <data key="d0">20</data>
+</edge>
+<edge source="load.2" target="move.1">
+  <data key="d0">4</data>
+</edge>
+<edge source="unload.2" target="load.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="unload.2" target="move.1">
+  <data key="d0">4</data>
+</edge>
+<edge source="unload.2" target="unload.2">
+  <data key="d0">2</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="get-teabag.0"/>
+<node id="place.0"/>
+<node id="mix.0"/>
+<node id="remove.0"/>
+<edge source="get-teabag.0" target="place.0">
+  <data key="d0">1</data>
+</edge>
+<edge source="place.0" target="mix.0">
+  <data key="d0">1</data>
+</edge>
+<edge source="mix.0" target="remove.0">
+  <data key="d0">1</data>
+</edge>
+</graph></graphml>

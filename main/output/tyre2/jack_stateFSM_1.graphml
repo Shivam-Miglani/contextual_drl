@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="frozenset({'start(put_on_wheel.2)', 'end(remove_wheel.2)'})"/>
+<node id="frozenset({'end(putaway_jack.0)', 'start(fetch_jack.0)'})"/>
+<node id="frozenset({'start(jack_down.1)', 'end(do_up.3)', 'start(undo.3)', 'end(jack_up.1)'})"/>
+<node id="frozenset({'end(fetch_jack.0)', 'start(putaway_jack.0)', 'end(jack_down.1)', 'start(jack_up.1)'})"/>
+<node id="frozenset({'end(undo.3)', 'end(put_on_wheel.2)', 'start(do_up.3)', 'start(remove_wheel.2)'})"/>
+<edge source="frozenset({'start(put_on_wheel.2)', 'end(remove_wheel.2)'})" target="frozenset({'start(put_on_wheel.2)', 'end(remove_wheel.2)'})">
+  <data key="d0">51</data>
+  <data key="d1">remove_wheel.2</data>
+</edge>
+<edge source="frozenset({'end(putaway_jack.0)', 'start(fetch_jack.0)'})" target="frozenset({'end(putaway_jack.0)', 'start(fetch_jack.0)'})">
+  <data key="d0">57</data>
+  <data key="d1">putaway_jack.0</data>
+</edge>
+<edge source="frozenset({'start(jack_down.1)', 'end(do_up.3)', 'start(undo.3)', 'end(jack_up.1)'})" target="frozenset({'start(jack_down.1)', 'end(do_up.3)', 'start(undo.3)', 'end(jack_up.1)'})">
+  <data key="d0">154</data>
+  <data key="d1">do_up.3</data>
+</edge>
+<edge source="frozenset({'end(fetch_jack.0)', 'start(putaway_jack.0)', 'end(jack_down.1)', 'start(jack_up.1)'})" target="frozenset({'end(fetch_jack.0)', 'start(putaway_jack.0)', 'end(jack_down.1)', 'start(jack_up.1)'})">
+  <data key="d0">173</data>
+  <data key="d1">jack_down.1</data>
+</edge>
+<edge source="frozenset({'end(undo.3)', 'end(put_on_wheel.2)', 'start(do_up.3)', 'start(remove_wheel.2)'})" target="frozenset({'end(undo.3)', 'end(put_on_wheel.2)', 'start(do_up.3)', 'start(remove_wheel.2)'})">
+  <data key="d0">99</data>
+  <data key="d1">undo.3</data>
+</edge>
+</graph></graphml>
