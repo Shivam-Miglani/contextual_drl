@@ -1,0 +1,7 @@
+tensorflow
+ipdb
+gensim
+flair
+keras
+tqdm
+allennlp
