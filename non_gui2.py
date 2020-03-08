@@ -117,10 +117,9 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/final_test/'
-    filename = 'tea.txt'
-    input_file_path += filename
+    input_filename = 'cooking_1.txt'
+    input_file_path += input_filename
 
-    # TODO: use command line arguments for input and output file.
     #input file
     current_sents = []
     raw_text = open(input_file_path, 'r').read() + ' '
@@ -143,7 +142,7 @@ if __name__ == '__main__':
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/final_test/%s_%s_%s' % (args.domain, args.contextual_embedding, filename)
+    outfile = 'data/final_test/%s_%s_%s' % (args.domain, "bertelmo", input_filename)
     f = open(outfile, "w")
     output = ""
     for i in range(len(sents)):
@@ -172,11 +171,11 @@ if __name__ == '__main__':
     f.close()
     print(output)
 
-    # show results 2
+    # show results 2 -- in locm format.
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/final_test/%s_%s_%s_2' % (args.domain, args.contextual_embedding, filename)
+    outfile = 'data/final_test/%s_%s_%s_2' % (args.domain, 'bertelmo', input_filename)
     f = open(outfile, "w")
     output = ""
 
@@ -197,7 +196,12 @@ if __name__ == '__main__':
             act2sent[count_act] = [i, k]
             f.write('%s (%s),' % (words[act['act_idx']], ', '.join(objs)))
             output += '%s (%s),' % (words[act['act_idx']], ', '.join(objs))
+
             count_act += 1
     f.close()
+    text_file = open("./locm_data/" + input_filename, "w")
+    output = output.rstrip(',')
+    text_file.write(output)
+    text_file.close()
     print(output)
 

@@ -5,7 +5,11 @@
 <node id="state1"/>
 <node id="state2"/>
 <edge source="state0" target="state0">
-  <data key="d0">1</data>
-  <data key="d1">add.0</data>
+  <data key="d0">2</data>
+  <data key="d1">turn.0</data>
+</edge>
+<edge source="state2" target="state2">
+  <data key="d0">2</data>
+  <data key="d1">spray.0</data>
 </edge>
 </graph></graphml>

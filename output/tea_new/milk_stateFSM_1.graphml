@@ -4,7 +4,7 @@
 <graph edgedefault="directed"><node id="state0"/>
 <node id="state1"/>
 <node id="state2"/>
-<edge source="state1" target="state1">
+<edge source="state2" target="state2">
   <data key="d0">1</data>
   <data key="d1">pour.0</data>
 </edge>

@@ -1,0 +1,57 @@
+
+NO1: make(1) breakfast(2) the(3) night(4) before(5) with(6) a(7) hash(8) brown(9) casserole(10) 
+
+NO2: Start(1) by(2) mixing(3) together(4) your(5) cream(6) of(7) mushroom(8) condensed(9) soup(10) sour(11) cream(12) salt(13) pepper(14) onion(15) and(16) cheese(17) in(18) a(19) large(20) bowl(21) 
+<1>  mixing (cream, mushroom, soup, cream, salt, pepper, onion, cheese)    
+
+NO3: After(1) these(2) are(3) well(4) combined(5) add(6) in(7) the(8) hash(9) browns(10) and(11) mix(12) gently(13) 
+<2>  combined ()    <3>  add (browns)    <4>  mix ()    
+
+NO4: Spray(1) your(2) slow(3) cooker(4) with(5) some(6) non-stick(7) cooking(8) spray(9) or(10) coat(11) with(12) butter(13) 
+<5>  Spray (cooker)    
+
+NO5: This(1) will(2) prevent(3) sticking(4) so(5) you(6) don't(7) have(8) a(9) huge(10) mess(11) to(12) clean(13) up(14) 
+
+NO6: Pour(1) the(2) hash(3) brown(4) mixture(5) into(6) your(7) slow(8) cooker(9) and(10) put(11) the(12) cover(13) on(14) 
+<6>  Pour (hash, mixture)    <7>  put (cover)    
+
+NO7: Turn(1) the(2) slow(3) cooker(4) on(5) high(6) and(7) leave(8) for(9) 1(10) to(11) 1.5(12) hours(13) 
+<8>  Turn (cooker)    <9>  leave (cooker)    
+
+NO8: After(1) this(2) turn(3) the(4) heat(5) to(6) low(7) and(8) leave(9) it(10) on(11) for(12) 2.5(13) hours(14) longer(15) 
+<10>  turn (heat)    <11>  leave (heat, it)    
+
+NO9: Turn(1) off(2) slow(3) cooker(4) and(5) serve(6) right(7) away(8) 
+<12>  Turn (cooker)    <13>  serve ()    
+
+NO10: Keep(1) on(2) warm(3) if(4) you(5) plan(6) on(7) waiting(8) to(9) enjoy(10) for(11) a(12) little(13) bit(14) longer(15) 
+<14>  Keep ()    <15>  enjoy ()    
+
+NO11: It's(1) best(2) when(3) served(4) with(5) scrambled(6) eggs(7) 
+<16>  served (eggs)    
+
+NO12: If(1) you(2) want(3) to(4) add(5) something(6) unique(7) to(8) this(9) recipe(10) add(11) your(12) favorite(13) vegetables(14) 
+<17>  add (something)    <18>  add (vegetables)    
+
+NO13: It's(1) generally(2) best(3) to(4) use(5) soft(6) vegetables(7) or(8) those(9) that(10) have(11) been(12) slightly(13) cooked(14) before(15) you(16) add(17) them(18) 
+<19>  use (vegetables)    <20>  add ()    
+
+NO14: This(1) will(2) ensure(3) they(4) don't(5) turn(6) out(7) hard(8) when(9) the(10) rest(11) of(12) the(13) dish(14) is(15) cooked(16) fully(17) 
+<21>  cooked (dish)    
+
+NO15: Broccoli(1) and(2) cheese(3) work(4) well(5) together(6) but(7) peppers(8) also(9) taste(10) great(11) 
+
+NO16: You(1) can(2) also(3) add(4) in(5) cooked(6) sausage(7) or(8) bacon(9) if(10) you(11) want(12) some(13) meat(14) in(15) the(16) dish(17) 
+<22>  add (sausage, bacon, meat)    
+
+NO17: Just(1) make(2) sure(3) that(4) the(5) meat(6) you(7) add(8) is(9) already(10) cooked(11) before(12) it's(13) put(14) in(15) 
+<23>  put ()    
+
+NO18: If(1) you(2) add(3) in(4) raw(5) meat(6) it(7) likely(8) won't(9) fully(10) cook(11) when(12) the(13) rest(14) of(15) the(16) dish(17) is(18) done(19) and(20) may(21) be(22) raw(23) 
+<24>  add (meat)    
+
+NO19: This(1) is(2) a(3) very(4) forgiving(5) recipe(6) that(7) you(8) can(9) play(10) around(11) with(12) and(13) change(14) if(15) you(16) want(17) to(18) add(19) or(20) omit(21) something(22) 
+<25>  play (recipe)    <26>  change ()    <27>  add (something)    
+
+NO20: You(1) can(2) do(3) everything(4) from(5) adding(6) in(7) some(8) garlic(9) to(10) switching(11) the(12) flavor(13) of(14) condensed(15) soup(16) you(17) use(18) 
+<28>  do (everything)    <29>  adding (garlic)    <30>  switching (flavor)    

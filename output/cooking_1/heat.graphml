@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="turn.0"/>
+<node id="leave.0"/>
+<node id="spray.0"/>
+<edge source="turn.0" target="leave.0">
+  <data key="d0">2</data>
+</edge>
+<edge source="leave.0" target="turn.0">
+  <data key="d0">1</data>
+</edge>
+<edge source="spray.0" target="turn.0">
+  <data key="d0">1</data>
+</edge>
+</graph></graphml>
