@@ -1,0 +1,1 @@
+Turn-off (experiments),take (valuables),secure (valuables, wallets),Close (doors),Check (doors),avoid (walking),Evacuate (building),using (nearest, exit),Call (911),provide (name, location),Proceed (pre-determined, assembly, area),remain (there),Inform (Safety, Personnel)

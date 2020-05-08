@@ -4,7 +4,7 @@
 	(:predicates
 		(cream_fsm0_state0)
 		(cream_fsm0_state1)
-		(cream_fsm0_state2 ?v0 - salt ?v1 - soup ?v2 - pepper ?v3 - onion ?v4 - mushroom ?v5 - cream ?v6 - cheese)
+		(cream_fsm0_state2 ?v0 - mushroom ?v1 - soup ?v2 - pepper ?v3 - cheese ?v4 - onion ?v5 - cream ?v6 - salt)
 		(mushroom_fsm0_state0)
 		(mushroom_fsm0_state1)
 		(soup_fsm0_state0)
@@ -41,52 +41,19 @@
 		(heat_fsm0_state1)
 		(heat_fsm0_state2)
 	)
-	(:action	cooked
-	:parameters	(?dish - dish )
+	(:action	turn
+	:parameters	(?cooker - heat )
 	:precondition	(and
+				(heat_fsm0_state0)
+				(heat_fsm0_state1)
 	)
 	:effect	(and
-	))
-
-	(:action	enjoy
-	:parameters	(? - unknown )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	mixing
-	:parameters	(?cream - cream ?mushroom - mushroom ?soup - soup ?cream - cream ?salt - salt ?pepper - pepper ?onion - onion ?cheese - cheese )
-	:precondition	(and
-				(cream_fsm0_state2 ?v0 - salt ?v1 - soup ?v2 - pepper ?v3 - onion ?v4 - mushroom ?v5 - cream ?v6 - cheese)
-	)
-	:effect	(and
-				(cream_fsm0_state2 ?v0 - salt ?v1 - soup ?v2 - pepper ?v3 - onion ?v4 - mushroom ?v5 - cream ?v6 - cheese)
+				(heat_fsm0_state0)
+				(heat_fsm0_state1)
 	))
 
 	(:action	use
 	:parameters	(?vegetables - unknown )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	put
-	:parameters	(?cover - unknown )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	add
-	:parameters	(?browns - unknown )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	combined
-	:parameters	(? - unknown )
 	:precondition	(and
 	)
 	:effect	(and
@@ -99,8 +66,8 @@
 	:effect	(and
 	))
 
-	(:action	served
-	:parameters	(?eggs - eggs )
+	(:action	serve
+	:parameters	(? - unknown )
 	:precondition	(and
 	)
 	:effect	(and
@@ -110,14 +77,79 @@
 	:parameters	(?cooker - heat )
 	:precondition	(and
 				(heat_fsm0_state0)
-				(heat_fsm0_state2)
+				(heat_fsm0_state1)
 	)
 	:effect	(and
 				(heat_fsm0_state0)
-				(heat_fsm0_state2)
+				(heat_fsm0_state1)
 	))
 
-	(:action	serve
+	(:action	mixing
+	:parameters	(?cream - cream ?mushroom - mushroom ?soup - soup ?cream - cream ?salt - salt ?pepper - pepper ?onion - onion ?cheese - cheese )
+	:precondition	(and
+				(cream_fsm0_state2 ?v0 - mushroom ?v1 - soup ?v2 - pepper ?v3 - cheese ?v4 - onion ?v5 - cream ?v6 - salt)
+	)
+	:effect	(and
+				(cream_fsm0_state2 ?v0 - mushroom ?v1 - soup ?v2 - pepper ?v3 - cheese ?v4 - onion ?v5 - cream ?v6 - salt)
+	))
+
+	(:action	served
+	:parameters	(?eggs - eggs )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	cooked
+	:parameters	(?dish - dish )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	adding
+	:parameters	(?garlic - garlic )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	switching
+	:parameters	(?flavor - flavor )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	enjoy
+	:parameters	(? - unknown )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	add
+	:parameters	(?browns - unknown )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	put
+	:parameters	(?cover - unknown )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	pour
+	:parameters	(?hash - hash ?mixture - mixture )
+	:precondition	(and
+	)
+	:effect	(and
+	))
+
+	(:action	keep
 	:parameters	(? - unknown )
 	:precondition	(and
 	)
@@ -131,32 +163,18 @@
 	:effect	(and
 	))
 
-	(:action	adding
-	:parameters	(?garlic - garlic )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	pour
-	:parameters	(?hash - hash ?mixture - mixture )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	turn
+	(:action	leave
 	:parameters	(?cooker - heat )
 	:precondition	(and
 				(heat_fsm0_state0)
-				(heat_fsm0_state2)
+				(heat_fsm0_state1)
 	)
 	:effect	(and
 				(heat_fsm0_state0)
-				(heat_fsm0_state2)
+				(heat_fsm0_state1)
 	))
 
-	(:action	keep
+	(:action	combined
 	:parameters	(? - unknown )
 	:precondition	(and
 	)
@@ -165,24 +183,6 @@
 
 	(:action	play
 	:parameters	(?recipe - recipe )
-	:precondition	(and
-	)
-	:effect	(and
-	))
-
-	(:action	leave
-	:parameters	(?cooker - heat )
-	:precondition	(and
-				(heat_fsm0_state0)
-				(heat_fsm0_state2)
-	)
-	:effect	(and
-				(heat_fsm0_state0)
-				(heat_fsm0_state2)
-	))
-
-	(:action	switching
-	:parameters	(?flavor - flavor )
 	:precondition	(and
 	)
 	:effect	(and

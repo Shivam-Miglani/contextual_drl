@@ -1,8 +1,38 @@
 <?xml version='1.0' encoding='utf-8'?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><graph edgedefault="directed"><node id="state0"/>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="name" attr.type="string" for="edge" id="d1"/>
+<key attr.name="weight" attr.type="int" for="edge" id="d0"/>
+<graph edgedefault="directed"><node id="state0"/>
 <node id="state1"/>
 <node id="state2"/>
 <node id="state3"/>
 <node id="state4"/>
 <node id="state5"/>
+<node id="state6"/>
+<node id="state7"/>
+<node id="state8"/>
+<node id="state9"/>
+<edge source="state0" target="state0">
+  <data key="d0">1</data>
+  <data key="d1">keep.0</data>
+</edge>
+<edge source="state1" target="state1">
+  <data key="d0">1</data>
+  <data key="d1">mix.0</data>
+</edge>
+<edge source="state3" target="state3">
+  <data key="d0">5</data>
+  <data key="d1">enjoy.0</data>
+</edge>
+<edge source="state4" target="state4">
+  <data key="d0">1</data>
+  <data key="d1">combined.0</data>
+</edge>
+<edge source="state6" target="state6">
+  <data key="d0">1</data>
+  <data key="d1">put.0</data>
+</edge>
+<edge source="state8" target="state8">
+  <data key="d0">1</data>
+  <data key="d1">serve.0</data>
+</edge>
 </graph></graphml>
