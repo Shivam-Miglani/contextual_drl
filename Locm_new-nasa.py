@@ -13,9 +13,13 @@
 #     name: .contextual_drl
 # ---
 
-# # Give instructions of your domain in natural language. It could be a transcript, domain process manual or wikihow style instructions.
+# + [markdown] heading_collapsed=true
+# # Input Preprocessing
 
-# +
+# + [markdown] hidden=true
+# ## Give instructions of your domain in natural language. It could be a transcript, domain process manual or wikihow style instructions.
+
+# + hidden=true
 # paste your input as unicode text here.
 
 instructions = u'''CURIOSITY MARS MISSION TRANSCRIPT
@@ -48,8 +52,8 @@ Those instruments can tell us even more about the mineral composition, getting u
 
 Curiosity will be exploring the red planet for at least 2 years and there’s no telling what we will discover.
 '''
-# -
 
+# + hidden=true
 # remove empty lines from input instructions -- this is important for BERT which looks at previous and forward sentences.
 valid_instructions = ''
 lines = instructions.split("\n")
@@ -58,9 +62,10 @@ for line in non_empty_lines:
       valid_instructions += line + u"\n"
 print(valid_instructions)
 
-# #### Remove pronoun coreferences
+# + [markdown] hidden=true
+# ## Remove pronoun coreferences
 
-# +
+# + hidden=true
 import spacy
 import neuralcoref
 
@@ -72,14 +77,15 @@ doc1 = nlp(valid_instructions)
 coref_resolved_instructions =  doc1._.coref_resolved
 
 print(coref_resolved_instructions)
-# -
 
-# #### write the file into proper directory to be run by main script
+# + [markdown] hidden=true
+# ## write the file into proper directory to be run by main script
 
+# + hidden=true
 fname = 'nasa_curiosity.txt'
 main_file_name = 'non_gui2.py'
 
-# +
+# + hidden=true
 # replace input filename in the main file
 import re
 
@@ -94,39 +100,30 @@ filedata = re.sub(r'input_filename = .*txt', "input_filename = '"+ fname, fileda
 with open(main_file_name, 'w') as file:
     file.write(filedata)
 
-# +
+# + hidden=true
 # Writing the instructions file into directory
 # Writing the file
-text_file = open("./data/final_test/" + fname, "w")
+text_file = open("./data/process_manuals/" + fname, "w")
 text_file.write(coref_resolved_instructions)
 text_file.close()
 
 # Reading the file
-text_file = open("./data/final_test/" + fname, "r")
+text_file = open("./data/process_manuals/" + fname, "r")
 print(text_file.read())
 text_file.close()
 
-# -
 
+# + [markdown] heading_collapsed=true
 # # Extract action sequence by running c-EASDRL
 
+# + hidden=true
 # don't forget to switch the dataset between cooking and wikihow
 # !python -W ignore non_gui2.py
 
+# + [markdown] heading_collapsed=true
 # # Learn the domain model in PDDL using iLOCM
-
-from collections import defaultdict
-import itertools
-import os
-from tabulate import tabulate
-from pprint import pprint
-import matplotlib.pyplot as plt
-# %matplotlib inline
-import networkx as nx
-import pandas as pd
-pd.options.display.max_columns = 100
-
-# ## interactive-LOCM 
+#
+# **interactive-LOCM **
 # This code combines LOCM1 and LOCM2 algorithms and is last part of the pipeline that I use in my thesis to generate PDDL models from instructional texts.
 #
 # - Step 0: Preprocess: Lemmatize, Coref resolve, action override rename and replacing empty parameters.
@@ -140,14 +137,29 @@ pd.options.display.max_columns = 100
 # - Step 8: Extract static preconditions
 # - Step 9: Form action schemas
 
+# + hidden=true
+from collections import defaultdict
+import itertools
+import os
+from tabulate import tabulate
+from pprint import pprint
+import matplotlib.pyplot as plt
+# %matplotlib inline
+import networkx as nx
+import pandas as pd
+pd.options.display.max_columns = 100
+
+# + hidden=true
 input_file_name = "locm_data/"+fname
 domain_name = input_file_name.split('/')[-1].split('.')[0] #domain name is the name of the file
 
+# + hidden=true
 print(domain_name)
 
-# ### Read input file
+# + [markdown] hidden=true
+# ## Read input file
 
-# +
+# + hidden=true
 import string
 def read_file(file_path):
     '''
@@ -185,17 +197,18 @@ def print_sequences(sequences):
         print()
 
 
-# -
-
+# + hidden=true
 sequences = read_file(input_file_name)
 print_sequences(sequences)
 
 
+# + hidden=true
 print(len(sequences))
 
-# ### Normalize action sequences by lemmatization of extracted actions and arguments
+# + [markdown] hidden=true
+# ## Normalize action sequences by lemmatization of extracted actions and arguments
 
-# +
+# + hidden=true
 # normalize the words by lemmatization
 # ps = PorterStemmer()
 
@@ -219,11 +232,11 @@ for seq in sequences:
 
 print_sequences(new_sequences)
 sequences = new_sequences
-# -
 
-# ### rename actions with same name but different arguments by appending a counter to them
+# + [markdown] hidden=true
+# ## rename actions with same name but different arguments by appending a counter to them
 
-# +
+# + hidden=true
 # since action always have one argument, consider '' as an implicit one argument. Not renaming such actions.
 # renaming 1 or more clashing action prototypes 
 
@@ -265,13 +278,14 @@ for clashing_tup in clashing_action_tuples:
 for i, seq in enumerate(sequences):
     for j, actarg_tup in enumerate(seq):
         sequences[i][j] = (sequences[i][j][0], ['#' if x=='' else x for x in sequences[i][j][1]])
-# -
 
+# + hidden=true
 print_sequences(sequences)
 
-# # Step 1.1: Find classes 
+# + [markdown] hidden=true
+# ## Step 1.1: Find classes 
 
-# +
+# + hidden=true
 transitions = set() # A transition is denoted by action_name + argument_number.
 arguments = set()
 actions = set()
@@ -290,8 +304,7 @@ print("\nArguments/Objects")
 print(arguments)
 
 
-# -
-
+# + hidden=true
 def get_actarg_dictionary(sequences):
     d = defaultdict(list)
     for seq in sequences:
@@ -301,7 +314,7 @@ def get_actarg_dictionary(sequences):
 d = get_actarg_dictionary(sequences)
 
 
-# +
+# + hidden=true
 # class util functions.
 def get_classes(d):
     # TODO incorporate word similarity in get classes.
@@ -357,7 +370,7 @@ def get_class_index(arg,classes):
     print("Error:class index not found") #this statement is only executed if class index is not returned.
 
 
-# +
+# + hidden=true
 classes = get_classes(d) #sorts of object
 print("\nSorts/Classes")
 print(classes)
@@ -365,10 +378,10 @@ print(classes)
 class_names = get_class_names(classes)
 print("\nExtracted class names")
 print(class_names)
-# -
-# # USER INPUT 1: ENTER CORRECT CLASS NAMES
+# + [markdown] hidden=true
+# ## USER INPUT 1: ENTER CORRECT CLASS NAMES
 
-# +
+# + hidden=true
 ############ (Optional) User Input ############
 # Give user an option to change class names.
 # class_names[0] = 'rocket'
@@ -376,13 +389,13 @@ print(class_names)
 print("\nRenamed class names")
 print(class_names)
 
-# -
 
-# #### Assumptions
+# + [markdown] hidden=true
+#  **Assumptions of LOCM2**
 # - Each object of a same class undergoes similar kind of transition.
 # - Objects of same class in a same action undergo similar kind of transition.
 
-# +
+# + hidden=true
 # change transitions to be more meaningful by incorporating class_names.
 full_transitions = set()
 for seq in sequences:
@@ -399,38 +412,23 @@ print(transitions)
 print(full_transitions)
 print("\nArguments/Objects")
 print(arguments)
-# -
 
+# + hidden=true
 print("\nNumber of Actions: {},\nNumber of unique transitions: {},\nNumber of unique objects (arguments): {},\nNumber of classes/sorts: {}".format(len(actions), len(transitions), len(arguments), len(classes)))
 
-# # Step 1.2: Make transition graphs
-#
-# User can fix these easily as well. (Cytoscape).
+# + [markdown] hidden=true
+# ## Step 1.2: Make transition graphs
+
+# + hidden=true
 
 
-
-# ## Connect to Cytoscape
-
-# +
-# from py2cytoscape.data.cyrest_client import CyRestClient
-# import networkx as nx
-# from py2cytoscape.util import from_networkx
-# cy = CyRestClient()
-# cy.session.delete() # Clear running session (= delete existing networks and views)
-# from IPython.display import Image
-# # network = cy.network.create(name='pizza.graphml', collection='pizza.graphml')
-
-# +
-# # You can check all available Visual Properties with this function call:
-# vps = pd.Series(cy.style.vps.get_all())
-# vps.head(20)
-# -
-
+# + [markdown] hidden=true
 # ## Building Transition graphs
 
-# ##### Utils
+# + [markdown] heading_collapsed=true hidden=true
+# ### Utils
 
-# +
+# + hidden=true
 def empty_directory(folder):
     for the_file in os.listdir(folder):
         file_path = os.path.join(folder, the_file)
@@ -448,10 +446,10 @@ def print_table(matrix):
     print(tabulate(matrix, headers='keys', tablefmt='github'))
 
 
-# -
+# + [markdown] heading_collapsed=true hidden=true
+# ### Save graphs in pickle format.
 
-# #### Save graphs in pickle format.
-
+# + hidden=true
 def plot_and_save(graphs):
     adjacency_matrix_list = [] # list of adjacency matrices per class
     
@@ -478,8 +476,10 @@ def plot_and_save(graphs):
     return adjacency_matrix_list
 
 
+# + [markdown] hidden=true
 # #### Build transitions graphs and call save function
 
+# + hidden=true
 def build_and_save_transition_graphs(classes, domain_name, class_names):
     # There should be a graph for each class of objects.
     graphs = []  # number of graphs = number of sorts.
@@ -536,16 +536,21 @@ def build_and_save_transition_graphs(classes, domain_name, class_names):
 
     return adjacency_matrix_list
 
+# + [markdown] hidden=true
 # ##### Transition Graphs
 
+# + hidden=true
 #### Build weighted directed graphs for transitions.
 adjacency_matrix_list = build_and_save_transition_graphs(classes, domain_name, class_names)
 
-# # User Input 2: Edit transition graphs
+# + [markdown] hidden=true
+# ## User Input 2: Edit transition graphs
+
+# + hidden=true
 
 
-
-# # Step 2: Get Transition Sets from LOCM2
+# + [markdown] hidden=true
+# ## Step 2: Get Transition Sets from LOCM2
 #
 # Algorithm: LOCM2
 # Input : 
@@ -555,8 +560,9 @@ adjacency_matrix_list = build_and_save_transition_graphs(classes, domain_name, c
 # - E : Set of example sequences of actions.
 # Output:
 # - S : Set of transition sets.
-# #### Finding holes
+# ### Finding holes
 
+# + hidden=true
 def get_adjacency_matrix_with_holes(adjacency_matrix_list):
     adjacency_matrix_list_with_holes = []
     for index,adjacency_matrix in enumerate(adjacency_matrix_list):
@@ -590,7 +596,7 @@ def get_adjacency_matrix_with_holes(adjacency_matrix_list):
     return adjacency_matrix_list_with_holes
 
 
-# +
+# + hidden=true
 adjacency_matrix_list_with_holes = get_adjacency_matrix_with_holes(adjacency_matrix_list)
 
 ## Printing FSM matrices with and without holes
@@ -603,7 +609,7 @@ adjacency_matrix_list_with_holes = get_adjacency_matrix_with_holes(adjacency_mat
 #     print(tabulate(adjacency_matrix_list_with_holes[index], headers='keys', tablefmt='github'))
 
 
-# +
+# + hidden=true
 # Create list of set of holes per class (H)
 holes_per_class = []
 
@@ -618,8 +624,8 @@ for index,df in enumerate(adjacency_matrix_list_with_holes):
 #     print(class_names[i]+":")
 #     for h in hole:
 #         print(list(h))
-# -
 
+# + hidden=true
 # List of transitions per class (T_all). It is just a set of transitions that occur for a class.
 transitions_per_class = []
 for index, df in enumerate(adjacency_matrix_list_with_holes):
@@ -628,6 +634,7 @@ for i, transition in enumerate(transitions_per_class):
     print('{}:{}'.format(class_names[i], transition))
 
 
+# + hidden=true
 def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
     consecutive_transitions_per_class = []
     for index, df in enumerate(adjacency_matrix_list_with_holes):
@@ -642,6 +649,7 @@ def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
     return consecutive_transitions_per_class
 
 
+# + hidden=true
 #  Create list of consecutive transitions per class (P). If value is not null, ordered pair i,j would be consecutive transitions per class
 consecutive_transitions_per_class = get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes)
 # for i, transition in enumerate(consecutive_transitions_per_class):
@@ -651,7 +659,7 @@ consecutive_transitions_per_class = get_consecutive_transitions_per_class(adjace
 # #     print('{}:{}'.format(class_names[i], transition))
 #     print()
 
-# +
+# + hidden=true
 def check_well_formed(subset_df):
     # got the adjacency matrix subset
     df = subset_df.copy()
@@ -811,16 +819,16 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
 ####    Step 8:  selecting transition sets (TS) [Main LOCM2 Algorithm]
 print("######## Getting transitions sets for each class using LOCM2 ######")
 transition_sets_per_class = locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, consecutive_transitions_per_class)
-# -
 
-# # Step 3: Algorithm For Induction of State Machines
+# + [markdown] hidden=true
+# ## Step 3: Algorithm For Induction of State Machines
 #
 # - Input: Action training sequence of length N
 # - Output: Transition Set TS, Object states OS.
 #
 # We already have transition set TS per class.
 
-# +
+# + hidden=true
 print("Step 3: Induction of Finite State Machines")
 state_machines_overall_list = [] # list of all state machines
 state_dict_overall = [] #list of state dict per class
@@ -910,7 +918,7 @@ for index, ts in enumerate(transition_sets_per_class):
     state_dict_overall.append(state_dict_per_class)
 
 
-# +
+# + hidden=true
 # pretty print state dictionary.
 def print_state_dictionary(state_dict_overall):
     for i,state_dict_per_class in enumerate(state_dict_overall):
@@ -925,12 +933,11 @@ def print_state_dictionary(state_dict_overall):
 # print_state_dictionary(state_dict_overall)
 
 
-# -
-
-# ### Step 5: Induction of parameterized state machines
+# + [markdown] hidden=true
+# ## Step 5: Induction of parameterized state machines
 # Create and test hypothesis for state parameters
 
-# +
+# + hidden=true
 ## Step 5 Input: action sequence Seq, Transition set TS, Object set Obs
 ## Output: HS retained hypotheses for state parameters
 ## 5.1 Form hypotheses from state machines
@@ -1043,18 +1050,18 @@ for index, fsms_per_class in enumerate(state_machines_overall_list):
         HS_per_class.append(HS_copy)
     HS_list.append(HS_per_class)
 
-# +
+# + hidden=true
 # printing hypothesis
 # print("\n****** HYPOTHESIS SET*********")
 # for HS_per_class in HS_list:
 #     for HS_per_fsm in HS_per_class:
 #         for h in HS_per_fsm:
 #             print(h)
-# -
 
-# ### Step 6: Creation and merging of state parameters
+# + [markdown] hidden=true
+# ## Step 6: Creation and merging of state parameters
 
-# +
+# + hidden=true
 print("Step 6: creating and merging state params")
 param_bindings_list_overall = []
 for classindex, HS_per_class in enumerate(HS_list):
@@ -1082,11 +1089,11 @@ for classindex, HS_per_class in enumerate(HS_list):
     
 
 
-# -
 
-# ### Step 7: Remove Parameter Flaws
+# + [markdown] hidden=true
+# ## Step 7: Remove Parameter Flaws
 
-# +
+# + hidden=true
 ########### Step 5: Removing parameter flaws
 # A parameter P associated with an FSM state S is said to be flawed if there exists a transition into S, which does not supply P with a value.
 # This may occur when there exists a transition B.k where end(B.k)=S, but there exists no h containing end(B.k)
@@ -1138,8 +1145,8 @@ for class_index, para_bind_per_class in enumerate(param_bindings_list_overall):
 
         para_bind_per_class_fault_removed.append(param_bind_per_fsm_copy)
     para_bind_overall_fault_removed.append(para_bind_per_class_fault_removed)
-# -
 
+# + hidden=true
 print("Fault Removed Parameter Bindings")
 # for class_index, para_bind_per_class in enumerate(para_bind_overall_fault_removed):
 #     print(class_names[class_index])
@@ -1149,11 +1156,13 @@ print("Fault Removed Parameter Bindings")
 #             print(p)
 #         print()
 
-# ### Step 9:  Formation of PDDL Schema
+# + [markdown] hidden=true
+# ## Step 9:  Formation of PDDL Schema
+
+# + hidden=true
 
 
-
-# +
+# + hidden=true
 # get action schema
 print(";;********************Learned PDDL domain******************")
 output_file = "output/"+ domain_name + "/" +  domain_name + ".pddl"
@@ -1273,15 +1282,17 @@ write_file.write(write_line)
 write_file.close()
 
 
-# -
-
+# + hidden=true
 # state dictionary
 print_state_dictionary(state_dict_overall)
 
+# + hidden=true
 
 
-# ## NER 
+# + [markdown] heading_collapsed=true
+# # NER 
 
+# + hidden=true
 # finding entities using spacy
 import spacy
 from spacy import displacy
@@ -1289,4 +1300,5 @@ import en_core_web_sm
 nlp = spacy.load('en_core_web_sm')
 doc = nlp(coref_resolved_instructions)
 
+# + hidden=true
 displacy.render(nlp(str(doc)), jupyter=True, style='ent', options = {'ents':['QUANTITY', 'TIME', 'LOC', 'DATE']})

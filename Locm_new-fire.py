@@ -81,12 +81,12 @@ with open(main_file_name, 'w') as file:
 # +
 # Writing the instructions file into directory
 # Writing the file
-text_file = open("./data/final_test/" + fname, "w")
+text_file = open("./data/process_manuals/" + fname, "w")
 text_file.write(coref_resolved_instructions)
 text_file.close()
 
 # Reading the file
-text_file = open("./data/final_test/" + fname, "r")
+text_file = open("./data/process_manuals/" + fname, "r")
 print(text_file.read())
 text_file.close()
 

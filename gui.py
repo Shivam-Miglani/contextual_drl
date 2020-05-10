@@ -532,7 +532,7 @@ class EASnonGUI():
         self.act2sent = {}
 
     def OnExtract(self):
-        input_file_path = 'data/final_test/fire_alarm2.txt'
+        input_file_path = 'data/process_manuals/fire_alarm2.txt'
         # ipdb.set_trace()
         if len(self.current_sents) > 0:
             self.data.append(self.current_sents)

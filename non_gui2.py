@@ -116,7 +116,7 @@ if __name__ == '__main__':
     agent = EASDRL_init(args, sess='')
     print('weights loaded ...')
 
-    input_file_path = 'data/final_test/'
+    input_file_path = 'data/process_manuals/'
     input_filename = 'nasa_curiosity.txt'
     input_file_path += input_filename
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/final_test/%s_%s_%s' % (args.domain, "bertelmo", input_filename)
+    outfile = 'data/process_manuals/%s_%s_%s' % (args.domain, "bertelmo", input_filename)
     f = open(outfile, "w")
     output = ""
     for i in range(len(sents)):
@@ -175,7 +175,7 @@ if __name__ == '__main__':
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/final_test/%s_%s_%s_2' % (args.domain, 'bertelmo', input_filename)
+    outfile = 'data/process_manuals/%s_%s_%s_2' % (args.domain, 'bertelmo', input_filename)
     f = open(outfile, "w")
     output = ""
 
