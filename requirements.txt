@@ -34,7 +34,7 @@ dataclasses==0.6
 decorator==4.4.0
 Deprecated==1.2.5
 dill==0.2.7.1
-Django==2.0.5
+Django==2.2.10
 django-osgeo-importer-client==0.1.0
 docker==4.0.2
 docutils==0.14
