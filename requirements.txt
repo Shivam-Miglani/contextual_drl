@@ -38,7 +38,7 @@ Django==2.0.5
 django-osgeo-importer-client==0.1.0
 docker==4.0.2
 docutils==0.14
-ecdsa==0.13.2
+ecdsa==0.13.3
 editdistance==0.5.3
 en-core-web-sm==2.1.0
 entrypoints==0.2.3
