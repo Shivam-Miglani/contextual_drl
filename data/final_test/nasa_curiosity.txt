@@ -1,9 +1,15 @@
-Tea domain
-Start from home and walk to cafe for your tea in 25 minutes.
-When you are at cafe, Buy tea and wait 15 minutes.
-Clean your hands, if they are dirty in 1 minute.
-Add water to mug which takes 2 seconds.
-Pour milk into mug which also takes 2 seconds.
-Dip teabag into mug for 2 minutes.
-Mix the teabag, water and milk in your mug for 3 minutes.
-Your delicious tea is ready.
+CURIOSITY MARS MISSION TRANSCRIPT
+The last stage of the launch vehicle gives the spacecraft a final push and spins the spacecraft up for our eight-and-a-half month cruise to the red planet.
+10 minutes before hitting the atmosphere the cruise stage separates and final preparations for entry begin.
+Hitting the atmosphere at about 13000 miles per hour, the spacecraft begins to slow down. While slowing down, the spacecraft uses thrusters to help steer toward the landing target.
+We throw off weights to rebalance the spacecraft, so that the spacecraft’s lined for parachute deploy. After slowing to about Mach 2, or about 1000 miles per hour, we deploy the parachute to slow down even further.
+Once we are below the speed of sound, the heat shield separates and the spacecraft looks for the ground with the landing radar.
+Once we reach an altitude of about 1 mile, the spacecraft drops out of the back-shell at about 200 miles an hour. the spacecraft then fires up the landing engine to slow the landing engine down even further.
+Once we’ve descended to about 60 feet above the ground, and going only about 2 miles per hour, the rover separates from the descent stage. As the rover is lowered, the wheels deploy in preparation for landing.
+Once the rover is safely on the ground, and touchdown has been detected, the descent stage cuts the rover loose. the descent stage flies away leaving Curiosity safe on the surface of Mars.
+One of the first things Curiosity does after landing is to deploy the mast, which supports many cameras and instruments. Curiosity shoots a laser at an interesting target. This helps us quickly understand the kind and
+composition of an interesting target from a distance of up to 30 feet.
+If an interesting target is worth a closer look, the rover can drive up and inspect an interesting target with instruments and tools at the end of the rover arm.
+The drill on its arm allows us to grab some of that rock and deliver some of that rock to the laboratory instruments inside the body of the rover.
+the laboratory instruments inside the body of the rover can tell us even more about the mineral composition, getting us closer to understanding whether life could have existed on Mars.
+Curiosity will be exploring the red planet for at least 2 years and there’s no telling what we will discover.

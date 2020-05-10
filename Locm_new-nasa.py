@@ -8,24 +8,15 @@
 #       format_version: '1.5'
 #       jupytext_version: 1.3.5
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: .contextual_drl
 #     language: python
-#     name: python3
+#     name: .contextual_drl
 # ---
-
-# need to run this to make work saving of py file of this jupyter notebook.
-# %autosave 0
 
 # # Give instructions of your domain in natural language. It could be a transcript, domain process manual or wikihow style instructions.
 
 # +
-# instructions = u'''Pizza making instructions
-# Buy the dough and knead the dough.
-# Put tomato sauce on the dough.
-# Spread some cheese. Put toppings of mushrooms, paprika and olives.
-# Put it in the oven at 200 degrees for 20 minutes.
-# Take it out and deliver at Turing room.
-# '''
+# paste your input as unicode text here.
 
 instructions = u'''CURIOSITY MARS MISSION TRANSCRIPT
 
@@ -120,7 +111,7 @@ text_file.close()
 # # Extract action sequence by running c-EASDRL
 
 # don't forget to switch the dataset between cooking and wikihow
-# !python3.6 -W ignore non_gui2.py
+# !python -W ignore non_gui2.py
 
 # # Learn the domain model in PDDL using iLOCM
 
@@ -1299,14 +1290,3 @@ nlp = spacy.load('en_core_web_sm')
 doc = nlp(coref_resolved_instructions)
 
 displacy.render(nlp(str(doc)), jupyter=True, style='ent', options = {'ents':['QUANTITY', 'TIME', 'LOC', 'DATE']})
-
-
-
-
-
-
-
-
-
-
-

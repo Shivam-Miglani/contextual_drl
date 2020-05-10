@@ -117,7 +117,7 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/final_test/'
-    input_filename = 'fire_domain.txt'
+    input_filename = 'nasa_curiosity.txt'
     input_file_path += input_filename
 
     #input file

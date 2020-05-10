@@ -44,12 +44,13 @@ NO17: This(1) helps(2) us(3) quickly(4) understand(5) the(6) kind(7) and(8)
 NO18: composition(1) of(2) an(3) interesting(4) target(5) from(6) a(7) distance(8) of(9) up(10) to(11) 30(12) feet.(13) 
 <15>  composition (target)    
 
-NO19: If(1) an(2) interesting(3) target(4) is(5) worth(6) a(7) closer(8) look(9) Curiosity(10) can(11) drive(12) up(13) and(14) inspect(15) the(16) target(17) is(18) worth(19) a(20) closer(21) look(22) with(23) instruments(24) and(25) tools(26) at(27) the(28) end(29) of(30) the(31) target(32) is(33) worth(34) a(35) closer(36) look(37) arm.(38) 
+NO19: If(1) an(2) interesting(3) target(4) is(5) worth(6) a(7) closer(8) look(9) the(10) rover(11) can(12) drive(13) up(14) and(15) inspect(16) an(17) interesting(18) target(19) with(20) instruments(21) and(22) tools(23) at(24) the(25) end(26) of(27) the(28) rover(29) arm.(30) 
+<16>  inspect (target)    
 
 NO20: The(1) drill(2) on(3) its(4) arm(5) allows(6) us(7) to(8) grab(9) some(10) of(11) that(12) rock(13) and(14) deliver(15) some(16) of(17) that(18) rock(19) to(20) the(21) laboratory(22) instruments(23) inside(24) the(25) body(26) of(27) the(28) rover.(29) 
-<16>  grab (rock)    <17>  deliver (rock)    
+<17>  grab (rock)    <18>  deliver (rock)    
 
 NO21: the(1) laboratory(2) instruments(3) inside(4) the(5) body(6) of(7) the(8) rover(9) can(10) tell(11) us(12) even(13) more(14) about(15) the(16) mineral(17) composition(18) getting(19) us(20) closer(21) to(22) understanding(23) whether(24) life(25) could(26) have(27) existed(28) on(29) Mars.(30) 
 
 NO22: Curiosity(1) will(2) be(3) exploring(4) the(5) red(6) planet(7) for(8) at(9) least(10) 2(11) years(12) and(13) there’s(14) no(15) telling(16) what(17) we(18) will(19) discover.(20) 
-<18>  discover. ()    
+<19>  discover. ()    

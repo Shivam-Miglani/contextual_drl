@@ -1,1 +1,1 @@
-Start (home),walk (cafe),Buy (tea),wait (minutes.),Clean (hands),Add (water),Pour (milk),Dip (teabag),Mix (teabag, water, milk)
+spins (spacecraft),slowing (spacecraft, thrusters),uses (thrusters),throw (weights),rebalance (spacecraft),slowing (Mach),deploy (parachute),slow (),reach (altitude),fires (landing, engine),slow (landing, engine),lowered (wheels),deploy (preparation),deploy (mast),composition (target),inspect (target),grab (rock),deliver (rock),discover. ()

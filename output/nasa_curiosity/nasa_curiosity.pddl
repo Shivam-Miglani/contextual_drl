@@ -1,68 +1,128 @@
 (define  (domain nasa_curiosity)
   (:requirements :typing)
-  (:types home cafe tea minute hand water milk teabag)
+  (:types weight mast altitude wheel target rock landing engine #)
   (:predicates
-    (home_fsm0_state0)
-    (home_fsm0_state1)    (cafe_fsm0_state0)    (cafe_fsm0_state1)    (tea_fsm0_state0)
-    (tea_fsm0_state1)    (minute_fsm0_state0)    (minute_fsm0_state1)    (hand_fsm0_state0)
-    (hand_fsm0_state1)    (water_fsm0_state0)    (water_fsm0_state1)    (water_fsm0_state2)
-    (milk_fsm0_state0)    (milk_fsm0_state1)    (milk_fsm0_state2)    (teabag_fsm0_state0)
-    (teabag_fsm0_state1)    (teabag_fsm0_state2)  )
-  (:action  walk   :parameters  (?cafe - cafe )
+    (weight_fsm0_state0)
+    (weight_fsm0_state1)    (mast_fsm0_state0)    (mast_fsm0_state1)    (altitude_fsm0_state0)
+    (altitude_fsm0_state1)    (wheel_fsm0_state0)    (wheel_fsm0_state1)    (target_fsm0_state0)
+    (target_fsm0_state1)    (target_fsm0_state2)    (rock_fsm0_state0)    (rock_fsm0_state1)
+    (rock_fsm0_state2)    (landing_fsm0_state0)    (landing_fsm0_state1)    (landing_fsm0_state2 ?v0 - engine)
+    (landing_fsm0_state3)    (landing_fsm0_state4)    (engine_fsm0_state0 ?v0 - landing)    (engine_fsm0_state1)
+    (engine_fsm0_state2)    (engine_fsm0_state3)    (#_fsm0_state0)    (#_fsm0_state1)
+    (#_fsm0_state2)  )
+  (:action  lower   :parameters  (?wheel - wheel )
    :precondition   (and
    )
    :effect   (and
   ))
-  (:action  start   :parameters  (?home - home )
+  (:action  rebalance   :parameters  (?spacecraft - landing )
+   :precondition   (and
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+   )
+   :effect   (and
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+  ))
+  (:action  use   :parameters  (?thruster - engine )
+   :precondition   (and
+        (engine_fsm0_state0 ?v0 - landing)
+        (engine_fsm0_state3)
+   )
+   :effect   (and
+        (engine_fsm0_state0 ?v0 - landing)
+        (engine_fsm0_state3)
+  ))
+  (:action  grab   :parameters  (?rock - rock )
+   :precondition   (and
+        (rock_fsm0_state2)
+   )
+   :effect   (and
+        (rock_fsm0_state2)
+  ))
+  (:action  deliver   :parameters  (?rock - rock )
+   :precondition   (and
+        (rock_fsm0_state2)
+   )
+   :effect   (and
+        (rock_fsm0_state2)
+  ))
+  (:action  slow   :parameters  (?mach - # )
+   :precondition   (and
+        (#_fsm0_state1)
+   )
+   :effect   (and
+        (#_fsm0_state1)
+  ))
+  (:action  spin   :parameters  (?spacecraft - landing )
+   :precondition   (and
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+   )
+   :effect   (and
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+  ))
+  (:action  slow1   :parameters  (?spacecraft - landing ?thruster - engine )
+   :precondition   (and
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+        (engine_fsm0_state0 ?v0 - landing)
+        (engine_fsm0_state3)
+   )
+   :effect   (and
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+        (engine_fsm0_state0 ?v0 - landing)
+        (engine_fsm0_state3)
+  ))
+  (:action  deploy   :parameters  (?parachute - mast )
    :precondition   (and
    )
    :effect   (and
   ))
-  (:action  wait   :parameters  (?minute - minute )
+  (:action  throw   :parameters  (?weight - weight )
    :precondition   (and
    )
    :effect   (and
   ))
-  (:action  mix   :parameters  (?teabag - teabag ?water - water ?milk - milk )
+  (:action  discover   :parameters  (?# - # )
    :precondition   (and
-        (teabag_fsm0_state1)
-        (water_fsm0_state1)
-        (milk_fsm0_state0)
+        (#_fsm0_state1)
    )
    :effect   (and
-        (teabag_fsm0_state1)
-        (water_fsm0_state1)
-        (milk_fsm0_state0)
+        (#_fsm0_state1)
   ))
-  (:action  buy   :parameters  (?tea - tea )
+  (:action  reach   :parameters  (?altitude - altitude )
    :precondition   (and
    )
    :effect   (and
   ))
-  (:action  add   :parameters  (?water - water )
+  (:action  fire   :parameters  (?landing - landing ?engine - engine )
    :precondition   (and
-        (water_fsm0_state1)
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+        (engine_fsm0_state0 ?v0 - landing)
+        (engine_fsm0_state3)
    )
    :effect   (and
-        (water_fsm0_state1)
+        (landing_fsm0_state2 ?v0 - engine)
+        (landing_fsm0_state3)
+        (engine_fsm0_state0 ?v0 - landing)
+        (engine_fsm0_state3)
   ))
-  (:action  clean   :parameters  (?hand - hand )
+  (:action  inspect   :parameters  (?target - target )
    :precondition   (and
+        (target_fsm0_state1)
    )
    :effect   (and
+        (target_fsm0_state1)
   ))
-  (:action  pour   :parameters  (?milk - milk )
+  (:action  composition   :parameters  (?target - target )
    :precondition   (and
-        (milk_fsm0_state0)
+        (target_fsm0_state1)
    )
    :effect   (and
-        (milk_fsm0_state0)
-  ))
-  (:action  dip   :parameters  (?teabag - teabag )
-   :precondition   (and
-        (teabag_fsm0_state1)
-   )
-   :effect   (and
-        (teabag_fsm0_state1)
+        (target_fsm0_state1)
   ))
 )
