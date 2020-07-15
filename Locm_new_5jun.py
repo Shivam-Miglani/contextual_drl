@@ -6,30 +6,49 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.3.5
+#       jupytext_version: 1.4.2
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: .contextual_drl
 #     language: python
-#     name: python3
+#     name: .contextual_drl
 # ---
 
-# need to run this to make work saving of py file of this jupyter notebook.
-# %autosave 0
+# # Input Preprocessing
 
-# # Give instructions of your domain in natural language. It could be a transcript, domain process manual or wikihow style instructions.
+# ## Give instructions of your domain in natural language. It could be a transcript, domain process manual or wikihow style instructions.
 
 # +
+# paste your input as unicode text here.
 
+instructions = u'''CURIOSITY MARS MISSION TRANSCRIPT
 
-instructions = u'''Tea domain
-Start from home and walk to cafe for your tea in 25 minutes.
-When you are at cafe, Buy tea and wait 15 minutes.
-Clean your hands, if they are dirty in 1 minute.
-Add water to mug which takes 2 seconds.
-Pour milk into mug which also takes 2 seconds.
-Dip teabag into mug for 2 minutes.
-Mix the teabag, water and milk in your mug for 3 minutes.
-Your delicious tea is ready.
+The last stage of the launch vehicle gives the spacecraft a final push and spins it up for our eight-and-a-half month cruise to the red planet.
+
+10 minutes before hitting the atmosphere the cruise stage separates and final preparations for entry begin.
+
+Hitting the atmosphere at about 13000 miles per hour, the spacecraft begins to slow down. While slowing down, the spacecraft uses thrusters to help steer toward the landing target.
+
+We throw off weights to rebalance the spacecraft, so that it’s lined for parachute deploy. After slowing to about Mach 2, or about 1000 miles per hour, we deploy the parachute to slow down even further.
+
+Once we are below the speed of sound, the heat shield separates and the spacecraft looks for the ground with the landing radar.
+
+Once we reach an altitude of about 1 mile, the spacecraft drops out of the back-shell at about 200 miles an hour. It then fires up the landing engine to slow it down even further.
+
+Once we’ve descended to about 60 feet above the ground, and going only about 2 miles per hour, the rover separates from the descent stage. As the rover is lowered, the wheels deploy in preparation for landing.
+
+Once the rover is safely on the ground, and touchdown has been detected, the descent stage cuts the rover loose. It flies away leaving Curiosity safe on the surface of Mars.
+
+One of the first things Curiosity does after landing is to deploy the mast, which supports many cameras and instruments. Curiosity shoots a laser at an interesting target. This helps us quickly understand the kind and
+
+composition of that target from a distance of up to 30 feet.
+
+If the target is worth a closer look, the rover can drive up and inspect the target with instruments and tools at the end of its arm.
+
+The drill on the arm allows us to grab some of that rock and deliver it to the laboratory instruments inside the body of the rover.
+
+Those instruments can tell us even more about the mineral composition, getting us closer to understanding whether life could have existed on Mars.
+
+Curiosity will be exploring the red planet for at least 2 years and there’s no telling what we will discover.
 '''
 # -
 
@@ -41,9 +60,10 @@ for line in non_empty_lines:
       valid_instructions += line + u"\n"
 print(valid_instructions)
 
-# #### Remove pronoun coreferences
+# + [markdown] heading_collapsed=true
+# ## Remove pronoun coreferences
 
-# +
+# + hidden=true
 import spacy
 import neuralcoref
 
@@ -57,9 +77,9 @@ coref_resolved_instructions =  doc1._.coref_resolved
 print(coref_resolved_instructions)
 # -
 
-# #### write the file into proper directory to be run by main script
+# ## write the file into proper directory to be run by main script
 
-fname = 'tea_domain.txt'
+fname = 'nasa_curiosity.txt'
 main_file_name = 'main_ceasdrl.py'
 
 # +
@@ -89,27 +109,18 @@ text_file = open("./data/process_manuals/" + fname, "r")
 print(text_file.read())
 text_file.close()
 
-# -
 
+# + [markdown] heading_collapsed=true
 # # Extract action sequence by running c-EASDRL
 
+# + hidden=true
 # don't forget to switch the dataset between cooking and wikihow
-# !python3.6 -W ignore main_ceasdrl.py
+# !python -W ignore main_ceasdrl.py
+# -
 
 # # Learn the domain model in PDDL using iLOCM
-
-from collections import defaultdict
-import itertools
-import os
-from tabulate import tabulate
-from pprint import pprint
-import matplotlib.pyplot as plt
-# %matplotlib inline
-import networkx as nx
-import pandas as pd
-pd.options.display.max_columns = 100
-
-# ## interactive-LOCM 
+#
+# **interactive-LOCM**
 # This code combines LOCM1 and LOCM2 algorithms and is last part of the pipeline that I use in my thesis to generate PDDL models from instructional texts.
 #
 # - Step 0: Preprocess: Lemmatize, Coref resolve, action override rename and replacing empty parameters.
@@ -123,16 +134,28 @@ pd.options.display.max_columns = 100
 # - Step 8: Extract static preconditions
 # - Step 9: Form action schemas
 
+from collections import defaultdict
+import itertools
+import os
+from tabulate import tabulate
+from pprint import pprint
+import matplotlib.pyplot as plt
+# %matplotlib inline
+import networkx as nx
+import pandas as pd
+pd.options.display.max_columns = 100
+from IPython.display import display
+
 input_file_name = "locm_data/"+fname
 domain_name = input_file_name.split('/')[-1].split('.')[0] #domain name is the name of the file
 
 print(domain_name)
 
-# ### Read input file
+# ## Read input file
 
 # +
 import string
-def read_file(file_path):
+def read_file(input_file_name):
     '''
     Read the input data and return list of action sequences.
     Each sequence is a list of action-argumentlist tuples.
@@ -153,7 +176,6 @@ def read_file(file_path):
                 actions.append(action.translate(str.maketrans('', '', string.punctuation)))
                 argument_list = argument.split(',')
                 argument_list = [x.strip() for x in argument_list]
-                argument_list = [x.strip('.') for x in argument_list]
                 #argument_list.insert(0,'zero')
                 arguments.append(argument_list)
                 
@@ -171,13 +193,14 @@ def print_sequences(sequences):
 
 # -
 
-sequences = read_file(input_file_name)
+# sequences = read_file(input_file_name)
+sequences = read_file('./locm_data/driverlog.txt')
 print_sequences(sequences)
 
 
 print(len(sequences))
 
-# ### Normalize action sequences by lemmatization of extracted actions and arguments
+# ## Normalize action sequences by lemmatization of extracted actions and arguments
 
 # +
 # normalize the words by lemmatization
@@ -205,7 +228,7 @@ print_sequences(new_sequences)
 sequences = new_sequences
 # -
 
-# ### rename actions with same name but different arguments by appending a counter to them
+# ## rename actions with same name but different arguments by appending a counter to them
 
 # +
 # since action always have one argument, consider '' as an implicit one argument. Not renaming such actions.
@@ -253,7 +276,7 @@ for i, seq in enumerate(sequences):
 
 print_sequences(sequences)
 
-# # Step 1.1: Find classes 
+# ## Step 1.1: Find classes 
 
 # +
 transitions = set() # A transition is denoted by action_name + argument_number.
@@ -350,19 +373,24 @@ class_names = get_class_names(classes)
 print("\nExtracted class names")
 print(class_names)
 # -
-# # USER INPUT 1: ENTER CORRECT CLASS NAMES
+# ## USER INPUT 1: ENTER CORRECT CLASS NAMES
 
 # +
 ############ (Optional) User Input ############
 # Give user an option to change class names.
 # class_names[0] = 'rocket'
 
+class_names[0] = 'driver'
+class_names[1] = 'truck'
+class_names[2] = 'package'
+class_names[3] = 'location'
+
 print("\nRenamed class names")
 print(class_names)
-
 # -
 
-# #### Assumptions
+
+#  **Assumptions of LOCM2**
 # - Each object of a same class undergoes similar kind of transition.
 # - Objects of same class in a same action undergo similar kind of transition.
 
@@ -387,32 +415,10 @@ print(arguments)
 
 print("\nNumber of Actions: {},\nNumber of unique transitions: {},\nNumber of unique objects (arguments): {},\nNumber of classes/sorts: {}".format(len(actions), len(transitions), len(arguments), len(classes)))
 
-# # Step 1.2: Make transition graphs
-#
-# User can fix these easily as well. (Cytoscape).
-
-
-
-# ## Connect to Cytoscape
-
-# +
-# from py2cytoscape.data.cyrest_client import CyRestClient
-# import networkx as nx
-# from py2cytoscape.util import from_networkx
-# cy = CyRestClient()
-# cy.session.delete() # Clear running session (= delete existing networks and views)
-# from IPython.display import Image
-# # network = cy.network.create(name='pizza.graphml', collection='pizza.graphml')
-
-# +
-# # You can check all available Visual Properties with this function call:
-# vps = pd.Series(cy.style.vps.get_all())
-# vps.head(20)
-# -
 
 # ## Building Transition graphs
 
-# ##### Utils
+# ### Utils
 
 # +
 def empty_directory(folder):
@@ -430,29 +436,52 @@ def findsubsets(S,m):
 
 def print_table(matrix):
     print(tabulate(matrix, headers='keys', tablefmt='github'))
+# +
+# adjacency_matrix_list = [] # list of adjacency matrices per class
+    
+# for index, G in enumerate(graphs):
+#     nx.write_gpickle(G, "output/"+ domain_name + "/" +  class_names[index] + ".gpickle")
 
 
+#     nx.draw(G, arrow_style='fancy', with_labels=True)
+#     labels = nx.get_edge_attributes(G, 'weight')
+#     pos = nx.spring_layout(G)
+#     nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+
+#     plt.show()
+
+#     print("Nodes:{}".format(G.nodes()))
+#     print("Edges:{}".format(G.edges()))
+
+#     # TODO: save dataframes in cache and reload them.
+#     # A = nx.to_numpy_matrix(G, nodelist=G.nodes())
+
+#     df = nx.to_pandas_adjacency(G, nodelist=G.nodes(), dtype=int)
+#     adjacency_matrix_list.append(df)
 # -
 
-# #### Save graphs in pickle format.
+# ### Save graphs in pickle format.
 
-def plot_and_save(graphs):
+# +
+def plot_and_save(graphs, domain_name):
+
     adjacency_matrix_list = [] # list of adjacency matrices per class
     
     for index, G in enumerate(graphs):
-#         nx.write_graphml(G, "output/"+ domain_name + "/" +  class_names[index] + ".graphml")
-        nx.write_gpickle(G, "output/"+ domain_name + "/" +  class_names[index] + ".gpickle")
+#         nx.write_graphml(G, neo4jpath +  class_names[index] + ".graphml")
+        nx.write_graphml(G, "output/"+ domain_name + "/" +  class_names[index] + ".graphml")
+#         nx.write_gpickle(G, "output/"+ domain_name + "/" +  class_names[index] + ".gpickle")
         
         
-        nx.draw(G, arrow_style='fancy', with_labels=True)
-        labels = nx.get_edge_attributes(G, 'weight')
-        pos = nx.spring_layout(G)
-        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+#         nx.draw(G, arrow_style='fancy', with_labels=True)
+#         labels = nx.get_edge_attributes(G, 'weight')
+#         pos = nx.spring_layout(G)
+#         nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 
-        plt.show()
+#         plt.show()
         
-        print("Nodes:{}".format(G.nodes()))
-        print("Edges:{}".format(G.edges()))
+#         print("Nodes:{}".format(G.nodes()))
+#         print("Edges:{}".format(G.edges()))
 
         # TODO: save dataframes in cache and reload them.
         # A = nx.to_numpy_matrix(G, nodelist=G.nodes())
@@ -461,6 +490,77 @@ def plot_and_save(graphs):
         adjacency_matrix_list.append(df)
     return adjacency_matrix_list
 
+
+# -
+
+def plot_cytographs(graphs, domain_name):
+    cytoscapeobs = []
+    for index, G in enumerate(graphs):
+        cytoscapeobj = CytoscapeWidget()
+        cytoscapeobj.graph.add_graph_from_networkx(G)
+        cytoscapeobs.append(cytoscapeobj)
+        print(class_names[index])
+        print("Nodes:{}".format(G.nodes()))
+        print("Edges:{}".format(G.edges()))
+        cytoscapeobj.set_style([{
+                        'width':300,
+                        'height':300,
+            
+                        'selector': 'node',
+                        'style': {
+                            'label': 'data(id)',
+                            'font-family': 'helvetica',
+                            'font-size': '8px',
+                            'background-color': '#11479e',
+                            'height':'10px',
+                            'width':'10px',
+                            
+                            
+                            }
+    
+                        },
+                        {
+                        'selector': 'node:parent',
+                        'css': {
+                            'background-opacity': 0.333,
+                            'background-color': '#bbb'
+                            }
+                        },
+                        {
+                        'selector': '$node > node',
+                        'css': {
+                            'padding-top': '10px',
+                            'padding-left': '10px',
+                            'padding-bottom': '10px',
+                            'padding-right': '10px',
+                            'text-valign': 'top',
+                            'text-halign': 'center',
+                            'background-color': '#bbb'
+                          }
+                        },
+                       {
+                            'selector': 'edge',
+                            
+                            'style': {
+                                'label':'data(weight)',
+                                'width': 1,
+                                'line-color': '#9dbaea',
+                                'target-arrow-shape': 'triangle',
+                                'target-arrow-color': '#9dbaea',
+                                'arrow-scale': 0.5,
+                                'curve-style': 'bezier',
+                                'font-family': 'helvetica',
+                                'font-size': '8px',
+                                'text-valign': 'top',
+                                'text-halign':'center'
+                            }
+                        },
+                        ])
+        cytoscapeobj.max_zoom = 1e5
+        cytoscapeobj.min_zoom = 0.5
+        display(cytoscapeobj)
+    return cytoscapeobs
+    
 
 # #### Build transitions graphs and call save function
 
@@ -516,20 +616,29 @@ def build_and_save_transition_graphs(classes, domain_name, class_names):
 
 
     # plot and save all the graphs
-    adjacency_matrix_list = plot_and_save(graphs) # list of adjacency matrices per class
+    adjacency_matrix_list = plot_and_save(graphs, domain_name) # list of adjacency matrices per class
+    
+    # plot cytoscape interactive graphs
+    cytoscapeobs = plot_cytographs(graphs,domain_name)
+    
 
-    return adjacency_matrix_list
+    return adjacency_matrix_list, graphs, cytoscapeobs
 
 # ##### Transition Graphs
 
 #### Build weighted directed graphs for transitions.
-adjacency_matrix_list = build_and_save_transition_graphs(classes, domain_name, class_names)
-
-# # User Input 2: Edit transition graphs
+adjacency_matrix_list, graphs, cytoscapeobjs = build_and_save_transition_graphs(classes, 'driverlog', class_names)
 
 
+# ## User Input 2: Edit transition graphs
 
-# # Step 2: Get Transition Sets from LOCM2
+# +
+# 1. one can open graphs in cytoscape using .graphml or .json files.
+# 2. edit the noisy transitions in cytoscape for more accurate PDDL models
+# 3. reload json into networkx again and update it.
+# -
+
+# ## Step 2: Get Transition Sets from LOCM2
 #
 # Algorithm: LOCM2
 # Input : 
@@ -539,7 +648,7 @@ adjacency_matrix_list = build_and_save_transition_graphs(classes, domain_name, c
 # - E : Set of example sequences of actions.
 # Output:
 # - S : Set of transition sets.
-# #### Finding holes
+# ### Finding holes
 
 def get_adjacency_matrix_with_holes(adjacency_matrix_list):
     adjacency_matrix_list_with_holes = []
@@ -577,14 +686,14 @@ def get_adjacency_matrix_with_holes(adjacency_matrix_list):
 # +
 adjacency_matrix_list_with_holes = get_adjacency_matrix_with_holes(adjacency_matrix_list)
 
-## Printing FSM matrices with and without holes
-# for index,adjacency_matrix in enumerate(adjacency_matrix_list):
-#     print("\n==========" + class_names[index] + "==========")
-#     print(adjacency_matrix)
-#     print(tabulate(adjacency_matrix, headers='keys', tablefmt='github'))
+# Printing FSM matrices with and without holes
+for index,adjacency_matrix in enumerate(adjacency_matrix_list):
+    print("\n==========" + class_names[index] + "==========")
+    print(adjacency_matrix)
+    print(tabulate(adjacency_matrix, headers='keys', tablefmt='github'))
 
-#     print("\n===== HOLES: " + class_names[index] + "==========")
-#     print(tabulate(adjacency_matrix_list_with_holes[index], headers='keys', tablefmt='github'))
+    print("\n===== HOLES: " + class_names[index] + "==========")
+    print(tabulate(adjacency_matrix_list_with_holes[index], headers='keys', tablefmt='github'))
 
 
 # +
@@ -797,12 +906,14 @@ print("######## Getting transitions sets for each class using LOCM2 ######")
 transition_sets_per_class = locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, consecutive_transitions_per_class)
 # -
 
-# # Step 3: Algorithm For Induction of State Machines
+# ## Step 3: Algorithm For Induction of State Machines
 #
 # - Input: Action training sequence of length N
 # - Output: Transition Set TS, Object states OS.
 #
 # We already have transition set TS per class.
+
+domain_name='driverlog'
 
 # +
 print("Step 3: Induction of Finite State Machines")
@@ -911,7 +1022,7 @@ def print_state_dictionary(state_dict_overall):
 
 # -
 
-# ### Step 5: Induction of parameterized state machines
+# ## Step 5: Induction of parameterized state machines
 # Create and test hypothesis for state parameters
 
 # +
@@ -1036,9 +1147,8 @@ for index, fsms_per_class in enumerate(state_machines_overall_list):
 #             print(h)
 # -
 
-# ### Step 6: Creation and merging of state parameters
+# ## Step 6: Creation and merging of state parameters
 
-# +
 print("Step 6: creating and merging state params")
 param_bindings_list_overall = []
 for classindex, HS_per_class in enumerate(HS_list):
@@ -1063,12 +1173,9 @@ for classindex, HS_per_class in enumerate(HS_list):
 #             print(pb)
 #         print()
     param_bindings_list_overall.append(param_bind_per_class)
-    
 
 
-# -
-
-# ### Step 7: Remove Parameter Flaws
+# ## Step 7: Remove Parameter Flaws
 
 # +
 ########### Step 5: Removing parameter flaws
@@ -1133,9 +1240,7 @@ print("Fault Removed Parameter Bindings")
 #             print(p)
 #         print()
 
-# ### Step 9:  Formation of PDDL Schema
-
-
+# ## Step 9:  Formation of PDDL Schema
 
 # +
 # get action schema
@@ -1259,12 +1364,11 @@ write_file.close()
 
 # -
 
+
 # state dictionary
 print_state_dictionary(state_dict_overall)
 
-
-
-# ## NER 
+# # NER 
 
 # finding entities using spacy
 import spacy
@@ -1274,14 +1378,5 @@ nlp = spacy.load('en_core_web_sm')
 doc = nlp(coref_resolved_instructions)
 
 displacy.render(nlp(str(doc)), jupyter=True, style='ent', options = {'ents':['QUANTITY', 'TIME', 'LOC', 'DATE']})
-
-
-
-
-
-
-
-
-
 
 

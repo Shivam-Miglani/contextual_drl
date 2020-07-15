@@ -61,7 +61,7 @@ print(coref_resolved_instructions)
 # #### write the file into proper directory to be run by main script
 
 fname = 'fire_domain.txt'
-main_file_name = 'non_gui2.py'
+main_file_name = 'main_ceasdrl.py'
 
 # +
 # replace input filename in the main file
@@ -94,8 +94,8 @@ text_file.close()
 
 # # Extract action sequence by running c-EASDRL
 
-# don't forget to switch the dataset between wikihow in non_gui2.py for firealarm domain
-# !python3.6 -W ignore non_gui2.py
+# don't forget to switch the dataset between wikihow in main_ceasdrl.py for firealarm domain
+# !python3.6 -W ignore main_ceasdrl.py
 
 # # Learn the domain model in PDDL using iLOCM
 

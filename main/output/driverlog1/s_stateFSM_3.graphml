@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><graph edgedefault="directed"><node id="frozenset({'end(unload-truck.2)'})"/>
-<node id="frozenset({'start(board-truck.2)'})"/>
-<node id="frozenset({'end(board-truck.2)'})"/>
-<node id="frozenset({'start(unload-truck.2)'})"/>
-<node id="frozenset({'end(walk.1)'})"/>
-<node id="frozenset({'start(walk.1)'})"/>
-</graph></graphml>

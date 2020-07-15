@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
+<graph edgedefault="directed"><node id="walk.2"/>
+<node id="walk.1"/>
+<node id="boardtruck.2"/>
+<node id="loadtruck.2"/>
+<node id="drivetruck.1"/>
+<node id="drivetruck.2"/>
+<node id="disembarktruck.2"/>
+<node id="unloadtruck.2"/>
+<edge source="walk.2" target="walk.1">
+  <data key="d0">10</data>
+</edge>
+<edge source="walk.2" target="drivetruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="walk.2" target="boardtruck.2">
+  <data key="d0">4</data>
+</edge>
+<edge source="walk.1" target="drivetruck.2">
+  <data key="d0">5</data>
+</edge>
+<edge source="walk.1" target="walk.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="boardtruck.2" target="loadtruck.2">
+  <data key="d0">5</data>
+</edge>
+<edge source="boardtruck.2" target="drivetruck.1">
+  <data key="d0">7</data>
+</edge>
+<edge source="boardtruck.2" target="unloadtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="boardtruck.2" target="disembarktruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="loadtruck.2" target="drivetruck.1">
+  <data key="d0">8</data>
+</edge>
+<edge source="loadtruck.2" target="disembarktruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="loadtruck.2" target="boardtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="loadtruck.2" target="unloadtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="drivetruck.1" target="drivetruck.2">
+  <data key="d0">20</data>
+</edge>
+<edge source="drivetruck.1" target="walk.2">
+  <data key="d0">2</data>
+</edge>
+<edge source="drivetruck.1" target="boardtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="drivetruck.2" target="drivetruck.1">
+  <data key="d0">10</data>
+</edge>
+<edge source="drivetruck.2" target="loadtruck.2">
+  <data key="d0">5</data>
+</edge>
+<edge source="drivetruck.2" target="disembarktruck.2">
+  <data key="d0">9</data>
+</edge>
+<edge source="drivetruck.2" target="unloadtruck.2">
+  <data key="d0">7</data>
+</edge>
+<edge source="disembarktruck.2" target="boardtruck.2">
+  <data key="d0">4</data>
+</edge>
+<edge source="disembarktruck.2" target="loadtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="disembarktruck.2" target="walk.1">
+  <data key="d0">2</data>
+</edge>
+<edge source="disembarktruck.2" target="unloadtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="disembarktruck.2" target="drivetruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="unloadtruck.2" target="disembarktruck.2">
+  <data key="d0">3</data>
+</edge>
+<edge source="unloadtruck.2" target="boardtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="unloadtruck.2" target="loadtruck.2">
+  <data key="d0">1</data>
+</edge>
+<edge source="unloadtruck.2" target="drivetruck.1">
+  <data key="d0">6</data>
+</edge>
+</graph></graphml>

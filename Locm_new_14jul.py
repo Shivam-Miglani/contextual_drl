@@ -6,110 +6,16 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.3.5
+#       jupytext_version: 1.4.2
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: .contextual_drl
 #     language: python
-#     name: python3
+#     name: .contextual_drl
 # ---
 
-# need to run this to make work saving of py file of this jupyter notebook.
-# %autosave 0
-
-# # Give instructions of your domain in natural language. It could be a transcript, domain process manual or wikihow style instructions.
-
-# +
-
-
-instructions = u'''Tea domain
-Start from home and walk to cafe for your tea in 25 minutes.
-When you are at cafe, Buy tea and wait 15 minutes.
-Clean your hands, if they are dirty in 1 minute.
-Add water to mug which takes 2 seconds.
-Pour milk into mug which also takes 2 seconds.
-Dip teabag into mug for 2 minutes.
-Mix the teabag, water and milk in your mug for 3 minutes.
-Your delicious tea is ready.
-'''
-# -
-
-# remove empty lines from input instructions -- this is important for BERT which looks at previous and forward sentences.
-valid_instructions = ''
-lines = instructions.split("\n")
-non_empty_lines = [line for line in lines if line.strip() != ""]
-for line in non_empty_lines:
-      valid_instructions += line + u"\n"
-print(valid_instructions)
-
-# #### Remove pronoun coreferences
-
-# +
-import spacy
-import neuralcoref
-
-
-nlp = spacy.load('en_core_web_sm')
-neuralcoref.add_to_pipe(nlp)
-
-doc1 = nlp(valid_instructions)
-coref_resolved_instructions =  doc1._.coref_resolved
-
-print(coref_resolved_instructions)
-# -
-
-# #### write the file into proper directory to be run by main script
-
-fname = 'tea_domain.txt'
-main_file_name = 'main_ceasdrl.py'
-
-# +
-# replace input filename in the main file
-import re
-
-# Read in the file
-with open(main_file_name, 'r') as file :
-    filedata = file.read()
-
-# Replace the target string
-filedata = re.sub(r'input_filename = .*txt', "input_filename = '"+ fname, filedata)
-
-# Write the file out again
-with open(main_file_name, 'w') as file:
-    file.write(filedata)
-
-# +
-# Writing the instructions file into directory
-# Writing the file
-text_file = open("./data/process_manuals/" + fname, "w")
-text_file.write(coref_resolved_instructions)
-text_file.close()
-
-# Reading the file
-text_file = open("./data/process_manuals/" + fname, "r")
-print(text_file.read())
-text_file.close()
-
-# -
-
-# # Extract action sequence by running c-EASDRL
-
-# don't forget to switch the dataset between cooking and wikihow
-# !python3.6 -W ignore main_ceasdrl.py
-
 # # Learn the domain model in PDDL using iLOCM
-
-from collections import defaultdict
-import itertools
-import os
-from tabulate import tabulate
-from pprint import pprint
-import matplotlib.pyplot as plt
-# %matplotlib inline
-import networkx as nx
-import pandas as pd
-pd.options.display.max_columns = 100
-
-# ## interactive-LOCM 
+#
+# **interactive-LOCM**
 # This code combines LOCM1 and LOCM2 algorithms and is last part of the pipeline that I use in my thesis to generate PDDL models from instructional texts.
 #
 # - Step 0: Preprocess: Lemmatize, Coref resolve, action override rename and replacing empty parameters.
@@ -123,16 +29,24 @@ pd.options.display.max_columns = 100
 # - Step 8: Extract static preconditions
 # - Step 9: Form action schemas
 
-input_file_name = "locm_data/"+fname
-domain_name = input_file_name.split('/')[-1].split('.')[0] #domain name is the name of the file
+from collections import defaultdict
+import itertools
+import os
+from tabulate import tabulate
+from pprint import pprint
+import matplotlib.pyplot as plt
+# %matplotlib inline
+import networkx as nx
+import pandas as pd
+pd.options.display.max_columns = 100
+from IPython.display import display, Markdown
+from ipycytoscape import *
 
-print(domain_name)
-
-# ### Read input file
+# ## Read input file
 
 # +
 import string
-def read_file(file_path):
+def read_file(input_file_name):
     '''
     Read the input data and return list of action sequences.
     Each sequence is a list of action-argumentlist tuples.
@@ -153,7 +67,6 @@ def read_file(file_path):
                 actions.append(action.translate(str.maketrans('', '', string.punctuation)))
                 argument_list = argument.split(',')
                 argument_list = [x.strip() for x in argument_list]
-                argument_list = [x.strip('.') for x in argument_list]
                 #argument_list.insert(0,'zero')
                 arguments.append(argument_list)
                 
@@ -171,92 +84,16 @@ def print_sequences(sequences):
 
 # -
 
-sequences = read_file(input_file_name)
+# sequences = read_file(input_file_name)
+sequences = read_file('./locm_data/driverlog1.txt')
 print_sequences(sequences)
+domain_name = 'driverlog' #specify domain name to  be used in PDDL here.
 
 
-print(len(sequences))
-
-# ### Normalize action sequences by lemmatization of extracted actions and arguments
-
-# +
-# normalize the words by lemmatization
-# ps = PorterStemmer()
-
-import nltk
-from nltk.stem import WordNetLemmatizer
-wordnet_lemmatizer = WordNetLemmatizer()
-
-new_sequences = []
-
-for seq in sequences:
-    acts = []
-    arg_lists = []
-    for index,action in enumerate(seq):
-        act = wordnet_lemmatizer.lemmatize(action[0],pos='v')
-        acts.append(act)
-        arg_list = [wordnet_lemmatizer.lemmatize(arg, pos='n') for arg in action[1]]
-        arg_lists.append(arg_list)
-    act_arg_tups = zip(acts,arg_lists)
-    new_sequences.append(list(act_arg_tups))
-
-
-print_sequences(new_sequences)
-sequences = new_sequences
-# -
-
-# ### rename actions with same name but different arguments by appending a counter to them
+# ## Step 1.1: Find classes 
 
 # +
-# since action always have one argument, consider '' as an implicit one argument. Not renaming such actions.
-# renaming 1 or more clashing action prototypes 
-
-
-all_tuples_in_all_seqs = []
-for seq in sequences:
-    for index,action in enumerate(seq):
-        all_tuples_in_all_seqs.append((action[0],len(action[1])))
-        
-all_act_len_set = set(all_tuples_in_all_seqs) # set of all actions with their arglist lens
-
-
-from collections import defaultdict
-d = defaultdict(list)
-
-for k, v in all_act_len_set:
-    d[k].append(v) #dictionary of list of lens for each key
-
-# keys with list len > 1 have clashing action names
-clashing_action_tuples = []     
-for k,v in d.items():
-    if len(d[k]) > 1:
-        for index,val in enumerate(d[k]):
-            if index > 0:
-                clashing_action_tuples.append((k,val,index))
-                
-
-# replace all clashing action tuples in original sequences
-
-
-for clashing_tup in clashing_action_tuples:
-    for i, seq in enumerate(sequences):
-        for j, actarg_tup in enumerate(seq):
-            if (clashing_tup[0] == actarg_tup[0]) and clashing_tup[1] == len(actarg_tup[1]):
-                sequences[i][j] = (sequences[i][j][0]+str(clashing_tup[2]), sequences[i][j][1])
-                
-
-# replace all '' parameters with '#'
-for i, seq in enumerate(sequences):
-    for j, actarg_tup in enumerate(seq):
-        sequences[i][j] = (sequences[i][j][0], ['#' if x=='' else x for x in sequences[i][j][1]])
-# -
-
-print_sequences(sequences)
-
-# # Step 1.1: Find classes 
-
-# +
-transitions = set() # A transition is denoted by action_name + argument_number.
+transitions = set() # A transition is denoted by action_name + argument position
 arguments = set()
 actions = set()
 for seq in sequences:
@@ -268,8 +105,8 @@ for seq in sequences:
 
 print("\nActions")
 print(actions)
-print("\nTransitions")
-print(transitions)
+# print("\nTransitions")
+# print(transitions)
 print("\nArguments/Objects")
 print(arguments)
 
@@ -350,19 +187,25 @@ class_names = get_class_names(classes)
 print("\nExtracted class names")
 print(class_names)
 # -
-# # USER INPUT 1: ENTER CORRECT CLASS NAMES
+# ## User Input 1: Enter Correct Class names
+# Editing the extracted class names to more readable object classes will make the final PDDL model more readable.
 
 # +
 ############ (Optional) User Input ############
 # Give user an option to change class names.
 # class_names[0] = 'rocket'
 
+class_names[0] = 'Driver'
+class_names[1] = 'Truck'
+class_names[2] = 'Package'
+class_names[3] = 'Location'
+
 print("\nRenamed class names")
 print(class_names)
-
 # -
 
-# #### Assumptions
+
+#  **Assumptions of LOCM2**
 # - Each object of a same class undergoes similar kind of transition.
 # - Objects of same class in a same action undergo similar kind of transition.
 
@@ -373,13 +216,12 @@ for seq in sequences:
     for actarg_tuple in seq:
         actions.add(actarg_tuple[0])
         for j, arg in enumerate(actarg_tuple[1]):
-            full_transitions.add(actarg_tuple[0]+"."+class_names[get_class_index(arg,classes)]+"."+str(j))
+            full_transitions.add(actarg_tuple[0]+"."+class_names[get_class_index(arg,classes)]+".#"+str(j))
             arguments.add(arg)
 
 print("\nActions")
 print(actions)
 print("\nTransitions")
-print(transitions)
 print(full_transitions)
 print("\nArguments/Objects")
 print(arguments)
@@ -387,32 +229,10 @@ print(arguments)
 
 print("\nNumber of Actions: {},\nNumber of unique transitions: {},\nNumber of unique objects (arguments): {},\nNumber of classes/sorts: {}".format(len(actions), len(transitions), len(arguments), len(classes)))
 
-# # Step 1.2: Make transition graphs
-#
-# User can fix these easily as well. (Cytoscape).
-
-
-
-# ## Connect to Cytoscape
-
-# +
-# from py2cytoscape.data.cyrest_client import CyRestClient
-# import networkx as nx
-# from py2cytoscape.util import from_networkx
-# cy = CyRestClient()
-# cy.session.delete() # Clear running session (= delete existing networks and views)
-# from IPython.display import Image
-# # network = cy.network.create(name='pizza.graphml', collection='pizza.graphml')
-
-# +
-# # You can check all available Visual Properties with this function call:
-# vps = pd.Series(cy.style.vps.get_all())
-# vps.head(20)
-# -
 
 # ## Building Transition graphs
 
-# ##### Utils
+# ### Utils
 
 # +
 def empty_directory(folder):
@@ -429,44 +249,99 @@ def findsubsets(S,m):
     return set(itertools.combinations(S, m))
 
 def print_table(matrix):
-    print(tabulate(matrix, headers='keys', tablefmt='github'))
+    display(tabulate(matrix, headers='keys', tablefmt='html'))
+    
+def printmd(string):
+    display(Markdown(string))
 
 
 # -
+# ### Save graphs in graphml format (used in cytoscape)
 
-# #### Save graphs in pickle format.
-
-def plot_and_save(graphs):
+def save(graphs, domain_name):
     adjacency_matrix_list = [] # list of adjacency matrices per class
     
     for index, G in enumerate(graphs):
-#         nx.write_graphml(G, "output/"+ domain_name + "/" +  class_names[index] + ".graphml")
-        nx.write_gpickle(G, "output/"+ domain_name + "/" +  class_names[index] + ".gpickle")
-        
-        
-        nx.draw(G, arrow_style='fancy', with_labels=True)
-        labels = nx.get_edge_attributes(G, 'weight')
-        pos = nx.spring_layout(G)
-        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
-
-        plt.show()
-        
-        print("Nodes:{}".format(G.nodes()))
-        print("Edges:{}".format(G.edges()))
-
-        # TODO: save dataframes in cache and reload them.
-        # A = nx.to_numpy_matrix(G, nodelist=G.nodes())
-        
+        nx.write_graphml(G, "output/"+ domain_name + "/" +  class_names[index] + ".graphml")
         df = nx.to_pandas_adjacency(G, nodelist=G.nodes(), dtype=int)
         adjacency_matrix_list.append(df)
     return adjacency_matrix_list
+
+
+def plot_cytographs(graphs, domain_name):
+    cytoscapeobs = []
+    for index, G in enumerate(graphs):
+        cytoscapeobj = CytoscapeWidget()
+        cytoscapeobj.graph.add_graph_from_networkx(G)
+        cytoscapeobs.append(cytoscapeobj)
+        printmd('## class **'+class_names[index]+'**')
+        print("Nodes:{}".format(G.nodes()))
+        print("Edges:{}".format(G.edges()))
+        cytoscapeobj.set_style([{
+                        'width':300,
+                        'height':300,
+            
+                        'selector': 'node',
+                        'style': {
+                            'label': 'data(id)',
+                            'font-family': 'helvetica',
+                            'font-size': '8px',
+                            'background-color': '#11479e',
+                            'height':'10px',
+                            'width':'10px',
+                            
+                            
+                            }
+    
+                        },
+                        {
+                        'selector': 'node:parent',
+                        'css': {
+                            'background-opacity': 0.333,
+                            'background-color': '#bbb'
+                            }
+                        },
+                        {
+                        'selector': '$node > node',
+                        'css': {
+                            'padding-top': '10px',
+                            'padding-left': '10px',
+                            'padding-bottom': '10px',
+                            'padding-right': '10px',
+                            'text-valign': 'top',
+                            'text-halign': 'center',
+                            'background-color': '#bbb'
+                          }
+                        },
+                       {
+                            'selector': 'edge',
+                            
+                            'style': {
+                                'label':'data(weight)',
+                                'width': 1,
+                                'line-color': '#9dbaea',
+                                'target-arrow-shape': 'triangle',
+                                'target-arrow-color': '#9dbaea',
+                                'arrow-scale': 0.5,
+                                'curve-style': 'bezier',
+                                'font-family': 'helvetica',
+                                'font-size': '8px',
+                                'text-valign': 'top',
+                                'text-halign':'center'
+                            }
+                        },
+                        ])
+        cytoscapeobj.max_zoom = 4.0
+        cytoscapeobj.min_zoom = 0.5
+        display(cytoscapeobj)
+    return cytoscapeobs
 
 
 # #### Build transitions graphs and call save function
 
 def build_and_save_transition_graphs(classes, domain_name, class_names):
     # There should be a graph for each class of objects.
-    graphs = []  # number of graphs = number of sorts.
+    graphs = []
     # Initialize all graphs empty
     for sort in classes:
         graphs.append(nx.DiGraph())
@@ -514,32 +389,43 @@ def build_and_save_transition_graphs(classes, domain_name, class_names):
         print("Directory ", dirName, " already exists")
     empty_directory(dirName)
 
-
-    # plot and save all the graphs
-    adjacency_matrix_list = plot_and_save(graphs) # list of adjacency matrices per class
-
-    return adjacency_matrix_list
+    # save all the graphs
+    adjacency_matrix_list = save(graphs, domain_name) # list of adjacency matrices per class
+    
+    # plot cytoscape interactive graphs
+    cytoscapeobs = plot_cytographs(graphs,domain_name)
+    
+    return adjacency_matrix_list, graphs, cytoscapeobs
 
 # ##### Transition Graphs
 
 #### Build weighted directed graphs for transitions.
-adjacency_matrix_list = build_and_save_transition_graphs(classes, domain_name, class_names)
-
-# # User Input 2: Edit transition graphs
-
+printmd("## "+ domain_name.upper())
+adjacency_matrix_list, graphs, cytoscapeobjs = build_and_save_transition_graphs(classes, domain_name, class_names)
 
 
-# # Step 2: Get Transition Sets from LOCM2
+# ## User Input 2: Edit transition graphs
+# For meaningful LOCM models, here one can edit the transition graphs to make them accurate. However, in the paper we don't do that in order to estimate what kind of models are learned automatically from natural language data.
+
+# Option 1. **You can add or delete nodes/edges in transition graphs by following methods like add_node, delete_edges shown in the following library.**
+# https://github.com/QuantStack/ipycytoscape/blob/master/ipycytoscape/cytoscape.py
 #
-# Algorithm: LOCM2
-# Input : 
+# Option 2. **Alternatively you can use the saved .graphml file. Open it up in Cytoscape, edit it within the GUI and load that graph into the graphs list.**
+
+# ## Step 2: Get Transition Sets from LOCM2
+#
+# **Algorithm**: LOCM2
+#
+# **Input** : 
 # - T_all = set of observed transitions for a sort/class
 # - H : Set of holes - each hole is a set of two transitions.
 # - P : Set of pairs <t1,t2> i.e. consecutive transitions.
 # - E : Set of example sequences of actions.
-# Output:
+#
+# **Output**:
 # - S : Set of transition sets.
-# #### Finding holes
+# ### Finding holes
+# Holes are transitions that LOCM1 will assume to be true due to the flaw of overgeneralizing
 
 def get_adjacency_matrix_with_holes(adjacency_matrix_list):
     adjacency_matrix_list_with_holes = []
@@ -577,14 +463,13 @@ def get_adjacency_matrix_with_holes(adjacency_matrix_list):
 # +
 adjacency_matrix_list_with_holes = get_adjacency_matrix_with_holes(adjacency_matrix_list)
 
-## Printing FSM matrices with and without holes
-# for index,adjacency_matrix in enumerate(adjacency_matrix_list):
-#     print("\n==========" + class_names[index] + "==========")
-#     print(adjacency_matrix)
-#     print(tabulate(adjacency_matrix, headers='keys', tablefmt='github'))
+# Printing FSM matrices with and without holes
+for index,adjacency_matrix in enumerate(adjacency_matrix_list):
+    printmd("\n#### " + class_names[index] )
+    print_table(adjacency_matrix)
 
-#     print("\n===== HOLES: " + class_names[index] + "==========")
-#     print(tabulate(adjacency_matrix_list_with_holes[index], headers='keys', tablefmt='github'))
+    printmd("\n#### HOLES: " + class_names[index])
+    print_table(adjacency_matrix_list_with_holes[index])
 
 
 # +
@@ -598,8 +483,8 @@ for index,df in enumerate(adjacency_matrix_list_with_holes):
             if df.iloc[i,j] == 'hole':
                 holes.add(frozenset({df.index[i] , df.columns[j]}))
     holes_per_class.append(holes)
-# for i, hole in enumerate(holes_per_class):
-#     print(class_names[i]+":")
+for i, hole in enumerate(holes_per_class):
+    print("#holes in class " + class_names[i]+":" + str(len(hole)))
 #     for h in hole:
 #         print(list(h))
 # -
@@ -620,7 +505,7 @@ def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
             for j in range(df.shape[1]):
                 if df.iloc[i, j] != 'hole':
                     if df.iloc[i, j] > 0:
-                        # print("(" + df.index[i] + "," + df.columns[j] + ")")
+#                         print("(" + df.index[i] + "," + df.columns[j] + ")")
                         consecutive_transitions.add((df.index[i], df.columns[j]))
         consecutive_transitions_per_class.append(consecutive_transitions)
     return consecutive_transitions_per_class
@@ -628,14 +513,16 @@ def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
 
 #  Create list of consecutive transitions per class (P). If value is not null, ordered pair i,j would be consecutive transitions per class
 consecutive_transitions_per_class = get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes)
-# for i, transition in enumerate(consecutive_transitions_per_class):
-#     print(class_names[i]+":")
-#     for x in list(transition):
-#         print(x)
-# #     print('{}:{}'.format(class_names[i], transition))
-#     print()
+for i, transition in enumerate(consecutive_transitions_per_class):
+    printmd("#### "+class_names[i]+":")
+    for x in list(transition):
+        print(x)
+#     print('{}:{}'.format(class_names[i], transition))
+    print()
 
-# +
+
+# ### Check Well Formed
+
 def check_well_formed(subset_df):
     # got the adjacency matrix subset
     df = subset_df.copy()
@@ -663,10 +550,15 @@ def check_well_formed(subset_df):
                         return False
     return True
 
+
+# ### Check Valid Transitions
+
 def check_valid(subset_df,consecutive_transitions_per_class):
 
-    # Reasoning: If we check against all consecutive transitions of all classes, we essentially checked against all example sequences.
-    # You check the candidate set which is well-formed (subset df against all consecutive transitions)
+    
+    # Reasoning: If we check against all consecutive transitions per class, 
+    # we essentially check against all example sequences.
+    # check the candidate set which is well-formed (subset df against all consecutive transitions)
 
     # got the adjacency matrix subset
     df = subset_df.copy()
@@ -687,82 +579,114 @@ def check_valid(subset_df,consecutive_transitions_per_class):
     return True
 
 
+def check_validity_in_E(subset_df,sequences):
+
+    # got the adjacency matrix subset
+    df = subset_df.copy()
+
+    # for particular adjacency matrix's copy, loop over all pairs of rows
+    for i in range(df.shape[0]):
+        for j in range(df.shape[0]):
+            if df.iloc[i,j] > 0:
+                valid_val_flag = False
+                ordered_pair = (df.index[i], df.columns[j])
+                
+                for sequence in sequences:
+                    for actarg_tuple in sequence:
+                        print(actarg_tuple)
+#                 for ct_list in consecutive_transitions_per_class:
+#                     for ct in ct_list:
+#                         if ordered_pair == ct:
+#                             valid_val_flag=True
+                # if after all iteration ordered pair is not found, mark the subset as invalid.
+                if not valid_val_flag:
+                    return False
+    return True
+
+
+# ### LOCM2 transition sets
+
+# +
 def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, consecutive_transitions_per_class):
-    """ LOCM 2 Algorithm"""
+    """LOCM 2 Algorithm in the original LOCM2 paper"""
     transition_sets_per_class = []
 
     # for each hole in a class of objects.
     for index, holes in enumerate(holes_per_class):
         class_name = class_names[index]
-#         print("*********************************************************************************")
-#         print()
-#         print(class_name)
-#         print("Number of holes: "+ str(len(holes))) # if number of holes == 0 then class is well-formed i.e. shouldn't change.
-#         print(holes)
-#         print("Transitions of the class (T_all):")
-#         print(transitions_per_class[index])
-#         print("Number of values: " + str(len(consecutive_transitions_per_class[index])))
-#         print("Transition Pairs per class (P):")
-#         print(consecutive_transitions_per_class[index])
-#         print()
-
+        printmd("### "+  class_name)
         transition_set_list = [] #transition_sets_of_a_class, # intially its empty
-#         print("\n===========CHECKING CANDIDATE SETS OF CLASS " + class_name + " FOR WELL_FORMEDNESS AND VALIDITY========")
+        
+        if len(holes)==0:
+            print("no holes")
+        
         if len(holes) > 0: # if there are any holes for a class
-            for hole in holes:
+            print(str(len(holes)) + " holes")
+            for ind, hole in enumerate(holes):
+               
+
+                printmd("#### Hole " + str(ind + 1) + ": " + str(set(hole)))
                 is_hole_already_covered_flag = False
                 if len(transition_set_list)>0:
                     for s_prime in transition_set_list:
                         if hole.issubset(s_prime):
+                            printmd("Hole "+ str(hole) + " is already covered.")
                             is_hole_already_covered_flag = True
                             break
+                     
+                
                 # discover a set which includes hole and is well-formed and valid against test data.
-                if not is_hole_already_covered_flag: # if not covered, do BFS with sets of increasing sizes starting with s=hole
+                # if hole is not covered, do BFS with sets of increasing sizes starting with s=hole
+                if not is_hole_already_covered_flag: 
                     s = hole.copy()
                     candidate_sets = []
-                    for i in range(len(s)+1,len(transitions_per_class[index])): # all subsets of T_all starting from hole's len +1
+                    # all subsets of T_all starting from hole's len +1
+                    for i in range(len(s)+1,len(transitions_per_class[index])): 
                         subsets = findsubsets(transitions_per_class[index],i)
 
                         # append the subsets which are subset of
                         for candidate_set in subsets:
                             if s.issubset(candidate_set):
                                 candidate_sets.append(set(candidate_set))
-
-                        # print("\n===========CHECKING CANDIDATE SETS FOR WELL_FORMEDNESS AND VALIDITY========")
+                        
+                        
                         for candidate_set in candidate_sets:
-                            # print(candidate_set)
+                            print(candidate_set)
+
+                        printmd("Checking candidate set *" + str(candidate_set) + "* of class **" + class_name + "** for well formedness and Validity")
+                        for candidate_set in candidate_sets:
                             subset_df = adjacency_matrix_list[index].loc[list(candidate_set),list(candidate_set)]
-                            # print_table(subset_df)
+                            print_table(subset_df)
 
                             # checking for well-formedness
                             well_formed_flag = check_well_formed(subset_df)
                             if not well_formed_flag:
-                                # print("This subset is NOT well-formed")
+                                print("This subset is NOT well-formed")
                                 pass
 
                             # if well-formed validate across the data to remove inappropriate dead-ends
                             # additional check
                             valid_against_data_flag = False
                             if well_formed_flag:
-                                # print_table(subset_df)
-                                # print("This subset is well-formed")
+#                                 print_table(subset_df)
+                                print("This subset is well-formed.")
 
                                 # validate against all consecutive transitions per class (P)
                                 # This checks all sequences consecutive transitions. So, it is validating against (E)
                                 valid_against_data_flag = check_valid(subset_df, consecutive_transitions_per_class)
-#                                 if not valid_against_data_flag:
-#                                     print("Invalid against data")
+                                if not valid_against_data_flag:
+                                    print("This subset is well-formed and invalid against example data")
 
                             if valid_against_data_flag:
-#                                 print("Adding this subset as well-formed and valid.")
-#                                 print_table(subset_df)
-#                                 print(candidate_set)
+                                print("This subset is valid.")
+                                print("Adding this subset " + str(candidate_set) +" to the locm2 transition set.")
+                                
                                 if candidate_set not in transition_set_list: # do not allow copies.
                                     transition_set_list.append(candidate_set)
                                 break
-#                         print("Hole that is covered now:")
-#                         print(list(s))
-                        break
+                        print("Hole that is covered now:")
+                        print(list(s))
+
 
 
             # print(transition_set_list)
@@ -787,22 +711,26 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
 
 
         transition_sets_per_class.append(transition_set_list)
+       
+
     return transition_sets_per_class
 
 
 ############    LOCM2 #################
 ####    Input ready for LOCM2, Starting LOCM2 algorithm now
 ####    Step 8:  selecting transition sets (TS) [Main LOCM2 Algorithm]
-print("######## Getting transitions sets for each class using LOCM2 ######")
+printmd("### Getting transitions sets for each class using LOCM2")
 transition_sets_per_class = locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, consecutive_transitions_per_class)
 # -
 
-# # Step 3: Algorithm For Induction of State Machines
+# ## Step 3: Algorithm For Induction of State Machines
 #
 # - Input: Action training sequence of length N
 # - Output: Transition Set TS, Object states OS.
 #
 # We already have transition set TS per class.
+
+domain_name='driverlog'
 
 # +
 print("Step 3: Induction of Finite State Machines")
@@ -911,7 +839,7 @@ def print_state_dictionary(state_dict_overall):
 
 # -
 
-# ### Step 5: Induction of parameterized state machines
+# ## Step 5: Induction of parameterized state machines
 # Create and test hypothesis for state parameters
 
 # +
@@ -1036,9 +964,8 @@ for index, fsms_per_class in enumerate(state_machines_overall_list):
 #             print(h)
 # -
 
-# ### Step 6: Creation and merging of state parameters
+# ## Step 6: Creation and merging of state parameters
 
-# +
 print("Step 6: creating and merging state params")
 param_bindings_list_overall = []
 for classindex, HS_per_class in enumerate(HS_list):
@@ -1063,12 +990,9 @@ for classindex, HS_per_class in enumerate(HS_list):
 #             print(pb)
 #         print()
     param_bindings_list_overall.append(param_bind_per_class)
-    
 
 
-# -
-
-# ### Step 7: Remove Parameter Flaws
+# ## Step 7: Remove Parameter Flaws
 
 # +
 ########### Step 5: Removing parameter flaws
@@ -1133,9 +1057,7 @@ print("Fault Removed Parameter Bindings")
 #             print(p)
 #         print()
 
-# ### Step 9:  Formation of PDDL Schema
-
-
+# ## Step 9:  Formation of PDDL Schema
 
 # +
 # get action schema
@@ -1259,12 +1181,11 @@ write_file.close()
 
 # -
 
+
 # state dictionary
 print_state_dictionary(state_dict_overall)
 
-
-
-# ## NER 
+# # NER 
 
 # finding entities using spacy
 import spacy
@@ -1274,14 +1195,5 @@ nlp = spacy.load('en_core_web_sm')
 doc = nlp(coref_resolved_instructions)
 
 displacy.render(nlp(str(doc)), jupyter=True, style='ent', options = {'ents':['QUANTITY', 'TIME', 'LOC', 'DATE']})
-
-
-
-
-
-
-
-
-
 
 

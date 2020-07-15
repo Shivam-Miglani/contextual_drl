@@ -1,0 +1,56 @@
+
+NO1: Curiosity(1) mars(2) mission(3) transcript(4) 
+
+NO2: The(1) last(2) stage(3) of(4) the(5) launch(6) vehicle(7) gives(8) the(9) spacecraft(10) a(11) final(12) push(13) and(14) spins(15) the(16) spacecraft(17) up(18) for(19) our(20) eight-and-a-half(21) month(22) cruise(23) to(24) the(25) red(26) planet.(27) 
+<1>  spins (spacecraft)    
+
+NO3: 10(1) minutes(2) before(3) hitting(4) the(5) atmosphere(6) the(7) cruise(8) stage(9) separates(10) and(11) final(12) preparations(13) for(14) entry(15) begin.(16) 
+
+NO4: Hitting(1) the(2) atmosphere(3) at(4) about(5) 13000(6) miles(7) per(8) hour(9) the(10) spacecraft(11) begins(12) to(13) slow(14) down(15) 
+
+NO5: While(1) slowing(2) down(3) the(4) spacecraft(5) uses(6) thrusters(7) to(8) help(9) steer(10) toward(11) the(12) landing(13) target.(14) 
+<2>  slowing (spacecraft, thrusters)    <3>  uses (thrusters)    
+
+NO6: We(1) throw(2) off(3) weights(4) to(5) rebalance(6) the(7) spacecraft(8) so(9) that(10) the(11) spacecraft’s(12) lined(13) for(14) parachute(15) deploy(16) 
+<4>  throw (weights)    <5>  rebalance (spacecraft)    
+
+NO7: After(1) slowing(2) to(3) about(4) Mach(5) 2(6) or(7) about(8) 1000(9) miles(10) per(11) hour(12) we(13) deploy(14) the(15) parachute(16) to(17) slow(18) down(19) even(20) further.(21) 
+<6>  slowing (Mach)    <7>  deploy (parachute)    <8>  slow ()    
+
+NO8: Once(1) we(2) are(3) below(4) the(5) speed(6) of(7) sound(8) the(9) heat(10) shield(11) separates(12) and(13) the(14) spacecraft(15) looks(16) for(17) the(18) ground(19) with(20) the(21) landing(22) radar.(23) 
+
+NO9: Once(1) we(2) reach(3) an(4) altitude(5) of(6) about(7) 1(8) mile(9) the(10) spacecraft(11) drops(12) out(13) of(14) the(15) back-shell(16) at(17) about(18) 200(19) miles(20) an(21) hour(22) 
+<9>  reach (altitude)    
+
+NO10: the(1) spacecraft(2) then(3) fires(4) up(5) the(6) landing(7) engine(8) to(9) slow(10) the(11) landing(12) engine(13) down(14) even(15) further.(16) 
+<10>  fires (landing, engine)    <11>  slow (landing, engine)    
+
+NO11: Once(1) we’ve(2) descended(3) to(4) about(5) 60(6) feet(7) above(8) the(9) ground(10) and(11) going(12) only(13) about(14) 2(15) miles(16) per(17) hour(18) the(19) rover(20) separates(21) from(22) the(23) descent(24) stage(25) 
+
+NO12: As(1) the(2) rover(3) is(4) lowered(5) the(6) wheels(7) deploy(8) in(9) preparation(10) for(11) landing.(12) 
+<12>  lowered (wheels)    <13>  deploy (preparation)    
+
+NO13: Once(1) the(2) rover(3) is(4) safely(5) on(6) the(7) ground(8) and(9) touchdown(10) has(11) been(12) detected(13) the(14) descent(15) stage(16) cuts(17) the(18) rover(19) loose(20) 
+
+NO14: the(1) descent(2) stage(3) flies(4) away(5) leaving(6) Curiosity(7) safe(8) on(9) the(10) surface(11) of(12) Mars.(13) 
+
+NO15: One(1) of(2) the(3) first(4) things(5) Curiosity(6) does(7) after(8) landing(9) is(10) to(11) deploy(12) the(13) mast(14) which(15) supports(16) many(17) cameras(18) and(19) instruments(20) 
+<14>  deploy (mast)    
+
+NO16: Curiosity(1) shoots(2) a(3) laser(4) at(5) an(6) interesting(7) target(8) 
+
+NO17: This(1) helps(2) us(3) quickly(4) understand(5) the(6) kind(7) and(8) 
+
+NO18: composition(1) of(2) an(3) interesting(4) target(5) from(6) a(7) distance(8) of(9) up(10) to(11) 30(12) feet.(13) 
+<15>  composition (target)    
+
+NO19: If(1) an(2) interesting(3) target(4) is(5) worth(6) a(7) closer(8) look(9) the(10) rover(11) can(12) drive(13) up(14) and(15) inspect(16) an(17) interesting(18) target(19) with(20) instruments(21) and(22) tools(23) at(24) the(25) end(26) of(27) the(28) rover(29) arm.(30) 
+<16>  inspect (target)    
+
+NO20: The(1) drill(2) on(3) its(4) arm(5) allows(6) us(7) to(8) grab(9) some(10) of(11) that(12) rock(13) and(14) deliver(15) some(16) of(17) that(18) rock(19) to(20) the(21) laboratory(22) instruments(23) inside(24) the(25) body(26) of(27) the(28) rover.(29) 
+<17>  grab (rock)    <18>  deliver (rock)    
+
+NO21: the(1) laboratory(2) instruments(3) inside(4) the(5) body(6) of(7) the(8) rover(9) can(10) tell(11) us(12) even(13) more(14) about(15) the(16) mineral(17) composition(18) getting(19) us(20) closer(21) to(22) understanding(23) whether(24) life(25) could(26) have(27) existed(28) on(29) Mars.(30) 
+
+NO22: Curiosity(1) will(2) be(3) exploring(4) the(5) red(6) planet(7) for(8) at(9) least(10) 2(11) years(12) and(13) there’s(14) no(15) telling(16) what(17) we(18) will(19) discover.(20) 
+<19>  discover. ()    
