@@ -1,76 +1,42 @@
 <?xml version='1.0' encoding='utf-8'?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key attr.name="weight" attr.type="long" for="edge" id="d0"/>
-<graph edgedefault="directed"><node id="grip_from_one_block.2"/>
-<node id="grip_from_table.0"/>
-<node id="put_on_blocks.0"/>
-<node id="put_on_one_block.2"/>
-<node id="grip_from_blocks.2"/>
-<node id="grip_from_blocks.0"/>
-<node id="put_on_table.0"/>
-<node id="put_on_blocks.2"/>
-<node id="grip_from_one_block.0"/>
-<node id="put_on_one_block.0"/>
-<edge source="grip_from_one_block.2" target="grip_from_table.0">
-  <data key="d0">55</data>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
+<graph edgedefault="directed"><node id="unstack.0"/>
+<node id="stack.0"/>
+<node id="stack.1"/>
+<node id="unstack.1"/>
+<node id="putdown.0"/>
+<node id="pickup.0"/>
+<edge source="unstack.0" target="stack.0">
+  <data key="d0">9</data>
 </edge>
-<edge source="grip_from_one_block.2" target="put_on_one_block.2">
-  <data key="d0">23</data>
+<edge source="unstack.0" target="putdown.0">
+  <data key="d0">21</data>
 </edge>
-<edge source="grip_from_table.0" target="put_on_blocks.0">
-  <data key="d0">72</data>
-</edge>
-<edge source="grip_from_table.0" target="put_on_one_block.0">
-  <data key="d0">23</data>
-</edge>
-<edge source="put_on_blocks.0" target="put_on_blocks.2">
-  <data key="d0">82</data>
-</edge>
-<edge source="put_on_blocks.0" target="grip_from_blocks.0">
-  <data key="d0">45</data>
-</edge>
-<edge source="put_on_one_block.2" target="grip_from_one_block.2">
-  <data key="d0">33</data>
-</edge>
-<edge source="grip_from_blocks.2" target="grip_from_blocks.0">
-  <data key="d0">25</data>
-</edge>
-<edge source="grip_from_blocks.2" target="put_on_blocks.2">
+<edge source="stack.0" target="stack.1">
   <data key="d0">27</data>
 </edge>
-<edge source="grip_from_blocks.2" target="grip_from_one_block.0">
-  <data key="d0">36</data>
+<edge source="stack.0" target="unstack.0">
+  <data key="d0">4</data>
 </edge>
-<edge source="grip_from_blocks.0" target="put_on_table.0">
-  <data key="d0">31</data>
+<edge source="stack.1" target="unstack.1">
+  <data key="d0">5</data>
 </edge>
-<edge source="grip_from_blocks.0" target="put_on_blocks.0">
-  <data key="d0">40</data>
+<edge source="unstack.1" target="unstack.0">
+  <data key="d0">23</data>
 </edge>
-<edge source="grip_from_blocks.0" target="put_on_one_block.0">
-  <data key="d0">20</data>
+<edge source="unstack.1" target="pickup.0">
+  <data key="d0">5</data>
 </edge>
-<edge source="put_on_table.0" target="grip_from_table.0">
-  <data key="d0">29</data>
+<edge source="unstack.1" target="stack.1">
+  <data key="d0">2</data>
 </edge>
-<edge source="put_on_table.0" target="put_on_one_block.2">
-  <data key="d0">22</data>
+<edge source="putdown.0" target="pickup.0">
+  <data key="d0">18</data>
 </edge>
-<edge source="put_on_blocks.2" target="grip_from_blocks.2">
-  <data key="d0">59</data>
+<edge source="putdown.0" target="stack.1">
+  <data key="d0">3</data>
 </edge>
-<edge source="grip_from_one_block.0" target="put_on_blocks.0">
-  <data key="d0">47</data>
-</edge>
-<edge source="grip_from_one_block.0" target="put_on_one_block.0">
-  <data key="d0">11</data>
-</edge>
-<edge source="grip_from_one_block.0" target="put_on_table.0">
-  <data key="d0">22</data>
-</edge>
-<edge source="put_on_one_block.0" target="grip_from_one_block.0">
-  <data key="d0">22</data>
-</edge>
-<edge source="put_on_one_block.0" target="put_on_blocks.2">
-  <data key="d0">28</data>
+<edge source="pickup.0" target="stack.0">
+  <data key="d0">24</data>
 </edge>
 </graph></graphml>

@@ -85,9 +85,9 @@ def print_sequences(sequences):
 # -
 
 # sequences = read_file(input_file_name)
-sequences = read_file('./locm_data/driverlog1.txt')
-print_sequences(sequences)
-domain_name = 'driverlog' #specify domain name to  be used in PDDL here.
+sequences = read_file('./locm_data/driverlog2.txt')
+# print_sequences(sequences)
+domain_name = 'driverlog2' #specify domain name to  be used in PDDL here.
 
 
 # ## Step 1.1: Find classes 
@@ -195,10 +195,16 @@ print(class_names)
 # Give user an option to change class names.
 # class_names[0] = 'rocket'
 
+#driverlog
 class_names[0] = 'Driver'
 class_names[1] = 'Truck'
 class_names[2] = 'Package'
 class_names[3] = 'Location'
+
+# #blocksworld
+# class_names[0] = 'Block'
+# class_names[1] = 'Gripper'
+
 
 print("\nRenamed class names")
 print(class_names)
@@ -513,6 +519,7 @@ def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
 
 #  Create list of consecutive transitions per class (P). If value is not null, ordered pair i,j would be consecutive transitions per class
 consecutive_transitions_per_class = get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes)
+printmd("###  Consecutive transitions per class")
 for i, transition in enumerate(consecutive_transitions_per_class):
     printmd("#### "+class_names[i]+":")
     for x in list(transition):
@@ -576,9 +583,12 @@ def check_valid(subset_df,consecutive_transitions_per_class):
                 # if after all iteration ordered pair is not found, mark the subset as invalid.
                 if not valid_val_flag:
                     return False
+                
+    # return True if all ordered pairs found.
     return True
 
 
+# +
 def check_validity_in_E(subset_df,sequences):
 
     # got the adjacency matrix subset
@@ -593,7 +603,15 @@ def check_validity_in_E(subset_df,sequences):
                 
                 for sequence in sequences:
                     for actarg_tuple in sequence:
-                        print(actarg_tuple)
+                        action = actarg_tuple[0]
+                        args = actarg_tuple[1]
+                        
+                        # how to check validity?
+                        
+                        
+                        
+                        
+                        
 #                 for ct_list in consecutive_transitions_per_class:
 #                     for ct in ct_list:
 #                         if ordered_pair == ct:
@@ -603,6 +621,8 @@ def check_validity_in_E(subset_df,sequences):
                     return False
     return True
 
+
+# -
 
 # ### LOCM2 transition sets
 
@@ -630,7 +650,7 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
                 if len(transition_set_list)>0:
                     for s_prime in transition_set_list:
                         if hole.issubset(s_prime):
-                            printmd("Hole "+ str(hole) + " is already covered.")
+                            printmd("Hole "+ str(set(hole)) + " is already covered.")
                             is_hole_already_covered_flag = True
                             break
                      
@@ -650,47 +670,44 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
                                 candidate_sets.append(set(candidate_set))
                         
                         
+                       
+
                         for candidate_set in candidate_sets:
-                            print(candidate_set)
+                            
+                            if len(candidate_set)>=i:
+                                printmd("Checking candidate set *" + str(candidate_set) + "* of class **" + class_name + "** for well formedness and Validity")
+                                subset_df = adjacency_matrix_list[index].loc[list(candidate_set),list(candidate_set)]
+                                print_table(subset_df)
 
-                        printmd("Checking candidate set *" + str(candidate_set) + "* of class **" + class_name + "** for well formedness and Validity")
-                        for candidate_set in candidate_sets:
-                            subset_df = adjacency_matrix_list[index].loc[list(candidate_set),list(candidate_set)]
-                            print_table(subset_df)
+                                # checking for well-formedness
+                                well_formed_flag = check_well_formed(subset_df)
+                                if not well_formed_flag:
+                                    print("This subset is NOT well-formed")
+                                    pass
 
-                            # checking for well-formedness
-                            well_formed_flag = check_well_formed(subset_df)
-                            if not well_formed_flag:
-                                print("This subset is NOT well-formed")
-                                pass
+                                # if well-formed validate across the data to remove inappropriate dead-ends
+                                # additional check
+                                valid_against_data_flag = False
+                                if well_formed_flag:
+                                    print("This subset is well-formed.")
+                                    valid_against_data_flag = check_valid(subset_df, consecutive_transitions_per_class)
+                                    if not valid_against_data_flag:
+                                        print("This subset is well-formed but invalid against example data")
 
-                            # if well-formed validate across the data to remove inappropriate dead-ends
-                            # additional check
-                            valid_against_data_flag = False
-                            if well_formed_flag:
-#                                 print_table(subset_df)
-                                print("This subset is well-formed.")
-
-                                # validate against all consecutive transitions per class (P)
-                                # This checks all sequences consecutive transitions. So, it is validating against (E)
-                                valid_against_data_flag = check_valid(subset_df, consecutive_transitions_per_class)
-                                if not valid_against_data_flag:
-                                    print("This subset is well-formed and invalid against example data")
-
-                            if valid_against_data_flag:
-                                print("This subset is valid.")
-                                print("Adding this subset " + str(candidate_set) +" to the locm2 transition set.")
-                                
-                                if candidate_set not in transition_set_list: # do not allow copies.
-                                    transition_set_list.append(candidate_set)
-                                break
-                        print("Hole that is covered now:")
-                        print(list(s))
+                                if valid_against_data_flag:
+                                    print("This subset is valid.")
+                                    print("Adding this subset " + str(candidate_set) +" to the locm2 transition set.")
+                                    if candidate_set not in transition_set_list: # do not allow copies.
+                                        transition_set_list.append(candidate_set)
+    #                                 break
+                                if well_formed_flag and valid_against_data_flag:
+                                    print("Hole that is covered now:")
+                                    print(list(s))
 
 
 
-            # print(transition_set_list)
-        #step -7 : remove redundant sets
+        # print(transition_set_list)
+        #step 7 : remove redundant sets
         ts_copy = transition_set_list.copy()
         for i in range(len(ts_copy)):
             for j in range(len(ts_copy)):
@@ -704,12 +721,10 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
 #         print(transition_set_list)
 
         #step-8: include all-transitions machine, even if it is not well-formed.
-        transition_set_list.append(set(transitions_per_class[index]))
-#         print("\nFinal transition set list")
-#         print(class_name)
-#         print(transition_set_list)
-
-
+        transition_set_list.append(set(transitions_per_class[index])) #fallback
+        printmd("### Final transition set list")
+        printmd("#### " + class_name)
+        print(transition_set_list)
         transition_sets_per_class.append(transition_set_list)
        
 
@@ -721,6 +736,8 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
 ####    Step 8:  selecting transition sets (TS) [Main LOCM2 Algorithm]
 printmd("### Getting transitions sets for each class using LOCM2")
 transition_sets_per_class = locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, consecutive_transitions_per_class)
+
+
 # -
 
 # ## Step 3: Algorithm For Induction of State Machines
@@ -730,7 +747,69 @@ transition_sets_per_class = locm2_get_transition_sets_per_class(holes_per_class,
 #
 # We already have transition set TS per class.
 
-domain_name='driverlog'
+def plot_cytographs_fsm(graph, domain_name):
+    cytoscapeobj = CytoscapeWidget()
+    cytoscapeobj.graph.add_graph_from_networkx(graph)
+#     print("Nodes:{}".format(graph.nodes()))
+#     print("Edges:{}".format(graph.edges()))
+    cytoscapeobj.set_style([{
+                    'width':300,
+                    'height':300,
+
+                    'selector': 'node',
+                    'style': {
+                        'label': 'data(id)',
+                        'font-family': 'helvetica',
+                        'font-size': '8px',
+                        'background-color': '#11479e',
+                        'height':'10px',
+                        'width':'10px',
+
+
+                        }
+
+                    },
+                    {
+                    'selector': 'node:parent',
+                    'css': {
+                        'background-opacity': 0.333,
+                        'background-color': '#bbb'
+                        }
+                    },
+                    {
+                    'selector': '$node > node',
+                    'css': {
+                        'padding-top': '10px',
+                        'padding-left': '10px',
+                        'padding-bottom': '10px',
+                        'padding-right': '10px',
+                        'text-valign': 'top',
+                        'text-halign': 'center',
+                        'background-color': '#bbb'
+                      }
+                    },
+                   {
+                        'selector': 'edge',
+
+                        'style': {
+                            'label':'data(weight)',
+                            'width': 1,
+                            'line-color': '#9dbaea',
+                            'target-arrow-shape': 'triangle',
+                            'target-arrow-color': '#9dbaea',
+                            'arrow-scale': 0.5,
+                            'curve-style': 'bezier',
+                            'font-family': 'helvetica',
+                            'font-size': '8px',
+                            'text-valign': 'top',
+                            'text-halign':'center'
+                        }
+                    },
+                    ])
+    cytoscapeobj.max_zoom = 2.0
+    cytoscapeobj.min_zoom = 0.5
+    display(cytoscapeobj)
+
 
 # +
 print("Step 3: Induction of Finite State Machines")
@@ -740,7 +819,7 @@ state_dict_overall = [] #list of state dict per class
 for index, ts in enumerate(transition_sets_per_class):
     state_machines_per_class = [] # state machines for each class.
     state_dict_per_class = []
-    print(class_names[index])
+    printmd("### "+ class_names[index])
     # print(ts)
     num_fsms = len(ts)
     print("Number of FSMS:" + str(num_fsms))
@@ -756,9 +835,10 @@ for index, ts in enumerate(transition_sets_per_class):
         states_per_transition_set.append(states)
 
     # print(states_per_transition_set)
-
+    fsm_graphs = []
     #### For each pair of consecutive transitions T1, T2 in TS: Unify states end(T1) and start(T2) in set OS
     for fsm_no, transition_set in enumerate(ts):
+        printmd("#### FSM " + str(fsm_no))
         transition_df = adjacency_matrix_list[index].loc[list(transition_set), list(transition_set)] #uses transition matrix without holes
 
         consecutive_transitions_state_machines_per_class = set()  # find consecutive transitions for a state machine in a class.
@@ -789,14 +869,13 @@ for index, ts in enumerate(transition_sets_per_class):
         ## build a state machine now.
         fsm_graph = nx.DiGraph()
 
-        # TODO: consider making a state dictionary for pretty print of frozen set
         state_dict_per_class.insert(fsm_no,{})
         for i, state in enumerate(states_per_transition_set[fsm_no]):
             state_dict_per_class[fsm_no]["state"+str(i)] = state
             fsm_graph.add_node("state"+str(i))
 
         # transition_df is defined above. Add edges from transitions.
-        # print_table(transition_df)
+#         print_table(transition_df)
         for i in range(transition_df.shape[0]):
             for j in range(transition_df.shape[1]):
                 if transition_df.iloc[i, j] != 'hole':
@@ -813,14 +892,30 @@ for index, ts in enumerate(transition_sets_per_class):
                                 else:
                                     fsm_graph.add_edge(starting_node, ending_node, weight=transition_df.iloc[i, j], name=""+transition_df.index[i])
 
+    
         df = nx.to_pandas_adjacency(fsm_graph, nodelist=fsm_graph.nodes(), dtype=int)
         
         nx.write_graphml(fsm_graph, "output/" + domain_name + "/" + class_names[index] + "_stateFSM_" + str(fsm_no+1)+ ".graphml")
         state_machines_per_class.append(df)
+        # print state dict
+        for k,v in state_dict_per_class[fsm_no].items():
+            printmd("**"+str(k)+"** : "+str(set(v)))
+        
+
+        plot_cytographs_fsm(fsm_graph,domain_name) # plot the graph
+        
+        
 
     state_machines_overall_list.append(state_machines_per_class)
     state_dict_overall.append(state_dict_per_class)
 
+
+# -
+
+# ## Any object of a class occupies one state in each of its FSM.
+# #### For Driver sort there is only one FSM.  Driver is either inside the truck (state 0) or outside the truck (state 1).
+# #### For truck sort there are four FSMs. 
+#
 
 # +
 # pretty print state dictionary.
@@ -830,17 +925,17 @@ def print_state_dictionary(state_dict_overall):
         for j,state_dict_per_fsm in enumerate(state_dict_per_class):
 #             print()
             for k,v in state_dict_per_fsm.items():
-                print(class_names[i]+"_fsm"+str(j)+"_"+ k + ":"+str(list(v)))
+                printmd(class_names[i]+"_fsm"+str(j)+"_"+ k + ":"+str(list(v)))
 #                 print(list(v))
 #                 print()
                 
 # print_state_dictionary(state_dict_overall)
-
-
 # -
 
 # ## Step 5: Induction of parameterized state machines
 # Create and test hypothesis for state parameters
+
+
 
 # +
 ## Step 5 Input: action sequence Seq, Transition set TS, Object set Obs
@@ -851,9 +946,9 @@ print("Step 5: Induction of Parameterised Finite State Machines")
 HS_list = []
 for index, fsms_per_class in enumerate(state_machines_overall_list):
     class_name = class_names[index]
-    print("CLASS:"+ class_name)
+    printmd("### Class: "+ class_name.upper())
     for fsm_no, fsm in enumerate(fsms_per_class):
-        print("FSM:" + str(fsm_no + 1))
+        printmd("#### FSM:" + str(fsm_no + 1))
         print_table(fsm)
 
     print("\nTransition set of this class:")
@@ -954,15 +1049,14 @@ for index, fsms_per_class in enumerate(state_machines_overall_list):
 
         HS_per_class.append(HS_copy)
     HS_list.append(HS_per_class)
-
-# +
-# printing hypothesis
-# print("\n****** HYPOTHESIS SET*********")
-# for HS_per_class in HS_list:
-#     for HS_per_fsm in HS_per_class:
-#         for h in HS_per_fsm:
-#             print(h)
 # -
+
+# printing hypothesis
+print("\n****** HYPOTHESIS SET*********")
+for HS_per_class in HS_list:
+    for HS_per_fsm in HS_per_class:
+        for h in HS_per_fsm:
+            print(h)
 
 # ## Step 6: Creation and merging of state parameters
 
@@ -1049,13 +1143,13 @@ for class_index, para_bind_per_class in enumerate(param_bindings_list_overall):
 # -
 
 print("Fault Removed Parameter Bindings")
-# for class_index, para_bind_per_class in enumerate(para_bind_overall_fault_removed):
-#     print(class_names[class_index])
-#     for fsm_no, para_bind_per_fsm in enumerate(para_bind_per_class):
-#         print("Fsm_no:" + str(fsm_no))
-#         for p in para_bind_per_fsm:
-#             print(p)
-#         print()
+for class_index, para_bind_per_class in enumerate(para_bind_overall_fault_removed):
+    print(class_names[class_index])
+    for fsm_no, para_bind_per_fsm in enumerate(para_bind_per_class):
+        print("Fsm_no:" + str(fsm_no))
+        for p in para_bind_per_fsm:
+            print(p)
+        print()
 
 # ## Step 9:  Formation of PDDL Schema
 
@@ -1184,6 +1278,8 @@ write_file.close()
 
 # state dictionary
 print_state_dictionary(state_dict_overall)
+
+
 
 # # NER 
 

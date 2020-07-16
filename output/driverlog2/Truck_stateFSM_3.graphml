@@ -6,8 +6,8 @@
 <node id="state2"/>
 <node id="state3"/>
 <node id="state4"/>
-<edge source="state4" target="state4">
-  <data key="d0">1</data>
-  <data key="d1">unloadtruck.1</data>
+<edge source="state2" target="state2">
+  <data key="d0">3</data>
+  <data key="d1">boardtruck.1</data>
 </edge>
 </graph></graphml>
