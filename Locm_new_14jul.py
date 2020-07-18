@@ -85,9 +85,9 @@ def print_sequences(sequences):
 # -
 
 # sequences = read_file(input_file_name)
-sequences = read_file('./locm_data/driverlog2.txt')
+sequences = read_file('./locm_data/tyre_locmfeb.txt')
 # print_sequences(sequences)
-domain_name = 'driverlog2' #specify domain name to  be used in PDDL here.
+domain_name = 'tyre' #specify domain name to  be used in PDDL here.
 
 
 # ## Step 1.1: Find classes 
@@ -187,7 +187,7 @@ class_names = get_class_names(classes)
 print("\nExtracted class names")
 print(class_names)
 # -
-# ## User Input 1: Enter Correct Class names
+# ## USER INPUT 1: Enter Correct Class names
 # Editing the extracted class names to more readable object classes will make the final PDDL model more readable.
 
 # +
@@ -195,11 +195,19 @@ print(class_names)
 # Give user an option to change class names.
 # class_names[0] = 'rocket'
 
+#tyre
+class_names[0] = 'Jack'
+class_names[1] = 'Boot'
+class_names[2] = 'Wheel'
+class_names[3] = 'Hub'
+class_names[4] = 'Wrench'
+class_names[5] = 'Nut'
+
 #driverlog
-class_names[0] = 'Driver'
-class_names[1] = 'Truck'
-class_names[2] = 'Package'
-class_names[3] = 'Location'
+# class_names[0] = 'Driver'
+# class_names[1] = 'Truck'
+# class_names[2] = 'Package'
+# class_names[3] = 'Location'
 
 # #blocksworld
 # class_names[0] = 'Block'
@@ -271,75 +279,93 @@ def save(graphs, domain_name):
         nx.write_graphml(G, "output/"+ domain_name + "/" +  class_names[index] + ".graphml")
         df = nx.to_pandas_adjacency(G, nodelist=G.nodes(), dtype=int)
         adjacency_matrix_list.append(df)
+#         print_table(df)
     return adjacency_matrix_list
 
 
-def plot_cytographs(graphs, domain_name):
+def plot_cytographs(graphs, domain_name, aml):
     cytoscapeobs = []
     for index, G in enumerate(graphs):
-        cytoscapeobj = CytoscapeWidget()
-        cytoscapeobj.graph.add_graph_from_networkx(G)
-        cytoscapeobs.append(cytoscapeobj)
-        printmd('## class **'+class_names[index]+'**')
-        print("Nodes:{}".format(G.nodes()))
-        print("Edges:{}".format(G.edges()))
-        cytoscapeobj.set_style([{
-                        'width':300,
-                        'height':300,
-            
-                        'selector': 'node',
-                        'style': {
-                            'label': 'data(id)',
-                            'font-family': 'helvetica',
-                            'font-size': '8px',
-                            'background-color': '#11479e',
-                            'height':'10px',
-                            'width':'10px',
-                            
-                            
-                            }
-    
-                        },
-                        {
-                        'selector': 'node:parent',
-                        'css': {
-                            'background-opacity': 0.333,
-                            'background-color': '#bbb'
-                            }
-                        },
-                        {
-                        'selector': '$node > node',
-                        'css': {
-                            'padding-top': '10px',
-                            'padding-left': '10px',
-                            'padding-bottom': '10px',
-                            'padding-right': '10px',
-                            'text-valign': 'top',
-                            'text-halign': 'center',
-                            'background-color': '#bbb'
-                          }
-                        },
-                       {
-                            'selector': 'edge',
-                            
+            cytoscapeobj = CytoscapeWidget()
+            cytoscapeobj.graph.add_graph_from_networkx(G)
+            edge_list = list()
+            for source, target, data in G.edges(data=True):
+                edge_instance = Edge()
+                edge_instance.data['source'] = source
+                edge_instance.data['target'] = target
+                for k, v in data.items():
+                    cyto_attrs = ['group', 'removed', 'selected', 'selectable',
+                        'locked', 'grabbed', 'grabbable', 'classes', 'position', 'data']
+                    if k in cyto_attrs:
+                        setattr(edge_instance, k, v)
+                    else:
+                        edge_instance.data[k] = v
+                    edge_list.append(edge_instance)
+            cytoscapeobj.graph.edges = edge_list
+#             cytoscapeobj.graph.add_graph_from_df(aml[index],aml[index].columns.tolist())
+            cytoscapeobs.append(cytoscapeobj)
+#             print(cytoscapeobj)
+            printmd('## class **'+class_names[index]+'**')
+            print_table(aml[index])
+    #         print("Nodes:{}".format(G.nodes()))
+    #         print("Edges:{}".format(G.edges()))
+            cytoscapeobj.set_style([{
+                            'width':400,
+                            'height':400,
+
+                            'selector': 'node',
                             'style': {
-                                'label':'data(weight)',
-                                'width': 1,
-                                'line-color': '#9dbaea',
-                                'target-arrow-shape': 'triangle',
-                                'target-arrow-color': '#9dbaea',
-                                'arrow-scale': 0.5,
-                                'curve-style': 'bezier',
+                                'label': 'data(id)',
                                 'font-family': 'helvetica',
                                 'font-size': '8px',
+                                'background-color': '#11479e',
+                                'height':'10px',
+                                'width':'10px',
+
+
+                                }
+
+                            },
+                            {
+                            'selector': 'node:parent',
+                            'css': {
+                                'background-opacity': 0.333,
+                                'background-color': '#bbb'
+                                }
+                            },
+                            {
+                            'selector': '$node > node',
+                            'css': {
+                                'padding-top': '10px',
+                                'padding-left': '10px',
+                                'padding-bottom': '10px',
+                                'padding-right': '10px',
                                 'text-valign': 'top',
-                                'text-halign':'center'
-                            }
-                        },
-                        ])
-        cytoscapeobj.max_zoom = 4.0
-        cytoscapeobj.min_zoom = 0.5
-        display(cytoscapeobj)
+                                'text-halign': 'center',
+                                'background-color': '#bbb'
+                              }
+                            },
+                           {
+                                'selector': 'edge',
+
+                                'style': {
+                                    'label':'data(weight)',
+                                    'width': 1,
+                                    'line-color': '#9dbaea',
+                                    'target-arrow-shape': 'triangle',
+                                    'target-arrow-color': '#9dbaea',
+                                    'arrow-scale': 0.5,
+                                    'curve-style': 'bezier',
+                                    'font-family': 'helvetica',
+                                    'font-size': '8px',
+                                    'text-valign': 'top',
+                                    'text-halign':'center'
+                                }
+                            },
+                            ])
+            cytoscapeobj.max_zoom = 4.0
+            cytoscapeobj.min_zoom = 0.5
+            display(cytoscapeobj)
     return cytoscapeobs
 
 
@@ -394,12 +420,12 @@ def build_and_save_transition_graphs(classes, domain_name, class_names):
     else:
         print("Directory ", dirName, " already exists")
     empty_directory(dirName)
-
+     
     # save all the graphs
     adjacency_matrix_list = save(graphs, domain_name) # list of adjacency matrices per class
     
     # plot cytoscape interactive graphs
-    cytoscapeobs = plot_cytographs(graphs,domain_name)
+    cytoscapeobs = plot_cytographs(graphs,domain_name, adjacency_matrix_list)
     
     return adjacency_matrix_list, graphs, cytoscapeobs
 
@@ -410,7 +436,7 @@ printmd("## "+ domain_name.upper())
 adjacency_matrix_list, graphs, cytoscapeobjs = build_and_save_transition_graphs(classes, domain_name, class_names)
 
 
-# ## User Input 2: Edit transition graphs
+# ## USER INPUT 2: Edit transition graphs
 # For meaningful LOCM models, here one can edit the transition graphs to make them accurate. However, in the paper we don't do that in order to estimate what kind of models are learned automatically from natural language data.
 
 # Option 1. **You can add or delete nodes/edges in transition graphs by following methods like add_node, delete_edges shown in the following library.**
@@ -495,13 +521,16 @@ for i, hole in enumerate(holes_per_class):
 #         print(list(h))
 # -
 
+# #### T_all - Set of observed transitions for a class.
+
 # List of transitions per class (T_all). It is just a set of transitions that occur for a class.
 transitions_per_class = []
 for index, df in enumerate(adjacency_matrix_list_with_holes):
     transitions_per_class.append(df.columns.values)
-for i, transition in enumerate(transitions_per_class):
-    print('{}:{}'.format(class_names[i], transition))
+# for i, transition in enumerate(transitions_per_class):
+#     print('{}:{}'.format(class_names[i], transition))
 
+# #### P - set of pairs <t1,t2> (consecutive transitions)
 
 def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
     consecutive_transitions_per_class = []
@@ -519,24 +548,30 @@ def get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes):
 
 #  Create list of consecutive transitions per class (P). If value is not null, ordered pair i,j would be consecutive transitions per class
 consecutive_transitions_per_class = get_consecutive_transitions_per_class(adjacency_matrix_list_with_holes)
-printmd("###  Consecutive transitions per class")
-for i, transition in enumerate(consecutive_transitions_per_class):
-    printmd("#### "+class_names[i]+":")
-    for x in list(transition):
-        print(x)
-#     print('{}:{}'.format(class_names[i], transition))
-    print()
-
+# printmd("###  Consecutive transitions per class")
+# for i, transition in enumerate(consecutive_transitions_per_class):
+#     printmd("#### "+class_names[i]+":")
+#     for x in list(transition):
+#         print(x)
+# #     print('{}:{}'.format(class_names[i], transition))
+#     print()
 
 # ### Check Well Formed
 
+# +
 def check_well_formed(subset_df):
     # got the adjacency matrix subset
     df = subset_df.copy()
-
+    well_formed_flag = True
+    
+    
+    if (df == 0).all(axis=None): # all elements are zero
+        well_formed_flag = False
+        
     # for particular adjacency matrix's copy, loop over all pairs of rows
-    for i in range(df.shape[0] - 1):
+    for i in range(0, df.shape[0]-1):
         for j in range(i + 1, df.shape[0]):
+            print(i,j)
             idx1, idx2 = i, j
             row1, row2 = df.iloc[idx1, :], df.iloc[idx2, :]  # we have now all pairs of rows
 
@@ -547,21 +582,29 @@ def check_well_formed(subset_df):
                 if row1.iloc[col] > 0 and row2.iloc[col] > 0:
                     common_values_flag = True
                     break
-
-            # now if two rows have common values, we need to check for holes.
+          
             if common_values_flag:
-                for col in range(row1.shape[0]):
+                for col in range(row1.shape[0]): # check for holes if common value
                     if row1.iloc[col] > 0 and row2.iloc[col] == 0:
-                        return False
+                        well_formed_flag = False
                     elif row1.iloc[col] == 0 and row2.iloc[col] > 0:
-                        return False
-    return True
-
+                        well_formed_flag = False
+    
+    if not well_formed_flag:
+        return False
+    elif well_formed_flag:
+        return True
+     
+                    
+    
+# -
 
 # ### Check Valid Transitions
 
 def check_valid(subset_df,consecutive_transitions_per_class):
-
+    
+    # Note: Essentially we check validity against P instead of E. 
+    # In the paper of LOCM2, it isn't mentioned how to check against E.
     
     # Reasoning: If we check against all consecutive transitions per class, 
     # we essentially check against all example sequences.
@@ -588,63 +631,29 @@ def check_valid(subset_df,consecutive_transitions_per_class):
     return True
 
 
-# +
-def check_validity_in_E(subset_df,sequences):
-
-    # got the adjacency matrix subset
-    df = subset_df.copy()
-
-    # for particular adjacency matrix's copy, loop over all pairs of rows
-    for i in range(df.shape[0]):
-        for j in range(df.shape[0]):
-            if df.iloc[i,j] > 0:
-                valid_val_flag = False
-                ordered_pair = (df.index[i], df.columns[j])
-                
-                for sequence in sequences:
-                    for actarg_tuple in sequence:
-                        action = actarg_tuple[0]
-                        args = actarg_tuple[1]
-                        
-                        # how to check validity?
-                        
-                        
-                        
-                        
-                        
-#                 for ct_list in consecutive_transitions_per_class:
-#                     for ct in ct_list:
-#                         if ordered_pair == ct:
-#                             valid_val_flag=True
-                # if after all iteration ordered pair is not found, mark the subset as invalid.
-                if not valid_val_flag:
-                    return False
-    return True
-
-
-# -
-
 # ### LOCM2 transition sets
 
 # +
 def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, consecutive_transitions_per_class):
     """LOCM 2 Algorithm in the original LOCM2 paper"""
+    
+    # contains Solution Set S for each class.
     transition_sets_per_class = []
 
-    # for each hole in a class of objects.
+    # for each hole for a class/sort
     for index, holes in enumerate(holes_per_class):
         class_name = class_names[index]
         printmd("### "+  class_name)
-        transition_set_list = [] #transition_sets_of_a_class, # intially its empty
+        
+        # S
+        transition_set_list = [] #transition_sets_of_a_class, # intially it's empty
         
         if len(holes)==0:
-            print("no holes")
+            print("no holes") # S will contain just T_all
         
         if len(holes) > 0: # if there are any holes for a class
             print(str(len(holes)) + " holes")
             for ind, hole in enumerate(holes):
-               
-
                 printmd("#### Hole " + str(ind + 1) + ": " + str(set(hole)))
                 is_hole_already_covered_flag = False
                 if len(transition_set_list)>0:
@@ -654,60 +663,58 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
                             is_hole_already_covered_flag = True
                             break
                      
-                
                 # discover a set which includes hole and is well-formed and valid against test data.
                 # if hole is not covered, do BFS with sets of increasing sizes starting with s=hole
                 if not is_hole_already_covered_flag: 
-                    s = hole.copy()
+                    h = hole.copy()
                     candidate_sets = []
-                    # all subsets of T_all starting from hole's len +1
-                    for i in range(len(s)+1,len(transitions_per_class[index])): 
-                        subsets = findsubsets(transitions_per_class[index],i)
+                    # all subsets of T_all starting from hole's len +1 to T_all-1.
+                    for i in range(len(h)+1,len(transitions_per_class[index])): 
+                        subsets = findsubsets(transitions_per_class[index],i) # all subsets of length i
 
-                        # append the subsets which are subset of
-                        for candidate_set in subsets:
-                            if s.issubset(candidate_set):
-                                candidate_sets.append(set(candidate_set))
+                        for s in subsets:
+                            if h.issubset(s): # if  is subset of s
+                                candidate_sets.append(set(s))
                         
-                        
-                       
-
-                        for candidate_set in candidate_sets:
-                            
-                            if len(candidate_set)>=i:
-                                printmd("Checking candidate set *" + str(candidate_set) + "* of class **" + class_name + "** for well formedness and Validity")
-                                subset_df = adjacency_matrix_list[index].loc[list(candidate_set),list(candidate_set)]
+                        s_well_formed_and_valid = False
+                        for s in candidate_sets:
+                            if len(s)>=i:
+                                printmd("Checking candidate set *" + str(s) + "* of class **" + class_name + "** for well formedness and Validity")
+                                subset_df = adjacency_matrix_list[index].loc[list(s),list(s)]
                                 print_table(subset_df)
 
                                 # checking for well-formedness
+                                well_formed_flag = False
                                 well_formed_flag = check_well_formed(subset_df)
                                 if not well_formed_flag:
                                     print("This subset is NOT well-formed")
-                                    pass
-
-                                # if well-formed validate across the data to remove inappropriate dead-ends
-                                # additional check
-                                valid_against_data_flag = False
-                                if well_formed_flag:
+                                    
+                                elif well_formed_flag:
                                     print("This subset is well-formed.")
+                                    # if well-formed validate across the data E
+                                    # to remove inappropriate dead-ends
+                                    valid_against_data_flag = False
                                     valid_against_data_flag = check_valid(subset_df, consecutive_transitions_per_class)
                                     if not valid_against_data_flag:
                                         print("This subset is well-formed but invalid against example data")
 
-                                if valid_against_data_flag:
-                                    print("This subset is valid.")
-                                    print("Adding this subset " + str(candidate_set) +" to the locm2 transition set.")
-                                    if candidate_set not in transition_set_list: # do not allow copies.
-                                        transition_set_list.append(candidate_set)
-    #                                 break
-                                if well_formed_flag and valid_against_data_flag:
-                                    print("Hole that is covered now:")
-                                    print(list(s))
+                                    if valid_against_data_flag:
+                                        print("This subset is valid.")
+                                        print("Adding this subset " + str(s) +" to the locm2 transition set.")
+                                        if s not in transition_set_list: # do not allow copies.
+                                            transition_set_list.append(s)
+                                        
+                                        print("Hole that is covered now:")
+                                        print(list(h))
+                                        s_well_formed_and_valid = True
+                                        break 
+                        if s_well_formed_and_valid:
+                                break
+                                        
+                                        
 
-
-
-        # print(transition_set_list)
-        #step 7 : remove redundant sets
+        print(transition_set_list)                                    
+        #step 7 : remove redundant sets S - {s1}
         ts_copy = transition_set_list.copy()
         for i in range(len(ts_copy)):
             for j in range(len(ts_copy)):
@@ -717,16 +724,15 @@ def locm2_get_transition_sets_per_class(holes_per_class, transitions_per_class, 
                 elif ts_copy[i] > ts_copy[j]:
                     if ts_copy[j] in transition_set_list:
                         transition_set_list.remove(ts_copy[j])
-#         print("\nRemoved redundancy transition set list")
-#         print(transition_set_list)
+        print("\nRemoved redundancy transition set list")
+        print(transition_set_list)
 
         #step-8: include all-transitions machine, even if it is not well-formed.
         transition_set_list.append(set(transitions_per_class[index])) #fallback
-        printmd("### Final transition set list")
-        printmd("#### " + class_name)
+        printmd("#### Final transition set list")
         print(transition_set_list)
         transition_sets_per_class.append(transition_set_list)
-       
+        
 
     return transition_sets_per_class
 
@@ -750,11 +756,25 @@ transition_sets_per_class = locm2_get_transition_sets_per_class(holes_per_class,
 def plot_cytographs_fsm(graph, domain_name):
     cytoscapeobj = CytoscapeWidget()
     cytoscapeobj.graph.add_graph_from_networkx(graph)
+    edge_list = list()
+    for source, target, data in graph.edges(data=True):
+        edge_instance = Edge()
+        edge_instance.data['source'] = source
+        edge_instance.data['target'] = target
+        for k, v in data.items():
+            cyto_attrs = ['group', 'removed', 'selected', 'selectable',
+                'locked', 'grabbed', 'grabbable', 'classes', 'position', 'data']
+            if k in cyto_attrs:
+                setattr(edge_instance, k, v)
+            else:
+                edge_instance.data[k] = v
+            edge_list.append(edge_instance)
+    cytoscapeobj.graph.edges = edge_list
 #     print("Nodes:{}".format(graph.nodes()))
 #     print("Edges:{}".format(graph.edges()))
     cytoscapeobj.set_style([{
-                    'width':300,
-                    'height':300,
+                    'width':400,
+                    'height':500,
 
                     'selector': 'node',
                     'style': {
@@ -811,287 +831,269 @@ def plot_cytographs_fsm(graph, domain_name):
     display(cytoscapeobj)
 
 
-# +
-print("Step 3: Induction of Finite State Machines")
-state_machines_overall_list = [] # list of all state machines
-state_dict_overall = [] #list of state dict per class
+# #### First make start(t) and end(t) as state for each transition in FSM.
 
-for index, ts in enumerate(transition_sets_per_class):
-    state_machines_per_class = [] # state machines for each class.
-    state_dict_per_class = []
+# +
+state_machines_overall_list = []
+
+
+for index, ts_class in enumerate(transition_sets_per_class):
+    fsms_per_class = []
     printmd("### "+ class_names[index])
-    # print(ts)
-    num_fsms = len(ts)
+    num_fsms = len(ts_class)
     print("Number of FSMS:" + str(num_fsms))
-
-
-    #### Add state identifiers
-    states_per_transition_set = []
-    for transition_set in ts:
-        states = set()
-        for transition in transition_set:
-            states.add(frozenset({"start(" + transition + ")"}))
-            states.add(frozenset({"end(" + transition + ")"}))
-        states_per_transition_set.append(states)
-
-    # print(states_per_transition_set)
-    fsm_graphs = []
-    #### For each pair of consecutive transitions T1, T2 in TS: Unify states end(T1) and start(T2) in set OS
-    for fsm_no, transition_set in enumerate(ts):
-        printmd("#### FSM " + str(fsm_no))
-        transition_df = adjacency_matrix_list[index].loc[list(transition_set), list(transition_set)] #uses transition matrix without holes
-
-        consecutive_transitions_state_machines_per_class = set()  # find consecutive transitions for a state machine in a class.
-        for i in range(transition_df.shape[0]):
-            for j in range(transition_df.shape[1]):
-                if transition_df.iloc[i, j] != 'hole':
-                    if transition_df.iloc[i, j] > 0:
-                        consecutive_transitions_state_machines_per_class.add((transition_df.index[i], transition_df.columns[j]))
-
-        # for every consecutive transition and for every state of a class, check if that state matches end(t1) or start(t2)
-        for ct in consecutive_transitions_state_machines_per_class:
-            s1, s2, s3 = -1, -1, -1
-            for s in states_per_transition_set[fsm_no]:
-                if "end("+ct[0]+")" in s:
-                    s1 = s
-                if "start("+ct[1]+")" in s:
-                    s2 = s
-                if s1 != -1 and s2 != - 1: #if they do, combine them.
-                    s3 = s1.union(s2) # union
-
-            if s1 != -1 and s2 != -1 and s3 != -1: #for every ct, if we have combined state, we update states_per_transition_set
-                if s1 in states_per_transition_set[fsm_no]:
-                    states_per_transition_set[fsm_no].remove(s1)
-                if s2 in states_per_transition_set[fsm_no]:
-                    states_per_transition_set[fsm_no].remove(s2)
-                states_per_transition_set[fsm_no].add(s3)
-
-        ## build a state machine now.
-        fsm_graph = nx.DiGraph()
-
-        state_dict_per_class.insert(fsm_no,{})
-        for i, state in enumerate(states_per_transition_set[fsm_no]):
-            state_dict_per_class[fsm_no]["state"+str(i)] = state
-            fsm_graph.add_node("state"+str(i))
-
-        # transition_df is defined above. Add edges from transitions.
-#         print_table(transition_df)
-        for i in range(transition_df.shape[0]):
-            for j in range(transition_df.shape[1]):
-                if transition_df.iloc[i, j] != 'hole':
-                    if transition_df.iloc[i, j] > 0:
-                        for node in fsm_graph.nodes():
-                            starting_node, ending_node = -1,-1
-                            if "end("+transition_df.index[i]+")" in state_dict_per_class[fsm_no][node]:
-                                starting_node = node
-                            if "start("+transition_df.columns[j]+")" in state_dict_per_class[fsm_no][node]:
-                                ending_node = node
-                            if starting_node != -1 and ending_node != -1:
-                                if fsm_graph.has_edge(starting_node, ending_node):
-                                    fsm_graph[starting_node][ending_node]['weight'] += transition_df.iloc[i, j]
-                                else:
-                                    fsm_graph.add_edge(starting_node, ending_node, weight=transition_df.iloc[i, j], name=""+transition_df.index[i])
-
     
-        df = nx.to_pandas_adjacency(fsm_graph, nodelist=fsm_graph.nodes(), dtype=int)
+    for fsm_no, ts in enumerate(ts_class):
+        fsm_graph = nx.DiGraph()
         
-        nx.write_graphml(fsm_graph, "output/" + domain_name + "/" + class_names[index] + "_stateFSM_" + str(fsm_no+1)+ ".graphml")
-        state_machines_per_class.append(df)
-        # print state dict
-        for k,v in state_dict_per_class[fsm_no].items():
-            printmd("**"+str(k)+"** : "+str(set(v)))
+        printmd("#### FSM " + str(fsm_no))
+        for t in ts:
+            source = "s(" + str(t) + ")"
+            target = "e(" + str(t) + ")"
+            fsm_graph.add_edge(source,target,weight=t)
         
-
-        plot_cytographs_fsm(fsm_graph,domain_name) # plot the graph
+       
+        t_df = adjacency_matrix_list[index].loc[list(ts), list(ts)] #transition df for this fsm
+        print_table(t_df)
         
         
+        # merge end(t1) = start(t2) from transition df
+        for i in range(t_df.shape[0]):
+            for j in range(t_df.shape[1]):
+                if t_df.iloc[i, j] != 'hole':
+                    if t_df.iloc[i, j] > 0:
+                        for node in fsm_graph.nodes():
+                            if "e("+t_df.index[i]+")" in node:
+                                merge_node1 = node
+                            if "s("+t_df.index[j]+")" in node:
+                                merge_node2 = node
+                        edge_data = fsm_graph.get_edge_data(merge_node1,merge_node2)
+                        if edge_data:
+                            print(edge_data)
 
-    state_machines_overall_list.append(state_machines_per_class)
-    state_dict_overall.append(state_dict_per_class)
-
-
+                        fsm_graph = nx.contracted_nodes(fsm_graph, merge_node1, merge_node2 , self_loops=True)
+                        if merge_node1 != merge_node2:
+                            mapping = {merge_node1: merge_node1 + "|" + merge_node2} 
+                            fsm_graph = nx.relabel_nodes(fsm_graph, mapping)
+                        
+        plot_cytographs_fsm(fsm_graph,domain_name)
+        df = nx.to_pandas_adjacency(fsm_graph, nodelist=fsm_graph.nodes(), weight = 1)
+        print_table(df)
+        fsms_per_class.append(fsm_graph)
+    state_machines_overall_list.append(fsms_per_class)
 # -
 
-# ## Any object of a class occupies one state in each of its FSM.
-# #### For Driver sort there is only one FSM.  Driver is either inside the truck (state 0) or outside the truck (state 1).
-# #### For truck sort there are four FSMs. 
+
+# ## USER INPUT 3: Rename States. 
+# As states are shown in terms of end and start of transitions, user can rename them for easy readability later on.
 #
+#
+# This also makes it easier to specify problem statements.
 
-# +
-# pretty print state dictionary.
-def print_state_dictionary(state_dict_overall):
-    for i,state_dict_per_class in enumerate(state_dict_overall):
-#         print(class_names[i])
-        for j,state_dict_per_fsm in enumerate(state_dict_per_class):
-#             print()
-            for k,v in state_dict_per_fsm.items():
-                printmd(class_names[i]+"_fsm"+str(j)+"_"+ k + ":"+str(list(v)))
-#                 print(list(v))
-#                 print()
-                
-# print_state_dictionary(state_dict_overall)
-# -
+# ### Explanations: Any object of a class occupies one state in each of its FSM.
+# #### Driver log
+# - For Driver sort there is only one FSM.  Driver is either inside the truck (state 0) or outside the truck (state 1).
+# - For truck sort there are four FSMs. Four FSMs, essentially look at states whether the driver is inside or outside. And whether the truck is loaded or not. 
+#
+#
+#
+#
 
 # ## Step 5: Induction of parameterized state machines
 # Create and test hypothesis for state parameters
 
-
+# ### Form Hyp for HS (Hypothesis set)
 
 # +
-## Step 5 Input: action sequence Seq, Transition set TS, Object set Obs
-## Output: HS retained hypotheses for state parameters
-## 5.1 Form hypotheses from state machines
-print("*****************")
-print("Step 5: Induction of Parameterised Finite State Machines")
 HS_list = []
-for index, fsms_per_class in enumerate(state_machines_overall_list):
-    class_name = class_names[index]
-    printmd("### Class: "+ class_name.upper())
-    for fsm_no, fsm in enumerate(fsms_per_class):
-        printmd("#### FSM:" + str(fsm_no + 1))
-        print_table(fsm)
+ct_list = []
 
-    print("\nTransition set of this class:")
-    print(transition_sets_per_class[index])
-
-    # Hypothesis set per class.
+# for transition set of each class
+for index, ts_class in enumerate(transition_sets_per_class):
+    printmd("### "+ class_names[index])
+    
+    ct_per_class = []
     HS_per_class = []
-    for fsm_no, transition_set in enumerate(transition_sets_per_class[index]):
-        transition_df = adjacency_matrix_list[index].loc[list(transition_set), list(transition_set)]
-        consecutive_transitions_state_machines_per_class = set()  # find consecutive transitions for a state machine in a class.
-        for i in range(transition_df.shape[0]):
-            for j in range(transition_df.shape[1]):
-                if transition_df.iloc[i, j] != 'hole':
-                    if transition_df.iloc[i, j] > 0:
-                        consecutive_transitions_state_machines_per_class.add((transition_df.index[i], transition_df.columns[j]))
-
-        # Step 5.1 for each pair <B.k and C.l> of consecutive transitions in transition set of a state machine.
-        # store hypothesis in Hypothesis set
+    
+    # for transition set of each fsm in a class
+    for fsm_no, ts in enumerate(ts_class):
+        printmd("#### FSM: " + str(fsm_no) + " Hypothesis Set")
+        
+        # transition matrix for the ts
+        t_df = adjacency_matrix_list[index].loc[list(ts), list(ts)]
+        ct_in_fsm = set()  # find consecutive transition set for a state machine in a class.
+        for i in range(t_df.shape[0]):
+            for j in range(t_df.shape[1]):
+                if t_df.iloc[i, j] != 'hole':
+                    if t_df.iloc[i, j] > 0:
+                        ct_in_fsm.add((t_df.index[i], t_df.columns[j]))
+        
+        ct_per_class.append(ct_in_fsm)
+        
+        # add to hypothesis set
         HS = set()
-        for ct in consecutive_transitions_state_machines_per_class:
+        
+        # for each pair B.k and C.l in TS s.t. e(B.k) = S = s(C.l)
+        for ct in ct_in_fsm:
             B = ct[0].split('.')[0] # action name of T1
             k = int(ct[0].split('.')[1]) # argument index of T1
-
+            
             C = ct[1].split('.')[0] # action name of T2
             l = int(ct[1].split('.')[1]) # argument index of T2
-
-            # When both actions B and C contain another argument of the same sort G' in position k' and l' respectively, we hypothesise that there may be a relation between sorts G and G'.
+            
+            
+            
+            
+            # When both actions B and C contain another argument of the same sort G' in position k' and l' respectively, 
+            # we hypothesise that there may be a relation between sorts G and G'.
             for seq in sequences:
                 for actarg_tuple in seq:
                     arglist1 = []
                     arglist2 = []
                     if actarg_tuple[0] == B: #if action name is same as B
                         arglist1 = actarg_tuple[1].copy()
-                        arglist1.remove(actarg_tuple[1][k]) # remove k from arglist
+#                         arglist1.remove(actarg_tuple[1][k]) # remove k from arglist
                         for actarg_tuple_prime in seq: #loop through seq again.
                             if actarg_tuple_prime[0] == C:
                                 arglist2 = actarg_tuple_prime[1].copy()
-                                arglist2.remove(actarg_tuple_prime[1][l]) # remove l from arglist
+#                                 arglist2.remove(actarg_tuple_prime[1][l]) # remove l from arglist
+                                
 
                         # for arg lists of actions B and C, if class is same add a hypothesis set.
-                        for i in range(len(arglist1)):
+                        for i in range(len(arglist1)): # if len is 0, we don't go in
                             for j in range(len(arglist2)):
                                 class1 = get_class_index(arglist1[i], classes)
                                 class2 = get_class_index(arglist2[j], classes)
-                                if class1 == class2:
-                                    HS.add((frozenset({"end("+B+"."+ str(k)+")", "start("+C+"."+str(l)+")"}),B,k,i,C,l,j,index,class1))
-
-        ####### Step 5.2 Test Hypothesis against example sequences!!
-        # Check hypothesis against sequences.
-        ## It performs an inductive process such that the hypotheses can be either refuted or retained according to the example sequence, but it can never be definitely confirmed.
-        ## Requires more data than usual.
-        HS_copy = HS.copy()
-        for hs in HS:
-            # for every consecutive transision for a state machine per class.
-            for ct in consecutive_transitions_state_machines_per_class:
-                A_p = ct[0].split('.')[0]
-                m = int(ct[0].split('.')[1])
-
-                A_q = ct[1].split('.')[0]
-                n = int(ct[1].split('.')[1])
-
-                if A_p == hs[1] and m == hs[2] and A_q == hs[4] and n == hs[5]:
-                    k_prime = hs[3]
-                    l_prime = hs[6]
-                    for seq in sequences:
-                        for actarg_tuple in seq:
-                            arglist1 = []
-                            arglist2 = []
-                            if actarg_tuple[0] == A_p:
-                                arglist1 = actarg_tuple[1].copy()
-                                arglist1.remove(actarg_tuple[1][m])  # remove k from arglist
-                                for actarg_tuple_prime in seq:
-                                    if actarg_tuple_prime[0] == A_q:
-                                        arglist2 = actarg_tuple_prime[1].copy()
-                                        arglist2.remove(actarg_tuple_prime[1][n])  # remove l from arglist
-
-#                                 class1, class2 = -1,-1
-#                                 if k_prime < len(arglist1) and l_prime < len(arglist2):
-#                                     class1 = get_class_index(arglist1[k_prime], classes)
-#                                     class2 = get_class_index(arglist2[l_prime], classes)
-
-#                                 # Refute the hypothesis if classes are not same at the location specified by hypothesis.
-#                                 if class1 != -1 and class2!=-1 and class1 != class2:
-#                                     if hs in HS_copy:
-#                                         HS_copy.remove(hs)
-                                object1, object2 = None, None
-                                if k_prime < len(arglist1) and l_prime < len(arglist2):
-                                    object1 = arglist1[k_prime]
-                                    object2 = arglist2[l_prime]
-                                
-                                if object1 != None and object2 !=None and object1 !=object2:
-                                    if hs in HS_copy:
-                                        HS_copy.remove(hs)
-                        
-                                 
-
-
-
-        HS_per_class.append(HS_copy)
+                                if class1 == class2: # if object at same position have same classes
+                                    # add hypothesis to hypothesis set.
+                                    if (k!=i) and (l!=j):
+                                        HS.add((frozenset({"e("+B+"."+ str(k)+")", "s("+C+"."+str(l)+")"}),B,k,i,C,l,j,index,class1))
+        print(str(len(HS))+ " hypothesis created")
+#         for h in HS:
+#             print(h)
+        
+        HS_per_class.append(HS)
     HS_list.append(HS_per_class)
+    ct_list.append(ct_per_class)
 # -
 
-# printing hypothesis
-print("\n****** HYPOTHESIS SET*********")
-for HS_per_class in HS_list:
-    for HS_per_fsm in HS_per_class:
-        for h in HS_per_fsm:
-            print(h)
+# ### Test hyp against E
+
+# +
+
+
+HS_list_retained = []
+for index, HS_class in enumerate(HS_list):
+    printmd("### "+ class_names[index])
+    HS_per_class_retained = []
+    
+  
+    for fsm_no, HS in enumerate(HS_class):
+        printmd("#### FSM: " + str(fsm_no) + " Hypothesis Set")
+
+        count=0
+        HS_copy = HS.copy()
+        HS_copy2 = HS.copy()
+        
+        # state machine
+        plot_cytographs_fsm(state_machines_overall_list[index][fsm_no],domain_name)
+        # for each object O occuring in Ou
+        for O in arguments:
+            #   for each pair of transitions Ap.m and Aq.n consecutive for O in seq
+            ct = []
+            for seq in sequences:
+                for actarg_tuple in seq:
+                    act = actarg_tuple[0]
+                    for j, arg in enumerate(actarg_tuple[1]):
+                        if arg == O:
+                            ct.append((act + '.' + str(j), actarg_tuple[1]))
+
+
+            for i in range(len(ct)-1):
+                A_p = ct[i][0].split('.')[0]
+                m = int(ct[i][0].split('.')[1])
+                A_q = ct[i+1][0].split('.')[0]
+                n = int(ct[i+1][0].split('.')[1]) 
+
+                # for each hypothesis H s.t. A_p = B, m = k, A_q = C, n = l
+
+                for H in HS_copy2:
+                    if A_p == H[1] and m == H[2] and A_q == H[4] and n == H[5]:
+                        k_prime = H[3]
+                        l_prime = H[6]
+
+                        # if O_p,k_prime = Q_q,l_prime
+                        if ct[i][1][k_prime] != ct[i+1][1][l_prime]:
+                            if H in HS_copy:
+                                HS_copy.remove(H)
+                                count += 1
+
+                HS_copy2 = HS_copy.copy() 
+        print(str(len(HS_copy2))+ " hypothesis retained")        
+        for H in HS_copy2:
+            print(H)
+        HS_per_class_retained.append(HS_copy2)
+    HS_list_retained.append(HS_per_class_retained)
+            
+# -
 
 # ## Step 6: Creation and merging of state parameters
 
+# +
+# Each hypothesis refers to an incoming and outgoing transition 
+# through a particular state of an FSM
+# and matching associated transitions can be considered
+# to set and read parameters of a state.
+# Since there maybe multiple transitions through a give state,
+# it is possible for the same parameter to have multiple
+# pairwise occurences.
+
 print("Step 6: creating and merging state params")
 param_bindings_list_overall = []
-for classindex, HS_per_class in enumerate(HS_list):
+for classindex, HS_per_class in enumerate(HS_list_retained):
     param_bind_per_class = []
     for HS_per_fsm in HS_per_class:
         param_binding_list = []
+        
+        # creation
         for index,h in enumerate(HS_per_fsm):
             param_binding_list.append((h,"v"+str(index)))
 
-        for i in range(len(param_binding_list)-1):
-            for j in range(i+1, len(param_binding_list)):
-                h_1 = param_binding_list[i][0]
-                h_2 = param_binding_list[j][0]
+        if len(param_binding_list)>1:
+            # merging
+            for i in range(len(param_binding_list)-1):
+                for j in range(i+1, len(param_binding_list)):
+                    h_1 = param_binding_list[i][0]
+                    h_2 = param_binding_list[j][0]
 
-                if ((h_1[0] == h_2[0] and h_1[1] == h_2[1] and h_1[2] == h_2[2] and h_1[3] == h_2[3]) or (h_1[0] == h_2[0] and h_1[4] == h_2[4] and h_1[5] == h_2[5] and h_1[6] == h_2[6])):
-                    new_tuple = (param_binding_list[j][0], param_binding_list[i][1])
-                    param_binding_list.remove((param_binding_list[j][0], param_binding_list[j][1]))
-                    param_binding_list.insert(j,new_tuple)
+
+                    # How to check if state is equivalent???
+                    # State is object ??? n2? No.
+
+                    # TODO: check from state machine
+
+                    if ((h_1[1] == h_2[1] and h_1[2] == h_2[2] and h_1[3] == h_2[3]) or (h_1[4] == h_2[4] and h_1[5] == h_2[5] and h_1[6] == h_2[6])):
+                        new_tuple = (param_binding_list[j][0], param_binding_list[i][1])
+                        param_binding_list.remove((param_binding_list[j][0], param_binding_list[j][1]))
+                        param_binding_list.insert(j,new_tuple)
         param_bind_per_class.append(param_binding_list)
-#         print(class_names[classindex])
-#         for pb in param_binding_list:
-#             print(pb)
-#         print()
+        print(class_names[classindex])
+        for pb in param_binding_list:
+            print(pb)
+        print()
     param_bindings_list_overall.append(param_bind_per_class)
-
+                    
+    
+# -
 
 # ## Step 7: Remove Parameter Flaws
 
 # +
 ########### Step 5: Removing parameter flaws
-# A parameter P associated with an FSM state S is said to be flawed if there exists a transition into S, which does not supply P with a value.
-# This may occur when there exists a transition B.k where end(B.k)=S, but there exists no h containing end(B.k)
+# A parameter P associated with an FSM state S is said to be flawed if 
+# there exists a transition into S, which does not supply P with a value.
+# This may occur when there exists a transition B.k where end(B.k)=S, 
+# but there exists no h containing end(B.k)
 
 para_bind_overall_fault_removed = []
 for class_index, para_bind_per_class in enumerate(param_bindings_list_overall):

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
+<graph edgedefault="directed"><node id="fetchjack.0"/>
+<node id="jackup.1"/>
+<node id="jackdown.1"/>
+<node id="putawayjack.0"/>
+<node id="undo.3"/>
+<node id="removewheel.2"/>
+<node id="putonwheel.2"/>
+<node id="doup.3"/>
+<edge source="fetchjack.0" target="jackup.1">
+  <data key="d0">160</data>
+</edge>
+<edge source="fetchjack.0" target="putawayjack.0">
+  <data key="d0">82</data>
+</edge>
+<edge source="jackup.1" target="jackdown.1">
+  <data key="d0">255</data>
+</edge>
+<edge source="jackup.1" target="undo.3">
+  <data key="d0">77</data>
+</edge>
+<edge source="jackdown.1" target="jackup.1">
+  <data key="d0">187</data>
+</edge>
+<edge source="jackdown.1" target="putawayjack.0">
+  <data key="d0">151</data>
+</edge>
+<edge source="putawayjack.0" target="fetchjack.0">
+  <data key="d0">191</data>
+</edge>
+<edge source="undo.3" target="removewheel.2">
+  <data key="d0">69</data>
+</edge>
+<edge source="undo.3" target="doup.3">
+  <data key="d0">50</data>
+</edge>
+<edge source="removewheel.2" target="putonwheel.2">
+  <data key="d0">149</data>
+</edge>
+<edge source="putonwheel.2" target="removewheel.2">
+  <data key="d0">83</data>
+</edge>
+<edge source="putonwheel.2" target="doup.3">
+  <data key="d0">85</data>
+</edge>
+<edge source="doup.3" target="jackdown.1">
+  <data key="d0">85</data>
+</edge>
+<edge source="doup.3" target="undo.3">
+  <data key="d0">46</data>
+</edge>
+</graph></graphml>

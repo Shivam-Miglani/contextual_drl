@@ -60,10 +60,9 @@ for line in non_empty_lines:
       valid_instructions += line + u"\n"
 print(valid_instructions)
 
-# + [markdown] heading_collapsed=true
 # ## Remove pronoun coreferences
 
-# + hidden=true
+# +
 import spacy
 import neuralcoref
 
@@ -108,15 +107,13 @@ text_file.close()
 text_file = open("./data/process_manuals/" + fname, "r")
 print(text_file.read())
 text_file.close()
+# -
 
 
-# + [markdown] heading_collapsed=true
 # # Extract action sequence by running c-EASDRL
 
-# + hidden=true
 # don't forget to switch the dataset between cooking and wikihow
 # !python -W ignore main_ceasdrl.py
-# -
 
 # # Learn the domain model in PDDL using iLOCM
 #
@@ -560,7 +557,7 @@ def plot_cytographs(graphs, domain_name):
         cytoscapeobj.min_zoom = 0.5
         display(cytoscapeobj)
     return cytoscapeobs
-    
+
 
 # #### Build transitions graphs and call save function
 
@@ -630,7 +627,7 @@ def build_and_save_transition_graphs(classes, domain_name, class_names):
 adjacency_matrix_list, graphs, cytoscapeobjs = build_and_save_transition_graphs(classes, 'driverlog', class_names)
 
 
-# ## User Input 2: Edit transition graphs
+# ## USER INPUT 2: Edit transition graphs
 
 # +
 # 1. one can open graphs in cytoscape using .graphml or .json files.

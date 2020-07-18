@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
+<graph edgedefault="directed"><node id="fetchjack.1"/>
+<node id="putawaywheel.1"/>
+<node id="putawayjack.1"/>
+<node id="closecontainer.0"/>
+<node id="opencontainer.0"/>
+<node id="fetchwheel.1"/>
+<node id="putawaywrench.1"/>
+<node id="fetchwrench.1"/>
+<edge source="fetchjack.1" target="putawaywheel.1">
+  <data key="d0">23</data>
+</edge>
+<edge source="fetchjack.1" target="closecontainer.0">
+  <data key="d0">75</data>
+</edge>
+<edge source="fetchjack.1" target="fetchwrench.1">
+  <data key="d0">49</data>
+</edge>
+<edge source="fetchjack.1" target="putawaywrench.1">
+  <data key="d0">47</data>
+</edge>
+<edge source="fetchjack.1" target="fetchwheel.1">
+  <data key="d0">27</data>
+</edge>
+<edge source="fetchjack.1" target="putawayjack.1">
+  <data key="d0">21</data>
+</edge>
+<edge source="fetchjack.1" target="fetchjack.1">
+  <data key="d0">6</data>
+</edge>
+<edge source="putawaywheel.1" target="putawayjack.1">
+  <data key="d0">23</data>
+</edge>
+<edge source="putawaywheel.1" target="fetchjack.1">
+  <data key="d0">31</data>
+</edge>
+<edge source="putawaywheel.1" target="fetchwrench.1">
+  <data key="d0">60</data>
+</edge>
+<edge source="putawaywheel.1" target="fetchwheel.1">
+  <data key="d0">63</data>
+</edge>
+<edge source="putawaywheel.1" target="putawaywrench.1">
+  <data key="d0">75</data>
+</edge>
+<edge source="putawaywheel.1" target="closecontainer.0">
+  <data key="d0">117</data>
+</edge>
+<edge source="putawaywheel.1" target="putawaywheel.1">
+  <data key="d0">15</data>
+</edge>
+<edge source="putawayjack.1" target="putawaywheel.1">
+  <data key="d0">27</data>
+</edge>
+<edge source="putawayjack.1" target="closecontainer.0">
+  <data key="d0">72</data>
+</edge>
+<edge source="putawayjack.1" target="fetchjack.1">
+  <data key="d0">40</data>
+</edge>
+<edge source="putawayjack.1" target="fetchwrench.1">
+  <data key="d0">41</data>
+</edge>
+<edge source="putawayjack.1" target="putawaywrench.1">
+  <data key="d0">29</data>
+</edge>
+<edge source="putawayjack.1" target="fetchwheel.1">
+  <data key="d0">28</data>
+</edge>
+<edge source="putawayjack.1" target="putawayjack.1">
+  <data key="d0">7</data>
+</edge>
+<edge source="closecontainer.0" target="opencontainer.0">
+  <data key="d0">764</data>
+</edge>
+<edge source="opencontainer.0" target="fetchwheel.1">
+  <data key="d0">122</data>
+</edge>
+<edge source="opencontainer.0" target="putawaywheel.1">
+  <data key="d0">139</data>
+</edge>
+<edge source="opencontainer.0" target="closecontainer.0">
+  <data key="d0">124</data>
+</edge>
+<edge source="opencontainer.0" target="putawayjack.1">
+  <data key="d0">64</data>
+</edge>
+<edge source="opencontainer.0" target="fetchwrench.1">
+  <data key="d0">145</data>
+</edge>
+<edge source="opencontainer.0" target="fetchjack.1">
+  <data key="d0">79</data>
+</edge>
+<edge source="opencontainer.0" target="putawaywrench.1">
+  <data key="d0">147</data>
+</edge>
+<edge source="fetchwheel.1" target="fetchwheel.1">
+  <data key="d0">11</data>
+</edge>
+<edge source="fetchwheel.1" target="putawaywrench.1">
+  <data key="d0">61</data>
+</edge>
+<edge source="fetchwheel.1" target="putawaywheel.1">
+  <data key="d0">67</data>
+</edge>
+<edge source="fetchwheel.1" target="closecontainer.0">
+  <data key="d0">127</data>
+</edge>
+<edge source="fetchwheel.1" target="fetchjack.1">
+  <data key="d0">24</data>
+</edge>
+<edge source="fetchwheel.1" target="fetchwrench.1">
+  <data key="d0">62</data>
+</edge>
+<edge source="fetchwheel.1" target="putawayjack.1">
+  <data key="d0">33</data>
+</edge>
+<edge source="putawaywrench.1" target="closecontainer.0">
+  <data key="d0">137</data>
+</edge>
+<edge source="putawaywrench.1" target="putawaywheel.1">
+  <data key="d0">56</data>
+</edge>
+<edge source="putawaywrench.1" target="fetchwrench.1">
+  <data key="d0">109</data>
+</edge>
+<edge source="putawaywrench.1" target="fetchjack.1">
+  <data key="d0">38</data>
+</edge>
+<edge source="putawaywrench.1" target="putawayjack.1">
+  <data key="d0">45</data>
+</edge>
+<edge source="putawaywrench.1" target="putawaywrench.1">
+  <data key="d0">46</data>
+</edge>
+<edge source="putawaywrench.1" target="fetchwheel.1">
+  <data key="d0">68</data>
+</edge>
+<edge source="fetchwrench.1" target="fetchwheel.1">
+  <data key="d0">69</data>
+</edge>
+<edge source="fetchwrench.1" target="fetchjack.1">
+  <data key="d0">30</data>
+</edge>
+<edge source="fetchwrench.1" target="putawaywrench.1">
+  <data key="d0">100</data>
+</edge>
+<edge source="fetchwrench.1" target="closecontainer.0">
+  <data key="d0">158</data>
+</edge>
+<edge source="fetchwrench.1" target="fetchwrench.1">
+  <data key="d0">51</data>
+</edge>
+<edge source="fetchwrench.1" target="putawaywheel.1">
+  <data key="d0">55</data>
+</edge>
+<edge source="fetchwrench.1" target="putawayjack.1">
+  <data key="d0">49</data>
+</edge>
+</graph></graphml>
