@@ -1,52 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
-<graph edgedefault="directed"><node id="putawaywrench.0"/>
-<node id="fetchwrench.0"/>
-<node id="undo.2"/>
+<graph edgedefault="directed"><node id="fetchwrench.0"/>
+<node id="putawaywrench.0"/>
 <node id="doup.2"/>
-<node id="loosen.2"/>
+<node id="undo.2"/>
 <node id="tighten.2"/>
-<edge source="putawaywrench.0" target="fetchwrench.0">
-  <data key="d0">406</data>
-</edge>
-<edge source="fetchwrench.0" target="undo.2">
-  <data key="d0">50</data>
-</edge>
+<node id="loosen.2"/>
 <edge source="fetchwrench.0" target="putawaywrench.0">
   <data key="d0">183</data>
-</edge>
-<edge source="fetchwrench.0" target="loosen.2">
-  <data key="d0">105</data>
-</edge>
-<edge source="fetchwrench.0" target="tighten.2">
-  <data key="d0">102</data>
 </edge>
 <edge source="fetchwrench.0" target="doup.2">
   <data key="d0">65</data>
 </edge>
-<edge source="undo.2" target="doup.2">
-  <data key="d0">38</data>
+<edge source="fetchwrench.0" target="tighten.2">
+  <data key="d0">102</data>
 </edge>
-<edge source="undo.2" target="putawaywrench.0">
-  <data key="d0">48</data>
+<edge source="fetchwrench.0" target="loosen.2">
+  <data key="d0">105</data>
 </edge>
-<edge source="undo.2" target="loosen.2">
-  <data key="d0">15</data>
+<edge source="fetchwrench.0" target="undo.2">
+  <data key="d0">50</data>
 </edge>
-<edge source="undo.2" target="tighten.2">
-  <data key="d0">19</data>
-</edge>
-<edge source="undo.2" target="undo.2">
-  <data key="d0">2</data>
-</edge>
-<edge source="doup.2" target="putawaywrench.0">
-  <data key="d0">61</data>
-</edge>
-<edge source="doup.2" target="tighten.2">
-  <data key="d0">25</data>
-</edge>
-<edge source="doup.2" target="doup.2">
-  <data key="d0">5</data>
+<edge source="putawaywrench.0" target="fetchwrench.0">
+  <data key="d0">406</data>
 </edge>
 <edge source="doup.2" target="undo.2">
   <data key="d0">25</data>
@@ -54,26 +30,35 @@
 <edge source="doup.2" target="loosen.2">
   <data key="d0">17</data>
 </edge>
-<edge source="loosen.2" target="putawaywrench.0">
-  <data key="d0">93</data>
+<edge source="doup.2" target="tighten.2">
+  <data key="d0">25</data>
 </edge>
-<edge source="loosen.2" target="tighten.2">
-  <data key="d0">80</data>
+<edge source="doup.2" target="putawaywrench.0">
+  <data key="d0">61</data>
 </edge>
-<edge source="loosen.2" target="loosen.2">
-  <data key="d0">22</data>
+<edge source="doup.2" target="doup.2">
+  <data key="d0">5</data>
 </edge>
-<edge source="loosen.2" target="undo.2">
-  <data key="d0">31</data>
+<edge source="undo.2" target="putawaywrench.0">
+  <data key="d0">48</data>
 </edge>
-<edge source="loosen.2" target="doup.2">
-  <data key="d0">13</data>
+<edge source="undo.2" target="doup.2">
+  <data key="d0">38</data>
 </edge>
-<edge source="tighten.2" target="tighten.2">
-  <data key="d0">17</data>
+<edge source="undo.2" target="undo.2">
+  <data key="d0">2</data>
+</edge>
+<edge source="undo.2" target="loosen.2">
+  <data key="d0">15</data>
+</edge>
+<edge source="undo.2" target="tighten.2">
+  <data key="d0">19</data>
 </edge>
 <edge source="tighten.2" target="putawaywrench.0">
   <data key="d0">106</data>
+</edge>
+<edge source="tighten.2" target="tighten.2">
+  <data key="d0">17</data>
 </edge>
 <edge source="tighten.2" target="loosen.2">
   <data key="d0">81</data>
@@ -83,5 +68,20 @@
 </edge>
 <edge source="tighten.2" target="doup.2">
   <data key="d0">15</data>
+</edge>
+<edge source="loosen.2" target="tighten.2">
+  <data key="d0">80</data>
+</edge>
+<edge source="loosen.2" target="loosen.2">
+  <data key="d0">22</data>
+</edge>
+<edge source="loosen.2" target="putawaywrench.0">
+  <data key="d0">93</data>
+</edge>
+<edge source="loosen.2" target="undo.2">
+  <data key="d0">31</data>
+</edge>
+<edge source="loosen.2" target="doup.2">
+  <data key="d0">13</data>
 </edge>
 </graph></graphml>

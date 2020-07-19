@@ -769,6 +769,7 @@ def plot_cytographs_fsm(graph, domain_name):
             else:
                 edge_instance.data[k] = v
             edge_list.append(edge_instance)
+
     cytoscapeobj.graph.edges = edge_list
 #     print("Nodes:{}".format(graph.nodes()))
 #     print("Edges:{}".format(graph.edges()))
@@ -858,8 +859,11 @@ for index, ts_class in enumerate(transition_sets_per_class):
         
         
         # merge end(t1) = start(t2) from transition df
+        
+        edge_t_list = [] # edge transition list
         for i in range(t_df.shape[0]):
             for j in range(t_df.shape[1]):
+                
                 if t_df.iloc[i, j] != 'hole':
                     if t_df.iloc[i, j] > 0:
                         for node in fsm_graph.nodes():
@@ -867,15 +871,35 @@ for index, ts_class in enumerate(transition_sets_per_class):
                                 merge_node1 = node
                             if "s("+t_df.index[j]+")" in node:
                                 merge_node2 = node
-                        edge_data = fsm_graph.get_edge_data(merge_node1,merge_node2)
-                        if edge_data:
-                            print(edge_data)
+                        
+                        
+                        
 
                         fsm_graph = nx.contracted_nodes(fsm_graph, merge_node1, merge_node2 , self_loops=True)
+
                         if merge_node1 != merge_node2:
                             mapping = {merge_node1: merge_node1 + "|" + merge_node2} 
                             fsm_graph = nx.relabel_nodes(fsm_graph, mapping)
-                        
+
+        # we need to complete the list of transitions 
+        # that can happen on self-loop nodes 
+        # as these have been overwritten (as graph is not MultiDiGraph)
+        
+        sl_state_list = list(nx.nodes_with_selfloops(fsm_graph)) # self looping states.
+        # if state is self-looping
+        t_list = []
+        if len(sl_state_list)>0: 
+            # if s(T1) and e(T1) are there for same node, this T1 can self-loop occur.
+            for s in sl_state_list:
+                for sub_s in s.split('|'):
+                    if sub_s[0] == 'e':
+                        if ('s' + sub_s[1:]) in s.split('|'):
+                            t_list.append(sub_s[2:-1])
+                fsm_graph[s][s]['weight'] = '|'.join(t_list)
+        
+        
+
+               
         plot_cytographs_fsm(fsm_graph,domain_name)
         df = nx.to_pandas_adjacency(fsm_graph, nodelist=fsm_graph.nodes(), weight = 1)
         print_table(df)
@@ -903,6 +927,16 @@ for index, ts_class in enumerate(transition_sets_per_class):
 # Create and test hypothesis for state parameters
 
 # ### Form Hyp for HS (Hypothesis set)
+
+# +
+#input: Seq, TS, Object set Obs, Object state set OS
+#Output: HS retained hypotheses for state params
+
+#For each pair B.k and C.l in TS s.t. end(B.k) = S = start(C.l)
+
+
+
+
 
 # +
 HS_list = []
@@ -1082,8 +1116,8 @@ for classindex, HS_per_class in enumerate(HS_list_retained):
             print(pb)
         print()
     param_bindings_list_overall.append(param_bind_per_class)
-                    
-    
+
+
 # -
 
 # ## Step 7: Remove Parameter Flaws
