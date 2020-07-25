@@ -85,9 +85,9 @@ def print_sequences(sequences):
 # -
 
 # sequences = read_file(input_file_name)
-sequences = read_file('./locm_data/tyre_locmfeb.txt')
+sequences = read_file('./locm_data/driverlog1.txt')
 # print_sequences(sequences)
-domain_name = 'tyre' #specify domain name to  be used in PDDL here.
+domain_name = 'driverlog' #specify domain name to  be used in PDDL here.
 
 
 # ## Step 1.1: Find classes 
@@ -196,18 +196,18 @@ print(class_names)
 # class_names[0] = 'rocket'
 
 #tyre
-class_names[0] = 'Jack'
-class_names[1] = 'Boot'
-class_names[2] = 'Wheel'
-class_names[3] = 'Hub'
-class_names[4] = 'Wrench'
-class_names[5] = 'Nut'
+# class_names[0] = 'Jack'
+# class_names[1] = 'Boot'
+# class_names[2] = 'Wheel'
+# class_names[3] = 'Hub'
+# class_names[4] = 'Wrench'
+# class_names[5] = 'Nut'
 
 #driverlog
-# class_names[0] = 'Driver'
-# class_names[1] = 'Truck'
-# class_names[2] = 'Package'
-# class_names[3] = 'Location'
+class_names[0] = 'Driver'
+class_names[1] = 'Truck'
+class_names[2] = 'Package'
+class_names[3] = 'Location'
 
 # #blocksworld
 # class_names[0] = 'Block'
@@ -230,7 +230,7 @@ for seq in sequences:
     for actarg_tuple in seq:
         actions.add(actarg_tuple[0])
         for j, arg in enumerate(actarg_tuple[1]):
-            full_transitions.add(actarg_tuple[0]+"."+class_names[get_class_index(arg,classes)]+".#"+str(j))
+            full_transitions.add(actarg_tuple[0]+"."+class_names[get_class_index(arg,classes)]+'.'+str(j))
             arguments.add(arg)
 
 print("\nActions")
@@ -837,7 +837,6 @@ def plot_cytographs_fsm(graph, domain_name):
 # +
 state_machines_overall_list = []
 
-
 for index, ts_class in enumerate(transition_sets_per_class):
     fsms_per_class = []
     printmd("### "+ class_names[index])
@@ -909,34 +908,59 @@ for index, ts_class in enumerate(transition_sets_per_class):
 
 
 # ## USER INPUT 3: Rename States. 
+#
+#
 # As states are shown in terms of end and start of transitions, user can rename them for easy readability later on.
+#
+# If states are renamed, certain hardcoded aspects of code won't work. It is advisable to create a  separate state dictionary and use it after step 9: (formation of PDDL model) to replace states in PDDL code.
 #
 #
 # This also makes it easier to specify problem statements.
 
-# ### Explanations: Any object of a class occupies one state in each of its FSM.
-# #### Driver log
-# - For Driver sort there is only one FSM.  Driver is either inside the truck (state 0) or outside the truck (state 1).
-# - For truck sort there are four FSMs. Four FSMs, essentially look at states whether the driver is inside or outside. And whether the truck is loaded or not. 
-#
-#
-#
-#
+# ### Automatic creation: rename states as integers 0, 1, 2 .. etc. for each fsm.
+
+# +
+# An Automatic state dictionary is added here where states are 
+# renamed as 0, 1, 2 etc. for a specific FSM
+
+state_mappings_class = []
+state_machines_overall_list_2 = []
+for index, fsm_graphs in enumerate(state_machines_overall_list):
+    state_mappings_fsm = []
+    fsms_per_class_2 = []
+    printmd("### "+ class_names[index])
+    num_fsms = len(fsm_graphs)
+    print("Number of FSMS:" + str(num_fsms))
+    
+    for fsm_no, G in enumerate(fsm_graphs):
+        
+        state_mapping = {k: v for v, k in enumerate(G.nodes())}
+        G_copy = nx.relabel_nodes(G, state_mapping)
+        
+        plot_cytographs_fsm(G, domain_name)
+        plot_cytographs_fsm(G_copy, domain_name)
+        printmd("Fsm "+ str(fsm_no))
+        fsms_per_class_2.append(G_copy)
+        state_mappings_fsm.append(state_mapping)
+        
+    state_machines_overall_list_2.append(fsms_per_class_2)
+    state_mappings_class.append(state_mappings_fsm)
+    
+
+# -
+
+# ### Looking at the graph, User can specify states here
+
+# +
+# User can specify states here.
+# assign your states in state dictionary called state_mapping
+# e.g. state_mapping['e(removewheek.2)|s(putonwheel.2)'] = 'jack_free_to_use'
+# -
 
 # ## Step 5: Induction of parameterized state machines
 # Create and test hypothesis for state parameters
 
 # ### Form Hyp for HS (Hypothesis set)
-
-# +
-#input: Seq, TS, Object set Obs, Object state set OS
-#Output: HS retained hypotheses for state params
-
-#For each pair B.k and C.l in TS s.t. end(B.k) = S = start(C.l)
-
-
-
-
 
 # +
 HS_list = []
@@ -1001,7 +1025,7 @@ for index, ts_class in enumerate(transition_sets_per_class):
                                 if class1 == class2: # if object at same position have same classes
                                     # add hypothesis to hypothesis set.
                                     if (k!=i) and (l!=j):
-                                        HS.add((frozenset({"e("+B+"."+ str(k)+")", "s("+C+"."+str(l)+")"}),B,k,i,C,l,j,index,class1))
+                                        HS.add((frozenset({"e("+B+"."+ str(k)+")", "s("+C+"."+str(l)+")"}),B,k,i,C,l,j,class_names[index],class_names[class1]))
         print(str(len(HS))+ " hypothesis created")
 #         for h in HS:
 #             print(h)
@@ -1013,24 +1037,20 @@ for index, ts_class in enumerate(transition_sets_per_class):
 
 # ### Test hyp against E
 
-# +
-
-
 HS_list_retained = []
 for index, HS_class in enumerate(HS_list):
     printmd("### "+ class_names[index])
     HS_per_class_retained = []
-    
-  
+
+
     for fsm_no, HS in enumerate(HS_class):
         printmd("#### FSM: " + str(fsm_no) + " Hypothesis Set")
 
         count=0
         HS_copy = HS.copy()
         HS_copy2 = HS.copy()
+
         
-        # state machine
-        plot_cytographs_fsm(state_machines_overall_list[index][fsm_no],domain_name)
         # for each object O occuring in Ou
         for O in arguments:
             #   for each pair of transitions Ap.m and Aq.n consecutive for O in seq
@@ -1062,14 +1082,15 @@ for index, HS_class in enumerate(HS_list):
                                 HS_copy.remove(H)
                                 count += 1
 
-                HS_copy2 = HS_copy.copy() 
-        print(str(len(HS_copy2))+ " hypothesis retained")        
-        for H in HS_copy2:
-            print(H)
-        HS_per_class_retained.append(HS_copy2)
+        print(str(len(HS_copy))+ " hypothesis retained")
+        # state machine
+#         if len(HS_copy)>0:
+#             plot_cytographs_fsm(state_machines_overall_list[index][fsm_no],domain_name)
+#         for H in HS_copy:
+#             print(H)
+        HS_per_class_retained.append(HS_copy)
     HS_list_retained.append(HS_per_class_retained)
             
-# -
 
 # ## Step 6: Creation and merging of state parameters
 
@@ -1086,35 +1107,90 @@ print("Step 6: creating and merging state params")
 param_bindings_list_overall = []
 for classindex, HS_per_class in enumerate(HS_list_retained):
     param_bind_per_class = []
-    for HS_per_fsm in HS_per_class:
+    
+    
+    for fsm_no, HS_per_fsm in enumerate(HS_per_class):
         param_binding_list = []
+        
+        # fsm in consideration
+        G = state_machines_overall_list[classindex][fsm_no]
+        state_list = G.nodes()
         
         # creation
         for index,h in enumerate(HS_per_fsm):
             param_binding_list.append((h,"v"+str(index)))
-
+        
+        merge_pl = [] # parameter to merge list
         if len(param_binding_list)>1:
             # merging
-            for i in range(len(param_binding_list)-1):
-                for j in range(i+1, len(param_binding_list)):
-                    h_1 = param_binding_list[i][0]
-                    h_2 = param_binding_list[j][0]
+            pairs = findsubsets(param_binding_list, 2)
+            for pair in pairs:
+                h_1 = pair[0][0]
+                h_2 = pair[1][0]
+                
+                
+                # equate states
+                state_eq_flag = False
+                for s_index, state in enumerate(state_list):
+                    # if both hyp states appear in single state in fsm
+                    if list(h_1[0])[0] in state:
+                        if list(h_1[0])[0] in state:
+                            state_eq_flag =True
+                            
+                
+                if ((state_eq_flag and h_1[1] == h_2[1] and h_1[2] == h_2[2] and h_1[3] == h_2[3]) or (state_eq_flag and h_1[4] == h_2[4] and h_1[5] == h_2[5] and h_1[6] == h_2[6])):
+                    merge_pl.append(list([pair[0][1], pair[1][1]]))
+          
+        
+       
+        #inner lists to sets (to list of sets)
+        l=[set(x) for x in merge_pl]
 
+        #cartesian product merging elements if some element in common
+        for a,b in itertools.product(l,l):
+            if a.intersection( b ):
+                a.update(b)
+                b.update(a)
 
-                    # How to check if state is equivalent???
-                    # State is object ??? n2? No.
+        #back to list of lists
+        l = sorted( [sorted(list(x)) for x in l])
 
-                    # TODO: check from state machine
+        #remove dups
+        merge_pl = list(l for l,_ in itertools.groupby(l))
+        
+        # sort
+        for pos, l in enumerate(merge_pl):
+            merge_pl[pos] = sorted(l, key = lambda x: int(x[1:]))
+        
+        print(merge_pl) # equal params appear in a list in this list.
+          
+            
+        for z,pb in enumerate(param_binding_list):
+            for l in merge_pl:
+                if pb[1] in l:
+                    # update pb
+                    param_binding_list[z] = (param_binding_list[z][0], l[0])
+        
 
-                    if ((h_1[1] == h_2[1] and h_1[2] == h_2[2] and h_1[3] == h_2[3]) or (h_1[4] == h_2[4] and h_1[5] == h_2[5] and h_1[6] == h_2[6])):
-                        new_tuple = (param_binding_list[j][0], param_binding_list[i][1])
-                        param_binding_list.remove((param_binding_list[j][0], param_binding_list[j][1]))
-                        param_binding_list.insert(j,new_tuple)
+                
+        
         param_bind_per_class.append(param_binding_list)
         print(class_names[classindex])
+        
+        # set of params per class
+        param = set()
         for pb in param_binding_list:
-            print(pb)
-        print()
+#             print(pb)
+            param.add(pb[1])
+            
+        # num of params per class
+        printmd("No. of params earlier:" + str(len(param_binding_list)))
+        printmd("No. of params after merging:" + str(len(param)))
+            
+        
+        
+        
+        
     param_bindings_list_overall.append(param_bind_per_class)
 
 
@@ -1123,69 +1199,70 @@ for classindex, HS_per_class in enumerate(HS_list_retained):
 # ## Step 7: Remove Parameter Flaws
 
 # +
-########### Step 5: Removing parameter flaws
-# A parameter P associated with an FSM state S is said to be flawed if 
-# there exists a transition into S, which does not supply P with a value.
-# This may occur when there exists a transition B.k where end(B.k)=S, 
-# but there exists no h containing end(B.k)
+# Removing State Params.
+# Flaw occurs Object can reach state S with param P having an inderminate value.
+# There is transition s.t. end(B.k) = S. 
+# but there is no h = <S,B,k,k',C,l,l',G,G') and <h,P> is in bindings.
 
-para_bind_overall_fault_removed = []
-for class_index, para_bind_per_class in enumerate(param_bindings_list_overall):
-#     print(class_names[class_index])
-    para_bind_per_class_fault_removed = []
+para_bind_overall_fault_removed  = []
+for classindex, fsm_per_class in enumerate(state_machines_overall_list):
+    print(class_names[classindex])
+    pb_per_class_fault_removed = []
 
-    # print(state_machines_overall_list[class_index][fsm_index].index.values)
-    for fsm_index, transition_set in enumerate(transition_sets_per_class[class_index]):
-        transition_df = adjacency_matrix_list[class_index].loc[list(transition_set), list(transition_set)]
-        consecutive_transitions_state_machines_per_class = set()  # find consecutive transitions for a state machine in a class.
-        for i in range(transition_df.shape[0]):
-            for j in range(transition_df.shape[1]):
-                if transition_df.iloc[i, j] != 'hole':
-                    if transition_df.iloc[i, j] > 0:
-                        consecutive_transitions_state_machines_per_class.add(
-                            (transition_df.index[i], transition_df.columns[j]))
+    for fsm_no, G in enumerate(fsm_per_class):
+        
+        pb_per_fsm_fault_removed = []
+        # G is fsm in consideration
+        faulty_pb = []
+        for state in G.nodes():
+            inedges = G.in_edges(state, data=True)
+            
+            for ie in inedges:
+                tr = ie[2]['weight']
+                t_list = tr.split('|')
+                for t in t_list:
+                    B = t.split('.')[0]
+                    k = t.split('.')[1]
+                    S = 'e(' + t + ')'
+                    flaw = True
+                    for pb in param_bindings_list_overall[classindex][fsm_no]:
+                        H = pb[0]
+                        v = pb[1]
+                        if (S in set(H[0])) and (B==H[1]) and (int(k)==H[2]) :
+                            # this pb is okay
+                            flaw=False
+#                     print(flaw)
+                    if flaw:
+                        for pb in param_bindings_list_overall[classindex][fsm_no]:
+                            H = pb[0]
+                            H_states = list(H[0])
+                            for h_state in H_states:
+                                if h_state in state:
+                                    if pb not in faulty_pb:
+                                        faulty_pb.append(pb) # no duplicates
+        
+        for pb in param_bindings_list_overall[classindex][fsm_no]:
+            if pb not in faulty_pb:
+                pb_per_fsm_fault_removed.append(pb)
+        
+                                
+                        
+                        
+        print(str(len(pb_per_fsm_fault_removed)) + "/" + str(len(param_bindings_list_overall[classindex][fsm_no])) + " param retained")
+        for pb in pb_per_fsm_fault_removed:
+            print(pb)
 
-        # initialize h_exists with false
-        h_exists = []
-        for param_index, param_bind in enumerate(para_bind_per_class[fsm_index]):
-            h_exists.append(False)
-
-        for ct in consecutive_transitions_state_machines_per_class:
-            for state in state_machines_overall_list[class_index][fsm_index].index.values:
-                if {"end("+ ct[0] + ")"} <= state_dict_overall[class_index][fsm_index][state]:
-                    current_state = state_dict_overall[class_index][fsm_index][state]
-
-                    # for every parameter binding which contains subset of current_state, if B and k are there, hypothesis exists
-                    for param_index,param_bind in enumerate(para_bind_per_class[fsm_index]):
-                        if param_bind[0][0] <= current_state: #subset of current_state of FSM
-                            # print(param_bind[0][1])
-                            # print(param_bind[0][2])
-                            # print(ct[0].split('.')[0])
-                            # print(ct[0].split('.')[1])
-                            # print()
-                            if param_bind[0][1] == ct[0].split('.')[0]:
-                                if param_bind[0][2] == int(ct[0].split('.')[1]): #TODO: Do we need to check other things here
-                                    h_exists[param_index] = True
-
-        param_bind_per_fsm_copy = para_bind_per_class[fsm_index].copy()
-        for param_index, param_bind in enumerate(para_bind_per_class[fsm_index]):
-            # if h_exists[param_index]:
-            #     print(param_bind[1])
-            if not h_exists[param_index]:
-                param_bind_per_fsm_copy.remove(param_bind)
-
-        para_bind_per_class_fault_removed.append(param_bind_per_fsm_copy)
-    para_bind_overall_fault_removed.append(para_bind_per_class_fault_removed)
+                
+        
+        pb_per_class_fault_removed.append(pb_per_fsm_fault_removed)
+    para_bind_overall_fault_removed.append(pb_per_class_fault_removed)
 # -
 
-print("Fault Removed Parameter Bindings")
-for class_index, para_bind_per_class in enumerate(para_bind_overall_fault_removed):
-    print(class_names[class_index])
-    for fsm_no, para_bind_per_fsm in enumerate(para_bind_per_class):
-        print("Fsm_no:" + str(fsm_no))
-        for p in para_bind_per_fsm:
-            print(p)
-        print()
+# ## Step 8: (TODO) Static Preconditions via LOP
+# As further enhancement, one can add step 8: Extraction of static preconditions from the LOCM paper.
+# However, LOP algorithm is better version of that step.
+#
+# Insert [LOP](https://www.aaai.org/ocs/index.php/ICAPS/ICAPS15/paper/viewFile/10621/10401) here for finding static preconditions
 
 # ## Step 9:  Formation of PDDL Schema
 
@@ -1203,23 +1280,151 @@ for class_name in class_names:
 write_line += ")\n"
 write_line += "  (:predicates\n"
 
+# one predicate to represent each object state
+
 predicates = []
-line_count = 0
-for class_index, para_bind_per_class in enumerate(para_bind_overall_fault_removed):
-    for fsm_no, para_bind_per_fsm in enumerate(para_bind_per_class):
-        for state_index, state in enumerate(state_machines_overall_list[class_index][fsm_no]):
+for class_index, pb_per_class in enumerate(para_bind_overall_fault_removed):
+    for fsm_no, pbs_per_fsm in enumerate(pb_per_class):
+        for state_index, state in enumerate(state_machines_overall_list[class_index][fsm_no].nodes()):
+            
+            state_set = set(state.split('|'))
             predicate = ""
-            write_line += "    (" + class_names[class_index] + "_fsm" + str(fsm_no) + "_state" + str(state_index)
-            predicate += "    (" + class_names[class_index] + "_fsm" + str(fsm_no) + "_state" + str(state_index)
-            for para_bind in para_bind_per_fsm:
-                if para_bind[0][0] <= state_dict_overall[class_index][fsm_no][state]:
-                    write_line += " ?"+para_bind[1] + " - " + str(class_names[para_bind[0][8]])
-                    predicate += " ?"+para_bind[1] + " - " + str(class_names[para_bind[0][8]])
-            if (line_count % 4) == 0:
-                write_line += ")\n"
-            else:
-                write_line += ")"
-            line_count+=1
+       
+            write_line += "    (" + class_names[class_index] + "_fsm" + str(fsm_no) + "_" +  state
+            predicate += "    (" + class_names[class_index] + "_fsm" + str(fsm_no) + "_" + state
+            for pb in pbs_per_fsm:
+                    if set(pb[0][0]) <= state_set:
+                        if " ?"+pb[1] + " - " + str(pb[0][8]) not in predicate:
+                            write_line += " ?"+pb[1] + " - " + str(pb[0][8])
+                            predicate += " ?"+pb[1] + " - " + str(pb[0][8])
+    
+            write_line += ")\n"
+            predicate += ")"
+            predicates.append(predicate)
+write_line += "  )\n"
+            
+for action_index, action in enumerate(actions):
+    write_line += "\n"
+    write_line += "  (:action"
+    write_line += "  " + action + " "
+    write_line += "  :parameters"
+    write_line += "  ("
+    arg_already_written_flag = False
+    params_per_action = []
+    args_per_action = []
+    for seq in sequences:
+        for actarg_tuple in seq:
+            if not arg_already_written_flag:
+                if actarg_tuple[0] == action:
+                    arglist = []
+                    for arg in actarg_tuple[1]:
+                        write_line += "?"+arg + " - " + class_names[get_class_index(arg,classes)] + " "
+                        arglist.append(arg)
+                    args_per_action.append(arglist)
+                    params_per_action.append(actarg_tuple[1])
+                    arg_already_written_flag = True
+    write_line += ")\n"
+
+
+    # need to use FSMS to get preconditions and effects.
+    # Start-state = precondition. End state= Effect
+    preconditions = []
+    effects = []
+    for arglist in params_per_action:
+        for arg in arglist:
+            current_class_index = get_class_index(arg, classes)
+            for fsm_no, G in enumerate(state_machines_overall_list[current_class_index]):
+#                
+                for start, end, weight in G.edges(data='weight'):
+                    _actions = weight.split('|')
+                    for _action in _actions:
+                        
+                        if _action.split('.')[0] == action:
+                            for predicate in predicates:
+                                pred = predicate.split()[0].lstrip("(")
+                                clss = pred.split('_')[0]
+                                fsm = pred.split('_')[1]
+                                state = set(pred.split('_')[2].replace('))',')').split('|'))
+
+
+
+                                if clss == class_names[current_class_index]:
+                                    if fsm == "fsm" + str(fsm_no):
+
+                                        if state == set(start.split('|')):
+
+                                            if predicate not in preconditions:
+                                                preconditions.append(predicate)
+
+                                        if state == set(end.split('|')):
+                                            if predicate not in effects:
+                                                effects.append(predicate)
+                            break
+                                        
+    
+                
+
+    write_line += "   :precondition"
+    write_line += "   (and\n"
+    for precondition in preconditions:
+        # precondition = precondition.replace(?)
+        write_line += "    "+precondition+"\n"
+    write_line += "   )\n"
+    write_line += "   :effect"
+    write_line += "   (and\n"
+    for effect in effects:
+        write_line += "    " + effect + "\n"
+    write_line += "  )"
+
+    write_line += ")\n"
+
+write_line += ")\n" #domain ending bracket
+
+
+print(write_line)
+
+write_file.write(write_line)
+write_file.close()
+# -
+
+# ### Validating PDDL -- Fixing Syntax by replacing predicates with state dictionary values
+# This is required because PDDL syntax doesn't support extra paranthesis () which occur in states (transitions occuring in states as 'start(t1)' or  'end(t1)')
+
+# +
+# get action schema
+print(";;********************Learned PDDL domain******************")
+output_file = "output/"+ domain_name + "/" +  domain_name + ".pddl"
+write_file = open(output_file, 'w')
+write_line = "(define"
+write_line += "  (domain "+ domain_name+")\n"
+write_line += "  (:requirements :typing)\n"
+write_line += "  (:types"
+for class_name in class_names:
+    write_line += " " + class_name
+write_line += ")\n"
+write_line += "  (:predicates\n"
+
+# one predicate to represent each object state
+
+predicates = []
+for class_index, pb_per_class in enumerate(para_bind_overall_fault_removed):
+    for fsm_no, pbs_per_fsm in enumerate(pb_per_class):
+        state_mapping = state_mappings_class[class_index][fsm_no]
+        
+        for state_index, state in enumerate(state_machines_overall_list[class_index][fsm_no].nodes()):
+            
+            state_set = set(state.split('|'))
+            predicate = ""
+       
+            write_line += "    (" + class_names[class_index] + "_fsm" + str(fsm_no) + "_state" +  str(state_mapping[state])
+            predicate += "    (" + class_names[class_index] + "_fsm" + str(fsm_no) + "_state" + str(state_mapping[state])
+            for pb in pbs_per_fsm:
+                    if set(pb[0][0]) <= state_set:
+                        if " ?"+pb[1] + " - " + str(pb[0][8]) not in predicate:
+                            write_line += " ?"+pb[1] + " - " + str(pb[0][8])
+                            predicate += " ?"+pb[1] + " - " + str(pb[0][8])
+    
+            write_line += ")\n"
             predicate += ")"
             predicates.append(predicate)
 write_line += "  )\n"
@@ -1246,50 +1451,43 @@ for action_index, action in enumerate(actions):
     write_line += ")\n"
 
 
-    # need to use finite STATE machines to get preconditions and effects.
+    # need to use FSMS to get preconditions and effects.
     # Start-state = precondition. End state= Effect
     preconditions = []
     effects = []
     for arglist in params_per_action:
         for arg in arglist:
             current_class_index = get_class_index(arg, classes)
-            for fsm_no, fsm in enumerate(state_machines_overall_list[current_class_index]):
-                # print_table(fsm)
-                df = fsm
-
-                for i in range(df.shape[0]):
-                    for j in range(df.shape[1]):
-                        if df.iloc[i, j] > 0:
-                            # print("(" + df.index[i] + "," + df.columns[j] + ")")
-                            start_state = state_dict_overall[current_class_index][fsm_no][df.index[i]]
-                            end_state = state_dict_overall[current_class_index][fsm_no][df.columns[j]]
-
-                            start_state_index, end_state_index = -1, -1
-                            for k,v in state_dict_overall[current_class_index][fsm_no].items():
-                                if v == start_state:
-                                    start_state_index = k
-                                if v == end_state:
-                                    end_state_index = k
-
+            for fsm_no, G in enumerate(state_machines_overall_list[current_class_index]):
+                G_int = state_machines_overall_list_2[current_class_index][fsm_no]
+                state_mapping = state_mappings_class[current_class_index][fsm_no]
+                for start, end, weight in G_int.edges(data='weight'):
+                    _actions = weight.split('|')
+                    for _action in _actions:
+                        if _action.split('.')[0] == action:
                             for predicate in predicates:
-                                pred = predicate.split()[0].lstrip('(').rstrip(')')
-                                if pred == class_names[current_class_index]+"_fsm"+str(fsm_no)+"_"+str(start_state_index):
+                                pred = predicate.split()[0].lstrip("(")
+                                clss = pred.split('_')[0]
+                                fsm = pred.split('_')[1]
+                                state_ind = pred.split('_')[2].rstrip(")")[-1]
 
-                                    if predicate not in preconditions:
-                                        preconditions.append(predicate)
-                                if pred == class_names[current_class_index]+"_fsm"+str(fsm_no)+"_"+str(end_state_index):
-                                    if predicate not in effects:
-                                        effects.append(predicate)
+                                if clss == class_names[current_class_index]:
+                                    if fsm == "fsm" + str(fsm_no):
+                                        if int(state_ind) == int(start):
+                                            if predicate not in preconditions:
+                                                preconditions.append(predicate)
+                                                
+                                        if int(state_ind) == int(end):
+                                            if predicate not in effects:
+                                                effects.append(predicate)
+                            break
+                            
 
+                
 
-
-
-#     print(preconditions)
-#     print(effects)
     write_line += "   :precondition"
     write_line += "   (and\n"
     for precondition in preconditions:
-        # precondition = precondition.replace(?)
         write_line += "    "+precondition+"\n"
     write_line += "   )\n"
     write_line += "   :effect"
@@ -1298,7 +1496,7 @@ for action_index, action in enumerate(actions):
         write_line += "    " + effect + "\n"
     write_line += "  )"
 
-    write_line += ")\n"
+    write_line += ")\n\n"
 
 write_line += ")\n" #domain ending bracket
 
@@ -1307,25 +1505,33 @@ print(write_line)
 
 write_file.write(write_line)
 write_file.close()
-
-
 # -
 
+# ### State Mapping: What are these states?
 
-# state dictionary
-print_state_dictionary(state_dict_overall)
+# +
+# To see what these states are, look at the following graphs
 
+for index, fsm_graphs in enumerate(state_machines_overall_list):
+    printmd("## Class " + str(index))
+    printmd("### "+ class_names[index])
+    print("Number of FSMS:" + str(num_fsms))
+    
+    for fsm_no, G in enumerate(fsm_graphs):  
+        printmd("Fsm "+ str(fsm_no))
+        plot_cytographs_fsm(state_machines_overall_list_2[index][fsm_no], domain_name)
+        plot_cytographs_fsm(G, domain_name)
+# -
 
+# ### State Mappings: Text format
 
-# # NER 
+for index, sm_fsm in enumerate(state_mappings_class):
+    printmd("## Class " + str(index))
+    printmd("### "+ class_names[index])
 
-# finding entities using spacy
-import spacy
-from spacy import displacy
-import en_core_web_sm
-nlp = spacy.load('en_core_web_sm')
-doc = nlp(coref_resolved_instructions)
-
-displacy.render(nlp(str(doc)), jupyter=True, style='ent', options = {'ents':['QUANTITY', 'TIME', 'LOC', 'DATE']})
+    
+    for fsm_no, mapping in enumerate(sm_fsm):
+        printmd("Fsm "+ str(fsm_no))
+        pprint(mapping)
 
 

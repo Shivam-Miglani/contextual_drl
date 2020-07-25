@@ -1,13 +1,34 @@
 <?xml version='1.0' encoding='utf-8'?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
-<graph edgedefault="directed"><node id="removewheel.1"/>
-<node id="putonwheel.1"/>
-<node id="doup.1"/>
-<node id="undo.1"/>
+<graph edgedefault="directed"><node id="jackup.0"/>
 <node id="jackdown.0"/>
-<node id="jackup.0"/>
+<node id="undo.1"/>
+<node id="removewheel.1"/>
+<node id="putonwheel.1"/>
 <node id="tighten.1"/>
 <node id="loosen.1"/>
+<node id="doup.1"/>
+<edge source="jackup.0" target="jackdown.0">
+  <data key="d0">255</data>
+</edge>
+<edge source="jackup.0" target="undo.1">
+  <data key="d0">77</data>
+</edge>
+<edge source="jackdown.0" target="jackup.0">
+  <data key="d0">155</data>
+</edge>
+<edge source="jackdown.0" target="loosen.1">
+  <data key="d0">81</data>
+</edge>
+<edge source="jackdown.0" target="tighten.1">
+  <data key="d0">83</data>
+</edge>
+<edge source="undo.1" target="removewheel.1">
+  <data key="d0">69</data>
+</edge>
+<edge source="undo.1" target="doup.1">
+  <data key="d0">50</data>
+</edge>
 <edge source="removewheel.1" target="putonwheel.1">
   <data key="d0">149</data>
 </edge>
@@ -17,43 +38,22 @@
 <edge source="putonwheel.1" target="doup.1">
   <data key="d0">85</data>
 </edge>
+<edge source="tighten.1" target="loosen.1">
+  <data key="d0">142</data>
+</edge>
+<edge source="tighten.1" target="jackup.0">
+  <data key="d0">84</data>
+</edge>
+<edge source="loosen.1" target="tighten.1">
+  <data key="d0">141</data>
+</edge>
+<edge source="loosen.1" target="jackup.0">
+  <data key="d0">86</data>
+</edge>
 <edge source="doup.1" target="undo.1">
   <data key="d0">46</data>
 </edge>
 <edge source="doup.1" target="jackdown.0">
   <data key="d0">85</data>
-</edge>
-<edge source="undo.1" target="doup.1">
-  <data key="d0">50</data>
-</edge>
-<edge source="undo.1" target="removewheel.1">
-  <data key="d0">69</data>
-</edge>
-<edge source="jackdown.0" target="jackup.0">
-  <data key="d0">155</data>
-</edge>
-<edge source="jackdown.0" target="tighten.1">
-  <data key="d0">83</data>
-</edge>
-<edge source="jackdown.0" target="loosen.1">
-  <data key="d0">81</data>
-</edge>
-<edge source="jackup.0" target="jackdown.0">
-  <data key="d0">255</data>
-</edge>
-<edge source="jackup.0" target="undo.1">
-  <data key="d0">77</data>
-</edge>
-<edge source="tighten.1" target="jackup.0">
-  <data key="d0">84</data>
-</edge>
-<edge source="tighten.1" target="loosen.1">
-  <data key="d0">142</data>
-</edge>
-<edge source="loosen.1" target="jackup.0">
-  <data key="d0">86</data>
-</edge>
-<edge source="loosen.1" target="tighten.1">
-  <data key="d0">141</data>
 </edge>
 </graph></graphml>
