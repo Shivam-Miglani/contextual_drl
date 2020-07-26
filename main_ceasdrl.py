@@ -117,7 +117,7 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/process_manuals/'
-    input_filename = 'nasa_curiosity.txt'
+    input_filename = 'fire_domain.txt'
     input_file_path += input_filename
 
     #input file
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/process_manuals/%s_%s_%s' % (args.domain, "bertelmo", input_filename)
+    outfile = 'output_extracted_sequences/%s_%s_%s' % (args.domain, "bertelmo", input_filename)
     f = open(outfile, "w")
     output = ""
     for i in range(len(sents)):
@@ -175,8 +175,6 @@ if __name__ == '__main__':
     count_act = 0
     act2sent = {}
     sents = current_sents
-    outfile = 'data/process_manuals/%s_%s_%s_2' % (args.domain, 'bertelmo', input_filename)
-    f = open(outfile, "w")
     output = ""
 
     print("===========================")
@@ -194,12 +192,12 @@ if __name__ == '__main__':
                 else:
                     objs.append('UNK')
             act2sent[count_act] = [i, k]
-            f.write('%s (%s),' % (words[act['act_idx']], ', '.join(objs)))
+            # f.write('%s (%s),' % (words[act['act_idx']], ', '.join(objs)))
             output += '%s (%s),' % (words[act['act_idx']], ', '.join(objs))
 
             count_act += 1
     f.close()
-    text_file = open("./locm_data/" + input_filename, "w")
+    text_file = open("./ilocm_input/" + input_filename, "w")
     output = output.rstrip(',')
     text_file.write(output)
     text_file.close()
