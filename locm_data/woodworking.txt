@@ -1,1 +1,0 @@
-Do (planing),use (colour),Increase (cost, plane),Glaze (piece, wood),Increase (cost, glaze),Take (piece),Do (planing),use (colour),Increase (cost, plane),Glaze (piece, wood),Increase (cost, glaze)

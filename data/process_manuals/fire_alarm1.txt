@@ -1,7 +1,0 @@
-Fire Alarm domain
-When fire alarm sounds,
-Everyone in the building should make their way calmly to the closest fire exit.
-Before opening a door, touch the surface. If the door feels warm, don't open it. This is a sign that the fire is close. Opening the door will cause a rush of air to flow toward the flames, which may result in a fireball. Move away from the hot door and look for an alternate way to get out of the building.
-If you suspect a fire, stay out of the elevator. It will go to the floor where the fire is located and stop there. Take the stairs to safety instead. (Be sure to check the door to the stairwell before opening it.)
-A person whose clothing has caught fire should "Stop, Drop and Roll": Stop moving, drop to the floor or ground, and roll back and forth until the fire has been extinguished. Fire blankets can be wrapped around the victim to help to extinguish the flames.
-Once you have left the building, move a safe distance away from it. Don't go back inside for any reason until you have been told that it is safe to do so by a Fire Department official.

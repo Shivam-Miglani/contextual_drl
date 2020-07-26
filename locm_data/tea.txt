@@ -1,1 +1,0 @@
-get-milk(milk), add-milk(milk,mug), get-water(water), add-water(water,mug), get-teabag(teabag), place(teabag, mug), mix(teabag,water,milk), remove(teabag), drink(tea)
