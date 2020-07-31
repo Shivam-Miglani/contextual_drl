@@ -1,0 +1,26 @@
+Jeff, Barbara and Nirmal are allergic to gluten. Shivam, and Kanav are non-allergic children.
+Make a gluten-free sandwich with gluten-free cheese and corn bread.
+Put gluten-free sandwich on a tray.
+Move a tray from the kitchen to table5.
+Serve gluten-free sandwich to Jeff.
+Move a tray back from table5 to the kitchen.
+Make a sandwich with cheese and wheat bread
+Put sandwich on a tray.
+Move a tray from kitchen to the table1
+Serve gluten-free sandwich to Shivam.
+Move a tray back from table1 to the kitchen.
+Make a gluten-free sandwich with gluten-free cheese and corn bread.
+Put gluten-free sandwich on a tray.
+Move a tray the kitchen to the table5.
+Serve gluten-free sandwich to Jeff.
+Move a tray back from table5 to the kitchen.
+Make a gluten-free sandwich with gluten-free cheese and corn bread.
+Put gluten-free sandwich on a tray.
+Make a sandwich with cheese and wheat bread
+Put sandwich on tray7.
+Move a tray from the kitchen to the table-5.
+Serve gluten-free sandwich to Nirmal.
+Move a tray back from table5 to the kitchen.
+Move tray7 from kitchen to the table1
+Serve gluten-free sandwich to Kanav.
+Move tray7 back from table1 to the kitchen.

@@ -86,7 +86,7 @@ def EASDRL_init(args, sess):
     args.gui_mode = True
     args.gui_mode2 = True
     args.fold_id = 0
-    args.domain = 'wikihow'
+    args.domain = 'cooking'
     # args.contextual_embedding = 'bert'
     args.contextual_embedding = None
     args.replay_size = 1000
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     print('weights loaded ...')
 
     input_file_path = 'data/process_manuals/'
-    input_filename = 'fire_domain.txt'
+    input_filename = 'childsnack_domain.txt'
     input_file_path += input_filename
 
     #input file

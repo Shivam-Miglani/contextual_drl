@@ -1,0 +1,1 @@
+Start (home),walk (cafe),Buy (tea),wait (minutes.),Add (water),Pour (milk),Dip (teabag, mug),Mix (teabag, water, milk)

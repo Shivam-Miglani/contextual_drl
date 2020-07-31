@@ -1,0 +1,79 @@
+
+NO1: Jeff(1) Barbara(2) and(3) Nirmal(4) are(5) allergic(6) to(7) gluten(8) 
+
+NO2: Shivam(1) and(2) Kanav(3) are(4) non-allergic(5) children.(6) 
+
+NO3: Make(1) a(2) gluten-free(3) sandwich(4) with(5) gluten-free(6) cheese(7) and(8) corn(9) bread.(10) 
+<1>  Make (sandwich, cheese, corn)    
+
+NO4: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
+<2>  Put (sandwich)    
+
+NO5: Move(1) a(2) tray(3) from(4) the(5) kitchen(6) to(7) table5.(8) 
+<3>  Move (tray)    
+
+NO6: Serve(1) gluten-free(2) sandwich(3) to(4) Jeff.(5) 
+<4>  Serve (sandwich)    
+
+NO7: Move(1) a(2) tray(3) back(4) from(5) table5(6) to(7) the(8) kitchen.(9) 
+<5>  Move (tray)    
+
+NO8: Make(1) a(2) sandwich(3) with(4) cheese(5) and(6) wheat(7) bread(8) 
+<6>  Make (sandwich, cheese)    
+
+NO9: Put(1) sandwich(2) on(3) a(4) tray.(5) 
+<7>  Put (sandwich)    
+
+NO10: Move(1) a(2) tray(3) from(4) kitchen(5) to(6) the(7) table1(8) 
+<8>  Move (tray)    
+
+NO11: Serve(1) gluten-free(2) sandwich(3) to(4) Shivam.(5) 
+<9>  Serve (sandwich)    
+
+NO12: Move(1) a(2) tray(3) back(4) from(5) table1(6) to(7) the(8) kitchen.(9) 
+<10>  Move (tray)    
+
+NO13: Make(1) a(2) gluten-free(3) sandwich(4) with(5) gluten-free(6) cheese(7) and(8) corn(9) bread.(10) 
+<11>  Make (sandwich, cheese, corn)    
+
+NO14: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
+<12>  Put (sandwich)    
+
+NO15: Move(1) a(2) tray(3) the(4) kitchen(5) to(6) the(7) table5.(8) 
+<13>  Move (tray)    
+
+NO16: Serve(1) gluten-free(2) sandwich(3) to(4) Jeff.(5) 
+<14>  Serve (sandwich)    
+
+NO17: Move(1) a(2) tray(3) back(4) from(5) table5(6) to(7) the(8) kitchen.(9) 
+<15>  Move (tray)    
+
+NO18: Make(1) a(2) gluten-free(3) sandwich(4) with(5) gluten-free(6) cheese(7) and(8) corn(9) bread.(10) 
+<16>  Make (sandwich, cheese, corn)    
+
+NO19: Put(1) gluten-free(2) sandwich(3) on(4) a(5) tray.(6) 
+<17>  Put (sandwich)    
+
+NO20: Make(1) a(2) sandwich(3) with(4) cheese(5) and(6) wheat(7) bread(8) 
+<18>  Make (sandwich, cheese)    
+
+NO21: Put(1) sandwich(2) on(3) tray7.(4) 
+<19>  Put (sandwich)    
+
+NO22: Move(1) a(2) tray(3) from(4) the(5) kitchen(6) to(7) the(8) table-5.(9) 
+<20>  Move (tray)    
+
+NO23: Serve(1) gluten-free(2) sandwich(3) to(4) Nirmal.(5) 
+<21>  Serve (sandwich)    
+
+NO24: Move(1) a(2) tray(3) back(4) from(5) table5(6) to(7) the(8) kitchen.(9) 
+<22>  Move (tray)    
+
+NO25: Move(1) tray7(2) from(3) kitchen(4) to(5) the(6) table1(7) 
+<23>  Move (tray7)    
+
+NO26: Serve(1) gluten-free(2) sandwich(3) to(4) Kanav.(5) 
+<24>  Serve (sandwich)    
+
+NO27: Move(1) tray7(2) back(3) from(4) table1(5) to(6) the(7) kitchen.(8) 
+<25>  Move (tray7)    

@@ -1,0 +1,47 @@
+
+NO1: Fixing(1) the(2) flat(3) bicycle(4) tyre(5) 
+
+NO2: Disconnect(1) the(2) brake(3) and(4) take(5) the(6) wheel(7) off(8) using(9) the(10) wrench(11) 
+<1>  Disconnect (brake)    <2>  take (wheel)    <3>  using (wrench)    
+
+NO3: Take(1) the(2) wheel(3) off(4) the(5) bike(6) 
+<4>  Take (wheel)    
+
+NO4: Unscrew(1) the(2) valve(3) cap(4) and(5) deflate(6) the(7) tube(8) 
+<5>  Unscrew (valve, cap)    <6>  deflate (tube)    
+
+NO5: Pinch(1) the(2) tire(3) and(4) insert(5) the(6) tire(7) lever(8) 
+<7>  Pinch (tire)    <8>  insert (tire, lever)    
+
+NO6: Hook(1) the(2) tire(3) lever(4) to(5) flip(6) the(7) bead(8) of(9) the(10) tire(11) outside(12) the(13) rim(14) 
+<9>  Hook (tire, lever)    <10>  flip (bead, tire)    
+
+NO7: Use(1) the(2) second(3) tire(4) lever(5) in(6) there(7) and(8) work(9) around(10) the(11) tip(12) 
+<11>  Use (second, tire, lever)    <12>  work (tip)    
+
+NO8: Pull(1) out(2) the(3) inner(4) tube(5) 
+<13>  Pull (inner, tube)    
+
+NO9: If(1) you(2) don't(3) have(4) access(5) to(6) a(7) spare(8) tube(9) you(10) can(11) patch(12) up(13) the(14) hole(15) 
+<14>  patch (hole)    
+
+NO10: Use(1) the(2) alcohol(3) pad(4) to(5) clean(6) the(7) area(8) 
+<15>  Use (alcohol, pad)    <16>  clean (area)    
+
+NO11: Apply(1) the(2) glue(3) and(4) patch(5) the(6) hole(7) 
+<17>  Apply (glue)    <18>  patch (hole)    
+
+NO12: Run(1) your(2) fingers(3) along(4) the(5) inside(6) of(7) the(8) tire(9) 
+<19>  Run (fingers)    
+
+NO13: Put(1) a(2) bit(3) of(4) air(5) in(6) the(7) tube(8) to(9) give(10) it(11) some(12) shape(13) 
+<20>  Put (bit, air)    <21>  give (air, shape)    
+
+NO14: Insert(1) the(2) valve(3) stem(4) into(5) the(6) hole(7) of(8) the(9) rim(10) 
+<22>  Insert (valve, stem)    
+
+NO15: Using(1) your(2) hands(3) begin(4) to(5) work(6) the(7) bead(8) back(9) into(10) the(11) rim(12) moving(13) from(14) one(15) side(16) to(17) the(18) other(19) 
+<23>  Using (hands)    <24>  work (bead)    
+
+NO16: Inflate(1) the(2) tire(3) to(4) proper(5) pressure(6) and(7) reattach(8) your(9) bike(10) 
+<25>  Inflate (tire)    <26>  reattach (bike)    

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="long"/>
+<graph edgedefault="directed"><node id="make1.1"/>
+<node id="put1.1"/>
+<node id="serve.0"/>
+<node id="make.0"/>
+<node id="put.0"/>
+<edge source="make1.1" target="put1.1">
+  <data key="d0">1</data>
+</edge>
+<edge source="make1.1" target="put.0">
+  <data key="d0">2</data>
+</edge>
+<edge source="put1.1" target="serve.0">
+  <data key="d0">1</data>
+</edge>
+<edge source="serve.0" target="make.0">
+  <data key="d0">1</data>
+</edge>
+<edge source="serve.0" target="make1.1">
+  <data key="d0">2</data>
+</edge>
+<edge source="serve.0" target="serve.0">
+  <data key="d0">1</data>
+</edge>
+<edge source="make.0" target="put.0">
+  <data key="d0">2</data>
+</edge>
+<edge source="put.0" target="serve.0">
+  <data key="d0">3</data>
+</edge>
+<edge source="put.0" target="make.0">
+  <data key="d0">1</data>
+</edge>
+</graph></graphml>

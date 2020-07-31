@@ -1,0 +1,24 @@
+
+NO1: Tea(1) domain(2) 
+
+NO2: Start(1) from(2) home(3) and(4) walk(5) to(6) cafe(7) for(8) your(9) tea(10) in(11) 25(12) minutes.(13) 
+<1>  Start (home)    <2>  walk (cafe)    
+
+NO3: When(1) you(2) are(3) at(4) cafe(5) Buy(6) tea(7) and(8) wait(9) 15(10) minutes.(11) 
+<3>  Buy (tea)    <4>  wait (minutes.)    
+
+NO4: If(1) your(2) hands(3) are(4) dirty(5) clean(6) your(7) hands(8) are(9) dirty(10) for(11) 1(12) minute.(13) 
+
+NO5: Add(1) water(2) to(3) the(4) mug(5) which(6) takes(7) 1(8) minute.(9) 
+<5>  Add (water)    
+
+NO6: Pour(1) milk(2) into(3) mug(4) which(5) also(6) takes(7) 1(8) minute.(9) 
+<6>  Pour (milk)    
+
+NO7: Dip(1) teabag(2) into(3) mug(4) for(5) 2(6) minutes.(7) 
+<7>  Dip (teabag, mug)    
+
+NO8: Mix(1) the(2) teabag(3) water(4) and(5) milk(6) in(7) your(8) mug(9) for(10) 3(11) minutes.(12) 
+<8>  Mix (teabag, water, milk)    
+
+NO9: Your(1) delicious(2) tea(3) is(4) ready.(5) 
