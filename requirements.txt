@@ -54,7 +54,7 @@ itsdangerous==1.1.0
 jedi==0.17.0
 Jinja2==2.11.2
 jmespath==0.9.5
-joblib==0.14.1
+joblib==1.2.0
 jsonnet==0.15.0
 jsonpickle==1.4.1
 jsonschema==2.6.0
